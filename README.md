@@ -54,6 +54,37 @@ npx vercel deploy --prod # production
 - Design tokens: Manrope (display), Newsreader (serif italic accents), JetBrains Mono (mono). Cream `#FAFAF7`, ink `#131820`, teal `#14B8A6`, rust `#B5614A`.
 - All paths root-relative (`/about.html`, not `./about.html`) for clean deploy.
 
+## Internationalization
+
+The site supports 6 languages with auto-detection of browser language:
+
+- **English** (en) — default fallback
+- **Norwegian** (no) — Bokmål; covers nb-* and nn-*
+- **Swedish** (sv)
+- **Danish** (da)
+- **Finnish** (fi)
+- **German** (de)
+
+How it works:
+1. On first visit, `navigator.languages` is read and mapped to the closest supported code.
+2. If a user manually picks a language via the picker, the choice is saved to `localStorage` as `builtly-lang`.
+3. On subsequent visits, the saved choice takes precedence over browser detection.
+4. Cookie consent banner appears on first visit; consent is stored as `localStorage.builtly-consent=1`.
+
+What's translated in this iteration:
+- Top navigation (links + Open portal CTA)
+- Hero section (eyebrow, h1, lede, CTAs, side panel labels)
+- Footer (all columns, copyright tagline)
+- Cookie consent banner
+- Language picker UI labels
+
+What's still in English (intentional, awaiting native-speaker review):
+- Body content of all sections (BIM showcase, algorithms, vertical section, stats, narrative sections)
+- Visualization labels inside the live demos
+- Other pages' body content (platform.html, about.html, etc.)
+
+To add more translations later, extend the `T` object in the inline i18n script (search for `const T = {`) and tag the corresponding HTML elements with `data-i18n="your.key"` (or `data-i18n-html="key"` for content with inline tags, `data-i18n-attr-aria-label="key"` for attributes).
+
 ## Domain plan
 
 - `builtly.ai` → this site (Vercel)

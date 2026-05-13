@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Editors
+.vscode/
+.idea/
+*.iml
+
+# Vercel
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency dirs (in case anything is added later)
+node_modules/
+.cache/
+
+# Local archives
+*.zip
+*.tar.gz
+
+# Env files
+.env
+.env.local
+.env.*.local
