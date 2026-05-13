@@ -206,7 +206,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .rvs.in > *:nth-child(3){opacity:1;transform:translateY(0);transition-delay:0.14s}
 .rvs.in > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:0.19s}
 .rvs.in > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:0.24s}
-.rvs.in > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:0.29s}
+.rvs.in > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:0.29s}.rvs.in > *:nth-child(7){opacity:1;transform:translateY(0);transition-delay:0.34s}.rvs.in > *:nth-child(8){opacity:1;transform:translateY(0);transition-delay:0.39s}.rvs.in > *:nth-child(9){opacity:1;transform:translateY(0);transition-delay:0.44s}.rvs.in > *:nth-child(10){opacity:1;transform:translateY(0);transition-delay:0.49s}.rvs.in > *:nth-child(11){opacity:1;transform:translateY(0);transition-delay:0.54s}.rvs.in > *:nth-child(12){opacity:1;transform:translateY(0);transition-delay:0.59s}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}.rv,.rvs > *{opacity:1 !important;transform:none !important}html{scroll-behavior:auto}}
 
 /* HERO AMBIENT FLOCKING SUPPORT */
@@ -338,6 +338,27 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
     font-size: 12.5px;
   }
 }
+
+.glance-section {
+  background: var(--bg);
+  padding: clamp(72px, 9vh, 110px) 0;
+  border-bottom: 1px solid var(--line);
+}
+.glance-section .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(24px, 4vw, 60px); }
+.glance-intro { display: grid; grid-template-columns: minmax(220px, 1fr) 2fr; gap: clamp(32px, 5vw, 80px); align-items: end; margin-bottom: clamp(40px, 5vh, 56px); }
+.glance-intro h2 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px); letter-spacing: -0.024em; line-height: 1.02; margin: 0; color: var(--ink); font-weight: 500; }
+.glance-intro p { font-family: var(--font-display); font-size: 16px; line-height: 1.55; color: var(--ink-soft); margin: 0; max-width: 60ch; }
+.glance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.glance-cell { padding: 28px clamp(20px, 2vw, 28px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; justify-content: flex-start; min-height: 144px; }
+.glance-cell .v { font-family: var(--font-display); font-size: clamp(28px, 3.4vw, 40px); font-weight: 500; color: var(--ink); letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; margin-bottom: 8px; }
+.glance-cell .v .suffix { font-size: 0.55em; color: var(--mid); font-weight: 400; letter-spacing: 0; vertical-align: top; margin-left: 2px; }
+.glance-cell .v .plus { color: var(--accent); font-weight: 500; }
+.glance-cell .k { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--mid); font-weight: 500; margin-bottom: 6px; }
+.glance-cell .d { font-family: var(--font-display); font-size: 12.5px; line-height: 1.4; color: var(--ink-soft); margin-top: auto; }
+@media (max-width: 900px) {
+  .glance-grid { grid-template-columns: repeat(2, 1fr); }
+  .glance-intro { grid-template-columns: 1fr; gap: 18px; }
+}
 </style>
 </head>
 <body>
@@ -411,9 +432,111 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </section>
 
+<section class="glance-section" id="glance">
+<div class="wrap">
+<div class="smark rv"><span class="num">§ 01</span><span>At a glance</span><span class="dash"></span><span>The firm in numbers</span></div>
+<div class="glance-intro rv">
+<div><h2>The firm.</h2></div>
+<p>Builtly Engineering is an engineering automation platform built for the Nordic and German markets. Below: the operational facts as of public launch — scope, scale, and architecture.</p>
+</div>
+<div class="glance-grid rv">
+
+<div class="glance-cell">
+<div class="k">Founded</div>
+<div class="v">2025</div>
+<div class="d">Norway-based, structured for Nordic + DACH deployment.</div>
+</div>
+
+<div class="glance-cell">
+<div class="k">Markets</div>
+<div class="v">7<span class="suffix"> jurisdictions</span></div>
+<div class="d">Norway, Sweden, Denmark, Finland, Germany — plus two adjacent regulatory packs.</div>
+</div>
+
+<div class="glance-cell">
+<div class="k">Disciplines</div>
+<div class="v">6<span class="suffix"> engineering</span></div>
+<div class="d">Structural, geotechnical, fire, acoustics, architectural, building physics.</div>
+</div>
+
+<div class="glance-cell">
+<div class="k">Modules</div>
+<div class="v">15<span class="plus">+</span></div>
+<div class="d">Operational across the platform — analysis, compliance, reporting, BIM.</div>
+</div>
+
+<div class="glance-cell">
+<div class="k">Architecture</div>
+<div class="v">Proprietary AI</div>
+<div class="d">Multi-engine, deterministic computation, BIM-native processing.</div>
+</div>
+
+<div class="glance-cell">
+<div class="k">Integrations</div>
+<div class="v">16</div>
+<div class="d">Authority registries, BIM tools, project-management and document systems.</div>
+</div>
+
+<div class="glance-cell">
+<div class="k">Day-one partners</div>
+<div class="v">8</div>
+<div class="d">Engineering firms, real-estate operators and construction groups in active delivery.</div>
+</div>
+
+<div class="glance-cell">
+<div class="k">Portal status</div>
+<div class="v" style="color:var(--accent)">Operational</div>
+<div class="d">Live and accepting project uploads. No pilot required.</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section thesis-section">
+<div class="wrap">
+<div class="smark rv"><span class="num">§ 02</span><span>Thesis</span><span class="dash"></span><span>Why Builtly</span></div>
+<div class="thesis-grid rv">
+<div>
+<h2 class="dpy-2">The thesis.</h2>
+</div>
+<div>
+<p>The consulting engineering industry is built on professional accountability, regulation and quality assurance — all correct, all preserved at Builtly. <strong>What is not preserved is the assumption that the only way to ship a signed deliverable is to do every step by hand.</strong></p>
+<p>The economics of consulting engineering have not changed in twenty years: senior expertise as the constrained resource, time-and-materials billing as the dominant model, hours of senior production effort spent producing the same kinds of reports week after week. <strong>The result is a market where the most expensive professional capacity in the building industry is deployed against the lowest-value tasks.</strong></p>
+<p>Builtly's thesis is that the structure of consulting engineering can be preserved while its production layer is rebuilt as software. Mathematics and physics as deterministic code. Regulatory compliance as machine-readable logic. AI as the connective layer between project data and finished deliverables. Engineering judgment as the signature on the result.</p>
+<p><strong>The platform is operational. The portal is live. The principles are not negotiable.</strong></p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section trust-section" id="trusted-by">
+<div class="wrap">
+<div class="smark rv"><span class="num">§ 03</span><span>Trusted by</span><span class="dash"></span><span>Day-one customers</span></div>
+<div class="team-intro rv">
+<div>
+<h2 class="dpy-2">Trusted by.</h2>
+</div>
+<p class="lead">Customers and partners on the platform from day one — engineering firms, real-estate operators, and construction groups working across the Nordic markets. Each is using the platform in active engineering delivery, not pilot trials.</p>
+</div>
+
+<div class="logo-wall rv">
+<div class="logo-cell"><img src="logos/skanska.png" alt="Skanska" loading="lazy"/></div>
+<div class="logo-cell"><img src="logos/hent.png" alt="HENT" loading="lazy"/></div>
+<div class="logo-cell"><img src="logos/balder.png" alt="Balder" loading="lazy"/></div>
+<div class="logo-cell"><img src="logos/heimdal.png" alt="Heimdal Bolig" loading="lazy"/></div>
+<div class="logo-cell"><img src="logos/bolig-norge.png" alt="Bolig Norge" loading="lazy"/></div>
+<div class="logo-cell"><img src="logos/byggteknikk.png" alt="Byggteknikk" loading="lazy"/></div>
+<div class="logo-cell"><img src="logos/spennarmering.svg" alt="SpennArmering" loading="lazy"/></div>
+<div class="logo-cell"><img src="logos/sentia.svg" alt="Sentia" loading="lazy"/></div>
+</div>
+<div class="trust-foot rv">Active engineering delivery · <span class="num">8</span> launch partners and counting</div>
+</div>
+</section>
+
 <section class="section board-section" id="board">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 01</span><span>Board</span><span class="dash"></span><span>Independent governance</span></div>
+<div class="smark rv"><span class="num">§ 04</span><span>Board</span><span class="dash"></span><span>Independent governance</span></div>
 <div class="team-intro rv">
 <div>
 <h2 class="dpy-2">Board.</h2>
@@ -425,7 +548,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="role"><span>Chair</span><span class="ix">01</span></div>
 <h3 class="seat-title">Independent<br/>Chair</h3>
-<div class="seat-status">— Appointment in process</div>
+<div class="seat-status">— Composition under construction</div>
 <div class="seat-desc">
 <span class="h">Mandate</span>
 <span>Governance · oversight</span>
@@ -436,7 +559,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="role"><span>Director</span><span class="ix">02</span></div>
 <h3 class="seat-title">Construction<br/>&amp; engineering</h3>
-<div class="seat-status">— Appointment in process</div>
+<div class="seat-status">— Composition under construction</div>
 <div class="seat-desc">
 <span class="h">Mandate</span>
 <span>Industry deployment</span>
@@ -447,7 +570,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="role"><span>Director</span><span class="ix">03</span></div>
 <h3 class="seat-title">Capital<br/>&amp; technology</h3>
-<div class="seat-status">— Appointment in process</div>
+<div class="seat-status">— Composition under construction</div>
 <div class="seat-desc">
 <span class="h">Mandate</span>
 <span>Capital discipline</span>
@@ -460,7 +583,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section advisory-section" id="advisory">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 02</span><span>Advisory</span><span class="dash"></span><span>Senior practitioners</span></div>
+<div class="smark rv"><span class="num">§ 05</span><span>Advisory</span><span class="dash"></span><span>Senior practitioners</span></div>
 <div class="team-intro rv">
 <div>
 <h2 class="dpy-2">Advisory<br/>board.</h2>
@@ -494,47 +617,6 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="t">Construction technology</div>
 <div class="d">Senior leader · industry strategy · platform adoption</div>
 </div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="section trust-section" id="trusted-by">
-<div class="wrap">
-<div class="smark rv"><span class="num">§ 03</span><span>Trusted by</span><span class="dash"></span><span>Day-one customers</span></div>
-<div class="team-intro rv">
-<div>
-<h2 class="dpy-2">Trusted by.</h2>
-</div>
-<p class="lead">Customers and partners on the platform from day one — engineering firms, real-estate operators, and construction groups working across the Nordic markets. Each is using the platform in active engineering delivery, not pilot trials.</p>
-</div>
-
-<div class="logo-wall rv">
-<div class="logo-cell"><img src="logos/skanska.png" alt="Skanska" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/hent.png" alt="HENT" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/balder.png" alt="Balder" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/heimdal.png" alt="Heimdal Bolig" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/bolig-norge.png" alt="Bolig Norge" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/byggteknikk.png" alt="Byggteknikk" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/spennarmering.svg" alt="SpennArmering" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/sentia.svg" alt="Sentia" loading="lazy"/></div>
-</div>
-<div class="trust-foot rv">Active engineering delivery · <span class="num">8</span> launch partners and counting</div>
-</div>
-</section>
-
-<section class="section thesis-section">
-<div class="wrap">
-<div class="smark rv"><span class="num">§ 05</span><span>Thesis</span><span class="dash"></span><span>Why Builtly</span></div>
-<div class="thesis-grid rv">
-<div>
-<h2 class="dpy-2">The thesis.</h2>
-</div>
-<div>
-<p>The consulting engineering industry is built on professional accountability, regulation and quality assurance — all correct, all preserved at Builtly. <strong>What is not preserved is the assumption that the only way to ship a signed deliverable is to do every step by hand.</strong></p>
-<p>The economics of consulting engineering have not changed in twenty years: senior expertise as the constrained resource, time-and-materials billing as the dominant model, hours of senior production effort spent producing the same kinds of reports week after week. <strong>The result is a market where the most expensive professional capacity in the building industry is deployed against the lowest-value tasks.</strong></p>
-<p>Builtly's thesis is that the structure of consulting engineering can be preserved while its production layer is rebuilt as software. Mathematics and physics as deterministic code. Regulatory compliance as machine-readable logic. AI as the connective layer between project data and finished deliverables. Engineering judgment as the signature on the result.</p>
-<p><strong>The platform is operational. The portal is live. The principles are not negotiable.</strong></p>
 </div>
 </div>
 </div>
