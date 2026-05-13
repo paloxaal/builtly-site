@@ -14,8 +14,6 @@ Static marketing site for Builtly Engineering. Deployed via Vercel.
 ├── contact.html            # Contact form
 ├── trust.html              # Security, compliance, partners
 ├── vercel.json             # Cache headers + clean URLs
-├── logos/                  # Customer logos (8 partners)
-├── logo-white.png          # White logo for dark backgrounds
 └── data/                   # Source data (inlined into index.html — kept here for reference)
     ├── saga.json           # Saga Park IFC extraction (148 KB, 2622 elements)
     └── steinan-plan02.json # Steinan B1 PLAN 02 extraction (17 KB, 173 walls)

@@ -376,16 +376,16 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="wrap">
 <div class="hero-grid rv">
 <div>
-<div class="eyebrow"><span class="accent-dot"></span>Trust at Builtly Engineering</div>
-<h1 class="dpy-1">Built for regulated work.</h1>
-<p class="lead">Builtly produces deliverables that an engineer signs under professional liability and that a client uses in court-defensible regulatory submissions. <span class="serif">The platform is built to that standard from the foundation up — not as a feature bolted on for procurement.</span></p>
+<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="trust.hero.eyebrow">Trust at Builtly Engineering</span></div>
+<h1 class="dpy-1" data-i18n-html="trust.hero.h1">Built for regulated work.</h1>
+<p class="lead" data-i18n-html="trust.hero.lede">Builtly produces deliverables that an engineer signs under professional liability and that a client uses in court-defensible regulatory submissions. <span class="serif">The platform is built to that standard from the foundation up — not as a feature bolted on for procurement.</span></p>
 </div>
 <div class="hero-meta">
-<div class="row"><span class="k">Audit</span><span class="v">SHA-256 · every version</span></div>
-<div class="row"><span class="k">Auth</span><span class="v">Enterprise SSO · RBAC</span></div>
-<div class="row"><span class="k">Deployment</span><span class="v">Container · edge</span></div>
-<div class="row"><span class="k">Data residency</span><span class="v">Regional · configurable</span></div>
-<div class="row"><span class="k">Status</span><span class="v"><span class="accent-text">●</span> &nbsp; Production</span></div>
+<div class="row"><span class="k" data-i18n="trust.meta.r1.k">Audit</span><span class="v" data-i18n="trust.meta.r1.v">SHA-256 · every version</span></div>
+<div class="row"><span class="k" data-i18n="trust.meta.r2.k">Auth</span><span class="v" data-i18n="trust.meta.r2.v">Enterprise SSO · RBAC</span></div>
+<div class="row"><span class="k" data-i18n="trust.meta.r3.k">Deployment</span><span class="v" data-i18n="trust.meta.r3.v">Container · edge</span></div>
+<div class="row"><span class="k" data-i18n="trust.meta.r4.k">Data residency</span><span class="v" data-i18n="trust.meta.r4.v">Regional · configurable</span></div>
+<div class="row"><span class="k" data-i18n="trust.meta.r5.k">Status</span><span class="v" data-i18n-html="trust.meta.r5.v"><span class="accent-text">●</span> &nbsp; Production</span></div>
 </div>
 </div>
 </div>
@@ -393,28 +393,28 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="jump-strip">
 <div class="jump-inner">
-<span class="lbl">Jump to</span>
-<a href="#principles">Principles</a>
+<span class="lbl" data-i18n="jump.lbl">Jump to</span>
+<a href="#principles" data-i18n="trust.jump.i1">Principles</a>
 <span class="sep">·</span>
-<a href="#data">Data &amp; privacy</a>
+<a href="#data" data-i18n="trust.jump.i2">Data &amp; privacy</a>
 <span class="sep">·</span>
-<a href="#security">Security architecture</a>
+<a href="#security" data-i18n="trust.jump.i3">Security architecture</a>
 <span class="sep">·</span>
-<a href="#audit">Audit &amp; traceability</a>
+<a href="#audit" data-i18n="trust.jump.i4">Audit &amp; traceability</a>
 <span class="sep">·</span>
-<a href="#compliance">Regulatory</a>
+<a href="#compliance" data-i18n="trust.jump.i5">Regulatory</a>
 <span class="sep">·</span>
-<a href="#operations">Operations</a>
+<a href="#operations" data-i18n="trust.jump.i6">Operations</a>
 </div>
 </section>
 
 <!-- ============== PRINCIPLES ============== -->
 <section class="section princ-section" id="principles">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 01</span><span>Principles</span><span class="dash"></span><span>What does not change</span></div>
+<div class="smark rv"><span class="num">§ 01</span><span data-i18n="trust.s01.label">Principles</span><span class="dash"></span><span data-i18n="trust.s01.tag">What does not change</span></div>
 <div class="princ-top rv">
 <div>
-<h2 class="dpy-2">Three principles.</h2>
+<h2 class="dpy-2" data-i18n="trust.s01.h2">Three principles.</h2>
 </div>
 <p class="lead">Trust on a platform that produces regulated engineering deliverables is not a feature — it is a precondition. Three principles govern every architectural decision below them.</p>
 </div>
@@ -442,10 +442,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <!-- ============== DATA & PRIVACY ============== -->
 <section class="section dom-section" id="data">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 02</span><span>Data &amp; privacy</span><span class="dash"></span><span>How customer data is handled</span></div>
+<div class="smark rv"><span class="num">§ 02</span><span data-i18n="trust.s02.label">Data &amp; privacy</span><span class="dash"></span><span data-i18n="trust.s02.tag">How customer data is handled</span></div>
 <div class="dom-intro rv">
 <div>
-<h2 class="dpy-2">Data &amp; privacy.</h2>
+<h2 class="dpy-2" data-i18n="trust.s02.h2">Data &amp; privacy.</h2>
 </div>
 <p class="lead">Engineering project data is among the most sensitive a firm holds — drawings under non-disclosure, client information under contract, and regulatory submissions where leakage carries real cost. Builtly handles it accordingly.</p>
 </div>
@@ -515,10 +515,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <!-- ============== SECURITY ARCHITECTURE ============== -->
 <section class="section dom-section alt" id="security">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 03</span><span>Security architecture</span><span class="dash"></span><span>How the platform is built</span></div>
+<div class="smark rv"><span class="num">§ 03</span><span data-i18n="trust.s03.label">Security architecture</span><span class="dash"></span><span data-i18n="trust.s03.tag">How the platform is built</span></div>
 <div class="dom-intro rv">
 <div>
-<h2 class="dpy-2">Security architecture.</h2>
+<h2 class="dpy-2" data-i18n="trust.s03.h2">Security architecture.</h2>
 </div>
 <p class="lead">Security as a property of the architecture rather than a layer above it. Authentication, authorisation, encryption and isolation are built into the foundations on which the modules run — not configured after the fact.</p>
 </div>
@@ -588,10 +588,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <!-- ============== AUDIT & TRACEABILITY ============== -->
 <section class="section dom-section dark" id="audit">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 04</span><span>Audit &amp; traceability</span><span class="dash"></span><span>The chain of custody</span></div>
+<div class="smark rv"><span class="num">§ 04</span><span data-i18n="trust.s04.label">Audit &amp; traceability</span><span class="dash"></span><span data-i18n="trust.s04.tag">The chain of custody</span></div>
 <div class="dom-intro rv">
 <div>
-<h2 class="dpy-2" style="color:var(--dark-paper)">Audit &amp; traceability.</h2>
+<h2 class="dpy-2" style="color:var(--dark-paper)" data-i18n="trust.s04.h2">Audit &amp; traceability.</h2>
 </div>
 <p class="lead" style="color:rgba(247,244,237,0.86)">For deliverables that an engineer signs and a client submits to a regulator, the chain of custody matters as much as the result. Every claim in every signed deliverable is traceable to the data and the compute behind it.</p>
 </div>
@@ -661,10 +661,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <!-- ============== REGULATORY ============== -->
 <section class="section dom-section" id="compliance">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 05</span><span>Regulatory compliance</span><span class="dash"></span><span>Where the platform sits in the regulatory chain</span></div>
+<div class="smark rv"><span class="num">§ 05</span><span data-i18n="trust.s05.label">Regulatory compliance</span><span class="dash"></span><span data-i18n="trust.s05.tag">Where the platform sits in the regulatory chain</span></div>
 <div class="dom-intro rv">
 <div>
-<h2 class="dpy-2">Regulatory compliance.</h2>
+<h2 class="dpy-2" data-i18n="trust.s05.h2">Regulatory compliance.</h2>
 </div>
 <p class="lead">The platform is not the regulated party — the engineer who signs is. But the platform operates in close proximity to regulated work, and is built to support the compliance obligations that flow from that proximity.</p>
 </div>
@@ -734,10 +734,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <!-- ============== OPERATIONS ============== -->
 <section class="section dt-section" id="operations">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 06</span><span>Operations</span><span class="dash"></span><span>Availability and incident response</span></div>
+<div class="smark rv"><span class="num">§ 06</span><span data-i18n="trust.s06.label">Operations</span><span class="dash"></span><span data-i18n="trust.s06.tag">Availability and incident response</span></div>
 <div class="dt-top rv">
 <div>
-<h2 class="dpy-2" style="color:var(--dark-paper)">Operations<br/>&amp; availability.</h2>
+<h2 class="dpy-2" style="color:var(--dark-paper)" data-i18n-html="trust.s06.h2">Operations<br/>&amp; availability.</h2>
 </div>
 <p class="lead" style="color:rgba(247,244,237,0.86)">How the platform is operated, how incidents are handled, and what to expect on availability. Builtly is a production platform serving engineering consultancies — operational discipline is not optional.</p>
 </div>
@@ -796,10 +796,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="cta-section" id="contact">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 07</span><span>Diligence</span><span class="dash"></span><span>For procurement and security teams</span></div>
+<div class="smark rv"><span class="num">§ 07</span><span data-i18n="trust.s07.label">Diligence</span><span class="dash"></span><span data-i18n="trust.s07.tag">For procurement and security teams</span></div>
 <div class="cta-grid">
 <div class="rv">
-<h2 class="dpy-1" style="font-size:clamp(36px,5vw,68px)">Need the diligence pack?</h2>
+<h2 class="dpy-1" style="font-size:clamp(36px,5vw,68px)" data-i18n="trust.s07.h2">Need the diligence pack?</h2>
 <p class="lead" style="margin-top:32px;max-width:48ch">For procurement, vendor onboarding, security review and contracting, the standardised diligence pack is available on request. Security inquiries route to a dedicated inbox. Critical security disclosures get acknowledged within 24 hours.</p>
 <div class="cta-actions">
 <a href="mailto:security@builtly.ai?subject=Security%20%26%20diligence%20inquiry" class="btn">security@builtly.ai <span class="arr">→</span></a>
@@ -1068,444 +1068,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
 })();
 </script>
 
-<script>
-/* ===========================================================================
- * Builtly i18n engine
- *  - Browser-language detection (with localStorage override)
- *  - Cookie/storage consent banner (multilingual)
- *  - data-i18n attributes drive text content
- *  - data-i18n-html for content with inline tags
- *  - data-i18n-attr-* for attributes (e.g. data-i18n-attr-aria-label)
- * Translations cover nav, hero, footer, cookie banner across 6 languages.
- * Body content inside sections remains in English for this iteration.
- * =========================================================================== */
-(function(){
-  const T = {
-    en: {
-      "nav.platform":            "Platform",
-      "nav.industries":          "Industries",
-      "nav.howItWorks":          "How it works",
-      "nav.about":               "About",
-      "nav.careers":             "Careers",
-      "nav.openPortal":          "Open portal",
-      "lang.selectLabel":        "Select language",
-      "hero.eyebrow":            "A unified engineering platform",
-      "hero.h1.l1":              "A unified platform",
-      "hero.h1.l2":              "for engineering consultancies.",
-      "hero.lede.body":          "Builtly Engineering combines deterministic computation, regulatory logic and modern AI in one workflow — taking projects from raw data through to final, signed deliverables.",
-      "hero.lede.tagline":       "One platform. Every discipline. One source of truth.",
-      "hero.cta.primary":        "Open the portal",
-      "hero.cta.secondary":      "Explore the platform",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal live",
-      "hero.side.modules.k":     "Modules",
-      "hero.side.modules.suffix":"+ in operation",
-      "hero.side.juris.k":       "Jurisdictions",
-      "hero.side.juris.suffix":  "regulatory packs",
-      "hero.side.arch.k":        "Architecture",
-      "hero.side.arch.v":        "Proprietary AI",
-      "hero.side.founded.k":     "Founded",
-      "footer.tag":              "A unified platform for engineering consultancies. Mathematics · Physics · Geometry · AI",
-      "footer.platform.h":       "Platform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Capabilities",
-      "footer.platform.industries":"Industries",
-      "footer.platform.delivery":"Delivery models",
-      "footer.platform.how":     "How it works",
-      "footer.platform.approach":"Approach",
-      "footer.company.h":        "Company",
-      "footer.company.about":    "About",
-      "footer.company.careers":  "Careers",
-      "footer.company.contact":  "Contact",
-      "footer.company.trust":    "Trust",
-      "footer.connect.h":        "Connect",
-      "footer.connect.portal":   "Open portal",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Built for engineering consultancies",
-      "cookie.msg":              "We use local storage to remember your language preference. By continuing, you agree.",
-      "cookie.accept":           "Got it",
-      "cookie.privacyLink":      "Privacy policy"
-    },
-    no: {
-      "nav.platform":            "Plattform",
-      "nav.industries":          "Bransjer",
-      "nav.howItWorks":          "Slik fungerer det",
-      "nav.about":               "Om oss",
-      "nav.careers":             "Karriere",
-      "nav.openPortal":          "Åpne portalen",
-      "lang.selectLabel":        "Velg språk",
-      "hero.eyebrow":            "En samlet ingeniørplattform",
-      "hero.h1.l1":              "En samlet plattform",
-      "hero.h1.l2":              "for ingeniørkonsulenter.",
-      "hero.lede.body":          "Builtly Engineering kombinerer deterministisk beregning, regulatorisk logikk og moderne AI i én arbeidsflyt — fra rådata til ferdig signerte leveranser.",
-      "hero.lede.tagline":       "Én plattform. Hver disiplin. Én sannhetskilde.",
-      "hero.cta.primary":        "Åpne portalen",
-      "hero.cta.secondary":      "Utforsk plattformen",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal live",
-      "hero.side.modules.k":     "Moduler",
-      "hero.side.modules.suffix":"+ i drift",
-      "hero.side.juris.k":       "Jurisdiksjoner",
-      "hero.side.juris.suffix":  "regelverkspakker",
-      "hero.side.arch.k":        "Arkitektur",
-      "hero.side.arch.v":        "Egenutviklet AI",
-      "hero.side.founded.k":     "Grunnlagt",
-      "footer.tag":              "En samlet plattform for ingeniørkonsulenter. Matematikk · Fysikk · Geometri · AI",
-      "footer.platform.h":       "Plattform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Funksjoner",
-      "footer.platform.industries":"Bransjer",
-      "footer.platform.delivery":"Leveransemodeller",
-      "footer.platform.how":     "Slik fungerer det",
-      "footer.platform.approach":"Tilnærming",
-      "footer.company.h":        "Selskap",
-      "footer.company.about":    "Om oss",
-      "footer.company.careers":  "Karriere",
-      "footer.company.contact":  "Kontakt",
-      "footer.company.trust":    "Tillit",
-      "footer.connect.h":        "Kontakt",
-      "footer.connect.portal":   "Åpne portalen",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Bygget for ingeniørkonsulenter",
-      "cookie.msg":              "Vi bruker lokal lagring for å huske språkvalget ditt. Ved å fortsette godtar du dette.",
-      "cookie.accept":           "Greit",
-      "cookie.privacyLink":      "Personvernerklæring"
-    },
-    sv: {
-      "nav.platform":            "Plattform",
-      "nav.industries":          "Branscher",
-      "nav.howItWorks":          "Så här fungerar det",
-      "nav.about":               "Om oss",
-      "nav.careers":             "Karriär",
-      "nav.openPortal":          "Öppna portalen",
-      "lang.selectLabel":        "Välj språk",
-      "hero.eyebrow":            "En enhetlig ingenjörsplattform",
-      "hero.h1.l1":              "En enhetlig plattform",
-      "hero.h1.l2":              "för ingenjörskonsulter.",
-      "hero.lede.body":          "Builtly Engineering kombinerar deterministisk beräkning, regulatorisk logik och modern AI i ett arbetsflöde — från rådata till färdigt signerade leveranser.",
-      "hero.lede.tagline":       "En plattform. Varje disciplin. En sanningskälla.",
-      "hero.cta.primary":        "Öppna portalen",
-      "hero.cta.secondary":      "Utforska plattformen",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal live",
-      "hero.side.modules.k":     "Moduler",
-      "hero.side.modules.suffix":"+ i drift",
-      "hero.side.juris.k":       "Jurisdiktioner",
-      "hero.side.juris.suffix":  "regelverkspaket",
-      "hero.side.arch.k":        "Arkitektur",
-      "hero.side.arch.v":        "Egenutvecklad AI",
-      "hero.side.founded.k":     "Grundat",
-      "footer.tag":              "En enhetlig plattform för ingenjörskonsulter. Matematik · Fysik · Geometri · AI",
-      "footer.platform.h":       "Plattform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Funktioner",
-      "footer.platform.industries":"Branscher",
-      "footer.platform.delivery":"Leveransmodeller",
-      "footer.platform.how":     "Så här fungerar det",
-      "footer.platform.approach":"Tillvägagångssätt",
-      "footer.company.h":        "Företag",
-      "footer.company.about":    "Om oss",
-      "footer.company.careers":  "Karriär",
-      "footer.company.contact":  "Kontakt",
-      "footer.company.trust":    "Förtroende",
-      "footer.connect.h":        "Kontakt",
-      "footer.connect.portal":   "Öppna portalen",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Byggd för ingenjörskonsulter",
-      "cookie.msg":              "Vi använder lokal lagring för att komma ihåg ditt språkval. Genom att fortsätta godkänner du detta.",
-      "cookie.accept":           "OK",
-      "cookie.privacyLink":      "Integritetspolicy"
-    },
-    da: {
-      "nav.platform":            "Platform",
-      "nav.industries":          "Brancher",
-      "nav.howItWorks":          "Sådan virker det",
-      "nav.about":               "Om os",
-      "nav.careers":             "Karriere",
-      "nav.openPortal":          "Åbn portalen",
-      "lang.selectLabel":        "Vælg sprog",
-      "hero.eyebrow":            "En samlet ingeniørplatform",
-      "hero.h1.l1":              "En samlet platform",
-      "hero.h1.l2":              "til ingeniørkonsulenter.",
-      "hero.lede.body":          "Builtly Engineering kombinerer deterministisk beregning, regulatorisk logik og moderne AI i ét arbejdsforløb — fra rådata til færdige, signerede leverancer.",
-      "hero.lede.tagline":       "Én platform. Hver disciplin. Én sandhedskilde.",
-      "hero.cta.primary":        "Åbn portalen",
-      "hero.cta.secondary":      "Udforsk platformen",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal live",
-      "hero.side.modules.k":     "Moduler",
-      "hero.side.modules.suffix":"+ i drift",
-      "hero.side.juris.k":       "Jurisdiktioner",
-      "hero.side.juris.suffix":  "regelpakker",
-      "hero.side.arch.k":        "Arkitektur",
-      "hero.side.arch.v":        "Egenudviklet AI",
-      "hero.side.founded.k":     "Grundlagt",
-      "footer.tag":              "En samlet platform til ingeniørkonsulenter. Matematik · Fysik · Geometri · AI",
-      "footer.platform.h":       "Platform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Funktioner",
-      "footer.platform.industries":"Brancher",
-      "footer.platform.delivery":"Leveringsmodeller",
-      "footer.platform.how":     "Sådan virker det",
-      "footer.platform.approach":"Tilgang",
-      "footer.company.h":        "Virksomhed",
-      "footer.company.about":    "Om os",
-      "footer.company.careers":  "Karriere",
-      "footer.company.contact":  "Kontakt",
-      "footer.company.trust":    "Tillid",
-      "footer.connect.h":        "Kontakt",
-      "footer.connect.portal":   "Åbn portalen",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Bygget til ingeniørkonsulenter",
-      "cookie.msg":              "Vi bruger lokal lagring til at huske dit sprogvalg. Ved at fortsætte accepterer du dette.",
-      "cookie.accept":           "OK",
-      "cookie.privacyLink":      "Privatlivspolitik"
-    },
-    fi: {
-      "nav.platform":            "Alusta",
-      "nav.industries":          "Toimialat",
-      "nav.howItWorks":          "Näin se toimii",
-      "nav.about":               "Tietoa",
-      "nav.careers":             "Urat",
-      "nav.openPortal":          "Avaa portaali",
-      "lang.selectLabel":        "Valitse kieli",
-      "hero.eyebrow":            "Yhtenäinen suunnittelualusta",
-      "hero.h1.l1":              "Yhtenäinen alusta",
-      "hero.h1.l2":              "suunnittelukonsulteille.",
-      "hero.lede.body":          "Builtly Engineering yhdistää deterministisen laskennan, säädöslogiikan ja modernin tekoälyn yhteen työnkulkuun — raakadatasta valmiisiin, allekirjoitettuihin toimituksiin.",
-      "hero.lede.tagline":       "Yksi alusta. Jokainen ala. Yksi totuuden lähde.",
-      "hero.cta.primary":        "Avaa portaali",
-      "hero.cta.secondary":      "Tutustu alustaan",
-      "hero.side.status.k":      "Tila",
-      "hero.side.status.v":      "Portaali aktiivinen",
-      "hero.side.modules.k":     "Moduulit",
-      "hero.side.modules.suffix":"+ käytössä",
-      "hero.side.juris.k":       "Lainkäyttöalueet",
-      "hero.side.juris.suffix":  "säädöspakettia",
-      "hero.side.arch.k":        "Arkkitehtuuri",
-      "hero.side.arch.v":        "Oma tekoäly",
-      "hero.side.founded.k":     "Perustettu",
-      "footer.tag":              "Yhtenäinen alusta suunnittelukonsulteille. Matematiikka · Fysiikka · Geometria · AI",
-      "footer.platform.h":       "Alusta",
-      "footer.platform.portal":  "Portaali",
-      "footer.platform.caps":    "Ominaisuudet",
-      "footer.platform.industries":"Toimialat",
-      "footer.platform.delivery":"Toimitusmallit",
-      "footer.platform.how":     "Näin se toimii",
-      "footer.platform.approach":"Lähestymistapa",
-      "footer.company.h":        "Yritys",
-      "footer.company.about":    "Tietoa",
-      "footer.company.careers":  "Urat",
-      "footer.company.contact":  "Yhteystiedot",
-      "footer.company.trust":    "Luottamus",
-      "footer.connect.h":        "Yhteystiedot",
-      "footer.connect.portal":   "Avaa portaali",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Rakennettu suunnittelukonsulteille",
-      "cookie.msg":              "Tallennamme paikallisesti kielivalintasi. Jatkamalla hyväksyt tämän.",
-      "cookie.accept":           "OK",
-      "cookie.privacyLink":      "Tietosuojakäytäntö"
-    },
-    de: {
-      "nav.platform":            "Plattform",
-      "nav.industries":          "Branchen",
-      "nav.howItWorks":          "So funktioniert es",
-      "nav.about":               "Über uns",
-      "nav.careers":             "Karriere",
-      "nav.openPortal":          "Portal öffnen",
-      "lang.selectLabel":        "Sprache wählen",
-      "hero.eyebrow":            "Eine einheitliche Engineering-Plattform",
-      "hero.h1.l1":              "Eine einheitliche Plattform",
-      "hero.h1.l2":              "für Ingenieurberatungen.",
-      "hero.lede.body":          "Builtly Engineering vereint deterministische Berechnung, regulatorische Logik und moderne KI in einem Workflow — von Rohdaten bis zur fertigen, unterzeichneten Lieferung.",
-      "hero.lede.tagline":       "Eine Plattform. Jede Disziplin. Eine Wahrheitsquelle.",
-      "hero.cta.primary":        "Portal öffnen",
-      "hero.cta.secondary":      "Plattform erkunden",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal aktiv",
-      "hero.side.modules.k":     "Module",
-      "hero.side.modules.suffix":"+ in Betrieb",
-      "hero.side.juris.k":       "Rechtsräume",
-      "hero.side.juris.suffix":  "Regelwerkpakete",
-      "hero.side.arch.k":        "Architektur",
-      "hero.side.arch.v":        "Eigene KI",
-      "hero.side.founded.k":     "Gegründet",
-      "footer.tag":              "Eine einheitliche Plattform für Ingenieurberatungen. Mathematik · Physik · Geometrie · KI",
-      "footer.platform.h":       "Plattform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Funktionen",
-      "footer.platform.industries":"Branchen",
-      "footer.platform.delivery":"Liefermodelle",
-      "footer.platform.how":     "So funktioniert es",
-      "footer.platform.approach":"Ansatz",
-      "footer.company.h":        "Unternehmen",
-      "footer.company.about":    "Über uns",
-      "footer.company.careers":  "Karriere",
-      "footer.company.contact":  "Kontakt",
-      "footer.company.trust":    "Vertrauen",
-      "footer.connect.h":        "Kontakt",
-      "footer.connect.portal":   "Portal öffnen",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Gebaut für Ingenieurberatungen",
-      "cookie.msg":              "Wir nutzen lokalen Speicher, um Ihre Sprachauswahl zu speichern. Indem Sie fortfahren, stimmen Sie zu.",
-      "cookie.accept":           "OK",
-      "cookie.privacyLink":      "Datenschutzerklärung"
-    }
-  };
-
-  const SUPPORTED = ['en','no','sv','da','fi','de'];
-
-  // ---- Detection ----
-  function detectLang() {
-    // 1. Saved choice wins
-    try {
-      const saved = localStorage.getItem('builtly-lang');
-      if (saved && SUPPORTED.indexOf(saved) >= 0) return saved;
-    } catch(e){}
-
-    // 2. Browser languages (navigator.languages is ordered preference)
-    const browserLangs = navigator.languages || [navigator.language || 'en'];
-    for (let i = 0; i < browserLangs.length; i++) {
-      const tag = String(browserLangs[i]).toLowerCase();
-      // Map BCP47 tags to our codes
-      if (tag.startsWith('nb') || tag.startsWith('nn') || tag.startsWith('no')) return 'no';
-      if (tag.startsWith('sv')) return 'sv';
-      if (tag.startsWith('da')) return 'da';
-      if (tag.startsWith('fi')) return 'fi';
-      if (tag.startsWith('de')) return 'de';
-      if (tag.startsWith('en')) return 'en';
-    }
-    return 'en';
-  }
-
-  // ---- Apply translations to DOM ----
-  function tt(lang, key) {
-    return (T[lang] && T[lang][key]) || T.en[key] || '';
-  }
-
-  function applyLang(lang) {
-    if (SUPPORTED.indexOf(lang) < 0) lang = 'en';
-    document.documentElement.lang = lang;
-
-    // Text content
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      const key = el.getAttribute('data-i18n');
-      const v = tt(lang, key);
-      if (v) el.textContent = v;
-    });
-    // HTML content (when translation contains inline tags)
-    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
-      const key = el.getAttribute('data-i18n-html');
-      const v = tt(lang, key);
-      if (v) el.innerHTML = v;
-    });
-    // Attributes — data-i18n-attr-{name}="key" sets attribute {name}
-    document.querySelectorAll('*').forEach(function(el){
-      const attrs = el.attributes;
-      for (let i = 0; i < attrs.length; i++) {
-        const a = attrs[i];
-        if (a.name.indexOf('data-i18n-attr-') === 0) {
-          const attrName = a.name.substring('data-i18n-attr-'.length);
-          const v = tt(lang, a.value);
-          if (v) el.setAttribute(attrName, v);
-        }
-      }
-    });
-
-    // Update picker UI
-    const picker = document.getElementById('langPicker');
-    const menu = document.getElementById('langMenu');
-    if (picker) {
-      const codeEl = picker.querySelector('.lang-code');
-      if (codeEl) codeEl.textContent = lang.toUpperCase();
-    }
-    if (menu) {
-      menu.querySelectorAll('.lang-option').forEach(function(o){
-        o.classList.toggle('active', o.dataset.lang === lang);
-      });
-    }
-  }
-
-  // ---- Cookie consent banner ----
-  function setupConsent(lang) {
-    if (document.getElementById('cookieBanner')) return;
-    try {
-      if (localStorage.getItem('builtly-consent') === '1') return;
-    } catch(e){}
-
-    const banner = document.createElement('div');
-    banner.id = 'cookieBanner';
-    banner.className = 'cookie-banner';
-    banner.setAttribute('role','dialog');
-    banner.setAttribute('aria-live','polite');
-    banner.innerHTML = ''
-      + '<div class="cookie-inner">'
-      +   '<p class="cookie-msg" data-i18n="cookie.msg"></p>'
-      +   '<div class="cookie-actions">'
-      +     '<a href="/trust.html" class="cookie-link" data-i18n="cookie.privacyLink"></a>'
-      +     '<button type="button" class="cookie-accept" data-i18n="cookie.accept"></button>'
-      +   '</div>'
-      + '</div>';
-    document.body.appendChild(banner);
-
-    // Apply text now
-    banner.querySelectorAll('[data-i18n]').forEach(function(el){
-      const key = el.getAttribute('data-i18n');
-      el.textContent = tt(document.documentElement.lang || 'en', key);
-    });
-
-    // Animate in after a tick
-    requestAnimationFrame(function(){
-      requestAnimationFrame(function(){ banner.classList.add('show'); });
-    });
-
-    banner.querySelector('.cookie-accept').addEventListener('click', function(){
-      try { localStorage.setItem('builtly-consent','1'); } catch(e){}
-      banner.classList.remove('show');
-      setTimeout(function(){ banner.parentNode && banner.parentNode.removeChild(banner); }, 350);
-    });
-  }
-
-  // ---- Language picker wiring ----
-  function wirePicker() {
-    const picker = document.getElementById('langPicker');
-    const menu = document.getElementById('langMenu');
-    if (!picker || !menu) return;
-
-    picker.addEventListener('click', function(e){
-      e.stopPropagation();
-      const open = picker.getAttribute('aria-expanded') === 'true';
-      picker.setAttribute('aria-expanded', String(!open));
-      if (open) menu.setAttribute('hidden',''); else menu.removeAttribute('hidden');
-    });
-
-    document.addEventListener('click', function(){
-      picker.setAttribute('aria-expanded','false');
-      menu.setAttribute('hidden','');
-    });
-
-    menu.addEventListener('click', function(e){
-      e.stopPropagation();
-      const opt = e.target.closest('.lang-option');
-      if (!opt) return;
-      const lang = opt.dataset.lang;
-      try { localStorage.setItem('builtly-lang', lang); } catch(e){}
-      applyLang(lang);
-      picker.setAttribute('aria-expanded','false');
-      menu.setAttribute('hidden','');
-    });
-  }
-
-  // ---- Init ----
-  const initial = detectLang();
-  applyLang(initial);
-  wirePicker();
-  // Defer cookie banner slightly so it doesn't compete with first paint
-  setTimeout(function(){ setupConsent(initial); }, 600);
-
-  // Expose for debugging
-  window.BUILTLY_I18N = { applyLang: applyLang, detect: detectLang, T: T };
-})();
-</script>
+<script src="/i18n.js" defer></script>
 </body>
 </html>

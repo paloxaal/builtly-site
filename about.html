@@ -138,16 +138,16 @@ a{color:inherit;text-decoration:none}
 .advisory-section{background:var(--bg)}
 
 /* TRUSTED BY — minimal logo wall, monochrome on cream */
-.trust-section{background:var(--bg)}
-.logo-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(32px,5vh,56px)}
-@media (max-width:900px){.logo-wall{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:500px){.logo-wall{grid-template-columns:1fr}}
-.logo-cell{background:var(--bg);display:flex;align-items:center;justify-content:center;padding:clamp(28px,3.6vw,40px) clamp(20px,3vw,32px);min-height:120px;transition:background 0.25s ease}
-.logo-cell:hover{background:var(--bg-soft)}
-.logo-cell img{max-height:32px;max-width:160px;width:auto;height:auto;opacity:0.62;transition:opacity 0.3s ease;display:block}
-.logo-cell:hover img{opacity:0.95}
-.logo-cell.placeholder{color:var(--mid);font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;font-weight:500}
-.logo-cell.placeholder .more-pill{padding:6px 12px;border:1px dashed var(--line-strong);color:var(--mid)}
+
+
+@media (max-width:900px){}
+@media (max-width:500px){}
+
+
+
+
+
+
 .trust-foot{margin-top:clamp(20px,3vh,32px);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);text-align:center}
 .trust-foot .num{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
 
@@ -359,6 +359,52 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   .glance-grid { grid-template-columns: repeat(2, 1fr); }
   .glance-intro { grid-template-columns: 1fr; gap: 18px; }
 }
+
+.thesis-anim {
+  margin-top: clamp(32px, 4vh, 44px);
+  max-width: 360px;
+}
+.thesis-anim svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.thesis-anim-label {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--mid);
+  font-weight: 500;
+}
+.thesis-anim-label .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@media (max-width: 760px) {
+  .thesis-anim { max-width: 280px; }
+}
+
+.discretion-section{background:var(--bg);padding:clamp(80px,9vh,120px) 0;border-bottom:1px solid var(--line)}
+.discretion-section .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(24px,4vw,60px)}
+.discretion-section .smark{margin-bottom:clamp(40px,5vh,60px)}
+.discretion-grid{display:grid;grid-template-columns:minmax(220px,1fr) 2fr;gap:clamp(32px,5vw,80px);align-items:start}
+.discretion-grid h2{font-family:var(--font-display);font-size:clamp(36px,5vw,64px);letter-spacing:-0.024em;line-height:1.02;margin:0;color:var(--ink);font-weight:500}
+.discretion-body p.lead{margin-top:0}
+.redacted-list{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:clamp(36px,5vh,52px);max-width:600px}
+.r-bar{display:inline-block;height:13px;background:rgba(19,24,32,0.78);border-radius:2px;transition:background 0.2s ease}
+.r-bar:hover{background:rgba(19,24,32,0.92)}
+.r-foot{margin-top:24px;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);font-weight:500;display:flex;align-items:center;gap:10px}
+.r-foot .seal{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
+@media (max-width:760px){.discretion-grid{grid-template-columns:1fr;gap:24px}.redacted-list{max-width:100%}}
 </style>
 </head>
 <body>
@@ -397,16 +443,16 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="wrap">
 <div class="hero-grid rv">
 <div>
-<div class="eyebrow"><span class="accent-dot"></span>About Builtly Engineering</div>
-<h1 class="dpy-1">Created by entrepreneurs.<br/>Built by engineers.<br/>For engineers.</h1>
-<p class="lead">Builtly Engineering is the convergence of three rare disciplines under one roof: professional engineering accountability, capital-markets experience from real estate, and modern software development. <span class="serif">It is not coincidental. It is the prerequisite.</span></p>
+<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="about.hero.eyebrow">About Builtly Engineering</span></div>
+<h1 class="dpy-1" data-i18n-html="about.hero.h1">Created by entrepreneurs.<br/>Built by engineers.<br/>For engineers.</h1>
+<p class="lead" data-i18n-html="about.hero.lede">Builtly Engineering is the convergence of three rare disciplines under one roof: professional engineering accountability, capital-markets experience from real estate, and modern software development. <span class="serif">It is not coincidental. It is the prerequisite.</span></p>
 </div>
 <div class="hero-meta">
-<div class="row"><span class="k">Founded</span><span class="v">2025</span></div>
-<div class="row"><span class="k">Industry</span><span class="v">Engineering software</span></div>
-<div class="row"><span class="k">Architecture</span><span class="v">Proprietary AI</span></div>
-<div class="row"><span class="k">Markets</span><span class="v">Seven jurisdictions</span></div>
-<div class="row"><span class="k">Portal</span><span class="v">Operational</span></div>
+<div class="row"><span class="k" data-i18n="about.meta.r1.k">Founded</span><span class="v" data-i18n="about.meta.r1.v">2025</span></div>
+<div class="row"><span class="k" data-i18n="about.meta.r2.k">Industry</span><span class="v" data-i18n="about.meta.r2.v">Engineering software</span></div>
+<div class="row"><span class="k" data-i18n="about.meta.r3.k">Architecture</span><span class="v" data-i18n="about.meta.r3.v">Proprietary AI</span></div>
+<div class="row"><span class="k" data-i18n="about.meta.r4.k">Markets</span><span class="v" data-i18n="about.meta.r4.v">Seven jurisdictions</span></div>
+<div class="row"><span class="k" data-i18n="about.meta.r5.k">Portal</span><span class="v" data-i18n="about.meta.r5.v">Operational</span></div>
 </div>
 </div>
 </div>
@@ -434,9 +480,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="glance-section" id="glance">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 01</span><span>At a glance</span><span class="dash"></span><span>The firm in numbers</span></div>
+<div class="smark rv"><span class="num">§ 01</span><span data-i18n="about.s01.label">At a glance</span><span class="dash"></span><span data-i18n="about.s01.tag">The firm in numbers</span></div>
 <div class="glance-intro rv">
-<div><h2>The firm.</h2></div>
+<div><h2 data-i18n="about.s01.h2">The firm.</h2></div>
 <p>Builtly Engineering is an engineering automation platform built for the Nordic and German markets. Below: the operational facts as of public launch — scope, scale, and architecture.</p>
 </div>
 <div class="glance-grid rv">
@@ -495,10 +541,17 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section thesis-section">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 02</span><span>Thesis</span><span class="dash"></span><span>Why Builtly</span></div>
+<div class="smark rv"><span class="num">§ 02</span><span data-i18n="about.s02.label">Thesis</span><span class="dash"></span><span data-i18n="about.s02.tag">Why Builtly</span></div>
 <div class="thesis-grid rv">
 <div>
-<h2 class="dpy-2">The thesis.</h2>
+<h2 class="dpy-2" data-i18n="about.s02.h2">The thesis.</h2>
+<div class="thesis-anim">
+<svg id="thesisSvg" aria-hidden="true"></svg>
+<div class="thesis-anim-label">
+<span class="dot"></span>
+<span>Convex hull · 38 facade vertices · live</span>
+</div>
+</div>
 </div>
 <div>
 <p>The consulting engineering industry is built on professional accountability, regulation and quality assurance — all correct, all preserved at Builtly. <strong>What is not preserved is the assumption that the only way to ship a signed deliverable is to do every step by hand.</strong></p>
@@ -510,36 +563,38 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </section>
 
-<section class="section trust-section" id="trusted-by">
+<section class="discretion-section" id="discretion">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 03</span><span>Trusted by</span><span class="dash"></span><span>Day-one customers</span></div>
-<div class="team-intro rv">
+<div class="smark rv"><span class="num">§ 03</span><span data-i18n="about.s03.label">Discretion</span><span class="dash"></span><span data-i18n="about.s03.tag">Private by convention</span></div>
+<div class="discretion-grid rv">
 <div>
-<h2 class="dpy-2">Trusted by.</h2>
+<h2 data-i18n="about.s03.h2">Discretion.</h2>
 </div>
-<p class="lead">Customers and partners on the platform from day one — engineering firms, real-estate operators, and construction groups working across the Nordic markets. Each is using the platform in active engineering delivery, not pilot trials.</p>
+<div class="discretion-body">
+<p class="lead">Several of our customers asked that their use of the platform remain off the public record. In construction and real estate, the choice of engineering platform can itself carry competitive weight. We respect that.</p>
+<div class="redacted-list" aria-label="Eight customer names, withheld">
+<span class="r-bar" style="width:104px"></span>
+<span class="r-bar" style="width:68px"></span>
+<span class="r-bar" style="width:142px"></span>
+<span class="r-bar" style="width:88px"></span>
+<span class="r-bar" style="width:118px"></span>
+<span class="r-bar" style="width:76px"></span>
+<span class="r-bar" style="width:128px"></span>
+<span class="r-bar" style="width:92px"></span>
 </div>
-
-<div class="logo-wall rv">
-<div class="logo-cell"><img src="logos/skanska.png" alt="Skanska" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/hent.png" alt="HENT" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/balder.png" alt="Balder" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/heimdal.png" alt="Heimdal Bolig" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/bolig-norge.png" alt="Bolig Norge" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/byggteknikk.png" alt="Byggteknikk" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/spennarmering.svg" alt="SpennArmering" loading="lazy"/></div>
-<div class="logo-cell"><img src="logos/sentia.svg" alt="Sentia" loading="lazy"/></div>
+<div class="r-foot"><span class="seal"></span>8 organizations · active engineering delivery · names private by convention</div>
 </div>
-<div class="trust-foot rv">Active engineering delivery · <span class="num">8</span> launch partners and counting</div>
+</div>
 </div>
 </section>
 
+
 <section class="section board-section" id="board">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 04</span><span>Board</span><span class="dash"></span><span>Independent governance</span></div>
+<div class="smark rv"><span class="num">§ 04</span><span data-i18n="about.s04.label">Board</span><span class="dash"></span><span data-i18n="about.s04.tag">Independent governance</span></div>
 <div class="team-intro rv">
 <div>
-<h2 class="dpy-2">Board.</h2>
+<h2 class="dpy-2" data-i18n="about.s04.h2">Board.</h2>
 </div>
 <p class="lead">An independent board is being assembled to provide governance through the platform's growth phase. Composition is being structured around financial discipline, regulatory authority, and operational deployment across the markets the firm serves.</p>
 </div>
@@ -583,10 +638,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section advisory-section" id="advisory">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 05</span><span>Advisory</span><span class="dash"></span><span>Senior practitioners</span></div>
+<div class="smark rv"><span class="num">§ 05</span><span data-i18n="about.s05.label">Advisory</span><span class="dash"></span><span data-i18n="about.s05.tag">Senior practitioners</span></div>
 <div class="team-intro rv">
 <div>
-<h2 class="dpy-2">Advisory<br/>board.</h2>
+<h2 class="dpy-2" data-i18n-html="about.s05.h2">Advisory<br/>board.</h2>
 </div>
 <p class="lead">Senior practitioners advising on platform direction, regulatory compliance across jurisdictions, and operational deployment. The first cohort is being formed from active practitioners in each discipline the platform covers.</p>
 </div>
@@ -631,10 +686,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="cta-section" id="contact">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 06</span><span>Portal</span><span class="dash"></span><span>See it work</span></div>
+<div class="smark rv"><span class="num">§ 06</span><span data-i18n="about.s06.label">Portal</span><span class="dash"></span><span data-i18n="about.s06.tag">See it work</span></div>
 <div class="cta-grid">
 <div class="rv">
-<h2 class="dpy-1" style="font-size:clamp(36px,5vw,68px)">Try the platform.</h2>
+<h2 class="dpy-1" style="font-size:clamp(36px,5vw,68px)" data-i18n="about.s06.h2">Try the platform.</h2>
 <p class="lead" style="margin-top:32px;max-width:48ch">The portal is operational. Upload a project file, run an analysis, get a deliverable in the format you need. No pilot required to see what the platform actually does.</p>
 <div class="cta-actions">
 <a href="https://builtly.ai" class="btn">Open the portal <span class="arr">→</span></a>
@@ -903,443 +958,213 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
 })();
 </script>
 
+<script src="/i18n.js" defer></script>
+
 <script>
 /* ===========================================================================
- * Builtly i18n engine
- *  - Browser-language detection (with localStorage override)
- *  - Cookie/storage consent banner (multilingual)
- *  - data-i18n attributes drive text content
- *  - data-i18n-html for content with inline tags
- *  - data-i18n-attr-* for attributes (e.g. data-i18n-attr-aria-label)
- * Translations cover nav, hero, footer, cookie banner across 6 languages.
- * Body content inside sections remains in English for this iteration.
+ * Thesis-section ornament — gift-wrapping convex hull.
+ * 38 real facade-wall endpoints (Steinan PLAN 02). Slow, quiet, runs once
+ * per scroll-into-view then loops with a hold + fade.
  * =========================================================================== */
 (function(){
-  const T = {
-    en: {
-      "nav.platform":            "Platform",
-      "nav.industries":          "Industries",
-      "nav.howItWorks":          "How it works",
-      "nav.about":               "About",
-      "nav.careers":             "Careers",
-      "nav.openPortal":          "Open portal",
-      "lang.selectLabel":        "Select language",
-      "hero.eyebrow":            "A unified engineering platform",
-      "hero.h1.l1":              "A unified platform",
-      "hero.h1.l2":              "for engineering consultancies.",
-      "hero.lede.body":          "Builtly Engineering combines deterministic computation, regulatory logic and modern AI in one workflow — taking projects from raw data through to final, signed deliverables.",
-      "hero.lede.tagline":       "One platform. Every discipline. One source of truth.",
-      "hero.cta.primary":        "Open the portal",
-      "hero.cta.secondary":      "Explore the platform",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal live",
-      "hero.side.modules.k":     "Modules",
-      "hero.side.modules.suffix":"+ in operation",
-      "hero.side.juris.k":       "Jurisdictions",
-      "hero.side.juris.suffix":  "regulatory packs",
-      "hero.side.arch.k":        "Architecture",
-      "hero.side.arch.v":        "Proprietary AI",
-      "hero.side.founded.k":     "Founded",
-      "footer.tag":              "A unified platform for engineering consultancies. Mathematics · Physics · Geometry · AI",
-      "footer.platform.h":       "Platform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Capabilities",
-      "footer.platform.industries":"Industries",
-      "footer.platform.delivery":"Delivery models",
-      "footer.platform.how":     "How it works",
-      "footer.platform.approach":"Approach",
-      "footer.company.h":        "Company",
-      "footer.company.about":    "About",
-      "footer.company.careers":  "Careers",
-      "footer.company.contact":  "Contact",
-      "footer.company.trust":    "Trust",
-      "footer.connect.h":        "Connect",
-      "footer.connect.portal":   "Open portal",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Built for engineering consultancies",
-      "cookie.msg":              "We use local storage to remember your language preference. By continuing, you agree.",
-      "cookie.accept":           "Got it",
-      "cookie.privacyLink":      "Privacy policy"
-    },
-    no: {
-      "nav.platform":            "Plattform",
-      "nav.industries":          "Bransjer",
-      "nav.howItWorks":          "Slik fungerer det",
-      "nav.about":               "Om oss",
-      "nav.careers":             "Karriere",
-      "nav.openPortal":          "Åpne portalen",
-      "lang.selectLabel":        "Velg språk",
-      "hero.eyebrow":            "En samlet ingeniørplattform",
-      "hero.h1.l1":              "En samlet plattform",
-      "hero.h1.l2":              "for ingeniørkonsulenter.",
-      "hero.lede.body":          "Builtly Engineering kombinerer deterministisk beregning, regulatorisk logikk og moderne AI i én arbeidsflyt — fra rådata til ferdig signerte leveranser.",
-      "hero.lede.tagline":       "Én plattform. Hver disiplin. Én sannhetskilde.",
-      "hero.cta.primary":        "Åpne portalen",
-      "hero.cta.secondary":      "Utforsk plattformen",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal live",
-      "hero.side.modules.k":     "Moduler",
-      "hero.side.modules.suffix":"+ i drift",
-      "hero.side.juris.k":       "Jurisdiksjoner",
-      "hero.side.juris.suffix":  "regelverkspakker",
-      "hero.side.arch.k":        "Arkitektur",
-      "hero.side.arch.v":        "Egenutviklet AI",
-      "hero.side.founded.k":     "Grunnlagt",
-      "footer.tag":              "En samlet plattform for ingeniørkonsulenter. Matematikk · Fysikk · Geometri · AI",
-      "footer.platform.h":       "Plattform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Funksjoner",
-      "footer.platform.industries":"Bransjer",
-      "footer.platform.delivery":"Leveransemodeller",
-      "footer.platform.how":     "Slik fungerer det",
-      "footer.platform.approach":"Tilnærming",
-      "footer.company.h":        "Selskap",
-      "footer.company.about":    "Om oss",
-      "footer.company.careers":  "Karriere",
-      "footer.company.contact":  "Kontakt",
-      "footer.company.trust":    "Tillit",
-      "footer.connect.h":        "Kontakt",
-      "footer.connect.portal":   "Åpne portalen",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Bygget for ingeniørkonsulenter",
-      "cookie.msg":              "Vi bruker lokal lagring for å huske språkvalget ditt. Ved å fortsette godtar du dette.",
-      "cookie.accept":           "Greit",
-      "cookie.privacyLink":      "Personvernerklæring"
-    },
-    sv: {
-      "nav.platform":            "Plattform",
-      "nav.industries":          "Branscher",
-      "nav.howItWorks":          "Så här fungerar det",
-      "nav.about":               "Om oss",
-      "nav.careers":             "Karriär",
-      "nav.openPortal":          "Öppna portalen",
-      "lang.selectLabel":        "Välj språk",
-      "hero.eyebrow":            "En enhetlig ingenjörsplattform",
-      "hero.h1.l1":              "En enhetlig plattform",
-      "hero.h1.l2":              "för ingenjörskonsulter.",
-      "hero.lede.body":          "Builtly Engineering kombinerar deterministisk beräkning, regulatorisk logik och modern AI i ett arbetsflöde — från rådata till färdigt signerade leveranser.",
-      "hero.lede.tagline":       "En plattform. Varje disciplin. En sanningskälla.",
-      "hero.cta.primary":        "Öppna portalen",
-      "hero.cta.secondary":      "Utforska plattformen",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal live",
-      "hero.side.modules.k":     "Moduler",
-      "hero.side.modules.suffix":"+ i drift",
-      "hero.side.juris.k":       "Jurisdiktioner",
-      "hero.side.juris.suffix":  "regelverkspaket",
-      "hero.side.arch.k":        "Arkitektur",
-      "hero.side.arch.v":        "Egenutvecklad AI",
-      "hero.side.founded.k":     "Grundat",
-      "footer.tag":              "En enhetlig plattform för ingenjörskonsulter. Matematik · Fysik · Geometri · AI",
-      "footer.platform.h":       "Plattform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Funktioner",
-      "footer.platform.industries":"Branscher",
-      "footer.platform.delivery":"Leveransmodeller",
-      "footer.platform.how":     "Så här fungerar det",
-      "footer.platform.approach":"Tillvägagångssätt",
-      "footer.company.h":        "Företag",
-      "footer.company.about":    "Om oss",
-      "footer.company.careers":  "Karriär",
-      "footer.company.contact":  "Kontakt",
-      "footer.company.trust":    "Förtroende",
-      "footer.connect.h":        "Kontakt",
-      "footer.connect.portal":   "Öppna portalen",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Byggd för ingenjörskonsulter",
-      "cookie.msg":              "Vi använder lokal lagring för att komma ihåg ditt språkval. Genom att fortsätta godkänner du detta.",
-      "cookie.accept":           "OK",
-      "cookie.privacyLink":      "Integritetspolicy"
-    },
-    da: {
-      "nav.platform":            "Platform",
-      "nav.industries":          "Brancher",
-      "nav.howItWorks":          "Sådan virker det",
-      "nav.about":               "Om os",
-      "nav.careers":             "Karriere",
-      "nav.openPortal":          "Åbn portalen",
-      "lang.selectLabel":        "Vælg sprog",
-      "hero.eyebrow":            "En samlet ingeniørplatform",
-      "hero.h1.l1":              "En samlet platform",
-      "hero.h1.l2":              "til ingeniørkonsulenter.",
-      "hero.lede.body":          "Builtly Engineering kombinerer deterministisk beregning, regulatorisk logik og moderne AI i ét arbejdsforløb — fra rådata til færdige, signerede leverancer.",
-      "hero.lede.tagline":       "Én platform. Hver disciplin. Én sandhedskilde.",
-      "hero.cta.primary":        "Åbn portalen",
-      "hero.cta.secondary":      "Udforsk platformen",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal live",
-      "hero.side.modules.k":     "Moduler",
-      "hero.side.modules.suffix":"+ i drift",
-      "hero.side.juris.k":       "Jurisdiktioner",
-      "hero.side.juris.suffix":  "regelpakker",
-      "hero.side.arch.k":        "Arkitektur",
-      "hero.side.arch.v":        "Egenudviklet AI",
-      "hero.side.founded.k":     "Grundlagt",
-      "footer.tag":              "En samlet platform til ingeniørkonsulenter. Matematik · Fysik · Geometri · AI",
-      "footer.platform.h":       "Platform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Funktioner",
-      "footer.platform.industries":"Brancher",
-      "footer.platform.delivery":"Leveringsmodeller",
-      "footer.platform.how":     "Sådan virker det",
-      "footer.platform.approach":"Tilgang",
-      "footer.company.h":        "Virksomhed",
-      "footer.company.about":    "Om os",
-      "footer.company.careers":  "Karriere",
-      "footer.company.contact":  "Kontakt",
-      "footer.company.trust":    "Tillid",
-      "footer.connect.h":        "Kontakt",
-      "footer.connect.portal":   "Åbn portalen",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Bygget til ingeniørkonsulenter",
-      "cookie.msg":              "Vi bruger lokal lagring til at huske dit sprogvalg. Ved at fortsætte accepterer du dette.",
-      "cookie.accept":           "OK",
-      "cookie.privacyLink":      "Privatlivspolitik"
-    },
-    fi: {
-      "nav.platform":            "Alusta",
-      "nav.industries":          "Toimialat",
-      "nav.howItWorks":          "Näin se toimii",
-      "nav.about":               "Tietoa",
-      "nav.careers":             "Urat",
-      "nav.openPortal":          "Avaa portaali",
-      "lang.selectLabel":        "Valitse kieli",
-      "hero.eyebrow":            "Yhtenäinen suunnittelualusta",
-      "hero.h1.l1":              "Yhtenäinen alusta",
-      "hero.h1.l2":              "suunnittelukonsulteille.",
-      "hero.lede.body":          "Builtly Engineering yhdistää deterministisen laskennan, säädöslogiikan ja modernin tekoälyn yhteen työnkulkuun — raakadatasta valmiisiin, allekirjoitettuihin toimituksiin.",
-      "hero.lede.tagline":       "Yksi alusta. Jokainen ala. Yksi totuuden lähde.",
-      "hero.cta.primary":        "Avaa portaali",
-      "hero.cta.secondary":      "Tutustu alustaan",
-      "hero.side.status.k":      "Tila",
-      "hero.side.status.v":      "Portaali aktiivinen",
-      "hero.side.modules.k":     "Moduulit",
-      "hero.side.modules.suffix":"+ käytössä",
-      "hero.side.juris.k":       "Lainkäyttöalueet",
-      "hero.side.juris.suffix":  "säädöspakettia",
-      "hero.side.arch.k":        "Arkkitehtuuri",
-      "hero.side.arch.v":        "Oma tekoäly",
-      "hero.side.founded.k":     "Perustettu",
-      "footer.tag":              "Yhtenäinen alusta suunnittelukonsulteille. Matematiikka · Fysiikka · Geometria · AI",
-      "footer.platform.h":       "Alusta",
-      "footer.platform.portal":  "Portaali",
-      "footer.platform.caps":    "Ominaisuudet",
-      "footer.platform.industries":"Toimialat",
-      "footer.platform.delivery":"Toimitusmallit",
-      "footer.platform.how":     "Näin se toimii",
-      "footer.platform.approach":"Lähestymistapa",
-      "footer.company.h":        "Yritys",
-      "footer.company.about":    "Tietoa",
-      "footer.company.careers":  "Urat",
-      "footer.company.contact":  "Yhteystiedot",
-      "footer.company.trust":    "Luottamus",
-      "footer.connect.h":        "Yhteystiedot",
-      "footer.connect.portal":   "Avaa portaali",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Rakennettu suunnittelukonsulteille",
-      "cookie.msg":              "Tallennamme paikallisesti kielivalintasi. Jatkamalla hyväksyt tämän.",
-      "cookie.accept":           "OK",
-      "cookie.privacyLink":      "Tietosuojakäytäntö"
-    },
-    de: {
-      "nav.platform":            "Plattform",
-      "nav.industries":          "Branchen",
-      "nav.howItWorks":          "So funktioniert es",
-      "nav.about":               "Über uns",
-      "nav.careers":             "Karriere",
-      "nav.openPortal":          "Portal öffnen",
-      "lang.selectLabel":        "Sprache wählen",
-      "hero.eyebrow":            "Eine einheitliche Engineering-Plattform",
-      "hero.h1.l1":              "Eine einheitliche Plattform",
-      "hero.h1.l2":              "für Ingenieurberatungen.",
-      "hero.lede.body":          "Builtly Engineering vereint deterministische Berechnung, regulatorische Logik und moderne KI in einem Workflow — von Rohdaten bis zur fertigen, unterzeichneten Lieferung.",
-      "hero.lede.tagline":       "Eine Plattform. Jede Disziplin. Eine Wahrheitsquelle.",
-      "hero.cta.primary":        "Portal öffnen",
-      "hero.cta.secondary":      "Plattform erkunden",
-      "hero.side.status.k":      "Status",
-      "hero.side.status.v":      "Portal aktiv",
-      "hero.side.modules.k":     "Module",
-      "hero.side.modules.suffix":"+ in Betrieb",
-      "hero.side.juris.k":       "Rechtsräume",
-      "hero.side.juris.suffix":  "Regelwerkpakete",
-      "hero.side.arch.k":        "Architektur",
-      "hero.side.arch.v":        "Eigene KI",
-      "hero.side.founded.k":     "Gegründet",
-      "footer.tag":              "Eine einheitliche Plattform für Ingenieurberatungen. Mathematik · Physik · Geometrie · KI",
-      "footer.platform.h":       "Plattform",
-      "footer.platform.portal":  "Portal",
-      "footer.platform.caps":    "Funktionen",
-      "footer.platform.industries":"Branchen",
-      "footer.platform.delivery":"Liefermodelle",
-      "footer.platform.how":     "So funktioniert es",
-      "footer.platform.approach":"Ansatz",
-      "footer.company.h":        "Unternehmen",
-      "footer.company.about":    "Über uns",
-      "footer.company.careers":  "Karriere",
-      "footer.company.contact":  "Kontakt",
-      "footer.company.trust":    "Vertrauen",
-      "footer.connect.h":        "Kontakt",
-      "footer.connect.portal":   "Portal öffnen",
-      "footer.bot.left":         "© 2026 Builtly Engineering",
-      "footer.bot.right":        "Gebaut für Ingenieurberatungen",
-      "cookie.msg":              "Wir nutzen lokalen Speicher, um Ihre Sprachauswahl zu speichern. Indem Sie fortfahren, stimmen Sie zu.",
-      "cookie.accept":           "OK",
-      "cookie.privacyLink":      "Datenschutzerklärung"
+  const svg = document.getElementById('thesisSvg');
+  if (!svg) return;
+  const sec = document.querySelector('.thesis-section');
+  if (!sec) return;
+
+  // Real facade-wall endpoints (mm, shifted to local origin)
+  const PTS = [[28069,43762],[32075,45961],[67509,41928],[65311,45935],[54729,31808],[52581,30630],[29320,23013],[19105,41631],[19287,41578],[31200,48114],[41233,29549],[31146,47932],[41051,29602],[29373,23195],[73924,35315],[55307,25100],[67388,47228],[49005,37141],[67335,47046],[73742,35368],[30735,38695],[26935,45621],[26575,35415],[23572,33767],[10215,0],[0,18617],[22180,6718],[10268,182],[21999,6771],[11912,25154],[181,18564],[11859,24972],[14776,16952],[15916,17578],[33882,39966],[35022,40591],[56346,41016],[56972,39877]];
+  const BBOX_W = 73924, BBOX_H = 48114;
+
+  // SVG viewBox sized to bbox aspect
+  const VBW = 320, VBH = 210;
+  svg.setAttribute('viewBox', '0 0 ' + VBW + ' ' + VBH);
+  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+
+  // World→SVG transform with padding, Y flipped so building reads "right-side up"
+  const PAD = 14;
+  const scale = Math.min((VBW - 2*PAD) / BBOX_W, (VBH - 2*PAD) / BBOX_H);
+  const offX = (VBW - BBOX_W * scale) / 2;
+  const offY = (VBH - BBOX_H * scale) / 2;
+  const px = (x) => x * scale + offX;
+  const py = (y) => VBH - (y * scale + offY);
+
+  // Gift-wrap (Jarvis march) convex hull
+  function computeHull(pts) {
+    let p0 = 0;
+    for (let i = 1; i < pts.length; i++) {
+      if (pts[i][1] < pts[p0][1] ||
+          (pts[i][1] === pts[p0][1] && pts[i][0] < pts[p0][0])) p0 = i;
     }
-  };
-
-  const SUPPORTED = ['en','no','sv','da','fi','de'];
-
-  // ---- Detection ----
-  function detectLang() {
-    // 1. Saved choice wins
-    try {
-      const saved = localStorage.getItem('builtly-lang');
-      if (saved && SUPPORTED.indexOf(saved) >= 0) return saved;
-    } catch(e){}
-
-    // 2. Browser languages (navigator.languages is ordered preference)
-    const browserLangs = navigator.languages || [navigator.language || 'en'];
-    for (let i = 0; i < browserLangs.length; i++) {
-      const tag = String(browserLangs[i]).toLowerCase();
-      // Map BCP47 tags to our codes
-      if (tag.startsWith('nb') || tag.startsWith('nn') || tag.startsWith('no')) return 'no';
-      if (tag.startsWith('sv')) return 'sv';
-      if (tag.startsWith('da')) return 'da';
-      if (tag.startsWith('fi')) return 'fi';
-      if (tag.startsWith('de')) return 'de';
-      if (tag.startsWith('en')) return 'en';
+    const hull = [p0];
+    let cur = p0;
+    let safety = pts.length + 1;
+    while (safety-- > 0) {
+      let next = (cur + 1) % pts.length;
+      if (next === cur) next = (cur + 2) % pts.length;
+      for (let i = 0; i < pts.length; i++) {
+        if (i === cur || i === next) continue;
+        const cross = (pts[next][0] - pts[cur][0]) * (pts[i][1] - pts[cur][1]) -
+                      (pts[next][1] - pts[cur][1]) * (pts[i][0] - pts[cur][0]);
+        if (cross < 0) next = i;
+      }
+      if (next === p0) break;
+      hull.push(next);
+      cur = next;
     }
-    return 'en';
+    return hull;
   }
 
-  // ---- Apply translations to DOM ----
-  function tt(lang, key) {
-    return (T[lang] && T[lang][key]) || T.en[key] || '';
+  const HULL = computeHull(PTS);
+  const NUM_EDGES = HULL.length;
+
+  // Build SVG
+  const NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    if (attrs) for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+  // Points layer (drawn first, so hull edges sit on top)
+  const dotsGroup = el('g', {}, svg);
+  const dotEls = [];
+  for (let i = 0; i < PTS.length; i++) {
+    const c = el('circle', {
+      cx: px(PTS[i][0]),
+      cy: py(PTS[i][1]),
+      r: 1.5,
+      fill: 'rgba(19,24,32,0.42)',
+      opacity: 0
+    }, dotsGroup);
+    dotEls.push(c);
   }
 
-  function applyLang(lang) {
-    if (SUPPORTED.indexOf(lang) < 0) lang = 'en';
-    document.documentElement.lang = lang;
+  // Hull path (built incrementally during animation)
+  const hullPath = el('path', {
+    fill: 'none',
+    stroke: '#14B8A6',
+    'stroke-width': 0.9,
+    'stroke-opacity': 0.78,
+    'stroke-linecap': 'round',
+    'stroke-linejoin': 'round',
+    d: ''
+  }, svg);
 
-    // Text content
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      const key = el.getAttribute('data-i18n');
-      const v = tt(lang, key);
-      if (v) el.textContent = v;
-    });
-    // HTML content (when translation contains inline tags)
-    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
-      const key = el.getAttribute('data-i18n-html');
-      const v = tt(lang, key);
-      if (v) el.innerHTML = v;
-    });
-    // Attributes — data-i18n-attr-{name}="key" sets attribute {name}
-    document.querySelectorAll('*').forEach(function(el){
-      const attrs = el.attributes;
-      for (let i = 0; i < attrs.length; i++) {
-        const a = attrs[i];
-        if (a.name.indexOf('data-i18n-attr-') === 0) {
-          const attrName = a.name.substring('data-i18n-attr-'.length);
-          const v = tt(lang, a.value);
-          if (v) el.setAttribute(attrName, v);
+  // Highlight vertex on hull (small pulse marker)
+  const pulseCircle = el('circle', {
+    r: 2.8,
+    fill: 'none',
+    stroke: '#14B8A6',
+    'stroke-width': 1,
+    'stroke-opacity': 0.55,
+    opacity: 0
+  }, svg);
+
+  // Animation
+  const T_FADEIN  = 1400;
+  const T_PER_EDGE = 480;
+  const T_HOLD    = 2400;
+  const T_FADEOUT = 800;
+  const T_PAUSE   = 900;
+  const TOTAL = T_FADEIN + NUM_EDGES * T_PER_EDGE + T_HOLD + T_FADEOUT + T_PAUSE;
+
+  let startTime = null, rafId = null, running = false;
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+  function render(now) {
+    if (!running) return;
+    if (startTime === null) startTime = now;
+    let elapsed = now - startTime;
+    if (elapsed > TOTAL) { startTime = now; elapsed = 0; }
+
+    // ── Stage 1: points fade in (staggered)
+    const fadeP = Math.min(1, elapsed / T_FADEIN);
+    for (let i = 0; i < dotEls.length; i++) {
+      const tStart = (i / dotEls.length) * 0.55;
+      const localP = Math.max(0, Math.min(1, (fadeP - tStart) / (1 - tStart)));
+      dotEls[i].setAttribute('opacity', String(ease(localP)));
+    }
+
+    // ── Stage 2: hull edges progressively
+    let pathD = '';
+    let currentVertex = null;
+    const edgesStart = T_FADEIN;
+    if (elapsed >= edgesStart) {
+      const ee = elapsed - edgesStart;
+      const firstIdx = HULL[0];
+      pathD = 'M' + px(PTS[firstIdx][0]) + ',' + py(PTS[firstIdx][1]);
+
+      for (let i = 0; i < NUM_EDGES; i++) {
+        const eStart = i * T_PER_EDGE;
+        const eEnd = eStart + T_PER_EDGE;
+        const fromIdx = HULL[i];
+        const toIdx = HULL[(i + 1) % NUM_EDGES];
+        const fx = px(PTS[fromIdx][0]), fy = py(PTS[fromIdx][1]);
+        const tx = px(PTS[toIdx][0]),   ty = py(PTS[toIdx][1]);
+
+        if (ee >= eEnd) {
+          pathD += ' L' + tx + ',' + ty;
+        } else if (ee > eStart) {
+          const p = (ee - eStart) / T_PER_EDGE;
+          const ep = ease(p);
+          const ix = fx + (tx - fx) * ep;
+          const iy = fy + (ty - fy) * ep;
+          pathD += ' L' + ix + ',' + iy;
+          currentVertex = { x: ix, y: iy };
+          break;
+        } else {
+          break;
         }
       }
-    });
-
-    // Update picker UI
-    const picker = document.getElementById('langPicker');
-    const menu = document.getElementById('langMenu');
-    if (picker) {
-      const codeEl = picker.querySelector('.lang-code');
-      if (codeEl) codeEl.textContent = lang.toUpperCase();
     }
-    if (menu) {
-      menu.querySelectorAll('.lang-option').forEach(function(o){
-        o.classList.toggle('active', o.dataset.lang === lang);
-      });
+
+    // ── Stage 4: fade out near end of loop
+    const fadeOutStart = T_FADEIN + NUM_EDGES * T_PER_EDGE + T_HOLD;
+    let globalOp = 1;
+    if (elapsed > fadeOutStart) {
+      const p = Math.min(1, (elapsed - fadeOutStart) / T_FADEOUT);
+      globalOp = 1 - ease(p);
     }
+
+    hullPath.setAttribute('d', pathD);
+    hullPath.setAttribute('stroke-opacity', String(0.78 * globalOp));
+
+    if (currentVertex) {
+      pulseCircle.setAttribute('cx', currentVertex.x);
+      pulseCircle.setAttribute('cy', currentVertex.y);
+      pulseCircle.setAttribute('opacity', String(0.7 * globalOp));
+    } else {
+      pulseCircle.setAttribute('opacity', '0');
+    }
+
+    if (elapsed > fadeOutStart) {
+      // Fade points too in the fade-out stage
+      for (let i = 0; i < dotEls.length; i++) {
+        const cur = parseFloat(dotEls[i].getAttribute('opacity') || '1');
+        dotEls[i].setAttribute('opacity', String(cur * globalOp));
+      }
+    }
+
+    rafId = requestAnimationFrame(render);
   }
 
-  // ---- Cookie consent banner ----
-  function setupConsent(lang) {
-    if (document.getElementById('cookieBanner')) return;
-    try {
-      if (localStorage.getItem('builtly-consent') === '1') return;
-    } catch(e){}
-
-    const banner = document.createElement('div');
-    banner.id = 'cookieBanner';
-    banner.className = 'cookie-banner';
-    banner.setAttribute('role','dialog');
-    banner.setAttribute('aria-live','polite');
-    banner.innerHTML = ''
-      + '<div class="cookie-inner">'
-      +   '<p class="cookie-msg" data-i18n="cookie.msg"></p>'
-      +   '<div class="cookie-actions">'
-      +     '<a href="/trust.html" class="cookie-link" data-i18n="cookie.privacyLink"></a>'
-      +     '<button type="button" class="cookie-accept" data-i18n="cookie.accept"></button>'
-      +   '</div>'
-      + '</div>';
-    document.body.appendChild(banner);
-
-    // Apply text now
-    banner.querySelectorAll('[data-i18n]').forEach(function(el){
-      const key = el.getAttribute('data-i18n');
-      el.textContent = tt(document.documentElement.lang || 'en', key);
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && !running) {
+        running = true;
+        startTime = null;
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(render);
+      } else if (!e.isIntersecting && running) {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+      }
     });
-
-    // Animate in after a tick
-    requestAnimationFrame(function(){
-      requestAnimationFrame(function(){ banner.classList.add('show'); });
-    });
-
-    banner.querySelector('.cookie-accept').addEventListener('click', function(){
-      try { localStorage.setItem('builtly-consent','1'); } catch(e){}
-      banner.classList.remove('show');
-      setTimeout(function(){ banner.parentNode && banner.parentNode.removeChild(banner); }, 350);
-    });
-  }
-
-  // ---- Language picker wiring ----
-  function wirePicker() {
-    const picker = document.getElementById('langPicker');
-    const menu = document.getElementById('langMenu');
-    if (!picker || !menu) return;
-
-    picker.addEventListener('click', function(e){
-      e.stopPropagation();
-      const open = picker.getAttribute('aria-expanded') === 'true';
-      picker.setAttribute('aria-expanded', String(!open));
-      if (open) menu.setAttribute('hidden',''); else menu.removeAttribute('hidden');
-    });
-
-    document.addEventListener('click', function(){
-      picker.setAttribute('aria-expanded','false');
-      menu.setAttribute('hidden','');
-    });
-
-    menu.addEventListener('click', function(e){
-      e.stopPropagation();
-      const opt = e.target.closest('.lang-option');
-      if (!opt) return;
-      const lang = opt.dataset.lang;
-      try { localStorage.setItem('builtly-lang', lang); } catch(e){}
-      applyLang(lang);
-      picker.setAttribute('aria-expanded','false');
-      menu.setAttribute('hidden','');
-    });
-  }
-
-  // ---- Init ----
-  const initial = detectLang();
-  applyLang(initial);
-  wirePicker();
-  // Defer cookie banner slightly so it doesn't compete with first paint
-  setTimeout(function(){ setupConsent(initial); }, 600);
-
-  // Expose for debugging
-  window.BUILTLY_I18N = { applyLang: applyLang, detect: detectLang, T: T };
+  }, { threshold: 0.15 });
+  obs.observe(sec);
 })();
 </script>
 </body>
