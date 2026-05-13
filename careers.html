@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Careers at Builtly Engineering — build the platform engineering needs." />
+<meta name="theme-color" content="#FAFAF7" />
+<title>Careers · Builtly Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#FAFAF7;
+  --bg-soft:#F1EEE6;
+  --bg-warm:#EDE9DF;
+  --ink:#131820;
+  --ink-soft:#2A323C;
+  --mid:#6A6E76;
+  --grey:#B8B5AD;
+  --dark:#131820;
+  --dark-soft:#1C232D;
+  --dark-paper:#F7F4ED;
+  --line:rgba(19,24,32,0.10);
+  --line-strong:rgba(19,24,32,0.22);
+  --line-dark:rgba(247,244,237,0.10);
+  --line-dark-strong:rgba(247,244,237,0.20);
+  --accent:#14B8A6;
+  --accent-bright:#2DD4BF;
+  --accent-soft:#0D9488;
+  --font-display:'Manrope','Helvetica Neue',system-ui,sans-serif;
+  --font-body:'Manrope','Helvetica Neue',system-ui,sans-serif;
+  --font-serif:'Newsreader','Times New Roman',serif;
+  --font-mono:'JetBrains Mono',Menlo,monospace;
+  --max:1440px;
+  --gutter:clamp(24px,4.5vw,72px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;font-feature-settings:"ss01","cv11"}
+::selection{background:var(--ink);color:var(--bg)}
+h1,h2,h3,h4,h5{font-family:var(--font-display);font-weight:600;color:inherit;margin:0;line-height:1.05;letter-spacing:-0.022em}
+.dpy-1{font-size:clamp(40px,5.8vw,84px);line-height:1.02;letter-spacing:-0.028em;font-weight:500}
+.dpy-2{font-size:clamp(32px,4.4vw,64px);line-height:1.05;letter-spacing:-0.024em;font-weight:500}
+.dpy-3{font-size:clamp(24px,2.8vw,36px);line-height:1.1;letter-spacing:-0.02em;font-weight:600}
+.dpy-4{font-size:clamp(20px,2.2vw,28px);line-height:1.18;letter-spacing:-0.015em;font-weight:600}
+.lead{font-size:clamp(17px,1.4vw,22px);line-height:1.5;color:var(--ink-soft);font-weight:400;letter-spacing:-0.005em}
+.serif{font-family:var(--font-serif);font-style:italic;font-weight:400}
+.eyebrow{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:500;color:var(--mid)}
+.eyebrow .accent-dot{display:inline-block;width:6px;height:6px;background:var(--accent);margin-right:10px;vertical-align:1px}
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);position:relative}
+.section{position:relative;padding:clamp(80px,12vh,140px) 0}
+.section-soft{background:var(--bg-soft)}
+.section-dark{background:var(--dark);color:var(--dark-paper)}
+
+.smark{display:flex;align-items:baseline;gap:14px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);margin-bottom:clamp(40px,5vh,64px)}
+.section-dark .smark{color:rgba(247,244,237,0.55)}
+.smark .num{color:var(--accent);font-weight:600}
+.section-dark .smark .num{color:var(--accent-bright)}
+.smark .dash{flex:0 0 32px;height:1px;background:currentColor;opacity:0.5}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,0.92);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);max-width:var(--max);margin:0 auto;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-0.018em;color:var(--ink)}
+.logo-mark{display:inline-flex;width:26px;height:26px;border:1.5px solid var(--ink);border-radius:5px;align-items:center;justify-content:center;position:relative}
+.logo-mark::before{content:"";position:absolute;top:5px;right:5px;width:6px;height:6px;background:var(--accent);border-radius:50%}
+.logo .sub{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid);font-weight:500;margin-left:4px}
+.nav-links{display:flex;gap:clamp(20px,2.2vw,32px);font-size:14px;font-weight:500;color:var(--ink-soft);letter-spacing:-0.005em}
+.nav-links a{position:relative;padding:6px 0;transition:color 0.18s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a.active{color:var(--accent)}
+@media (max-width:980px){.nav-links{display:none}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:var(--ink);color:var(--bg);font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-0.005em;border:0;cursor:pointer;white-space:nowrap;transition:background 0.18s ease}
+.btn:hover{background:var(--accent)}
+.btn .arr{transition:transform 0.18s ease}
+.btn:hover .arr{transform:translateX(3px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong);padding:10px 17px}
+.btn-ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+@media (max-width:520px){.nav-inner{gap:14px;padding:14px var(--gutter)}.logo .sub{display:none}.btn{padding:9px 14px;font-size:12px}}
+
+/* HERO */
+.hero{padding:clamp(80px,12vh,140px) 0 clamp(64px,10vh,112px)}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
+@media (max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero h1{margin-top:20px}
+.hero .lead{margin-top:32px;max-width:48ch}
+.hero-meta{display:flex;flex-direction:column;align-self:end;padding-bottom:8px}
+.hero-meta .row{padding:16px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.hero-meta .row:first-child{border-top:1px solid var(--ink)}
+.hero-meta .row .k{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid)}
+.hero-meta .row .v{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink);letter-spacing:-0.005em;text-align:right}
+.hero-meta .row .v .accent-text{color:var(--accent)}
+
+/* PROPOSITION STRIP */
+.prop-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:var(--max);margin:0 auto}
+@media (max-width:900px){.prop-grid{grid-template-columns:1fr}}
+.prop-cell{padding:clamp(40px,5.5vh,56px) clamp(22px,2.4vw,36px);border-right:1px solid var(--line)}
+.prop-cell:last-child{border-right:0}
+@media (max-width:900px){.prop-cell{border-right:0;border-bottom:1px solid var(--line)}.prop-cell:last-child{border-bottom:0}}
+.prop-cell .ix{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:14px}
+.prop-cell h4{font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-0.018em;color:var(--ink);margin-bottom:14px;line-height:1.15}
+.prop-cell p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+
+/* HOW WE WORK */
+.how-section{background:var(--bg-soft)}
+.how-top{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(56px,8vh,80px)}
+@media (max-width:900px){.how-top{grid-template-columns:1fr}}
+.how-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.how-item{display:grid;grid-template-columns:clamp(60px,7vw,100px) 1.4fr 1fr;gap:clamp(24px,3.5vw,56px);padding:clamp(28px,4vh,44px) 0;border-bottom:1px solid var(--ink);align-items:start}
+@media (max-width:900px){.how-item{grid-template-columns:1fr;gap:14px}}
+.how-item .pnum{font-family:var(--font-display);font-size:clamp(28px,3vw,48px);font-weight:300;letter-spacing:-0.02em;color:var(--accent);line-height:1;font-feature-settings:"tnum"}
+.how-item h3{font-size:clamp(20px,2.2vw,28px);line-height:1.15;letter-spacing:-0.018em;font-weight:600;color:var(--ink)}
+.how-item p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6;max-width:46ch}
+
+/* OPEN POSITIONS */
+.pos-section{background:var(--bg)}
+.pos-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(48px,7vh,72px)}
+@media (max-width:900px){.pos-intro{grid-template-columns:1fr}}
+.pos-group{margin-bottom:clamp(48px,7vh,72px)}
+.pos-group:last-child{margin-bottom:0}
+.pos-head{display:flex;align-items:baseline;gap:18px;padding:14px 0;border-top:1px solid var(--ink);flex-wrap:wrap}
+.pos-head .tag{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;padding:4px 9px;color:var(--bg);background:var(--ink)}
+.pos-head .tag.accent{background:var(--accent)}
+.pos-head .tag.mid{background:var(--mid)}
+.pos-head h3{font-family:var(--font-display);font-size:clamp(19px,2vw,26px);letter-spacing:-0.015em;font-weight:600;color:var(--ink)}
+.pos-head .count{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);margin-left:auto}
+@media (max-width:760px){.pos-head .count{margin-left:0;width:100%}}
+.pos-list{border-top:1px solid var(--line)}
+.pos-row{display:grid;grid-template-columns:1.6fr 0.9fr 0.8fr 0.4fr;gap:clamp(16px,2.5vw,40px);padding:clamp(24px,3.2vh,32px) 0;border-bottom:1px solid var(--line);align-items:center;transition:padding 0.2s ease;text-decoration:none}
+.pos-row:hover{padding-left:8px}
+@media (max-width:800px){.pos-row{grid-template-columns:1fr;gap:8px;padding:24px 0}.pos-row:hover{padding-left:0}}
+.pos-row .pos-title{display:flex;flex-direction:column;gap:6px}
+.pos-row .pos-name{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-0.018em;color:var(--ink);line-height:1.1}
+.pos-row .pos-desc{font-size:14px;color:var(--ink-soft);line-height:1.5;max-width:50ch;margin-top:4px}
+.pos-row .pos-meta{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.12em}
+.pos-row .pos-type{font-family:var(--font-mono);font-size:11px;color:var(--mid);text-transform:uppercase;letter-spacing:0.14em}
+.pos-row .pos-arr{font-family:var(--font-display);font-size:22px;color:var(--accent);text-align:right;transition:transform 0.2s ease;font-weight:400}
+.pos-row:hover .pos-arr{transform:translateX(4px)}
+@media (max-width:800px){.pos-row .pos-arr{display:none}}
+
+/* HIRING PROCESS */
+.proc-section{background:var(--dark);color:var(--dark-paper)}
+.proc-top{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(56px,8vh,80px)}
+@media (max-width:900px){.proc-top{grid-template-columns:1fr}}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark-strong);border:1px solid var(--line-dark-strong)}
+@media (max-width:900px){.proc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.proc-grid{grid-template-columns:1fr}}
+.proc-step{background:var(--dark);padding:clamp(28px,3.4vw,40px);display:flex;flex-direction:column;min-height:240px}
+.proc-step .ix{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent-bright);font-weight:600;margin-bottom:24px}
+.proc-step .num{font-family:var(--font-display);font-size:clamp(40px,4.4vw,64px);font-weight:300;letter-spacing:-0.03em;color:var(--dark-paper);line-height:1;margin-bottom:16px;font-feature-settings:"tnum"}
+.proc-step h4{font-family:var(--font-display);font-size:clamp(17px,1.8vw,22px);font-weight:600;letter-spacing:-0.015em;color:var(--dark-paper);margin-bottom:12px;line-height:1.2}
+.proc-step p{margin:0;color:rgba(247,244,237,0.78);font-size:14px;line-height:1.55;flex-grow:1}
+
+/* INSIGHT */
+.insight-section{background:var(--bg);padding:clamp(80px,12vh,140px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.insight-inner{max-width:1000px;margin:0 auto;padding:0 var(--gutter);text-align:center}
+.insight-quote{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:clamp(26px,3.6vw,46px);line-height:1.22;letter-spacing:-0.018em;color:var(--ink)}
+.insight-quote .accent{color:var(--accent);font-style:normal;font-family:var(--font-display);font-weight:500}
+.insight-attr{margin-top:32px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:var(--mid)}
+
+/* CTA */
+.cta-section{background:var(--bg);padding:clamp(80px,12vh,140px) 0}
+.cta-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
+@media (max-width:900px){.cta-grid{grid-template-columns:1fr}}
+.cta-side .row{display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid var(--line);align-items:baseline;font-family:var(--font-mono);font-size:13px}
+.cta-side .row:first-child{border-top:1px solid var(--ink)}
+.cta-side .row .k{color:var(--mid);text-transform:uppercase;letter-spacing:0.14em;font-size:11px}
+.cta-side .row .v{color:var(--ink);font-weight:500;text-align:right}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:48px}
+
+/* FOOTER */
+footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);border-top:1px solid var(--line)}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--line)}
+@media (max-width:800px){.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:480px){.footer-top{grid-template-columns:1fr;gap:32px}}
+.f-brand{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-0.018em;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.f-brand .lm{width:24px;height:24px;border:1.5px solid var(--ink);border-radius:5px;position:relative}
+.f-brand .lm::before{content:"";position:absolute;top:4px;right:4px;width:6px;height:6px;background:var(--accent);border-radius:50%}
+.f-tag{font-size:14px;line-height:1.6;color:var(--mid);max-width:36ch}
+.f-col h5{color:var(--ink);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;margin-bottom:18px}
+.f-col ul{list-style:none;margin:0;padding:0}
+.f-col li{padding:5px 0;font-size:14px;line-height:1.5}
+.f-col a:hover{color:var(--accent)}
+.footer-bot{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(0.2,0.7,0.2,1),transform 0.8s cubic-bezier(0.2,0.7,0.2,1)}
+.rv.in{opacity:1;transform:translateY(0)}
+.rvs > *{opacity:0;transform:translateY(18px);transition:opacity 0.65s cubic-bezier(0.2,0.7,0.2,1),transform 0.65s cubic-bezier(0.2,0.7,0.2,1)}
+.rvs.in > *:nth-child(1){opacity:1;transform:translateY(0);transition-delay:0.04s}
+.rvs.in > *:nth-child(2){opacity:1;transform:translateY(0);transition-delay:0.09s}
+.rvs.in > *:nth-child(3){opacity:1;transform:translateY(0);transition-delay:0.14s}
+.rvs.in > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:0.19s}
+.rvs.in > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:0.24s}
+.rvs.in > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:0.29s}
+.rvs.in > *:nth-child(7){opacity:1;transform:translateY(0);transition-delay:0.34s}
+.rvs.in > *:nth-child(8){opacity:1;transform:translateY(0);transition-delay:0.39s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}.rv,.rvs > *{opacity:1 !important;transform:none !important}html{scroll-behavior:auto}}
+
+/* HERO AMBIENT FLOCKING SUPPORT */
+.hero{position:relative;overflow:hidden}
+.hero-bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.85}
+.hero > .wrap{position:relative;z-index:1}
+
+/* LANGUAGE PICKER */
+.lang-wrap{position:relative;display:flex;align-items:center}
+.lang-picker{display:flex;align-items:center;gap:6px;padding:7px 10px 7px 9px;background:transparent;border:1px solid var(--line-strong);color:var(--ink);font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.08em;cursor:pointer;transition:all 0.18s ease;line-height:1}
+.lang-picker:hover{background:var(--bg-soft);border-color:var(--ink)}
+.lang-picker .lang-globe{width:13px;height:13px;stroke:currentColor;stroke-width:1.5;fill:none;flex-shrink:0}
+.lang-picker .lang-code{letter-spacing:0.1em}
+.lang-picker .lang-chev{width:9px;height:9px;stroke:currentColor;stroke-width:1.8;fill:none;transition:transform 0.2s ease;margin-left:1px}
+.lang-picker[aria-expanded="true"] .lang-chev{transform:rotate(180deg)}
+.lang-menu{position:absolute;top:calc(100% + 6px);right:0;background:var(--bg);border:1px solid var(--line-strong);min-width:200px;padding:6px;display:flex;flex-direction:column;gap:2px;box-shadow:0 8px 24px rgba(19,24,32,0.08);z-index:120}
+.lang-menu[hidden]{display:none}
+.lang-option{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 12px;background:transparent;border:none;font-family:var(--font-display);font-size:13px;font-weight:500;color:var(--ink);cursor:pointer;text-align:left;transition:background 0.14s ease;letter-spacing:-0.005em;border-radius:0}
+.lang-option:hover{background:var(--bg-soft)}
+.lang-option.active{background:var(--bg-soft)}
+.lang-option .native{font-family:var(--font-mono);font-size:10.5px;color:var(--mid);text-transform:uppercase;letter-spacing:0.1em;font-weight:500}
+.lang-option.active .native{color:var(--accent)}
+.lang-option .check{width:11px;height:11px;stroke:var(--accent);stroke-width:2;fill:none;opacity:0;flex-shrink:0;margin-left:auto}
+.lang-option.active .check{opacity:1}
+.lang-toast{position:fixed;top:0;left:0;right:0;background:var(--ink);color:var(--bg);padding:11px 24px;text-align:center;font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.06em;z-index:200;transform:translateY(-100%);transition:transform 0.35s cubic-bezier(0.2,0.7,0.2,1);pointer-events:none}
+.lang-toast.show{transform:translateY(0);pointer-events:auto}
+.lang-toast .toast-accent{color:var(--accent-bright);font-weight:600}
+@media (max-width:640px){
+  .lang-picker .lang-globe{display:none}
+  .lang-picker{padding:7px 9px}
+  .lang-menu{min-width:180px;right:auto;left:0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<div class="nav-inner">
+<a href="/" class="logo"><span class="logo-mark"></span>Builtly<span class="sub">Engineering</span></a>
+<div class="nav-links">
+<a href="/platform.html">Platform</a>
+<a href="/industries.html">Industries</a>
+<a href="/#pipeline">How it works</a>
+<a href="/about.html">About</a>
+<a href="/careers.html" class="active">Careers</a>
+</div>
+<div class="lang-wrap">
+<button class="lang-picker" id="langPicker" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+<svg class="lang-globe" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13"/></svg>
+<span class="lang-code">EN</span>
+<svg class="lang-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<div class="lang-menu" id="langMenu" role="menu" hidden>
+<button class="lang-option active" data-lang="en" role="menuitem">English<span class="native">English</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="de" role="menuitem">German<span class="native">Deutsch</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="sv" role="menuitem">Swedish<span class="native">Svenska</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="no" role="menuitem">Norwegian<span class="native">Norsk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="fi" role="menuitem">Finnish<span class="native">Suomi</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="da" role="menuitem">Danish<span class="native">Dansk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+</div>
+<a href="https://builtly.ai" class="btn">Open portal <span class="arr">→</span></a>
+</div>
+</nav>
+
+<section class="hero" id="top">
+<canvas class="hero-bg-canvas" id="heroBgCanvas" aria-hidden="true"></canvas>
+<div class="wrap">
+<div class="hero-grid rv">
+<div>
+<div class="eyebrow"><span class="accent-dot"></span>Careers at Builtly Engineering</div>
+<h1 class="dpy-1">Build the platform<br/>engineering needs.</h1>
+<p class="lead">Builtly is a small, deliberate team rebuilding the production layer of consulting engineering. The work is technically demanding, professionally accountable, and unusually consequential. <span class="serif">We hire for judgment, depth and the long horizon.</span></p>
+</div>
+<div class="hero-meta">
+<div class="row"><span class="k">Open roles</span><span class="v"><span class="accent-text">●</span> &nbsp; 8 positions</span></div>
+<div class="row"><span class="k">Team</span><span class="v">Small, senior, growing</span></div>
+<div class="row"><span class="k">Locations</span><span class="v">Remote · hybrid</span></div>
+<div class="row"><span class="k">Apply</span><span class="v">careers@builtly.ai</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="prop-strip">
+<div class="prop-grid rvs">
+<div class="prop-cell">
+<div class="ix">§ 01 / The work</div>
+<h4>Build something that ships.</h4>
+<p>The platform is in production. Real engineers use it under regulatory authority. What you ship is reviewed by professional engineers and used to produce signed deliverables. No vapor, no PowerPoint roadmaps — code that becomes engineering.</p>
+</div>
+<div class="prop-cell">
+<div class="ix">§ 02 / The domain</div>
+<h4>Engineering, end to end.</h4>
+<p>Mathematics. Physics. Geometry. AI. Regulatory frameworks across multiple jurisdictions. Every engineering discipline meets every modern technology at Builtly. The intersection is where the interesting problems live.</p>
+</div>
+<div class="prop-cell">
+<div class="ix">§ 03 / The horizon</div>
+<h4>A long, deliberate build.</h4>
+<p>This is not a sprint to an exit. It is a multi-year platform rebuild of a regulated profession. We hire people who want to be here in seven years, doing better work than they were doing in year one. Compensation, ownership and growth match the horizon.</p>
+</div>
+</div>
+</section>
+
+<section class="section how-section">
+<div class="wrap">
+<div class="smark rv"><span class="num">§ 01</span><span>How we work</span><span class="dash"></span><span>What does not change</span></div>
+<div class="how-top rv">
+<div>
+<h2 class="dpy-2">Working principles.</h2>
+</div>
+<p class="lead">Builtly is run as the kind of company an engineer would want to work in. The principles below are not aspirational — they govern how decisions get made.</p>
+</div>
+
+<ol class="how-list rvs">
+<li class="how-item">
+<div class="pnum">01</div>
+<div>
+<h3>Engineering judgment first.</h3>
+</div>
+<p>The discipline that owns the work owns the decision. Engineers run engineering. Software runs software. Neither overrides the other on the other's domain. Disagreements are resolved by talking to the person with the regulatory authority.</p>
+</li>
+<li class="how-item">
+<div class="pnum">02</div>
+<div>
+<h3>Quality over velocity.</h3>
+</div>
+<p>The platform produces work that humans sign and clients pay for. We move at the speed of getting it right, not at the speed of demos. Shipped code is reviewed by engineers, not by sprint cadence.</p>
+</li>
+<li class="how-item">
+<div class="pnum">03</div>
+<div>
+<h3>Small, senior, long-running teams.</h3>
+</div>
+<p>We hire experienced people, give them ownership, and keep teams small enough that everyone can hold the whole system in their head. Permanence over rotation. Depth over breadth of org chart.</p>
+</li>
+<li class="how-item">
+<div class="pnum">04</div>
+<div>
+<h3>Open formats. No proprietary lock.</h3>
+</div>
+<p>Builtly itself is built on open standards: IFC4, BCF, GeoJSON, Eurocode logic. The same applies internally — documents, infrastructure, communication. Nothing locked behind one vendor or one person.</p>
+</li>
+<li class="how-item">
+<div class="pnum">05</div>
+<div>
+<h3>Remote first. Deliberate in-person.</h3>
+</div>
+<p>The work is digital. The team is distributed. We meet in person several times per year for the kind of work that benefits from a whiteboard and a long table. The rest of the time, we work where we work best.</p>
+</li>
+</ol>
+</div>
+</section>
+
+<section class="section pos-section" id="open-roles">
+<div class="wrap">
+<div class="smark rv"><span class="num">§ 02</span><span>Open positions</span><span class="dash"></span><span>8 roles · across platform &amp; disciplines</span></div>
+<div class="pos-intro rv">
+<div>
+<h2 class="dpy-2">Open roles.</h2>
+</div>
+<p class="lead">We hire across the platform and across engineering disciplines. Every role is permanent, with a real ownership stake. If a role describes someone close to you but not exactly you — apply anyway. We hire for trajectory.</p>
+</div>
+
+<!-- Platform & Engineering -->
+<div class="pos-group rv">
+<div class="pos-head">
+<span class="tag accent">Platform &amp; Engineering</span>
+<h3>Software, AI and algorithmic engineering</h3>
+<span class="count">3 open</span>
+</div>
+<div class="pos-list rvs">
+<a href="mailto:careers@builtly.ai?subject=Senior%20Platform%20Engineer" class="pos-row">
+<div class="pos-title">
+<span class="pos-name">Senior Platform Engineer</span>
+<span class="pos-desc">Own the core platform infrastructure — multi-engine AI orchestration, BIM-native processing, geospatial systems, regulatory engine. Python at depth, system design, real production responsibility.</span>
+</div>
+<span class="pos-meta">Engineering</span>
+<span class="pos-type">Full-time · Remote</span>
+<span class="pos-arr">→</span>
+</a>
+<a href="mailto:careers@builtly.ai?subject=AI%20Engineer" class="pos-row">
+<div class="pos-title">
+<span class="pos-name">AI Engineer · Proprietary models</span>
+<span class="pos-desc">Build and tune the proprietary AI architecture behind Builtly. Multi-engine orchestration, regulation-constrained inference, vision-based parsing of engineering documents. Senior ML or research engineering background.</span>
+</div>
+<span class="pos-meta">AI / ML</span>
+<span class="pos-type">Full-time · Remote</span>
+<span class="pos-arr">→</span>
+</a>
+<a href="mailto:careers@builtly.ai?subject=Algorithmic%20Engineer" class="pos-row">
+<div class="pos-title">
+<span class="pos-name">Algorithmic Engineer · Mathematics</span>
+<span class="pos-desc">Lead the deterministic computation layer. Numerical geometry, structural mathematics, eurocode-grade physical models. Background in applied mathematics, computational engineering or computational physics.</span>
+</div>
+<span class="pos-meta">Mathematics</span>
+<span class="pos-type">Full-time · Remote</span>
+<span class="pos-arr">→</span>
+</a>
+</div>
+</div>
+
+<!-- Engineering Disciplines -->
+<div class="pos-group rv">
+<div class="pos-head">
+<span class="tag mid">Engineering disciplines</span>
+<h3>Professional engineers with regulatory authority</h3>
+<span class="count">4 open</span>
+</div>
+<div class="pos-list rvs">
+<a href="mailto:careers@builtly.ai?subject=Senior%20Engineer%20Geotechnics" class="pos-row">
+<div class="pos-title">
+<span class="pos-name">Senior Engineer · Geotechnics</span>
+<span class="pos-desc">Lead the GEO module under your professional regulatory authority. Quality-assure outputs, evolve the module against changing standards, sign attested deliverables. Eurocode-7 depth required.</span>
+</div>
+<span class="pos-meta">GEO module</span>
+<span class="pos-type">Senior · Hybrid</span>
+<span class="pos-arr">→</span>
+</a>
+<a href="mailto:careers@builtly.ai?subject=Senior%20Engineer%20Structural" class="pos-row">
+<div class="pos-title">
+<span class="pos-name">Senior Engineer · Structural</span>
+<span class="pos-desc">Lead the STR module under your regulatory authority. Steel, concrete, timber and composite expertise. Strong rationality-analysis intuition. Familiarity with BIM-driven structural workflows.</span>
+</div>
+<span class="pos-meta">STR module</span>
+<span class="pos-type">Senior · Hybrid</span>
+<span class="pos-arr">→</span>
+</a>
+<a href="mailto:careers@builtly.ai?subject=Senior%20Engineer%20Fire%20Safety" class="pos-row">
+<div class="pos-title">
+<span class="pos-name">Senior Engineer · Fire Safety</span>
+<span class="pos-desc">Lead the FIR module under your regulatory authority. Compartmentation, egress, fire-safety concept development across building typologies. Comfort with code interpretation across jurisdictions.</span>
+</div>
+<span class="pos-meta">FIR module</span>
+<span class="pos-type">Senior · Hybrid</span>
+<span class="pos-arr">→</span>
+</a>
+<a href="mailto:careers@builtly.ai?subject=Senior%20Engineer%20Acoustics" class="pos-row">
+<div class="pos-title">
+<span class="pos-name">Senior Engineer · Acoustics</span>
+<span class="pos-desc">Lead the ACO module under your regulatory authority. Building and room acoustics, sound-insulation calculations across standards. Cross-disciplinary collaboration on residential and commercial typologies.</span>
+</div>
+<span class="pos-meta">ACO module</span>
+<span class="pos-type">Senior · Hybrid</span>
+<span class="pos-arr">→</span>
+</a>
+</div>
+</div>
+
+<!-- Operations & Commercial -->
+<div class="pos-group rv">
+<div class="pos-head">
+<span class="tag">Operations &amp; Commercial</span>
+<h3>Building the operating backbone</h3>
+<span class="count">1 open</span>
+</div>
+<div class="pos-list rvs">
+<a href="mailto:careers@builtly.ai?subject=Head%20of%20Operations" class="pos-row">
+<div class="pos-title">
+<span class="pos-name">Head of Operations</span>
+<span class="pos-desc">Build the operating backbone — customer onboarding, delivery oversight, professional-engineer network coordination. Senior operating background in engineering services, consulting or AEC software.</span>
+</div>
+<span class="pos-meta">Operations</span>
+<span class="pos-type">Full-time · Hybrid</span>
+<span class="pos-arr">→</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section proc-section">
+<div class="wrap">
+<div class="smark rv"><span class="num">§ 03</span><span>The process</span><span class="dash"></span><span>How we hire</span></div>
+<div class="proc-top rv">
+<div>
+<h2 class="dpy-2" style="color:var(--dark-paper)">The process.</h2>
+</div>
+<p class="lead" style="color:rgba(247,244,237,0.86)">Four conversations. No technical hazing. No multi-week take-homes. We know your time is expensive, and so is ours. The process is built to give both sides enough signal to decide well — and nothing more.</p>
+</div>
+
+<div class="proc-grid rvs">
+<div class="proc-step">
+<div class="ix">§ Step 01</div>
+<div class="num">01</div>
+<h4>Application</h4>
+<p>Send a CV and a paragraph on why this role and why now. No cover letter. We read everything that comes in within five business days and respond either way.</p>
+</div>
+<div class="proc-step">
+<div class="ix">§ Step 02</div>
+<div class="num">02</div>
+<h4>Conversation</h4>
+<p>A 45-minute call with one of the principals — about your background, what you want from the next five years, and what Builtly actually is. No surprise interviews.</p>
+</div>
+<div class="proc-step">
+<div class="ix">§ Step 03</div>
+<div class="num">03</div>
+<h4>Technical depth</h4>
+<p>A working session with someone who would be your colleague — on a real Builtly problem. Two hours, paid, no homework. For engineering roles, this includes regulatory discussion.</p>
+</div>
+<div class="proc-step">
+<div class="ix">§ Step 04</div>
+<div class="num">04</div>
+<h4>Offer</h4>
+<p>Compensation, ownership and scope, in writing, within five business days of the technical session. References checked in parallel. Start date negotiated to your reality.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="insight-section">
+<div class="insight-inner rv">
+<div class="insight-quote">"We hire people who want to be here in <span class="accent">seven years</span> — doing better work than they were doing in year one."</div>
+<div class="insight-attr">— The hiring principle</div>
+</div>
+</section>
+
+<section class="cta-section" id="contact">
+<div class="wrap">
+<div class="smark rv"><span class="num">§ 04</span><span>Apply</span><span class="dash"></span><span>Or stay in touch</span></div>
+<div class="cta-grid">
+<div class="rv">
+<h2 class="dpy-1" style="font-size:clamp(36px,5vw,68px)">Don't see your role?</h2>
+<p class="lead" style="margin-top:32px;max-width:48ch">If you are senior, technical, and the principles above describe how you already work — send a note. We hire ahead of need when the right person appears, and we'd rather meet you early than perfectly on time.</p>
+<div class="cta-actions">
+<a href="mailto:careers@builtly.ai" class="btn">Send a note <span class="arr">→</span></a>
+<a href="#open-roles" class="btn btn-ghost">See open roles <span class="arr">↑</span></a>
+</div>
+</div>
+<div class="cta-side rv">
+<div class="row"><span class="k">Apply</span><span class="v">careers@builtly.ai</span></div>
+<div class="row"><span class="k">General</span><span class="v">contact@builtly.ai</span></div>
+<div class="row"><span class="k">Response</span><span class="v">Within 5 days</span></div>
+<div class="row"><span class="k">Confidential</span><span class="v">Always</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="footer-top">
+<div>
+<div class="f-brand"><span class="lm"></span>Builtly Engineering</div>
+<div class="f-tag">A unified platform for engineering consultancies. Mathematics · Physics · Geometry · AI</div>
+</div>
+<div class="f-col">
+<h5>Platform</h5>
+<ul>
+<li><a href="https://builtly.ai">Portal</a></li>
+<li><a href="/platform.html">Capabilities</a></li>
+<li><a href="/industries.html">Industries</a></li>
+<li><a href="/#delivery">Delivery models</a></li>
+<li><a href="/#pipeline">How it works</a></li>
+<li><a href="/#approach">Approach</a></li>
+</ul>
+</div>
+<div class="f-col">
+<h5>Company</h5>
+<ul>
+<li><a href="/about.html">About</a></li>
+<li><a href="/careers.html">Careers</a></li>
+<li><a href="/contact.html">Contact</a></li>
+<li><a href="/trust.html">Trust</a></li>
+</ul>
+</div>
+<div class="f-col">
+<h5>Connect</h5>
+<ul>
+<li>contact@builtly.ai</li>
+<li>builtly.ai</li>
+<li><a href="https://builtly.ai">Open portal</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bot">
+<span>© 2026 Builtly Engineering</span>
+<span>Built for engineering consultancies</span>
+</div>
+</div>
+</footer>
+
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.rv, .rvs').forEach(e=>e.classList.add('in'));
+    return;
+  }
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('in');obs.unobserve(entry.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.rv, .rvs').forEach(e=>obs.observe(e));
+})();
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+  link.addEventListener('click',function(e){
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();const top=t.getBoundingClientRect().top+window.pageYOffset-60;window.scrollTo({top,behavior:'smooth'});}
+  });
+});
+</script>
+<script>
+/* ============== HERO AMBIENT FLOCKING ==============
+   Small "structural element" line-segments drift with boid rules.
+   ~18% render in teal accent, scattering visual sparks through the flock.
+   Proximity triggers transient teal triangulation lines — FEM mesh /
+   truss assembly / structural connectivity references.
+   ==================================================== */
+(function(){
+  const canvas = document.getElementById('heroBgCanvas');
+  if (!canvas) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const ctx = canvas.getContext('2d');
+  let w = 0, h = 0;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize(){
+    const r = canvas.parentElement.getBoundingClientRect();
+    w = r.width; h = r.height;
+    canvas.width  = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', () => {
+    resize();
+    for (const p of agents) {
+      if (p.x > w) p.x = w * Math.random();
+      if (p.y > h) p.y = h * Math.random();
+    }
+  });
+
+  // Denser agent count for more activity
+  function targetCount(){
+    return Math.max(50, Math.min(140, Math.round((w*h)/11500)));
+  }
+
+  const VISION = 95;
+  const SEPARATION = 22;
+  const CONNECT_DIST = 70;
+  const MAX_SPEED = 0.6;
+  const MIN_SPEED = 0.18;
+
+  class Agent {
+    constructor(){
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      const a = Math.random() * Math.PI * 2;
+      const s = MIN_SPEED + Math.random() * 0.3;
+      this.vx = Math.cos(a) * s;
+      this.vy = Math.sin(a) * s;
+      this.len = 6 + Math.random() * 12;
+      this.tealAccent = Math.random() < 0.18;
+    }
+    step(others){
+      let cohX=0, cohY=0, cohN=0;
+      let aliX=0, aliY=0, aliN=0;
+      let sepX=0, sepY=0, sepN=0;
+
+      for (const o of others){
+        if (o === this) continue;
+        const dx = o.x - this.x;
+        const dy = o.y - this.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 < VISION*VISION){
+          cohX += o.x; cohY += o.y; cohN++;
+          aliX += o.vx; aliY += o.vy; aliN++;
+          if (d2 < SEPARATION*SEPARATION && d2 > 0){
+            const d = Math.sqrt(d2);
+            sepX -= dx/d; sepY -= dy/d; sepN++;
+          }
+        }
+      }
+
+      if (cohN > 0){
+        cohX = cohX/cohN - this.x;
+        cohY = cohY/cohN - this.y;
+        this.vx += cohX * 0.0006;
+        this.vy += cohY * 0.0006;
+      }
+      if (aliN > 0){
+        aliX /= aliN; aliY /= aliN;
+        this.vx += (aliX - this.vx) * 0.025;
+        this.vy += (aliY - this.vy) * 0.025;
+      }
+      if (sepN > 0){
+        this.vx += sepX * 0.04;
+        this.vy += sepY * 0.04;
+      }
+
+      this.vx += (Math.random() - 0.5) * 0.006;
+      this.vy += (Math.random() - 0.5) * 0.006;
+
+      const sp = Math.hypot(this.vx, this.vy);
+      if (sp > MAX_SPEED){
+        this.vx = this.vx/sp * MAX_SPEED;
+        this.vy = this.vy/sp * MAX_SPEED;
+      } else if (sp < MIN_SPEED && sp > 0){
+        this.vx = this.vx/sp * MIN_SPEED;
+        this.vy = this.vy/sp * MIN_SPEED;
+      }
+
+      this.x += this.vx;
+      this.y += this.vy;
+
+      const m = 20;
+      if (this.x < -m) this.x = w + m;
+      if (this.x > w + m) this.x = -m;
+      if (this.y < -m) this.y = h + m;
+      if (this.y > h + m) this.y = -m;
+    }
+  }
+
+  const agents = [];
+  function rebuild(){
+    const target = targetCount();
+    while (agents.length < target) agents.push(new Agent());
+    while (agents.length > target) agents.pop();
+  }
+  rebuild();
+  let lastResizeCheck = 0;
+
+  let running = true;
+  const obs = new IntersectionObserver(entries => {
+    running = entries[0].isIntersecting;
+  }, { threshold: 0.01 });
+  obs.observe(canvas);
+
+  const cd2 = CONNECT_DIST * CONNECT_DIST;
+
+  function frame(now){
+    requestAnimationFrame(frame);
+    if (!running) return;
+
+    if (now - lastResizeCheck > 2000){
+      rebuild();
+      lastResizeCheck = now;
+    }
+
+    ctx.clearRect(0, 0, w, h);
+
+    for (const p of agents) p.step(agents);
+
+    // Connections — drawn behind agents
+    ctx.lineCap = 'round';
+    ctx.lineWidth = 0.7;
+    for (let i = 0; i < agents.length; i++){
+      const a = agents[i];
+      for (let j = i+1; j < agents.length; j++){
+        const b = agents[j];
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 < cd2){
+          const k = 1 - Math.sqrt(d2)/CONNECT_DIST;
+          ctx.strokeStyle = 'rgba(20, 184, 166, ' + (k * 0.38).toFixed(3) + ')';
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Agents — mix of ink (82%) and teal (18%)
+    for (const p of agents){
+      const sp = Math.hypot(p.vx, p.vy) || 1;
+      const dx = (p.vx / sp) * p.len;
+      const dy = (p.vy / sp) * p.len;
+      if (p.tealAccent){
+        ctx.strokeStyle = 'rgba(20, 184, 166, 0.55)';
+        ctx.lineWidth = 1.3;
+      } else {
+        ctx.strokeStyle = 'rgba(19, 24, 32, 0.36)';
+        ctx.lineWidth = 1.05;
+      }
+      ctx.beginPath();
+      ctx.moveTo(p.x - dx*0.5, p.y - dy*0.5);
+      ctx.lineTo(p.x + dx*0.5, p.y + dy*0.5);
+      ctx.stroke();
+    }
+  }
+
+  requestAnimationFrame(frame);
+})();
+</script>
+
+<script>
+/* Language picker — UI only; full translations in preparation */
+(function(){
+  const picker = document.getElementById('langPicker');
+  const menu = document.getElementById('langMenu');
+  if (!picker || !menu) return;
+  const code = picker.querySelector('.lang-code');
+  const langNames = {en:'English', de:'Deutsch', sv:'Svenska', no:'Norsk', fi:'Suomi', da:'Dansk'};
+
+  let toast = document.getElementById('langToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'langToast';
+    toast.className = 'lang-toast';
+    toast.setAttribute('hidden', '');
+    document.body.appendChild(toast);
+  }
+
+  function setLang(lang, showNotice){
+    menu.querySelectorAll('.lang-option').forEach(o => o.classList.toggle('active', o.dataset.lang === lang));
+    code.textContent = lang.toUpperCase();
+    try { localStorage.setItem('builtly-lang', lang); } catch(e){}
+    if (showNotice && lang !== 'en') {
+      toast.innerHTML = '<span class="toast-accent">' + langNames[lang] + '</span> translation in preparation — site is currently displayed in English';
+      toast.removeAttribute('hidden');
+      requestAnimationFrame(() => toast.classList.add('show'));
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.setAttribute('hidden', ''), 400);
+      }, 4200);
+    }
+  }
+
+  picker.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = picker.getAttribute('aria-expanded') === 'true';
+    picker.setAttribute('aria-expanded', String(!open));
+    if (open) { menu.setAttribute('hidden',''); } else { menu.removeAttribute('hidden'); }
+  });
+
+  document.addEventListener('click', () => {
+    picker.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('hidden','');
+  });
+
+  menu.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const opt = e.target.closest('.lang-option');
+    if (!opt) return;
+    setLang(opt.dataset.lang, true);
+    picker.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('hidden','');
+  });
+
+  // Restore previous selection (visual only)
+  try {
+    const saved = localStorage.getItem('builtly-lang');
+    if (saved && saved !== 'en' && langNames[saved]) setLang(saved, false);
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
