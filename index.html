@@ -861,7 +861,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <section class="bim-section" id="bim-showcase">
 <div class="wrap">
 <div class="smark rv">
-<span class="num">Live</span><span>From BIM, in real time</span><span class="dash"></span><span data-i18n="sec.bim.tag">Saga Park · IFC4 · multi-block residential</span>
+<span class="num">Live</span><span data-i18n="sec.bim.live.label">From BIM, in real time</span><span class="dash"></span><span data-i18n="sec.bim.tag">Saga Park · IFC4 · multi-block residential</span>
 </div>
 <div class="bim-grid">
 <div class="bim-info rv">
@@ -974,27 +974,27 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
     <span class="bim-engine-total"><span id="algo-eng-total">0.0</span> <span class="bim-engine-total-unit">MNOK</span></span>
   </div>
   <div class="bim-engine-rows">
-    <div class="bim-eng-row" data-algo-stage="0">
+    <div class="bim-eng-row" data-algo-stage="0" data-savings-mnok="0.00">
       <span class="bim-eng-k" data-i18n="engine.algo.k.footprint">Footprint</span>
       <span class="bim-eng-q" data-target="1190" data-suffix=" m²" data-mode="int">0 m²</span>
       <span class="bim-eng-v algo-eng-info" data-i18n="engine.algo.d.footprint">tributærdomene · 15 søyler</span>
     </div>
-    <div class="bim-eng-row" data-algo-stage="1">
+    <div class="bim-eng-row" data-algo-stage="1" data-savings-mnok="0.05">
       <span class="bim-eng-k" data-i18n="engine.algo.k.seeds">Søyle-seeds</span>
       <span class="bim-eng-q" data-target="15" data-suffix=" posisjoner" data-mode="int">0 posisjoner</span>
       <span class="bim-eng-v algo-eng-info" data-i18n="engine.algo.d.seeds">O(n log n) · plan</span>
     </div>
-    <div class="bim-eng-row" data-algo-stage="2">
+    <div class="bim-eng-row" data-algo-stage="2" data-savings-mnok="0.10">
       <span class="bim-eng-k" data-i18n="engine.algo.k.cells">Voronoi-celler</span>
       <span class="bim-eng-q" data-target="15" data-suffix=" tributærceller" data-i18n-suffix="engine.algo.suffix.cells" data-mode="int">0 tributærceller</span>
       <span class="bim-eng-v algo-eng-info" data-target="79" data-suffix=" m² avg · 136 max" data-fmt="int">0 m² avg</span>
     </div>
-    <div class="bim-eng-row" data-algo-stage="3">
+    <div class="bim-eng-row" data-algo-stage="3" data-savings-mnok="0.15">
       <span class="bim-eng-k" data-i18n="engine.algo.k.load">Lastfordeling</span>
       <span class="bim-eng-q" data-target="5440" data-suffix=" kN max" data-mode="int">0 kN max</span>
       <span class="bim-eng-v algo-eng-info" data-target="47600" data-suffix=" kN total" data-fmt="int">0 kN total</span>
     </div>
-    <div class="bim-eng-row bim-eng-total-row" data-algo-stage="4">
+    <div class="bim-eng-row bim-eng-total-row" data-algo-stage="4" data-savings-mnok="0.10">
       <span class="bim-eng-k" data-i18n="engine.algo.k.foundation">Fundament · optimert</span>
       <span class="bim-eng-q" data-i18n="engine.algo.d.foundation">84 m³ · −42 t CO₂e</span>
       <span class="bim-eng-v" data-target="0.4" data-fmt="mnok-neg-big">−0.0 MNOK</span>
@@ -1390,7 +1390,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="module"><div class="dot"></div><div class="code">SUS</div><div class="nm">Sustainability</div><div class="ds">Pre-assessment, certification screening, documentation templates.</div></div>
 <div class="module"><div class="dot"></div><div class="code">TRA</div><div class="nm">Traffic</div><div class="ds">Volume, capacity, traffic impact assessment for planning.</div></div>
 <div class="module"><div class="dot"></div><div class="code">CRE</div><div class="nm">Bank &amp; lending</div><div class="ds">Credit basis, construction loan monitoring, portfolio risk.</div></div>
-<div class="module"><div class="dot"></div><div class="code">PKG</div><div class="nm">Country packs</div><div class="ds">Regulatory packs across seven jurisdictions, same platform.</div></div>
+<div class="module"><div class="dot"></div><div class="code">PKG</div><div class="nm" data-i18n="global.country_pack">Country packs</div><div class="ds">Regulatory packs across seven jurisdictions, same platform.</div></div>
 </div>
 </div>
 </div>
@@ -1398,7 +1398,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section del-section" id="delivery">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 05</span><span>Delivery Models</span><span class="dash"></span><span>Auto · Reviewed · Attested</span></div>
+<div class="smark rv"><span class="num">§ 05</span><span data-i18n="cta.delivery_models">Delivery Models</span><span class="dash"></span><span data-i18n="tier.auto_reviewed_attested">Auto · Reviewed · Attested</span></div>
 <div class="del-intro rv">
 <div>
 <h2 class="dpy-2">Three delivery levels.<br/>Three margins.<br/>One portal.</h2>
@@ -1408,7 +1408,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="del-grid rvs">
 <div class="del">
-<div class="tag"><span><span class="num">01</span> &nbsp; Level</span><span>Low-touch</span></div>
+<div class="tag"><span><span class="num">01</span> &nbsp; Level</span><span data-i18n="tier.low_touch">Low-touch</span></div>
 <div class="nm">Auto</div>
 <div class="sub">Fully automated · no wait</div>
 <p data-i18n="index.p.tierAuto" class="ds">AI generates the complete deliverable end-to-end. Used for climate risk, due-diligence screening, tender checklists and similar where the market accepts machine-produced output as decision basis.</p>
@@ -1421,7 +1421,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 
 <div class="del">
-<div class="tag"><span><span class="num">02</span> &nbsp; Level</span><span>Mid-touch</span></div>
+<div class="tag"><span><span class="num">02</span> &nbsp; Level</span><span data-i18n="tier.mid_touch">Mid-touch</span></div>
 <div class="nm">Reviewed</div>
 <div class="sub">Engineer-validated</div>
 <p data-i18n="index.p.tierReviewed" class="ds">AI produces the draft. A qualified engineer reviews, corrects and approves. Used for transaction-grade due diligence, sustainability pre-assessment and similar where professional judgment must underwrite the result.</p>
@@ -1434,7 +1434,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 
 <div class="del">
-<div class="tag"><span><span class="num">03</span> &nbsp; Level</span><span>High-touch</span></div>
+<div class="tag"><span><span class="num">03</span> &nbsp; Level</span><span data-i18n="tier.high_touch">High-touch</span></div>
 <div class="nm">Attested</div>
 <div class="sub">Signed with professional liability</div>
 <p data-i18n="index.p.tierAttested" class="ds">A qualified professional engineer with regulatory authority signs. Used for structural, geotechnical, fire, environmental and other deliverables where law, code or insurance requires a name behind the report. AI prepares; the engineer is accountable.</p>
@@ -1451,7 +1451,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="insight-section">
 <div class="insight-inner rv">
-<div class="insight-quote">"Let advisors advise. <span class="accent">Geometry, physics, mathematics and AI handle the rest.</span>"</div>
+<div class="insight-quote">"Let advisors advise. <span class="accent" data-i18n="cta.geo_phys_math">Geometry, physics, mathematics and AI handle the rest.</span>"</div>
 <div class="insight-attr">— The operating principle</div>
 </div>
 </section>
@@ -1510,7 +1510,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section tech-section" id="technology">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 07</span><span>Technology</span><span class="dash"></span><span class="on-dark" style="color:rgba(247,244,237,0.55)">Built for production</span></div>
+<div class="smark rv"><span class="num">§ 07</span><span>Technology</span><span class="dash"></span><span class="on-dark" style="color:rgba(247,244,237,0.55)" data-i18n="cta.built_for_production">Built for production</span></div>
 <div class="tech-head rv">
 <div>
 <h2 class="dpy-2" style="color:var(--dark-paper)">Not a prototype.<br/>Industrial software.</h2>
@@ -1533,7 +1533,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section gl-section" id="global">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 08</span><span>Global reach</span><span class="dash"></span><span>One platform · seven jurisdictions</span></div>
+<div class="smark rv"><span class="num">§ 08</span><span data-i18n="global.reach">Global reach</span><span class="dash"></span><span data-i18n="global.one_platform_seven">One platform · seven jurisdictions</span></div>
 <div class="gl-intro rv">
 <div>
 <h2 class="dpy-2">Same platform.<br/>Local regulation.</h2>
@@ -1542,18 +1542,18 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 
 <div class="gl-list rvs">
-<div class="gl-row"><span class="seal">01</span><span class="nm">Home market</span><span class="st-col"><span class="st live">Operational</span></span><span class="rg rg-col">National building code · planning law · cadastre · geological survey</span></div>
-<div class="gl-row"><span class="seal">02</span><span class="nm">Nordic markets</span><span class="st-col"><span class="st">Country pack</span></span><span class="rg rg-col">Regional codes · cross-border standards · land registries</span></div>
-<div class="gl-row"><span class="seal">03</span><span class="nm">United Kingdom</span><span class="st-col"><span class="st">Country pack</span></span><span class="rg rg-col">Building Safety Act · Building Regulations · Ordnance Survey</span></div>
-<div class="gl-row"><span class="seal">04</span><span class="nm">Germany</span><span class="st-col"><span class="st">Country pack</span></span><span class="rg rg-col">Landesbauordnungen · DIN standards · Bundesländer authorities</span></div>
-<div class="gl-row"><span class="seal">05</span><span class="nm">United States</span><span class="st-col"><span class="st">Country pack</span></span><span class="rg rg-col">IBC · ASTM · FEMA · USGS · regional code variants</span></div>
+<div class="gl-row"><span class="seal">01</span><span class="nm" data-i18n="global.home_market">Home market</span><span class="st-col"><span class="st live">Operational</span></span><span class="rg rg-col">National building code · planning law · cadastre · geological survey</span></div>
+<div class="gl-row"><span class="seal">02</span><span class="nm" data-i18n="global.nordic_markets">Nordic markets</span><span class="st-col"><span class="st">Country pack</span></span><span class="rg rg-col">Regional codes · cross-border standards · land registries</span></div>
+<div class="gl-row"><span class="seal">03</span><span class="nm" data-i18n="global.country.uk">United Kingdom</span><span class="st-col"><span class="st">Country pack</span></span><span class="rg rg-col">Building Safety Act · Building Regulations · Ordnance Survey</span></div>
+<div class="gl-row"><span class="seal">04</span><span class="nm" data-i18n="global.country.de">Germany</span><span class="st-col"><span class="st">Country pack</span></span><span class="rg rg-col">Landesbauordnungen · DIN standards · Bundesländer authorities</span></div>
+<div class="gl-row"><span class="seal">05</span><span class="nm" data-i18n="global.country.us">United States</span><span class="st-col"><span class="st">Country pack</span></span><span class="rg rg-col">IBC · ASTM · FEMA · USGS · regional code variants</span></div>
 </div>
 </div>
 </section>
 
 <section class="cta-section" id="contact">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 09</span><span>Portal</span><span class="dash"></span><span>Upload a file and see it work</span></div>
+<div class="smark rv"><span class="num">§ 09</span><span>Portal</span><span class="dash"></span><span data-i18n="cta.upload_file">Upload a file and see it work</span></div>
 <div class="cta-grid">
 <div class="rv">
 <h2 class="dpy-1" style="font-size:clamp(40px,5.4vw,76px)" data-i18n="index.portal.h2">The portal is live.</h2>
@@ -2201,10 +2201,11 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   const engineRowState = new Array(engineRows.length).fill(false);
 
   function fmtEngineV(target, fmt, val) {
-    if (fmt === 'mnok-neg') return '−' + val.toFixed(1) + ' MNOK';
-    if (fmt === 'mnok-pos') return '+' + val.toFixed(1) + ' MNOK';
-    if (fmt === 'mnok-big') return val.toFixed(1) + ' MNOK';
-    if (fmt === 'co2-neg')  return '−' + Math.round(val) + ' t';
+    var fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK) || function(v, s){ return (s||'') + v.toFixed(1) + ' MNOK'; };
+    if (fmt === 'mnok-neg')  return fm(val, '−');
+    if (fmt === 'mnok-pos')  return fm(val, '+');
+    if (fmt === 'mnok-big')  return fm(val, '');
+    if (fmt === 'co2-neg')   return '−' + Math.round(val) + ' t';
     return val.toString();
   }
   function fmtEngineQ(target, suffix, mode, val) {
@@ -2286,6 +2287,44 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       }
     }
   }
+  // Re-render all engine values on language change (NOK → € conversion)
+  function refreshBimEngineValues() {
+    var fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK) || function(v, s){ return (s||'') + v.toFixed(1) + ' MNOK'; };
+    var sumNok = 0;
+    var hasAnyRevealed = false;
+    engineRows.forEach(function(row, idx) {
+      if (!engineRowState[idx]) return;
+      hasAnyRevealed = true;
+      var vEl = row.querySelector('.bim-eng-v');
+      if (vEl && vEl.dataset.target && vEl.dataset.fmt) {
+        var target = parseFloat(vEl.dataset.target);
+        var fmt = vEl.dataset.fmt;
+        if (fmt === 'mnok-neg') { vEl.textContent = fm(target, '−'); sumNok += target; }
+        else if (fmt === 'mnok-pos') { vEl.textContent = fm(target, '+'); sumNok += target; }
+        else if (fmt === 'mnok-big') { vEl.textContent = fm(target, ''); /* total row */ }
+      }
+    });
+    engineTotalNOK = sumNok;
+    if (engineTotalEl && hasAnyRevealed) {
+      var totalText = fm(sumNok, '');
+      var parts = totalText.split(' ');
+      engineTotalEl.textContent = parts[0];
+      var unitEl = document.querySelector('#bim-engine .bim-engine-total-unit');
+      if (unitEl) unitEl.textContent = parts.slice(1).join(' ');
+    } else if (engineTotalEl) {
+      var zText = fm(0, '');
+      var zParts = zText.split(' ');
+      engineTotalEl.textContent = '0.0';
+      var unitEl2 = document.querySelector('#bim-engine .bim-engine-total-unit');
+      if (unitEl2) unitEl2.textContent = zParts.slice(1).join(' ') || 'MNOK';
+    }
+  }
+  if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) {
+    window.BUILTLY_I18N.onLangChange(refreshBimEngineValues);
+  } else {
+    setTimeout(function(){ if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) window.BUILTLY_I18N.onLangChange(refreshBimEngineValues); }, 600);
+  }
+
   function resetEngineRows() {
     engineRowState.fill(false);
     engineTotalNOK = 0;
@@ -2713,8 +2752,9 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   let algoLastStageIdx = -1;
 
   function algoFmtV(fmt, val, target) {
-    if (fmt === 'mnok-neutral')  return val.toFixed(1) + ' MNOK';
-    if (fmt === 'mnok-neg-big')  return '−' + val.toFixed(1) + ' MNOK';
+    var fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK) || function(v, s){ return (s||'') + v.toFixed(1) + ' MNOK'; };
+    if (fmt === 'mnok-neutral')  return fm(val, '');
+    if (fmt === 'mnok-neg-big')  return fm(val, '−');
     if (fmt === 'int') {
       const n = Math.round(val);
       const s = n >= 1000 ? n.toLocaleString('nb-NO').replace(/,/g, ' ').replace(/\u00a0/g, ' ') : n.toString();
@@ -2756,9 +2796,17 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
         ? (v) => algoFmtV('int', v, target) + suffix
         : (v) => algoFmtV(fmt, v, target);
       algoAnimateCounter(vEl, target, 900, formatter);
-      // Running total for MNOK rows (always positive savings contribution)
-      if (fmt === 'mnok-neutral' || fmt === 'mnok-neg-big') {
-        algoEngineTotalNOK += target;
+      // Running total — use data-savings-mnok for incremental accumulation,
+      // or fall back to v target for mnok-neutral/mnok-neg-big rows
+      let addNok = 0;
+      const savingsAttr = row.dataset.savingsMnok;
+      if (savingsAttr !== undefined) {
+        addNok = parseFloat(savingsAttr) || 0;
+      } else if (fmt === 'mnok-neutral' || fmt === 'mnok-neg-big') {
+        addNok = target;
+      }
+      if (addNok > 0) {
+        algoEngineTotalNOK += addNok;
         const newTarget = algoEngineTotalNOK;
         setTimeout(() => {
           if (algoTotalRaf) cancelAnimationFrame(algoTotalRaf);
@@ -2768,9 +2816,27 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
             const t = Math.min(1, (now - t0) / 700);
             const e = 1 - Math.pow(1 - t, 3);
             const v = startDisplay + (newTarget - startDisplay) * e;
-            if (algoEngineTotalEl) algoEngineTotalEl.textContent = v.toFixed(1);
+            if (algoEngineTotalEl) {
+              // Format using currency helper if available
+              const fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK)
+                ? window.BUILTLY_I18N.fmtMoneyMNOK(v, '').split(' ')
+                : [v.toFixed(1), 'MNOK'];
+              algoEngineTotalEl.textContent = fm[0];
+              const unitEl = document.querySelector('#algo-engine .bim-engine-total-unit');
+              if (unitEl) unitEl.textContent = fm.slice(1).join(' ');
+            }
             if (t < 1) algoTotalRaf = requestAnimationFrame(tStep);
-            else { if (algoEngineTotalEl) algoEngineTotalEl.textContent = newTarget.toFixed(1); algoTotalRaf = null; }
+            else { 
+              if (algoEngineTotalEl) {
+                const fm2 = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK)
+                  ? window.BUILTLY_I18N.fmtMoneyMNOK(newTarget, '').split(' ')
+                  : [newTarget.toFixed(1), 'MNOK'];
+                algoEngineTotalEl.textContent = fm2[0];
+                const unitEl = document.querySelector('#algo-engine .bim-engine-total-unit');
+                if (unitEl) unitEl.textContent = fm2.slice(1).join(' ');
+              }
+              algoTotalRaf = null; 
+            }
           }
           algoTotalRaf = requestAnimationFrame(tStep);
         }, 200);
@@ -2778,6 +2844,52 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     }
     setTimeout(() => row.classList.remove('computing'), 1200);
   }
+  function refreshAlgoEngineValues() {
+    var fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK) || function(v, s){ return (s||'') + v.toFixed(1) + ' MNOK'; };
+    var sumNok = 0;
+    var hasAnyRevealed = false;
+    algoEngineRows.forEach(function(row, idx) {
+      if (!algoEngineRowState[idx]) return;
+      hasAnyRevealed = true;
+      var vEl = row.querySelector('.bim-eng-v');
+      if (vEl && vEl.dataset.target && vEl.dataset.fmt) {
+        var target = parseFloat(vEl.dataset.target);
+        var fmt = vEl.dataset.fmt;
+        if (fmt === 'mnok-neutral') { vEl.textContent = fm(target, ''); }
+        else if (fmt === 'mnok-neg-big') { vEl.textContent = fm(target, '−'); }
+      }
+      // Use data-savings-mnok if present, otherwise the v target for MNOK rows
+      var savingsAttr = row.dataset.savingsMnok;
+      if (savingsAttr !== undefined) {
+        sumNok += parseFloat(savingsAttr) || 0;
+      } else if (vEl && vEl.dataset.target && vEl.dataset.fmt) {
+        var fmt2 = vEl.dataset.fmt;
+        if (fmt2 === 'mnok-neutral' || fmt2 === 'mnok-neg-big') {
+          sumNok += parseFloat(vEl.dataset.target) || 0;
+        }
+      }
+    });
+    algoEngineTotalNOK = sumNok;
+    if (algoEngineTotalEl && hasAnyRevealed) {
+      var totalText = fm(sumNok, '');
+      var parts = totalText.split(' ');
+      algoEngineTotalEl.textContent = parts[0];
+      var unitEl = document.querySelector('#algo-engine .bim-engine-total-unit');
+      if (unitEl) unitEl.textContent = parts.slice(1).join(' ');
+    } else if (algoEngineTotalEl) {
+      var zText = fm(0, '');
+      var zParts = zText.split(' ');
+      algoEngineTotalEl.textContent = '0.0';
+      var unitEl2 = document.querySelector('#algo-engine .bim-engine-total-unit');
+      if (unitEl2) unitEl2.textContent = zParts.slice(1).join(' ') || 'MNOK';
+    }
+  }
+  if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) {
+    window.BUILTLY_I18N.onLangChange(refreshAlgoEngineValues);
+  } else {
+    setTimeout(function(){ if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) window.BUILTLY_I18N.onLangChange(refreshAlgoEngineValues); }, 600);
+  }
+
   function algoResetEngineRows() {
     algoEngineRowState.fill(false);
     algoEngineTotalNOK = 0;
@@ -3256,9 +3368,10 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   const vertEngineState = new Array(vertEngineTiles.length).fill(false);
 
   function fmtVertV(fmt, val) {
-    if (fmt === 'mnok-neg') return '−' + val.toFixed(1) + ' MNOK';
-    if (fmt === 'mnok-pos') return '+' + val.toFixed(1) + ' MNOK';
-    if (fmt === 'mnok-big') return val.toFixed(1) + ' MNOK';
+    var fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK) || function(v, s){ return (s||'') + v.toFixed(1) + ' MNOK'; };
+    if (fmt === 'mnok-neg') return fm(val, '−');
+    if (fmt === 'mnok-pos') return fm(val, '+');
+    if (fmt === 'mnok-big') return fm(val, '');
     if (fmt === 'co2-neg')  return '−' + Math.round(val) + ' t';
     if (fmt === 'pct-pos')  return '+' + Math.round(val) + '%';
     return val.toString();
@@ -3362,6 +3475,45 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     }
     setTimeout(() => tile.classList.remove('computing'), 1300);
   }
+  function refreshVertEngineValues() {
+    var fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK) || function(v, s){ return (s||'') + v.toFixed(1) + ' MNOK'; };
+    var sumNok = 0;
+    var hasAnyRevealed = false;
+    vertEngineTiles.forEach(function(tile, idx) {
+      if (!vertEngineState[idx]) return;
+      hasAnyRevealed = true;
+      var vEl = tile.querySelector('.vert-eng-v');
+      if (vEl && vEl.dataset.target && vEl.dataset.fmt) {
+        var target = parseFloat(vEl.dataset.target);
+        var fmt = vEl.dataset.fmt;
+        if (fmt === 'mnok-neg') { vEl.textContent = fm(target, '−'); sumNok += target; }
+        else if (fmt === 'mnok-pos') { vEl.textContent = fm(target, '+'); sumNok += target; }
+        else if (fmt === 'mnok-big') { vEl.textContent = fm(target, ''); /* total tile, don't add */ }
+      }
+    });
+    // Sync internal accumulator
+    vertEngineTotalNOK = sumNok;
+    if (vertEngineTotalEl && hasAnyRevealed) {
+      var totalText = fm(sumNok, '');
+      var parts = totalText.split(' ');
+      vertEngineTotalEl.textContent = parts[0];
+      var unitEl = document.querySelector('#vert-engine .bim-engine-total-unit');
+      if (unitEl) unitEl.textContent = parts.slice(1).join(' ');
+    } else if (vertEngineTotalEl) {
+      // Nothing revealed yet — show 0 in correct currency format
+      var zText = fm(0, '');
+      var zParts = zText.split(' ');
+      vertEngineTotalEl.textContent = '0.0';
+      var unitEl2 = document.querySelector('#vert-engine .bim-engine-total-unit');
+      if (unitEl2) unitEl2.textContent = zParts.slice(1).join(' ') || 'MNOK';
+    }
+  }
+  if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) {
+    window.BUILTLY_I18N.onLangChange(refreshVertEngineValues);
+  } else {
+    setTimeout(function(){ if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) window.BUILTLY_I18N.onLangChange(refreshVertEngineValues); }, 600);
+  }
+
   function resetVertEngine() {
     vertEngineState.fill(false);
     vertEngineTotalNOK = 0;
