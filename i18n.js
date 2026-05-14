@@ -574,7 +574,16 @@
       "about.board.s2.bio": "Vegard holds an MSc from the Norwegian School of Economics and has spent his entire career in real estate and property development. He has extensive operational experience from both project management and executive roles, and has played a key role in delivering some of Norway's largest development projects. Today, he leads Byggteknikk Utvikling AS, which is jointly owned with the Svendsen family.",
       "about.board.s3.bio": "Pål Morten holds a BBA from Trondheim Business School and has worked in real estate since 2005. He has held several key roles in the Norwegian real estate industry, including as CEO and co-owner of HENT's real estate platform. He founded Bolig Norge and continues to lead the company, which is jointly owned with Fastighets AB Balder.",
       "about.board.s4.bio": "Magnus Svendsen is the CEO of Byggteknikk, a family office with investments across real estate, funds and technology. He has been an active angel investor in early-stage technology companies for more than 20 years, with investments including Tibber, Easee and Kiona. Magnus holds an MSc in Mechanical Engineering from NTNU, a Master's degree in Finance, and an MBA from the University of Newcastle, Australia.",
-      "about.board.s5.bio": "Kristian Nossum holds an engineering degree from Trondheim College of Engineering and has more than 30 years of experience from Skanska. He brings broad technical expertise across architecture, geotechnics, structural engineering, acoustics and building application processes. Kristian actively contributes to the development of Builtly's technical modules and quality-assures the platform's professional content."
+      "about.board.s5.bio": "Kristian Nossum holds an engineering degree from Trondheim College of Engineering and has more than 30 years of experience from Skanska. He brings broad technical expertise across architecture, geotechnics, structural engineering, acoustics and building application processes. Kristian actively contributes to the development of Builtly's technical modules and quality-assures the platform's professional content.",
+      "about.team.smark.num": "§ 05",
+      "about.team.smark.label": "Technical leadership",
+      "about.team.smark.tag": "Technical depth in daily operations",
+      "about.team.h2": "Technical<br/>leadership.",
+      "about.team.lede": "Builtly's professional backbone is established. The expertise that signs lies with people who have been in the industry for decades, with regulatory authority across multiple disciplines and deep insight into what actually gets produced.",
+      "about.team.k1.role": "Technical Director",
+      "about.team.k1.name": "Kristian Nossum",
+      "about.team.k1.status": "Technical Director",
+      "about.team.k1.bio": "Kristian Nossum holds an engineering degree from Trondheim College of Engineering and has more than 30 years of experience from Skanska. He brings broad technical expertise across architecture, geotechnics, structural engineering, acoustics and building application processes. Kristian actively contributes to the development of Builtly's technical modules and quality-assures the platform's professional content."
     },
     no: {
       "nav.platform":            "Plattform",
@@ -1140,7 +1149,16 @@
       "about.board.s2.bio": "Vegard har en MSc fra Norges Handelshøyskole og har hele sin karriere jobbet innen eiendom og eiendomsutvikling. Han har bred operativ erfaring fra både prosjektleder- og lederroller, og har vært sentral i gjennomføringen av flere av Norges største utviklingsprosjekter. I dag leder han Byggteknikk Utvikling AS, som eies i fellesskap med familien Svendsen.",
       "about.board.s3.bio": "Pål Morten har en BBA fra Handelshøyskolen i Trondheim og har arbeidet med eiendom siden 2005. Han har hatt flere sentrale roller i norsk eiendomsbransje, blant annet som daglig leder og medeier i HENTs eiendomssatsing. Han etablerte Bolig Norge og leder fortsatt selskapet, som eies i fellesskap med Fastighets AB Balder.",
       "about.board.s4.bio": "Magnus Svendsen er daglig leder i Byggteknikk, et familieselskap med investeringer innen eiendom, fond og teknologi. Han har også vært en aktiv engleinvestor i tidligfase teknologiselskaper i over 20 år, med investeringer i blant annet Tibber, Easee og Kiona. Magnus har sivilingeniørgrad i maskinteknikk fra NTNU, mastergrad i finans og MBA fra University of Newcastle i Australia.",
-      "about.board.s5.bio": "Kristian Nossum er utdannet ingeniør fra Trondheim tekniske høgskole og har over 30 års erfaring fra Skanska. Han har en sjelden bredde i teknisk kompetanse, med erfaring fra ansvarsrett innen seks fagområder: ARK, GEO, RIG, RIB, RIAKU og SØK. Kristian bidrar aktivt til utviklingen av Builtlys tekniske moduler og kvalitetssikrer plattformens faglige innhold."
+      "about.board.s5.bio": "Kristian Nossum er utdannet ingeniør fra Trondheim tekniske høgskole og har over 30 års erfaring fra Skanska. Han har en sjelden bredde i teknisk kompetanse, med erfaring fra ansvarsrett innen seks fagområder: ARK, GEO, RIG, RIB, RIAKU og SØK. Kristian bidrar aktivt til utviklingen av Builtlys tekniske moduler og kvalitetssikrer plattformens faglige innhold.",
+      "about.team.smark.num": "§ 05",
+      "about.team.smark.label": "Faglig ledelse",
+      "about.team.smark.tag": "Teknisk dybde i daglig drift",
+      "about.team.h2": "Faglig<br/>ledelse.",
+      "about.team.lede": "Builtlys faglige ryggrad er etablert. Ekspertisen som signerer ligger hos personer som har vært i bransjen i flere tiår, med ansvarsrett på flere fagområder og dyp innsikt i hva som faktisk produseres.",
+      "about.team.k1.role": "Faglig leder",
+      "about.team.k1.name": "Kristian Nossum",
+      "about.team.k1.status": "Faglig leder",
+      "about.team.k1.bio": "Kristian Nossum er utdannet ingeniør fra Trondheim tekniske høgskole og har over 30 års erfaring fra Skanska. Han har en sjelden bredde i teknisk kompetanse, med erfaring fra ansvarsrett innen seks fagområder: ARK, GEO, RIG, RIB, RIAKU og SØK. Kristian bidrar aktivt til utviklingen av Builtlys tekniske moduler og kvalitetssikrer plattformens faglige innhold."
     },
     sv: {
       "nav.platform":            "Plattform",
@@ -1706,7 +1724,16 @@
       "about.board.s2.bio": "Vegard har en MSc från Norges Handelshögskola och har hela sin karriär arbetat inom fastigheter och fastighetsutveckling. Han har omfattande operativ erfarenhet från både projektledning och ledningsroller och har spelat en nyckelroll i några av Norges största utvecklingsprojekt. Idag leder han Byggteknikk Utvikling AS, som ägs gemensamt med familjen Svendsen.",
       "about.board.s3.bio": "Pål Morten har en BBA från Trondheim Business School och har arbetat inom fastigheter sedan 2005. Han har haft flera nyckelroller i den norska fastighetsbranschen, bland annat som VD och delägare av HENT:s fastighetsplattform. Han grundade Bolig Norge och leder fortfarande bolaget, som ägs gemensamt med Fastighets AB Balder.",
       "about.board.s4.bio": "Magnus Svendsen är VD för Byggteknikk, ett familjeföretag med investeringar inom fastigheter, fonder och teknik. Han har varit en aktiv ängelinvesterare i tidiga teknikbolag i över 20 år, med investeringar bland annat i Tibber, Easee och Kiona. Magnus har en civilingenjörsexamen i maskinteknik från NTNU, masterexamen i finans och en MBA från University of Newcastle i Australien.",
-      "about.board.s5.bio": "Kristian Nossum är utbildad ingenjör från Trondheim tekniska högskola och har över 30 års erfarenhet från Skanska. Han har en sällsynt bredd i teknisk kompetens, med erfarenhet från ansvarsrätt inom sex fackområden: arkitektur, geoteknik, konstruktion, akustik och bygglovsprocesser. Kristian bidrar aktivt till utvecklingen av Builtlys tekniska moduler och kvalitetssäkrar plattformens fackinnehåll."
+      "about.board.s5.bio": "Kristian Nossum är utbildad ingenjör från Trondheim tekniska högskola och har över 30 års erfarenhet från Skanska. Han har en sällsynt bredd i teknisk kompetens, med erfarenhet från ansvarsrätt inom sex fackområden: arkitektur, geoteknik, konstruktion, akustik och bygglovsprocesser. Kristian bidrar aktivt till utvecklingen av Builtlys tekniska moduler och kvalitetssäkrar plattformens fackinnehåll.",
+      "about.team.smark.num": "§ 05",
+      "about.team.smark.label": "Teknisk ledning",
+      "about.team.smark.tag": "Teknisk djup i daglig drift",
+      "about.team.h2": "Teknisk<br/>ledning.",
+      "about.team.lede": "Builtlys fackliga ryggrad är etablerad. Expertisen som signerar finns hos personer som har varit i branschen i decennier, med ansvarsrätt över flera fackområden och djup insikt i vad som faktiskt produceras.",
+      "about.team.k1.role": "Teknisk direktör",
+      "about.team.k1.name": "Kristian Nossum",
+      "about.team.k1.status": "Teknisk direktör",
+      "about.team.k1.bio": "Kristian Nossum är utbildad ingenjör från Trondheim tekniska högskola och har över 30 års erfarenhet från Skanska. Han har en sällsynt bredd i teknisk kompetens, med erfarenhet från ansvarsrätt inom sex fackområden: arkitektur, geoteknik, konstruktion, akustik och bygglovsprocesser. Kristian bidrar aktivt till utvecklingen av Builtlys tekniska moduler och kvalitetssäkrar plattformens fackinnehåll."
     },
     da: {
       "nav.platform":            "Platform",
@@ -2272,7 +2299,16 @@
       "about.board.s2.bio": "Vegard har en MSc fra Norges Handelshøjskole og har hele sin karriere arbejdet inden for ejendom og ejendomsudvikling. Han har omfattende operationel erfaring fra både projektledelse og lederroller og har spillet en nøglerolle i flere af Norges største udviklingsprojekter. I dag leder han Byggteknikk Utvikling AS, som ejes i fællesskab med familien Svendsen.",
       "about.board.s3.bio": "Pål Morten har en BBA fra Trondheim Business School og har arbejdet inden for ejendom siden 2005. Han har haft flere nøgleroller i den norske ejendomsbranche, herunder som CEO og medejer af HENT's ejendomsplatform. Han grundlagde Bolig Norge og leder fortsat selskabet, som ejes i fællesskab med Fastighets AB Balder.",
       "about.board.s4.bio": "Magnus Svendsen er CEO i Byggteknikk, et familieselskab med investeringer inden for ejendom, fonde og teknologi. Han har været en aktiv business angel i tidlige teknologiselskaber i over 20 år, med investeringer i blandt andet Tibber, Easee og Kiona. Magnus har en civilingeniørgrad i maskinteknik fra NTNU, en mastergrad i finans og en MBA fra University of Newcastle i Australien.",
-      "about.board.s5.bio": "Kristian Nossum er uddannet ingeniør fra Trondheim tekniske højskole og har over 30 års erfaring fra Skanska. Han har en sjælden bredde i teknisk kompetence, med erfaring fra fagligt ansvar inden for seks fagområder: arkitektur, geoteknik, konstruktion, akustik og byggesagsbehandling. Kristian bidrager aktivt til udviklingen af Builtlys tekniske moduler og kvalitetssikrer platformens faglige indhold."
+      "about.board.s5.bio": "Kristian Nossum er uddannet ingeniør fra Trondheim tekniske højskole og har over 30 års erfaring fra Skanska. Han har en sjælden bredde i teknisk kompetence, med erfaring fra fagligt ansvar inden for seks fagområder: arkitektur, geoteknik, konstruktion, akustik og byggesagsbehandling. Kristian bidrager aktivt til udviklingen af Builtlys tekniske moduler og kvalitetssikrer platformens faglige indhold.",
+      "about.team.smark.num": "§ 05",
+      "about.team.smark.label": "Teknisk ledelse",
+      "about.team.smark.tag": "Teknisk dybde i daglig drift",
+      "about.team.h2": "Teknisk<br/>ledelse.",
+      "about.team.lede": "Builtlys faglige rygrad er etableret. Ekspertisen der underskriver ligger hos personer der har været i branchen i årtier, med fagligt ansvar inden for flere fagområder og dyb indsigt i hvad der faktisk produceres.",
+      "about.team.k1.role": "Teknisk direktør",
+      "about.team.k1.name": "Kristian Nossum",
+      "about.team.k1.status": "Teknisk direktør",
+      "about.team.k1.bio": "Kristian Nossum er uddannet ingeniør fra Trondheim tekniske højskole og har over 30 års erfaring fra Skanska. Han har en sjælden bredde i teknisk kompetence, med erfaring fra fagligt ansvar inden for seks fagområder: arkitektur, geoteknik, konstruktion, akustik og byggesagsbehandling. Kristian bidrager aktivt til udviklingen af Builtlys tekniske moduler og kvalitetssikrer platformens faglige indhold."
     },
     fi: {
       "nav.platform":            "Alusta",
@@ -2838,7 +2874,16 @@
       "about.board.s2.bio": "Vegardilla on MSc-tutkinto Norjan kauppakorkeakoulusta, ja hän on viettänyt koko uransa kiinteistö- ja kiinteistökehitysalalla. Hänellä on laaja operatiivinen kokemus sekä projektijohto- että johtotehtävistä, ja hän on ollut keskeisessä roolissa useissa Norjan suurimmissa kehityshankkeissa. Tällä hetkellä hän johtaa Byggteknikk Utvikling AS:ää, joka on yhteisomisteinen Svendsen-perheen kanssa.",
       "about.board.s3.bio": "Pål Morten on suorittanut BBA-tutkinnon Trondheimin kauppakorkeakoulusta ja työskennellyt kiinteistöalalla vuodesta 2005. Hän on ollut useissa keskeisissä rooleissa Norjan kiinteistöalalla, mukaan lukien HENT:n kiinteistöalustan toimitusjohtajana ja osaomistajana. Hän perusti Bolig Norgen ja johtaa edelleen yhtiötä, joka on yhteisomisteinen Fastighets AB Balderin kanssa.",
       "about.board.s4.bio": "Magnus Svendsen on Byggteknikkin toimitusjohtaja. Byggteknikk on perheyhtiö, jolla on sijoituksia kiinteistöihin, rahastoihin ja teknologiaan. Hän on ollut aktiivinen enkelisijoittaja varhaisen vaiheen teknologiayrityksissä yli 20 vuotta, sijoituksiinsa kuuluvat muun muassa Tibber, Easee ja Kiona. Magnusilla on diplomi-insinöörin tutkinto konetekniikasta NTNU:sta, maisterintutkinto rahoituksesta ja MBA Newcastlen yliopistosta Australiasta.",
-      "about.board.s5.bio": "Kristian Nossum on suorittanut insinöörin tutkinnon Trondheimin teknisestä korkeakoulusta ja hänellä on yli 30 vuoden kokemus Skanskasta. Hänellä on harvinaisen laaja tekninen osaaminen, kokemusta vastuuoikeudesta kuudella aihealueella: arkkitehtuuri, geotekniikka, rakennesuunnittelu, akustiikka ja rakennushakemus­prosessit. Kristian osallistuu aktiivisesti Builtlyn teknisten moduulien kehittämiseen ja varmistaa alustan ammattisisällön laadun."
+      "about.board.s5.bio": "Kristian Nossum on suorittanut insinöörin tutkinnon Trondheimin teknisestä korkeakoulusta ja hänellä on yli 30 vuoden kokemus Skanskasta. Hänellä on harvinaisen laaja tekninen osaaminen, kokemusta vastuuoikeudesta kuudella aihealueella: arkkitehtuuri, geotekniikka, rakennesuunnittelu, akustiikka ja rakennushakemus­prosessit. Kristian osallistuu aktiivisesti Builtlyn teknisten moduulien kehittämiseen ja varmistaa alustan ammattisisällön laadun.",
+      "about.team.smark.num": "§ 05",
+      "about.team.smark.label": "Tekninen johto",
+      "about.team.smark.tag": "Tekninen syvyys päivittäisessä toiminnassa",
+      "about.team.h2": "Tekninen<br/>johto.",
+      "about.team.lede": "Builtlyn ammatillinen selkäranka on rakennettu. Allekirjoittava asiantuntemus on henkilöillä, jotka ovat olleet alalla vuosikymmeniä, vastuuoikeuksilla useilla aihealueilla ja syvällä ymmärryksellä siitä, mitä todella tuotetaan.",
+      "about.team.k1.role": "Tekninen johtaja",
+      "about.team.k1.name": "Kristian Nossum",
+      "about.team.k1.status": "Tekninen johtaja",
+      "about.team.k1.bio": "Kristian Nossum on suorittanut insinöörin tutkinnon Trondheimin teknisestä korkeakoulusta ja hänellä on yli 30 vuoden kokemus Skanskasta. Hänellä on harvinaisen laaja tekninen osaaminen, kokemusta vastuuoikeudesta kuudella aihealueella: arkkitehtuuri, geotekniikka, rakennesuunnittelu, akustiikka ja rakennushakemus­prosessit. Kristian osallistuu aktiivisesti Builtlyn teknisten moduulien kehittämiseen ja varmistaa alustan ammattisisällön laadun."
     },
     de: {
       "nav.platform":            "Plattform",
@@ -3404,7 +3449,16 @@
       "about.board.s2.bio": "Vegard hat einen MSc der Norwegian School of Economics und ist seit Beginn seiner Karriere in Immobilien und Projektentwicklung tätig. Er verfügt über umfangreiche operative Erfahrung sowohl aus Projektleitungs- als auch aus Führungsrollen und war an einigen der größten Entwicklungsprojekte Norwegens maßgeblich beteiligt. Heute leitet er Byggteknikk Utvikling AS, das gemeinsam mit der Familie Svendsen gehört.",
       "about.board.s3.bio": "Pål Morten hat einen BBA der Trondheim Business School und ist seit 2005 in der Immobilienbranche tätig. Er hat mehrere Schlüsselrollen in der norwegischen Immobilienbranche innegehabt, unter anderem als CEO und Miteigentümer der Immobilienplattform von HENT. Er gründete Bolig Norge und leitet das Unternehmen weiterhin, das gemeinsam mit Fastighets AB Balder gehört.",
       "about.board.s4.bio": "Magnus Svendsen ist CEO von Byggteknikk, einem Family Office mit Investitionen in Immobilien, Fonds und Technologie. Er ist seit über 20 Jahren aktiver Angel-Investor in Frühphasen-Technologieunternehmen, mit Investments unter anderem in Tibber, Easee und Kiona. Magnus hat einen MSc in Maschinenbau von der NTNU, einen Master in Finance und einen MBA von der University of Newcastle in Australien.",
-      "about.board.s5.bio": "Kristian Nossum hat einen Ingenieurabschluss vom Trondheim College of Engineering und über 30 Jahre Erfahrung bei Skanska. Er bringt eine seltene Breite an technischer Expertise mit, mit Erfahrung aus Verantwortlichkeitsrechten in sechs Fachbereichen: Architektur, Geotechnik, Tragwerksplanung, Akustik und Bauantragsverfahren. Kristian trägt aktiv zur Entwicklung der technischen Module von Builtly bei und stellt die fachliche Qualität der Plattform sicher."
+      "about.board.s5.bio": "Kristian Nossum hat einen Ingenieurabschluss vom Trondheim College of Engineering und über 30 Jahre Erfahrung bei Skanska. Er bringt eine seltene Breite an technischer Expertise mit, mit Erfahrung aus Verantwortlichkeitsrechten in sechs Fachbereichen: Architektur, Geotechnik, Tragwerksplanung, Akustik und Bauantragsverfahren. Kristian trägt aktiv zur Entwicklung der technischen Module von Builtly bei und stellt die fachliche Qualität der Plattform sicher.",
+      "about.team.smark.num": "§ 05",
+      "about.team.smark.label": "Technische Leitung",
+      "about.team.smark.tag": "Technische Tiefe im täglichen Betrieb",
+      "about.team.h2": "Technische<br/>Leitung.",
+      "about.team.lede": "Builtlys fachliches Rückgrat ist etabliert. Die unterzeichnende Expertise liegt bei Personen, die seit Jahrzehnten in der Branche tätig sind, mit Verantwortlichkeitsrechten in mehreren Fachbereichen und tiefem Einblick in das, was tatsächlich produziert wird.",
+      "about.team.k1.role": "Technischer Leiter",
+      "about.team.k1.name": "Kristian Nossum",
+      "about.team.k1.status": "Technischer Leiter",
+      "about.team.k1.bio": "Kristian Nossum hat einen Ingenieurabschluss vom Trondheim College of Engineering und über 30 Jahre Erfahrung bei Skanska. Er bringt eine seltene Breite an technischer Expertise mit, mit Erfahrung aus Verantwortlichkeitsrechten in sechs Fachbereichen: Architektur, Geotechnik, Tragwerksplanung, Akustik und Bauantragsverfahren. Kristian trägt aktiv zur Entwicklung der technischen Module von Builtly bei und stellt die fachliche Qualität der Plattform sicher."
     }
   };
 

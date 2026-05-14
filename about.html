@@ -136,10 +136,9 @@ a{color:inherit;text-decoration:none}
 
 
 /* BOARD SEATS — 4-up with photos and bios */
-.seats-5{grid-template-columns:repeat(5,1fr) !important}
-@media (max-width:1400px){.seats-5{grid-template-columns:repeat(3,1fr) !important}}
-@media (max-width:900px){.seats-5{grid-template-columns:repeat(2,1fr) !important}}
-@media (max-width:600px){.seats-5{grid-template-columns:1fr !important}}
+.seats-4{grid-template-columns:repeat(4,1fr) !important}
+@media (max-width:1200px){.seats-4{grid-template-columns:repeat(2,1fr) !important}}
+@media (max-width:600px){.seats-4{grid-template-columns:1fr !important}}
 .seat-with-photo{min-height:auto;padding:clamp(24px,2.6vw,32px)}
 .seat-photo{width:100%;aspect-ratio:1/1;background:var(--bg-soft);border-radius:2px;overflow:hidden;margin-bottom:clamp(20px,2.4vw,28px);position:relative}
 .seat-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.05)}
@@ -421,6 +420,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .r-foot{margin-top:24px;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);font-weight:500;display:flex;align-items:center;gap:10px}
 .r-foot .seal{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
 @media (max-width:760px){.discretion-grid{grid-template-columns:1fr;gap:24px}.redacted-list{max-width:100%}}
+
+
+/* TECHNICAL LEADERSHIP — single seat card sized to match board seats */
+.employee-section{background:var(--bg)}
+.seats-1{display:grid !important;grid-template-columns:1fr !important;background:transparent !important;border:none !important;gap:0 !important;max-width:320px}
+.seats-1 .seat{border:1px solid var(--line-strong)}
+@media (max-width:600px){.seats-1{max-width:100%}}
 </style>
 </head>
 <body>
@@ -615,7 +621,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <p class="lead" data-i18n-html="about.s04.lede">An independent board is being assembled to provide governance through the platform's growth phase. Composition is being structured around financial discipline, regulatory authority, and operational deployment across the markets the firm serves.</p>
 </div>
 
-<div class="seats seats-5 rvs">
+<div class="seats seats-4 rvs">
 <article class="seat seat-with-photo">
 <div class="seat-photo seat-photo-initials"><span>ES</span></div>
 <div class="role"><span data-i18n="about.seat.role.chair">Chair</span><span class="ix">01</span></div>
@@ -647,13 +653,23 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="seat-status" data-i18n="about.board.s4.status">Board Member</div>
 <p class="seat-bio" data-i18n="about.board.s4.bio">Magnus Svendsen is the CEO of Byggteknikk, a family office with investments across real estate, funds and technology. He has been an active angel investor in early-stage technology companies for more than 20 years, with investments including Tibber, Easee and Kiona. Magnus holds an MSc in Mechanical Engineering from NTNU, a Master's degree in Finance, and an MBA from the University of Newcastle, Australia.</p>
 </article>
+</div>
+</div>
+</section>
 
+<section class="section employee-section" id="team">
+<div class="inner">
+<div class="smark"><span class="num" data-i18n="about.team.smark.num">§ 05</span><span data-i18n="about.team.smark.label">Faglig ledelse</span><span class="dash"></span><span data-i18n="about.team.smark.tag">Teknisk dybde i daglig drift</span></div>
+<h2 class="dpy-2" data-i18n-html="about.team.h2">Faglig<br/>ledelse.</h2>
+<p class="lead" data-i18n="about.team.lede">Builtlys faglige ryggrad er etablert. Ekspertisen som signerer ligger hos personer som har vært i bransjen i flere tiår, med ansvar i flere fag og dyp innsikt i hva som faktisk produseres.</p>
+
+<div class="seats seats-1 rvs">
 <article class="seat seat-with-photo">
 <div class="seat-photo"><img src="photos/kristian-nossum.png" alt="Kristian Nossum" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.tech">Technical Director</span><span class="ix">05</span></div>
-<h3 class="seat-title" data-i18n="about.board.s5.name">Kristian Nossum</h3>
-<div class="seat-status" data-i18n="about.board.s5.status">Technical Director</div>
-<p class="seat-bio" data-i18n="about.board.s5.bio">Kristian Nossum holds an engineering degree from Trondheim College of Engineering and has more than 30 years of experience from Skanska. He brings broad technical expertise across architecture, geotechnics, structural engineering, acoustics and building application processes. Kristian actively contributes to the development of Builtly's technical modules and quality-assures the platform's professional content.</p>
+<div class="role"><span data-i18n="about.team.k1.role">Technical Director</span><span class="ix">01</span></div>
+<h3 class="seat-title" data-i18n="about.team.k1.name">Kristian Nossum</h3>
+<div class="seat-status" data-i18n="about.team.k1.status">Technical Director</div>
+<p class="seat-bio" data-i18n="about.team.k1.bio">Kristian Nossum holds an engineering degree from Trondheim College of Engineering and has more than 30 years of experience from Skanska. He brings broad technical expertise across architecture, geotechnics, structural engineering, acoustics and building application processes. Kristian actively contributes to the development of Builtly's technical modules and quality-assures the platform's professional content.</p>
 </article>
 </div>
 </div>
