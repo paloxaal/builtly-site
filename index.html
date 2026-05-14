@@ -694,6 +694,70 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 }
 
 /* ===========================================================================
+ * Decision Dashboard — consolidated project view (§ 06)
+ * Project tabs + 4-quadrant grid (Engineering / Economics / Compliance / Carbon)
+ * + Verdict card. Auto-cycles through projects; manual tab override pauses.
+ * =========================================================================== */
+.dash-section{padding:clamp(72px,10vh,128px) 0;background:var(--bg-soft)}
+.dash-section .smark{margin-bottom:clamp(40px,5vh,72px)}
+.dash-intro{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,5vw,80px);margin-bottom:clamp(48px,6vh,80px);align-items:start}
+.dash-intro .lead{font-family:var(--font-body);font-size:clamp(16px,1.4vw,18px);color:var(--ink-soft);line-height:1.55;max-width:62ch}
+.dash-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:clamp(28px,3.5vh,40px);background:var(--line-strong);border:1px solid var(--line-strong)}
+.dash-tab{background:var(--bg);border:none;padding:18px 22px;text-align:left;cursor:pointer;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;gap:2px 14px;font-family:inherit;color:inherit;transition:background 0.2s ease;position:relative}
+.dash-tab:hover{background:var(--bg-warm)}
+.dash-tab.active{background:var(--ink);color:var(--dark-paper)}
+.dash-tab .ix{grid-row:1/3;grid-column:1;font-family:var(--font-mono);font-size:11px;color:var(--mid);align-self:center;letter-spacing:0.14em}
+.dash-tab.active .ix{color:var(--dark-paper);opacity:0.5}
+.dash-tab .nm{grid-row:1;grid-column:2;font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:-0.01em}
+.dash-tab .meta{grid-row:2;grid-column:2;font-family:var(--font-mono);font-size:10.5px;color:var(--mid);letter-spacing:0.06em;text-transform:uppercase}
+.dash-tab.active .meta{color:var(--dark-paper);opacity:0.5}
+.dash-tab .phase{grid-row:3;grid-column:1/3;margin-top:8px;font-family:var(--font-mono);font-size:10px;color:var(--accent-soft);text-transform:uppercase;letter-spacing:0.16em;font-weight:500}
+.dash-tab.active .phase{color:var(--accent-bright)}
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-bottom:clamp(28px,3.5vh,40px)}
+.quad{background:var(--bg);padding:22px 24px 18px;min-height:220px}
+.quad-head{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:baseline;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.quad-num{font-family:var(--font-mono);font-size:11px;color:var(--mid);letter-spacing:0.14em}
+.quad-title{font-family:var(--font-display);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em}
+.quad-meta{font-family:var(--font-mono);font-size:10.5px;color:var(--mid);letter-spacing:0.06em;text-transform:uppercase}
+.quad-body{display:grid;gap:11px}
+.qrow{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:baseline;padding:6px 0;font-family:var(--font-mono);font-size:12.5px}
+.qrow .qrow-k{color:var(--ink-soft)}
+.qrow .qrow-v{color:var(--ink);font-weight:600;text-align:right;letter-spacing:-0.005em}
+.qrow .qrow-d{font-size:10.5px;color:var(--mid);letter-spacing:0.04em;text-align:right;min-width:80px}
+.qrow .qrow-d.good{color:var(--accent-soft);font-weight:600}
+.qrow .qrow-d.neutral{color:var(--mid)}
+.qrow .qrow-d.warn{color:#d97706;font-weight:600}
+.qrow-status{display:inline-flex;align-items:center;gap:6px}
+.qrow-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+.qrow-status.ok::before{background:var(--accent)}
+.qrow-status.warn::before{background:#f59e0b}
+.qrow-status.fail::before{background:#dc2626}
+.dash-verdict{background:var(--ink);color:var(--dark-paper);padding:clamp(28px,4vh,40px) clamp(28px,4vw,48px);display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,4vw,48px);align-items:center;border:1px solid var(--ink)}
+.verdict-row{display:flex;flex-direction:column;gap:4px}
+.verdict-label{font-family:var(--font-mono);font-size:11px;color:var(--dark-paper);opacity:0.5;text-transform:uppercase;letter-spacing:0.18em}
+.verdict-value{font-family:var(--font-display);font-size:clamp(44px,5vw,64px);font-weight:600;letter-spacing:-0.025em;color:var(--accent-bright);line-height:1}
+.verdict-desc{font-family:var(--font-mono);font-size:13px;line-height:1.55;color:var(--dark-paper);opacity:0.78;max-width:64ch}
+@media (max-width:900px){
+  .dash-intro{grid-template-columns:1fr;gap:24px}
+  .dash-tabs{grid-template-columns:1fr;gap:1px}
+  .dash-tab{grid-template-columns:auto 1fr auto;gap:6px 14px}
+  .dash-tab .phase{grid-column:3;grid-row:1/3;align-self:center;text-align:right;margin-top:0}
+  .dash-grid{grid-template-columns:1fr}
+  .quad{padding:18px 18px 14px;min-height:auto}
+  .dash-verdict{grid-template-columns:1fr;text-align:center;gap:16px}
+  .verdict-row{align-items:center}
+  .verdict-desc{text-align:center}
+}
+@media (max-width:540px){
+  .dash-section{padding:64px 0}
+  .quad-head{grid-template-columns:1fr;gap:4px}
+  .quad-meta{font-size:9.5px}
+  .qrow{font-size:11.5px;grid-template-columns:1fr auto}
+  .qrow .qrow-d{display:none}
+  .verdict-value{font-size:38px}
+}
+
+/* ===========================================================================
  * Cookie consent banner — bottom of viewport, dismissable
  * =========================================================================== */
 .cookie-banner {
@@ -1453,9 +1517,69 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </section>
 
+<section class="section dash-section" id="dashboard">
+<div class="wrap">
+<div class="smark rv"><span class="num">§ 06</span><span data-i18n="dash.smark.label">Decision view</span><span class="dash"></span><span data-i18n="dash.smark.tag">From engine to commitment</span></div>
+<div class="dash-intro rv">
+<div>
+<h2 class="dpy-2" data-i18n-html="dash.h2">From engine output<br/>to commercial decision.</h2>
+</div>
+<p class="lead" data-i18n="dash.lede">Every Builtly run produces more than engineering numbers. The same kernel that signs the structural calculation feeds a project-level decision view — material savings, regulatory compliance, market benchmarks and the carbon ledger, in one place. The engineer signs the technical work. Everyone else — board, lender, developer — gets the consolidated picture.</p>
+</div>
+
+<div class="dash-tabs rvs">
+<button class="dash-tab active" data-project="saga" type="button">
+<span class="ix">01</span>
+<span class="nm">Saga Park</span>
+<span class="meta">Trondheim · 17 240 m² · 192 enheter</span>
+<span class="phase" data-i18n="dash.phase.ready">Ready for build</span>
+</button>
+<button class="dash-tab" data-project="steinan" type="button">
+<span class="ix">02</span>
+<span class="nm">Steinan B1</span>
+<span class="meta">Trondheim · 10 993 m² · 124 enheter</span>
+<span class="phase" data-i18n="dash.phase.construction">In construction</span>
+</button>
+<button class="dash-tab" data-project="sundsoya" type="button">
+<span class="ix">03</span>
+<span class="nm">Sundsøya F1</span>
+<span class="meta">Sundsøya · 2 400 m² · 15 enheter</span>
+<span class="phase" data-i18n="dash.phase.feasibility">Feasibility validated</span>
+</button>
+</div>
+
+<div class="dash-grid rv">
+<div class="quad" id="quad-eng">
+<div class="quad-head"><span class="quad-num">01</span><span class="quad-title" data-i18n="dash.quad.engineering">Engineering</span><span class="quad-meta" data-i18n="dash.quad.eng_meta">4 disciplines · parallel run</span></div>
+<div class="quad-body" id="quad-eng-body"></div>
+</div>
+<div class="quad" id="quad-eco">
+<div class="quad-head"><span class="quad-num">02</span><span class="quad-title" data-i18n="dash.quad.economics">Economics</span><span class="quad-meta" data-i18n="dash.quad.eco_meta">Compared to regional P50</span></div>
+<div class="quad-body" id="quad-eco-body"></div>
+</div>
+<div class="quad" id="quad-comp">
+<div class="quad-head"><span class="quad-num">03</span><span class="quad-title" data-i18n="dash.quad.compliance">Compliance</span><span class="quad-meta" data-i18n="dash.quad.comp_meta">Norwegian regulatory frameworks</span></div>
+<div class="quad-body" id="quad-comp-body"></div>
+</div>
+<div class="quad" id="quad-car">
+<div class="quad-head"><span class="quad-num">04</span><span class="quad-title" data-i18n="dash.quad.carbon">Carbon ledger</span><span class="quad-meta" data-i18n="dash.quad.car_meta">TEK17 §17 reference</span></div>
+<div class="quad-body" id="quad-car-body"></div>
+</div>
+</div>
+
+<div class="dash-verdict rv">
+<div class="verdict-row">
+<span class="verdict-label" data-i18n="dash.verdict.label">Verdict</span>
+<span class="verdict-value" id="verdict-value">GO ✓</span>
+</div>
+<div class="verdict-desc" id="verdict-desc" data-i18n="dash.verdict.saga">Project recommended for build · all compliance achieved · positive economic margin · −11% CO₂ under regulatory limit.</div>
+</div>
+</div>
+</section>
+
 <section class="section app-section" id="approach">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 06</span><span data-i18n="index.approach.smark.label">Approach</span><span class="dash"></span><span data-i18n="index.approach.smark.tag">What does not change</span></div>
+<div class="smark rv"><span class="num">§ 07</span><span data-i18n="index.approach.smark.label">Approach</span><span class="dash"></span><span data-i18n="index.approach.smark.tag">What does not change</span></div>
 <div class="app-top rv">
 <div>
 <h2 class="dpy-2" data-i18n="index.signs.h2">Builtly signs nothing.</h2>
@@ -1507,7 +1631,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section tech-section" id="technology">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 07</span><span data-i18n="smark.technology">Technology</span><span class="dash"></span><span class="on-dark" style="color:rgba(247,244,237,0.55)" data-i18n="cta.built_for_production">Built for production</span></div>
+<div class="smark rv"><span class="num">§ 08</span><span data-i18n="smark.technology">Technology</span><span class="dash"></span><span class="on-dark" style="color:rgba(247,244,237,0.55)" data-i18n="cta.built_for_production">Built for production</span></div>
 <div class="tech-head rv">
 <div>
 <h2 class="dpy-2" style="color:var(--dark-paper)" data-i18n-html="sec.signs.h2">Not a prototype.<br/>Industrial software.</h2>
@@ -1530,7 +1654,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section gl-section" id="global">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 08</span><span data-i18n="global.reach">Global reach</span><span class="dash"></span><span data-i18n="global.one_platform_seven">One platform · seven jurisdictions</span></div>
+<div class="smark rv"><span class="num">§ 09</span><span data-i18n="global.reach">Global reach</span><span class="dash"></span><span data-i18n="global.one_platform_seven">One platform · seven jurisdictions</span></div>
 <div class="gl-intro rv">
 <div>
 <h2 class="dpy-2" data-i18n-html="sec.global.h2">Same platform.<br/>Local regulation.</h2>
@@ -1550,7 +1674,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="cta-section" id="contact">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 09</span><span data-i18n="common.portal_smark">Portal</span><span class="dash"></span><span data-i18n="cta.upload_file">Upload a file and see it work</span></div>
+<div class="smark rv"><span class="num">§ 10</span><span data-i18n="common.portal_smark">Portal</span><span class="dash"></span><span data-i18n="cta.upload_file">Upload a file and see it work</span></div>
 <div class="cta-grid">
 <div class="rv">
 <h2 class="dpy-1" style="font-size:clamp(40px,5.4vw,76px)" data-i18n="index.portal.h2">The portal is live.</h2>
@@ -2386,14 +2510,14 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   };
   function getBimStageName(englishName) {
     const key = BIM_STAGE_KEYS[englishName];
-    if (key && window.BUILTLY_I18N && window.BUILTLY_I18N.T) {
-      return window.BUILTLY_I18N.T(key) || englishName;
+    if (key && window.BUILTLY_I18N && window.BUILTLY_I18N.t) {
+      return window.BUILTLY_I18N.t(key) || englishName;
     }
     return englishName;
   }
   function bimT(key, fallback) {
-    if (window.BUILTLY_I18N && window.BUILTLY_I18N.T) {
-      return window.BUILTLY_I18N.T(key) || fallback;
+    if (window.BUILTLY_I18N && window.BUILTLY_I18N.t) {
+      return window.BUILTLY_I18N.t(key) || fallback;
     }
     return fallback;
   }
@@ -2677,14 +2801,14 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   };
   function getAlgoStageName(englishName) {
     const key = ALGO_STAGE_KEYS[englishName];
-    if (key && window.BUILTLY_I18N && window.BUILTLY_I18N.T) {
-      return window.BUILTLY_I18N.T(key) || englishName;
+    if (key && window.BUILTLY_I18N && window.BUILTLY_I18N.t) {
+      return window.BUILTLY_I18N.t(key) || englishName;
     }
     return englishName;
   }
   function getAlgoStepLabel() {
-    if (window.BUILTLY_I18N && window.BUILTLY_I18N.T) {
-      return window.BUILTLY_I18N.T('algo.step') || 'Step';
+    if (window.BUILTLY_I18N && window.BUILTLY_I18N.t) {
+      return window.BUILTLY_I18N.t('algo.step') || 'Step';
     }
     return 'Step';
   }
@@ -3786,6 +3910,225 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       }
     });
   }, { threshold: 0.2 });
+  obs.observe(section);
+})();
+</script>
+<script>
+/* ===========================================================================
+ * Decision Dashboard logic — project tabs, data render, auto-cycle, i18n
+ * Data is in NOK and original Norwegian units. Currency conversion handled
+ * by window.BUILTLY_I18N.fmtMoneyMNOK when EN/FI/DE active.
+ * =========================================================================== */
+(function(){
+  const section = document.getElementById('dashboard');
+  if (!section) return;
+
+  // Project data — realistic Bolig Norge / Trondheim residential numbers.
+  // Values stored in NOK; conversion to EUR happens at render time.
+  const PROJECTS = {
+    saga: {
+      engineering: [
+        { k: 'dash.disc.structural',  v: '−25.3 MNOK',         d: 'dash.lbl.optimized', dc: 'good',    isMoney: true,  nokRaw: -25.3 },
+        { k: 'dash.disc.geotechnical', v: 'dash.val.verified',  d: 'dash.lbl.tek17_§16', dc: 'neutral', isMoney: false },
+        { k: 'dash.disc.fire',         v: 'dash.val.passed',    d: 'dash.lbl.tek17_§11', dc: 'neutral', isMoney: false },
+        { k: 'dash.disc.acoustical',   v: 'T-1442 · C',         d: 'dash.lbl.ns8175',    dc: 'neutral', isMoney: false }
+      ],
+      economics: [
+        { k: 'dash.eco.sale_price',  v: '65 200 kr/m²',  d: '+8% P50',  dc: 'good' },
+        { k: 'dash.eco.plot_cost',   v: '8 240 kr/m²',   d: 'avg P50',  dc: 'neutral' },
+        { k: 'dash.eco.build_cost',  v: '39 800 kr/m²',  d: '−3% P50',  dc: 'good' },
+        { k: 'dash.eco.delivery',    v: '14 mnd',         d: '−22% P50', dc: 'good' }
+      ],
+      compliance: [
+        { k: 'dash.comp.tek17_17',  v: '−11%',     d: 'dash.lbl.under_limit', dc: 'good',    statusKey: 'ok' },
+        { k: 'dash.comp.nsen_1992', v: '✓',        d: 'dash.lbl.signed',      dc: 'neutral', statusKey: 'ok' },
+        { k: 'dash.comp.ns_8175',   v: 'dash.val.class_c', d: 'dash.lbl.achieved',    dc: 'neutral', statusKey: 'ok' },
+        { k: 'dash.comp.nve_q200',  v: '✓',        d: 'dash.lbl.verified',    dc: 'neutral', statusKey: 'ok' }
+      ],
+      carbon: [
+        { k: 'dash.car.total_emissions', v: '5 040 t CO₂e',   d: 'dash.lbl.lifecycle' },
+        { k: 'dash.car.per_m2',          v: '285 kg/m²',       d: 'dash.lbl.tek17_17_limit_320' },
+        { k: 'dash.car.reduction',       v: '−560 t',          d: '−11% vs P50',     dc: 'good' },
+        { k: 'dash.car.payback',         v: '23 år',            d: 'dash.lbl.a20_equiv' }
+      ],
+      verdict: 'GO',
+      verdictDescKey: 'dash.verdict.saga'
+    },
+    steinan: {
+      engineering: [
+        { k: 'dash.disc.structural',  v: '−18.2 MNOK',  d: 'dash.lbl.optimized', dc: 'good',    isMoney: true,  nokRaw: -18.2 },
+        { k: 'dash.disc.geotechnical', v: 'dash.val.verified', d: 'dash.lbl.tek17_§16', dc: 'neutral', isMoney: false },
+        { k: 'dash.disc.fire',         v: 'dash.val.passed',   d: 'dash.lbl.tek17_§11', dc: 'neutral', isMoney: false },
+        { k: 'dash.disc.acoustical',   v: 'T-1442 · C',        d: 'dash.lbl.ns8175',    dc: 'neutral', isMoney: false }
+      ],
+      economics: [
+        { k: 'dash.eco.sale_price',  v: '71 400 kr/m²',  d: '+12% P50', dc: 'good' },
+        { k: 'dash.eco.plot_cost',   v: '9 120 kr/m²',   d: '+11% P50', dc: 'neutral' },
+        { k: 'dash.eco.build_cost',  v: '41 200 kr/m²',  d: 'avg P50',  dc: 'neutral' },
+        { k: 'dash.eco.delivery',    v: '16 mnd',         d: '−11% P50', dc: 'good' }
+      ],
+      compliance: [
+        { k: 'dash.comp.tek17_17',  v: '−8%',     d: 'dash.lbl.under_limit', dc: 'good',    statusKey: 'ok' },
+        { k: 'dash.comp.nsen_1992', v: '✓',        d: 'dash.lbl.signed',      dc: 'neutral', statusKey: 'ok' },
+        { k: 'dash.comp.ns_8175',   v: 'dash.val.class_c', d: 'dash.lbl.achieved',    dc: 'neutral', statusKey: 'ok' },
+        { k: 'dash.comp.nve_q200',  v: '✓',        d: 'dash.lbl.verified',    dc: 'neutral', statusKey: 'ok' }
+      ],
+      carbon: [
+        { k: 'dash.car.total_emissions', v: '3 232 t CO₂e',  d: 'dash.lbl.lifecycle' },
+        { k: 'dash.car.per_m2',          v: '294 kg/m²',      d: 'dash.lbl.tek17_17_limit_320' },
+        { k: 'dash.car.reduction',       v: '−286 t',         d: '−8% vs P50',     dc: 'good' },
+        { k: 'dash.car.payback',         v: '19 år',           d: 'dash.lbl.a20_equiv' }
+      ],
+      verdict: 'GO',
+      verdictDescKey: 'dash.verdict.steinan'
+    },
+    sundsoya: {
+      engineering: [
+        { k: 'dash.disc.feasibility', v: 'dash.val.validated', d: 'dash.lbl.stage1', dc: 'neutral', isMoney: false },
+        { k: 'dash.disc.geotechnical', v: 'dash.val.indicative', d: 'dash.lbl.ngu_q3', dc: 'neutral', isMoney: false },
+        { k: 'dash.disc.structural',  v: 'dash.val.early_estimate', d: 'dash.lbl.tek17_§10', dc: 'neutral', isMoney: false },
+        { k: 'dash.disc.fire',         v: 'dash.val.applicable',  d: 'dash.lbl.tek17_§11', dc: 'neutral', isMoney: false }
+      ],
+      economics: [
+        { k: 'dash.eco.sale_price',  v: '58 600 kr/m²',  d: '−5% P50',  dc: 'neutral' },
+        { k: 'dash.eco.plot_cost',   v: '6 820 kr/m²',   d: '−14% P50', dc: 'good' },
+        { k: 'dash.eco.build_cost',  v: '36 400 kr/m²',  d: '−9% P50',  dc: 'good' },
+        { k: 'dash.eco.delivery',    v: '22 mnd',         d: 'dash.lbl.incl_permit', dc: 'neutral' }
+      ],
+      compliance: [
+        { k: 'dash.comp.tek17_17',  v: 'dash.val.applicable', d: 'dash.lbl.forecast', dc: 'neutral', statusKey: 'ok' },
+        { k: 'dash.comp.nsen_1992', v: 'dash.val.applicable', d: 'dash.lbl.detail_phase', dc: 'neutral', statusKey: 'ok' },
+        { k: 'dash.comp.regplan',   v: '✓',                   d: 'dash.lbl.zoning_check', dc: 'good',    statusKey: 'ok' },
+        { k: 'dash.comp.nve_q200',  v: '✓',                   d: 'dash.lbl.flood_clear',  dc: 'good',    statusKey: 'ok' }
+      ],
+      carbon: [
+        { k: 'dash.car.forecast_emissions', v: '720 t CO₂e',  d: 'dash.lbl.preliminary' },
+        { k: 'dash.car.per_m2',             v: '300 kg/m²',    d: 'dash.lbl.tek17_17_limit_320' },
+        { k: 'dash.car.reduction',          v: '−48 t',        d: '−6% mål',  dc: 'good' },
+        { k: 'dash.car.payback',            v: 'TBD',           d: 'dash.lbl.detail_phase' }
+      ],
+      verdict: 'GO',
+      verdictDescKey: 'dash.verdict.sundsoya'
+    }
+  };
+
+  const tabs = section.querySelectorAll('.dash-tab');
+  const bodies = {
+    eng:  document.getElementById('quad-eng-body'),
+    eco:  document.getElementById('quad-eco-body'),
+    comp: document.getElementById('quad-comp-body'),
+    car:  document.getElementById('quad-car-body')
+  };
+  const verdictValueEl = document.getElementById('verdict-value');
+  const verdictDescEl  = document.getElementById('verdict-desc');
+
+  let activeKey = 'saga';
+  let cycleTimer = null;
+  let userInteracted = false;
+
+  function dashT(key, fallback) {
+    if (window.BUILTLY_I18N && window.BUILTLY_I18N.t) {
+      return window.BUILTLY_I18N.t(key) || fallback || key;
+    }
+    return fallback || key;
+  }
+
+  // Translate value if it looks like an i18n key (contains dot, lowercase prefix)
+  function resolveVal(v) {
+    if (typeof v !== 'string') return v;
+    if (/^dash\.(val|lbl|disc|eco|comp|car)\./.test(v)) return dashT(v, v);
+    return v;
+  }
+
+  // Format money values in user's currency. nokMnok is negative for savings.
+  function fmtMoneyValue(nokMnok) {
+    const fm = window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK;
+    if (!fm) return (nokMnok < 0 ? '−' : '+') + Math.abs(nokMnok).toFixed(1) + ' MNOK';
+    // fm returns formatted string like "25.3 MNOK" or "2.2 M€"
+    const abs = Math.abs(nokMnok);
+    const sign = nokMnok < 0 ? '−' : '+';
+    return fm(abs, sign);
+  }
+
+  function renderQuadrant(body, rows) {
+    if (!body) return;
+    body.innerHTML = '';
+    rows.forEach(function(r){
+      const row = document.createElement('div');
+      row.className = 'qrow';
+      const k = document.createElement('span');
+      k.className = 'qrow-k';
+      k.textContent = dashT(r.k, r.k);
+      const v = document.createElement('span');
+      v.className = 'qrow-v';
+      v.textContent = r.isMoney && typeof r.nokRaw === 'number' ? fmtMoneyValue(r.nokRaw) : resolveVal(r.v);
+      const d = document.createElement('span');
+      d.className = 'qrow-d ' + (r.dc || 'neutral');
+      d.textContent = resolveVal(r.d || '');
+      row.appendChild(k); row.appendChild(v); row.appendChild(d);
+      body.appendChild(row);
+    });
+  }
+
+  function render(projectKey) {
+    const p = PROJECTS[projectKey];
+    if (!p) return;
+    activeKey = projectKey;
+    renderQuadrant(bodies.eng,  p.engineering);
+    renderQuadrant(bodies.eco,  p.economics);
+    renderQuadrant(bodies.comp, p.compliance);
+    renderQuadrant(bodies.car,  p.carbon);
+    if (verdictValueEl) verdictValueEl.textContent = p.verdict + ' ✓';
+    if (verdictDescEl)  verdictDescEl.textContent = dashT(p.verdictDescKey, verdictDescEl.dataset.fallback || '');
+    tabs.forEach(function(t){
+      t.classList.toggle('active', t.dataset.project === projectKey);
+    });
+  }
+
+  // Tab click handlers
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      userInteracted = true;
+      if (cycleTimer) { clearInterval(cycleTimer); cycleTimer = null; }
+      render(t.dataset.project);
+    });
+  });
+
+  // Initial render
+  render('saga');
+
+  // Auto-cycle until user interacts
+  function startCycle() {
+    if (userInteracted) return;
+    cycleTimer = setInterval(function(){
+      if (userInteracted) { clearInterval(cycleTimer); cycleTimer = null; return; }
+      const keys = ['saga','steinan','sundsoya'];
+      const idx = keys.indexOf(activeKey);
+      render(keys[(idx + 1) % keys.length]);
+    }, 8500);
+  }
+
+  // Re-render on lang change (translates labels + handles currency conversion)
+  // i18n.js loads with defer, so we need to wait for it to be ready, then
+  // register the onLangChange callback AND trigger an immediate re-render.
+  function setupLangHandler() {
+    if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) {
+      window.BUILTLY_I18N.onLangChange(function(){ render(activeKey); });
+      render(activeKey);  // Re-render now that translations are available
+    } else {
+      setTimeout(setupLangHandler, 80);
+    }
+  }
+  setupLangHandler();
+
+  // Start auto-cycle only when section enters viewport
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && !cycleTimer && !userInteracted) {
+        startCycle();
+      }
+    });
+  }, { threshold: 0.25 });
   obs.observe(section);
 })();
 </script>
