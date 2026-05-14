@@ -422,14 +422,41 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 @media (max-width:760px){.discretion-grid{grid-template-columns:1fr;gap:24px}.redacted-list{max-width:100%}}
 
 
-/* TECHNICAL LEADERSHIP — single seat card sized to match board seats */
-.employee-section{background:var(--bg)}
-.seats-1{display:grid !important;grid-template-columns:1fr !important;background:transparent !important;border:none !important;gap:0 !important;max-width:320px}
-.seats-1 .seat{border:1px solid var(--line-strong)}
-@media (max-width:600px){.seats-1{max-width:100%}}
+
+
+/* LEADERSHIP — unified section with sub-blocks */
+.leadership-section{background:var(--bg-soft)}
+.lead-block{margin-top:clamp(40px,5vh,56px)}
+.lead-block:first-of-type{margin-top:clamp(48px,6vh,64px)}
+.lead-subhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(20px,2.4vh,28px);padding-bottom:clamp(14px,1.8vh,18px);border-bottom:1px solid var(--line)}
+.lead-suplabel{font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink);font-weight:600}
+.lead-supcount{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid)}
+.seat-empty{background:transparent !important}
+@media (max-width:600px){.seat-empty{display:none}}
+
+/* SEATS-2 and SEATS-3 — for split leadership rows */
+.seats-2{grid-template-columns:repeat(2,1fr) !important}
+@media (max-width:700px){.seats-2{grid-template-columns:1fr !important}}
+.seats-3{grid-template-columns:repeat(3,1fr) !important}
+@media (max-width:900px){.seats-3{grid-template-columns:repeat(2,1fr) !important}}
+@media (max-width:600px){.seats-3{grid-template-columns:1fr !important}}
+
+/* COMPACT — tightened about-page rhythm */
+.about-page .section{padding:clamp(56px,8vh,100px) 0}
+.leadership-section .lead-block{margin-top:clamp(28px,3.5vh,40px)}
+.leadership-section .lead-block:first-of-type{margin-top:clamp(36px,4.5vh,48px)}
+.leadership-section .lead-subhead{margin-bottom:clamp(14px,1.8vh,20px);padding-bottom:clamp(10px,1.4vh,14px)}
+.seat-with-photo{padding:clamp(20px,2.2vw,28px) !important}
+.seat-with-photo .seat-photo{margin-bottom:clamp(16px,1.8vw,20px) !important}
+.seat-with-photo .seat-title{font-size:clamp(17px,1.6vw,20px) !important;margin-bottom:6px !important}
+.seat-with-photo .seat-status{margin-bottom:clamp(12px,1.6vh,16px) !important;padding-bottom:clamp(12px,1.4vh,14px) !important}
+.seat-with-photo .role{margin-bottom:clamp(10px,1.4vh,14px) !important}
+.seat-bio{font-size:12.5px !important;line-height:1.55 !important}
+.principles-strip{padding:clamp(40px,5vh,56px) 0 !important}
+.glance-section{padding:clamp(56px,8vh,96px) 0 !important}
 </style>
 </head>
-<body>
+<body class="about-page">
 
 <nav class="nav">
 <div class="nav-inner">
@@ -611,67 +638,67 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </section>
 
 
-<section class="section board-section" id="board">
-<div class="wrap">
-<div class="smark rv"><span class="num">§ 04</span><span data-i18n="about.s04.label">Board</span><span class="dash"></span><span data-i18n="about.s04.tag">Independent governance</span></div>
-<div class="team-intro rv">
-<div>
-<h2 class="dpy-2" data-i18n="about.s04.h2">Board.</h2>
-</div>
-<p class="lead" data-i18n-html="about.s04.lede">An independent board is being assembled to provide governance through the platform's growth phase. Composition is being structured around financial discipline, regulatory authority, and operational deployment across the markets the firm serves.</p>
-</div>
+<section class="section leadership-section" id="board">
+<div class="inner">
+<div class="smark"><span class="num" data-i18n="about.lead.smark.num">§ 04</span><span data-i18n="about.lead.smark.label">Leadership</span><span class="dash"></span><span data-i18n="about.lead.smark.tag">Governance and technical authority</span></div>
+<h2 class="dpy-2" data-i18n-html="about.lead.h2">Leadership.</h2>
+<p class="lead" data-i18n-html="about.lead.lede">An independent board provides governance through the platform's growth phase, structured around financial discipline, regulatory authority and operational deployment. Day-to-day execution is held by senior practitioners with decades of regulatory practice and active operational experience from real estate and engineering delivery.</p>
 
-<div class="seats seats-4 rvs">
+<div class="lead-block">
+<div class="lead-subhead">
+<span class="lead-suplabel" data-i18n="about.lead.sub2.label">Operational leadership</span>
+<span class="lead-supcount" data-i18n="about.lead.sub2.count">03 members · active contribution</span>
+</div>
+<div class="seats seats-3 rvs">
 <article class="seat seat-with-photo">
-<div class="seat-photo seat-photo-initials"><span>ES</span></div>
-<div class="role"><span data-i18n="about.seat.role.chair">Chair</span><span class="ix">01</span></div>
+<div class="seat-photo"><img src="photos/kristian-nossum.png" alt="Kristian Nossum" loading="lazy"/></div>
+<div class="role"><span data-i18n="about.seat.role.tech">Technical Director</span><span class="ix">01</span></div>
+<h3 class="seat-title" data-i18n="about.team.k1.name">Kristian Nossum</h3>
+<div class="seat-status" data-i18n="about.team.k1.status">Technical Director</div>
+<p class="seat-bio" data-i18n="about.team.k1.bio">Kristian Nossum holds an engineering degree from Trondheim College of Engineering and has more than 30 years of experience from Skanska. He brings broad technical expertise across architecture, geotechnics, structural engineering, acoustics and building application processes. Kristian actively contributes to the development of Builtly's technical modules and quality-assures the platform's professional content.</p>
+</article>
+
+<article class="seat seat-with-photo">
+<div class="seat-photo"><img src="photos/vegard-tyldum.jpg" alt="Vegard Tyldum" loading="lazy"/></div>
+<div class="role"><span data-i18n="about.seat.role.consult">Senior Consultant</span><span class="ix">02</span></div>
+<h3 class="seat-title" data-i18n="about.board.s2.name">Vegard Tyldum</h3>
+<div class="seat-status" data-i18n="about.team.s2.status">Senior Consultant</div>
+<p class="seat-bio" data-i18n="about.board.s2.bio">Vegard holds an MSc from the Norwegian School of Economics and has spent his entire career in real estate and property development. He has extensive operational experience from both project management and executive roles, and has played a key role in delivering some of Norway's largest development projects. Today, he leads Byggteknikk Utvikling AS, which is jointly owned with the Svendsen family.</p>
+</article>
+
+<article class="seat seat-with-photo">
+<div class="seat-photo"><img src="photos/pal-morten-oxaal.jpg" alt="Pål Morten Oxaal" loading="lazy"/></div>
+<div class="role"><span data-i18n="about.seat.role.consult">Senior Consultant</span><span class="ix">03</span></div>
+<h3 class="seat-title" data-i18n="about.board.s3.name">Pål Morten Oxaal</h3>
+<div class="seat-status" data-i18n="about.team.s3.status">Senior Consultant</div>
+<p class="seat-bio" data-i18n="about.board.s3.bio">Pål Morten holds a BBA from Trondheim Business School and has worked in real estate since 2005. He has held several key roles in the Norwegian real estate industry, including as CEO and co-owner of HENT's real estate platform. He founded Bolig Norge and continues to lead the company, which is jointly owned with Fastighets AB Balder.</p>
+</article>
+</div>
+</div>
+<div class="lead-block">
+<div class="lead-subhead">
+<span class="lead-suplabel" data-i18n="about.lead.sub1.label">Board of directors</span>
+<span class="lead-supcount" data-i18n="about.lead.sub1.count">02 members</span>
+</div>
+<div class="seats seats-2 rvs">
+<article class="seat seat-with-photo">
+<div class="seat-photo"><img src="photos/erik-selin.png" alt="Erik Selin" loading="lazy"/></div>
+<div class="role"><span data-i18n="about.seat.role.chair">Chair</span><span class="ix">04</span></div>
 <h3 class="seat-title" data-i18n="about.board.s1.name">Erik Selin</h3>
 <div class="seat-status" data-i18n="about.board.s1.status">Chairman</div>
 <p class="seat-bio" data-i18n="about.board.s1.bio">Erik Selin is the founder of Fastighets AB Balder, one of Europe's leading real estate companies. Since founding the company, he has built Balder into a listed property group with assets exceeding NOK 200 billion. Erik serves as Chairman and largest shareholder and is a prominent Nordic investor with extensive experience from real estate, capital markets and long-term company building. He also holds several board positions in listed companies.</p>
 </article>
 
 <article class="seat seat-with-photo">
-<div class="seat-photo"><img src="photos/vegard-tyldum.jpg" alt="Vegard Tyldum" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.member">Board Member</span><span class="ix">02</span></div>
-<h3 class="seat-title" data-i18n="about.board.s2.name">Vegard Tyldum</h3>
-<div class="seat-status" data-i18n="about.board.s2.status">Board Member</div>
-<p class="seat-bio" data-i18n="about.board.s2.bio">Vegard holds an MSc from the Norwegian School of Economics and has spent his entire career in real estate and property development. He has extensive operational experience from both project management and executive roles, and has played a key role in delivering some of Norway's largest development projects. Today, he leads Byggteknikk Utvikling AS, which is jointly owned with the Svendsen family.</p>
-</article>
-
-<article class="seat seat-with-photo">
-<div class="seat-photo"><img src="photos/pal-morten-oxaal.jpg" alt="Pål Morten Oxaal" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.member">Board Member</span><span class="ix">03</span></div>
-<h3 class="seat-title" data-i18n="about.board.s3.name">Pål Morten Oxaal</h3>
-<div class="seat-status" data-i18n="about.board.s3.status">Board Member</div>
-<p class="seat-bio" data-i18n="about.board.s3.bio">Pål Morten holds a BBA from Trondheim Business School and has worked in real estate since 2005. He has held several key roles in the Norwegian real estate industry, including as CEO and co-owner of HENT's real estate platform. He founded Bolig Norge and continues to lead the company, which is jointly owned with Fastighets AB Balder.</p>
-</article>
-
-<article class="seat seat-with-photo">
 <div class="seat-photo"><img src="photos/magnus-svendsen.jpg" alt="Magnus Svendsen" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.member">Board Member</span><span class="ix">04</span></div>
+<div class="role"><span data-i18n="about.seat.role.member">Board Member</span><span class="ix">05</span></div>
 <h3 class="seat-title" data-i18n="about.board.s4.name">Magnus Svendsen</h3>
 <div class="seat-status" data-i18n="about.board.s4.status">Board Member</div>
 <p class="seat-bio" data-i18n="about.board.s4.bio">Magnus Svendsen is the CEO of Byggteknikk, a family office with investments across real estate, funds and technology. He has been an active angel investor in early-stage technology companies for more than 20 years, with investments including Tibber, Easee and Kiona. Magnus holds an MSc in Mechanical Engineering from NTNU, a Master's degree in Finance, and an MBA from the University of Newcastle, Australia.</p>
 </article>
 </div>
 </div>
-</section>
 
-<section class="section employee-section" id="team">
-<div class="inner">
-<div class="smark"><span class="num" data-i18n="about.team.smark.num">§ 05</span><span data-i18n="about.team.smark.label">Faglig ledelse</span><span class="dash"></span><span data-i18n="about.team.smark.tag">Teknisk dybde i daglig drift</span></div>
-<h2 class="dpy-2" data-i18n-html="about.team.h2">Faglig<br/>ledelse.</h2>
-<p class="lead" data-i18n="about.team.lede">Builtlys faglige ryggrad er etablert. Ekspertisen som signerer ligger hos personer som har vært i bransjen i flere tiår, med ansvar i flere fag og dyp innsikt i hva som faktisk produseres.</p>
-
-<div class="seats seats-1 rvs">
-<article class="seat seat-with-photo">
-<div class="seat-photo"><img src="photos/kristian-nossum.png" alt="Kristian Nossum" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.team.k1.role">Technical Director</span><span class="ix">01</span></div>
-<h3 class="seat-title" data-i18n="about.team.k1.name">Kristian Nossum</h3>
-<div class="seat-status" data-i18n="about.team.k1.status">Technical Director</div>
-<p class="seat-bio" data-i18n="about.team.k1.bio">Kristian Nossum holds an engineering degree from Trondheim College of Engineering and has more than 30 years of experience from Skanska. He brings broad technical expertise across architecture, geotechnics, structural engineering, acoustics and building application processes. Kristian actively contributes to the development of Builtly's technical modules and quality-assures the platform's professional content.</p>
-</article>
-</div>
 </div>
 </section>
 
@@ -688,27 +715,27 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="team-secondary rv" style="margin-top:0;padding-top:0;border-top:none">
 <div class="team-grid rvs">
 <div class="block">
-<div class="t">Structural engineering</div>
+<div class="t" data-i18n="about.disc.t1.h">Structural engineering</div>
 <div class="d" data-i18n="about.disc.d1">Senior practitioner · regulatory review · cross-border standards</div>
 </div>
 <div class="block">
-<div class="t">Geotechnical engineering</div>
+<div class="t" data-i18n="about.disc.t2.h">Geotechnical engineering</div>
 <div class="d" data-i18n="about.disc.d2">Senior practitioner · soil mechanics · foundation deployment</div>
 </div>
 <div class="block">
-<div class="t">Fire engineering</div>
+<div class="t" data-i18n="about.disc.t3.h">Fire engineering</div>
 <div class="d" data-i18n="about.disc.d3">Senior practitioner · code interpretation · authority liaison</div>
 </div>
 <div class="block">
-<div class="t">Acoustics &amp; vibration</div>
+<div class="t" data-i18n="about.disc.t4.h">Acoustics &amp; vibration</div>
 <div class="d" data-i18n="about.disc.d4">Senior practitioner · multi-discipline coordination</div>
 </div>
 <div class="block">
-<div class="t">Real estate operations</div>
+<div class="t" data-i18n="about.disc.t5.h">Real estate operations</div>
 <div class="d" data-i18n="about.disc.d5">Senior operator · development pipeline · deployment guidance</div>
 </div>
 <div class="block">
-<div class="t">Construction technology</div>
+<div class="t" data-i18n="about.disc.t6.h">Construction technology</div>
 <div class="d" data-i18n="about.disc.d6">Senior leader · industry strategy · platform adoption</div>
 </div>
 </div>
@@ -758,9 +785,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <li><a href="https://builtly.ai" data-i18n="footer.platform.portal">Portal</a></li>
 <li><a href="/platform.html" data-i18n="footer.platform.caps">Capabilities</a></li>
 <li><a href="/industries.html" data-i18n="nav.industries">Industries</a></li>
-<li><a href="/#delivery">Delivery models</a></li>
+<li><a href="/#delivery" data-i18n="nav.deliveryModels">Delivery models</a></li>
 <li><a href="/#pipeline" data-i18n="nav.howItWorks">How it works</a></li>
-<li><a href="/#approach">Approach</a></li>
+<li><a href="/#approach" data-i18n="footer.platform.approach">Approach</a></li>
 </ul>
 </div>
 <div class="f-col">

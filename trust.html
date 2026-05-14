@@ -459,13 +459,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c4.h">The customer owns the data. Always.</h4>
 <p data-i18n="trust.c4.body">All project inputs, intermediate artefacts and final deliverables are the property of the customer who uploaded them. Builtly holds operational access to deliver the platform; ownership does not transfer. Data export is available on demand in the formats the platform already produces.</p>
-<p>On contract termination the customer retains the right to export everything. Builtly retains operational logs and audit trails for the regulatory retention period agreed in the contract; everything beyond that is deleted.</p>
+<p data-i18n="trust.p.termination">On contract termination the customer retains the right to export everything. Builtly retains operational logs and audit trails for the regulatory retention period agreed in the contract; everything beyond that is deleted.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Ownership</span><span class="v">Customer</span></div>
-<div class="row"><span class="k">Export</span><span class="v">On demand · open formats</span></div>
-<div class="row"><span class="k">Retention</span><span class="v">Per contract</span></div>
-<div class="row"><span class="k">Termination</span><span class="v">Full export available</span></div>
+<div class="row"><span class="k" data-i18n="lbl.ownership">Ownership</span><span class="v" data-i18n="val.customer">Customer</span></div>
+<div class="row"><span class="k" data-i18n="lbl.export">Export</span><span class="v" data-i18n="trust.v.onDemand">On demand · open formats</span></div>
+<div class="row"><span class="k" data-i18n="lbl.retention">Retention</span><span class="v" data-i18n="trust.v.perContract">Per contract</span></div>
+<div class="row"><span class="k" data-i18n="lbl.termination">Termination</span><span class="v" data-i18n="trust.v.fullExport">Full export available</span></div>
 <div class="level">Standard: Per-tenant isolation</div>
 </div>
 </div>
@@ -479,13 +479,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c5.h">Customer project data is not used to train models.</h4>
 <p data-i18n="trust.c5.body">Builtly's proprietary AI architecture is trained on engineering literature, public regulatory text and synthetic engineering datasets — not on customer project files. The contractual default is opt-out; the operational default matches the contract. No covert training pipeline exists.</p>
-<p>Customers who actively want their de-identified data to contribute to model improvement may opt in under a separate addendum — but the default and the practical operation is that customer data stays customer data.</p>
+<p data-i18n="trust.p.training">Customers who actively want their de-identified data to contribute to model improvement may opt in under a separate addendum — but the default and the practical operation is that customer data stays customer data.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Default</span><span class="v">No training</span></div>
-<div class="row"><span class="k">Opt-in</span><span class="v">Available · addendum</span></div>
-<div class="row"><span class="k">De-identification</span><span class="v">Required if opted in</span></div>
-<div class="row"><span class="k">Audit</span><span class="v">Training pipeline logged</span></div>
+<div class="row"><span class="k" data-i18n="lbl.default">Default</span><span class="v" data-i18n="trust.v.noTraining">No training</span></div>
+<div class="row"><span class="k" data-i18n="lbl.optin">Opt-in</span><span class="v" data-i18n="trust.v.availAddendum">Available · addendum</span></div>
+<div class="row"><span class="k" data-i18n="lbl.deIdentification">De-identification</span><span class="v" data-i18n="trust.v.requiredOptin">Required if opted in</span></div>
+<div class="row"><span class="k" data-i18n="lbl.audit">Audit</span><span class="v" data-i18n="trust.v.trainingPipeline">Training pipeline logged</span></div>
 <div class="level">Standard: No silent training</div>
 </div>
 </div>
@@ -499,13 +499,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c6.h">Regional data residency, configurable per tenant.</h4>
 <p data-i18n="trust.c6.body">Customer data is stored and processed in the geographic region selected during onboarding. Cross-border processing happens only when explicitly enabled by the customer, and is logged in the audit trail. The default for customers in regulated industries is in-region storage and in-region processing.</p>
-<p>For customers with disclosure obligations under climate, financial or public-procurement rules, the residency configuration becomes part of the regulatory record kept against each deliverable.</p>
+<p data-i18n="trust.p.residency">For customers with disclosure obligations under climate, financial or public-procurement rules, the residency configuration becomes part of the regulatory record kept against each deliverable.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Default</span><span class="v">In-region</span></div>
-<div class="row"><span class="k">Cross-border</span><span class="v">Explicit opt-in</span></div>
-<div class="row"><span class="k">Regions</span><span class="v">Multi-jurisdiction</span></div>
-<div class="row"><span class="k">Audit</span><span class="v">Residency logged per request</span></div>
+<div class="row"><span class="k" data-i18n="lbl.default">Default</span><span class="v" data-i18n="val.inRegion">In-region</span></div>
+<div class="row"><span class="k" data-i18n="lbl.crossBorder">Cross-border</span><span class="v" data-i18n="trust.v.explicitOptin">Explicit opt-in</span></div>
+<div class="row"><span class="k" data-i18n="lbl.regions">Regions</span><span class="v" data-i18n="trust.v.multiJur">Multi-jurisdiction</span></div>
+<div class="row"><span class="k" data-i18n="lbl.audit">Audit</span><span class="v" data-i18n="trust.v.residencyLogged">Residency logged per request</span></div>
 <div class="level">Standard: Configurable residency</div>
 </div>
 </div>
@@ -532,13 +532,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c7.h">Enterprise SSO. Role-based access. Hardware-key support.</h4>
 <p data-i18n="trust.c7.body">Authentication is delegated to enterprise SSO providers via SAML and OIDC. Local accounts are not the default in enterprise deployments. Role-based access controls determine what each authenticated user can see, do and sign. Hardware security keys are supported for high-assurance roles — particularly engineers authorised to attest deliverables.</p>
-<p>Session management follows enterprise norms: configurable session length, forced re-authentication for sensitive operations, and full audit logging of authentication events.</p>
+<p data-i18n="trust.p.sessions">Session management follows enterprise norms: configurable session length, forced re-authentication for sensitive operations, and full audit logging of authentication events.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">SSO</span><span class="v">SAML · OIDC</span></div>
-<div class="row"><span class="k">RBAC</span><span class="v">Granular roles</span></div>
-<div class="row"><span class="k">Hardware keys</span><span class="v">Supported</span></div>
-<div class="row"><span class="k">Sessions</span><span class="v">Configurable · logged</span></div>
+<div class="row"><span class="k" data-i18n="lbl.sso">SSO</span><span class="v" data-i18n="trust.v.samlOidc">SAML · OIDC</span></div>
+<div class="row"><span class="k" data-i18n="lbl.rbac">RBAC</span><span class="v" data-i18n="trust.v.granularRoles">Granular roles</span></div>
+<div class="row"><span class="k" data-i18n="lbl.hardwareKeys">Hardware keys</span><span class="v" data-i18n="val.supported">Supported</span></div>
+<div class="row"><span class="k" data-i18n="lbl.sessions">Sessions</span><span class="v" data-i18n="trust.v.configurableLogged">Configurable · logged</span></div>
 <div class="level">Standard: Enterprise SSO</div>
 </div>
 </div>
@@ -552,13 +552,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c8.h">Encryption at rest. Encryption in transit. Per-tenant keys.</h4>
 <p data-i18n="trust.c8.body">Customer data is encrypted at rest with per-tenant key isolation and in transit with TLS 1.3. Key rotation follows automated schedules. Bring-your-own-key arrangements are available for customers with regulatory or commercial requirements for KMS independence.</p>
-<p>Signed deliverables carry SHA-256 cryptographic signatures bound to the platform version and the signing engineer's identity — making post-hoc tampering detectable on the document itself, not just in platform logs.</p>
+<p data-i18n="trust.p.signing">Signed deliverables carry SHA-256 cryptographic signatures bound to the platform version and the signing engineer's identity — making post-hoc tampering detectable on the document itself, not just in platform logs.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">At rest</span><span class="v">AES-256 · per tenant</span></div>
-<div class="row"><span class="k">In transit</span><span class="v">TLS 1.3</span></div>
-<div class="row"><span class="k">BYOK</span><span class="v">Available</span></div>
-<div class="row"><span class="k">Signing</span><span class="v">SHA-256 · bound to version</span></div>
+<div class="row"><span class="k" data-i18n="lbl.atRest">At rest</span><span class="v" data-i18n="trust.v.aes256">AES-256 · per tenant</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inTransit">In transit</span><span class="v" data-i18n="trust.v.tls13">TLS 1.3</span></div>
+<div class="row"><span class="k" data-i18n="lbl.byok">BYOK</span><span class="v" data-i18n="val.available">Available</span></div>
+<div class="row"><span class="k" data-i18n="lbl.signing">Signing</span><span class="v" data-i18n="trust.v.shaBound">SHA-256 · bound to version</span></div>
 <div class="level">Standard: Per-tenant keys</div>
 </div>
 </div>
@@ -572,13 +572,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c9.h">Logical isolation by default. Dedicated infrastructure on request.</h4>
 <p data-i18n="trust.c9.body">The default deployment model uses logical tenant isolation — separate data stores, separate access scopes, separate audit trails per customer, on shared infrastructure. For customers under elevated regulatory rules, dedicated single-tenant infrastructure is available as part of the platform-licence agreement.</p>
-<p>AI inference is isolated per tenant: requests do not cross tenant boundaries, and model context is reset between requests. There is no shared inference state across customers.</p>
+<p data-i18n="trust.p.inference">AI inference is isolated per tenant: requests do not cross tenant boundaries, and model context is reset between requests. There is no shared inference state across customers.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Default</span><span class="v">Logical isolation</span></div>
-<div class="row"><span class="k">Dedicated</span><span class="v">Available · per request</span></div>
-<div class="row"><span class="k">Inference</span><span class="v">Per-tenant · stateless</span></div>
-<div class="row"><span class="k">Audit</span><span class="v">Per-tenant trail</span></div>
+<div class="row"><span class="k" data-i18n="lbl.default">Default</span><span class="v" data-i18n="trust.v.logicalIso">Logical isolation</span></div>
+<div class="row"><span class="k" data-i18n="lbl.dedicated">Dedicated</span><span class="v" data-i18n="trust.v.availPerRequest">Available · per request</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inference">Inference</span><span class="v" data-i18n="trust.v.perTenantStateless">Per-tenant · stateless</span></div>
+<div class="row"><span class="k" data-i18n="lbl.audit">Audit</span><span class="v" data-i18n="trust.v.perTenantTrail">Per-tenant trail</span></div>
 <div class="level">Standard: Tenant-isolated</div>
 </div>
 </div>
@@ -605,13 +605,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c10.h">From raw input to signed output, on one trail.</h4>
 <p data-i18n="trust.c10.body">Every deliverable carries a complete provenance record: the source files uploaded, the module version that processed them, the AI engine and model version used, the deterministic computations applied, the engineer who reviewed, and the timestamp at every step. The trail is immutable and can be re-run deterministically against the same inputs.</p>
-<p>For regulatory examination, the trail is the answer to "how did this number get into this report?" — without requiring reconstruction or interpretation after the fact.</p>
+<p data-i18n="trust.p.audit">For regulatory examination, the trail is the answer to "how did this number get into this report?" — without requiring reconstruction or interpretation after the fact.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Coverage</span><span class="v">Input to signature</span></div>
-<div class="row"><span class="k">Mutability</span><span class="v">Immutable · append-only</span></div>
-<div class="row"><span class="k">Re-run</span><span class="v">Deterministic</span></div>
-<div class="row"><span class="k">Format</span><span class="v">Structured · machine-readable</span></div>
+<div class="row"><span class="k" data-i18n="lbl.coverage">Coverage</span><span class="v" data-i18n="trust.v.inputToSig">Input to signature</span></div>
+<div class="row"><span class="k" data-i18n="lbl.mutability">Mutability</span><span class="v" data-i18n="trust.v.immutable">Immutable · append-only</span></div>
+<div class="row"><span class="k" data-i18n="lbl.rerun">Re-run</span><span class="v" data-i18n="val.deterministic">Deterministic</span></div>
+<div class="row"><span class="k" data-i18n="lbl.format">Format</span><span class="v" data-i18n="trust.v.structuredMR">Structured · machine-readable</span></div>
 <div class="level">Standard: End-to-end provenance</div>
 </div>
 </div>
@@ -625,13 +625,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c11.h">Cryptographic binding between document and signer.</h4>
 <p data-i18n="trust.c11.body">When an engineer attests a deliverable, the signature is cryptographically bound to: the document content, the version of the platform that produced it, the inputs the platform consumed, and the engineer's identity. Any post-signature modification breaks the signature in a way that can be verified independently of the platform.</p>
-<p>The signature artefact travels with the document — the receiving party can verify integrity without depending on Builtly remaining available. The verification mechanism is open-spec.</p>
+<p data-i18n="trust.p.signature">The signature artefact travels with the document — the receiving party can verify integrity without depending on Builtly remaining available. The verification mechanism is open-spec.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Algorithm</span><span class="v">SHA-256 · signed</span></div>
-<div class="row"><span class="k">Binding</span><span class="v">Document + inputs + version</span></div>
-<div class="row"><span class="k">Verification</span><span class="v">Independent · open spec</span></div>
-<div class="row"><span class="k">Tamper detection</span><span class="v">At document level</span></div>
+<div class="row"><span class="k" data-i18n="lbl.algorithm">Algorithm</span><span class="v" data-i18n="trust.v.shaSignedTr">SHA-256 · signed</span></div>
+<div class="row"><span class="k" data-i18n="lbl.binding">Binding</span><span class="v" data-i18n="trust.v.docInputsVer">Document + inputs + version</span></div>
+<div class="row"><span class="k" data-i18n="lbl.verification">Verification</span><span class="v" data-i18n="trust.v.independentOpen">Independent · open spec</span></div>
+<div class="row"><span class="k" data-i18n="lbl.tamperDetection">Tamper detection</span><span class="v" data-i18n="trust.v.atDocLevel">At document level</span></div>
 <div class="level">Standard: Independently verifiable</div>
 </div>
 </div>
@@ -645,13 +645,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c12.h">Full forensic export available on request.</h4>
 <p data-i18n="trust.c12.body">If a deliverable is challenged — in court, in regulatory examination, or by an insurer following an incident — the customer can request the complete forensic record for that deliverable: provenance, signature, all intermediate artefacts, and the model versions involved. Builtly retains the relevant data for the regulatory retention period applicable to the deliverable type.</p>
-<p>The export is designed to be defensible: a third-party expert can examine the record, re-run the deterministic computations, and arrive at the same result. The audit trail is the answer, not just the supporting evidence for it.</p>
+<p data-i18n="trust.p.export">The export is designed to be defensible: a third-party expert can examine the record, re-run the deterministic computations, and arrive at the same result. The audit trail is the answer, not just the supporting evidence for it.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Trigger</span><span class="v">Customer request</span></div>
-<div class="row"><span class="k">Scope</span><span class="v">Full forensic record</span></div>
-<div class="row"><span class="k">Retention</span><span class="v">Regulatory period</span></div>
-<div class="row"><span class="k">Verifiability</span><span class="v">Third-party · re-runnable</span></div>
+<div class="row"><span class="k" data-i18n="lbl.trigger">Trigger</span><span class="v" data-i18n="trust.v.custReq">Customer request</span></div>
+<div class="row"><span class="k" data-i18n="lbl.scope">Scope</span><span class="v" data-i18n="trust.v.fullForensic">Full forensic record</span></div>
+<div class="row"><span class="k" data-i18n="lbl.retention">Retention</span><span class="v" data-i18n="trust.v.regulatoryPeriod">Regulatory period</span></div>
+<div class="row"><span class="k" data-i18n="lbl.verifiability">Verifiability</span><span class="v" data-i18n="trust.v.thirdPartyRerun">Third-party · re-runnable</span></div>
 <div class="level">Standard: Defensible export</div>
 </div>
 </div>
@@ -678,13 +678,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c13.h">Building codes and engineering standards encoded as logic.</h4>
 <p data-i18n="trust.c13.body">The regulation engine encodes building codes, Eurocode-family standards, fire-safety regulations, environmental standards and acoustic-class requirements as machine-readable logic — not as free-text instructions for a model to interpret. When a standard updates, the rule pack updates, and the change propagates to every module that depends on it.</p>
-<p>Each module's output specifies the exact code version and rule-pack version applied — so the regulatory basis of every deliverable is unambiguous on the document itself.</p>
+<p data-i18n="trust.p.rulepack">Each module's output specifies the exact code version and rule-pack version applied — so the regulatory basis of every deliverable is unambiguous on the document itself.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Encoding</span><span class="v">Machine-readable rules</span></div>
-<div class="row"><span class="k">Versioning</span><span class="v">Pack version on output</span></div>
-<div class="row"><span class="k">Updates</span><span class="v">Propagated · audited</span></div>
-<div class="row"><span class="k">Jurisdictions</span><span class="v">Seven · expanding</span></div>
+<div class="row"><span class="k" data-i18n="lbl.encoding">Encoding</span><span class="v" data-i18n="trust.v.machineReadable">Machine-readable rules</span></div>
+<div class="row"><span class="k" data-i18n="lbl.versioning">Versioning</span><span class="v" data-i18n="trust.v.packVerOnOutput">Pack version on output</span></div>
+<div class="row"><span class="k" data-i18n="lbl.updates">Updates</span><span class="v" data-i18n="trust.v.propagatedAudited">Propagated · audited</span></div>
+<div class="row"><span class="k" data-i18n="lbl.jurisdictions">Jurisdictions</span><span class="v" data-i18n="trust.v.sevenExpanding">Seven · expanding</span></div>
 <div class="level">Standard: Versioned rule packs</div>
 </div>
 </div>
@@ -698,13 +698,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c14.h">Data protection by design. DPA available.</h4>
 <p data-i18n="trust.c14.body">The platform handles personal data only where strictly required for the engineering function — typically engineer identifiers, contact information, and project-team metadata. Customer-personal data outside this scope should not reach the platform; the upload interface and API surface are scoped accordingly.</p>
-<p>A standard Data Processing Agreement is available for customers subject to GDPR or equivalent regional data-protection rules, and the platform supports the data-subject rights — access, correction, deletion — that those rules require.</p>
+<p data-i18n="trust.p.dpa">A standard Data Processing Agreement is available for customers subject to GDPR or equivalent regional data-protection rules, and the platform supports the data-subject rights — access, correction, deletion — that those rules require.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">PII scope</span><span class="v">Engineering-function only</span></div>
-<div class="row"><span class="k">DPA</span><span class="v">Available · standard</span></div>
-<div class="row"><span class="k">Subject rights</span><span class="v">Supported</span></div>
-<div class="row"><span class="k">DPO contact</span><span class="v">contact@builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="lbl.piiScope">PII scope</span><span class="v" data-i18n="trust.v.engineeringOnly">Engineering-function only</span></div>
+<div class="row"><span class="k" data-i18n="lbl.dpa">DPA</span><span class="v" data-i18n="trust.v.availStandard">Available · standard</span></div>
+<div class="row"><span class="k" data-i18n="lbl.subjectRights">Subject rights</span><span class="v" data-i18n="val.supported">Supported</span></div>
+<div class="row"><span class="k" data-i18n="lbl.dpoContact">DPO contact</span><span class="v">contact@builtly.ai</span></div>
 <div class="level">Standard: Data-protection by design</div>
 </div>
 </div>
@@ -718,13 +718,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-body">
 <h4 data-i18n="trust.c15.h">Vendor onboarding ready for enterprise procurement.</h4>
 <p data-i18n="trust.c15.body">For customers running formal vendor-onboarding processes — security questionnaires, supplier-risk reviews, financial diligence — Builtly provides a standardised vendor-onboarding pack: the architecture summary, the security posture, the data-handling documentation, the certifications in progress, and named contacts for procurement diligence.</p>
-<p>The pack is intended to compress vendor-onboarding from weeks to days. For deeper diligence, additional materials are made available under NDA. Certifications track the standard enterprise sequence: SOC 2 Type I and Type II are on the active roadmap.</p>
+<p data-i18n="trust.p.pack">The pack is intended to compress vendor-onboarding from weeks to days. For deeper diligence, additional materials are made available under NDA. Certifications track the standard enterprise sequence: SOC 2 Type I and Type II are on the active roadmap.</p>
 </div>
 <div class="dom-meta">
-<div class="row"><span class="k">Pack</span><span class="v">Standardised · on request</span></div>
-<div class="row"><span class="k">NDA materials</span><span class="v">Deeper diligence</span></div>
-<div class="row"><span class="k">SOC 2</span><span class="v">Roadmap · in progress</span></div>
-<div class="row"><span class="k">Contact</span><span class="v">contact@builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="lbl.pack">Pack</span><span class="v" data-i18n="trust.v.standardisedOnReq">Standardised · on request</span></div>
+<div class="row"><span class="k" data-i18n="lbl.ndaMaterials">NDA materials</span><span class="v" data-i18n="trust.v.deeperDiligence">Deeper diligence</span></div>
+<div class="row"><span class="k" data-i18n="lbl.soc2">SOC 2</span><span class="v" data-i18n="trust.v.roadmapInProgress">Roadmap · in progress</span></div>
+<div class="row"><span class="k" data-i18n="lbl.contact">Contact</span><span class="v">contact@builtly.ai</span></div>
 <div class="level">Standard: Enterprise-ready onboarding</div>
 </div>
 </div>
@@ -747,40 +747,40 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Availability</div>
 <h4 data-i18n="trust.c16.h">Production uptime target.</h4>
 <div class="stack">
-<div class="r"><span class="k">Target</span><span class="v">99.5% monthly</span></div>
-<div class="r"><span class="k">Measurement</span><span class="v">External · third-party</span></div>
-<div class="r"><span class="k">Status page</span><span class="v">Public · operational</span></div>
-<div class="r"><span class="k">Maintenance</span><span class="v">Scheduled · announced</span></div>
+<div class="r"><span class="k" data-i18n="lbl.target">Target</span><span class="v" data-i18n="trust.v.99_5">99.5% monthly</span></div>
+<div class="r"><span class="k" data-i18n="lbl.measurement">Measurement</span><span class="v" data-i18n="trust.v.externalThirdParty">External · third-party</span></div>
+<div class="r"><span class="k" data-i18n="lbl.statusPage">Status page</span><span class="v" data-i18n="trust.v.publicOperational">Public · operational</span></div>
+<div class="r"><span class="k" data-i18n="lbl.maintenance">Maintenance</span><span class="v" data-i18n="trust.v.scheduledAnnounced">Scheduled · announced</span></div>
 </div>
 </div>
 <div class="dt-cell">
 <div class="ix">§ Incident response</div>
 <h4 data-i18n="trust.c17.h">How incidents are handled.</h4>
 <div class="stack">
-<div class="r"><span class="k">Acknowledgement</span><span class="v">≤ 30 min · business hours</span></div>
-<div class="r"><span class="k">Customer comms</span><span class="v">During · written summary after</span></div>
-<div class="r"><span class="k">Post-mortems</span><span class="v">Shared with affected customers</span></div>
-<div class="r"><span class="k">Root cause</span><span class="v">Within 5 business days</span></div>
+<div class="r"><span class="k" data-i18n="lbl.acknowledgement">Acknowledgement</span><span class="v" data-i18n="trust.v.30minBiz">≤ 30 min · business hours</span></div>
+<div class="r"><span class="k" data-i18n="lbl.customerComms">Customer comms</span><span class="v" data-i18n="trust.v.duringWritten">During · written summary after</span></div>
+<div class="r"><span class="k" data-i18n="lbl.postMortems">Post-mortems</span><span class="v" data-i18n="trust.v.sharedAffected">Shared with affected customers</span></div>
+<div class="r"><span class="k" data-i18n="lbl.rootCause">Root cause</span><span class="v" data-i18n="trust.v.within5biz">Within 5 business days</span></div>
 </div>
 </div>
 <div class="dt-cell">
 <div class="ix">§ Backup &amp; recovery</div>
 <h4 data-i18n="trust.c18.h">Backups and disaster recovery.</h4>
 <div class="stack">
-<div class="r"><span class="k">Backup cadence</span><span class="v">Daily · encrypted</span></div>
-<div class="r"><span class="k">Retention</span><span class="v">30 days · standard</span></div>
-<div class="r"><span class="k">RTO</span><span class="v">≤ 4 hours · target</span></div>
-<div class="r"><span class="k">RPO</span><span class="v">≤ 1 hour · target</span></div>
+<div class="r"><span class="k" data-i18n="lbl.backupCadence">Backup cadence</span><span class="v" data-i18n="val.daily30">Daily · encrypted</span></div>
+<div class="r"><span class="k" data-i18n="lbl.retention">Retention</span><span class="v" data-i18n="trust.v.30daysStd">30 days · standard</span></div>
+<div class="r"><span class="k" data-i18n="lbl.rto">RTO</span><span class="v" data-i18n="trust.v.4hTarget">≤ 4 hours · target</span></div>
+<div class="r"><span class="k" data-i18n="lbl.rpo">RPO</span><span class="v" data-i18n="trust.v.1hTarget">≤ 1 hour · target</span></div>
 </div>
 </div>
 <div class="dt-cell">
 <div class="ix">§ Vulnerability handling</div>
 <h4 data-i18n="trust.c19.h">How vulnerabilities are managed.</h4>
 <div class="stack">
-<div class="r"><span class="k">Disclosure</span><span class="v">security@builtly.ai</span></div>
-<div class="r"><span class="k">Acknowledgement</span><span class="v">≤ 24 hours</span></div>
-<div class="r"><span class="k">Critical patches</span><span class="v">≤ 72 hours</span></div>
-<div class="r"><span class="k">Coordinated disclosure</span><span class="v">Supported</span></div>
+<div class="r"><span class="k" data-i18n="lbl.disclosure">Disclosure</span><span class="v">security@builtly.ai</span></div>
+<div class="r"><span class="k" data-i18n="lbl.acknowledgement">Acknowledgement</span><span class="v" data-i18n="trust.v.24h">≤ 24 hours</span></div>
+<div class="r"><span class="k" data-i18n="lbl.criticalPatches">Critical patches</span><span class="v" data-i18n="trust.v.72h">≤ 72 hours</span></div>
+<div class="r"><span class="k" data-i18n="lbl.coordinatedDisclosure">Coordinated disclosure</span><span class="v" data-i18n="val.supported">Supported</span></div>
 </div>
 </div>
 </div>
@@ -807,10 +807,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </div>
 <div class="cta-side rv">
-<div class="row"><span class="k">Security</span><span class="v">security@builtly.ai</span></div>
-<div class="row"><span class="k">Procurement</span><span class="v">contact@builtly.ai</span></div>
-<div class="row"><span class="k">Disclosure</span><span class="v">≤ 24 hours</span></div>
-<div class="row"><span class="k">Pack</span><span class="v">On request · NDA optional</span></div>
+<div class="row"><span class="k" data-i18n="lbl.security">Security</span><span class="v">security@builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="lbl.procurement">Procurement</span><span class="v">contact@builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="lbl.disclosure">Disclosure</span><span class="v" data-i18n="trust.v.24h">≤ 24 hours</span></div>
+<div class="row"><span class="k" data-i18n="lbl.pack">Pack</span><span class="v" data-i18n="trust.v.onReqNda">On request · NDA optional</span></div>
 </div>
 </div>
 </div>
@@ -829,9 +829,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <li><a href="https://builtly.ai" data-i18n="footer.platform.portal">Portal</a></li>
 <li><a href="/platform.html" data-i18n="footer.platform.caps">Capabilities</a></li>
 <li><a href="/industries.html" data-i18n="nav.industries">Industries</a></li>
-<li><a href="/#delivery">Delivery models</a></li>
+<li><a href="/#delivery" data-i18n="nav.deliveryModels">Delivery models</a></li>
 <li><a href="/#pipeline" data-i18n="nav.howItWorks">How it works</a></li>
-<li><a href="/#approach">Approach</a></li>
+<li><a href="/#approach" data-i18n="footer.platform.approach">Approach</a></li>
 </ul>
 </div>
 <div class="f-col">

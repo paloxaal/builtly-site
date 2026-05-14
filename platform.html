@@ -437,7 +437,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="arch-cell">
 <div class="ix">§ Tier 01 · Core</div>
 <h4 data-i18n="platform.tier_sub.s2">Core engineering disciplines.</h4>
-<p>Five modules covering the disciplines that legally require professional engineering authority. Highest unit price, signed under regulatory liability. Drive the bulk of platform revenue.</p>
+<p data-i18n="plt.tier.attested.p">Five modules covering the disciplines that legally require professional engineering authority. Highest unit price, signed under regulatory liability. Drive the bulk of platform revenue.</p>
 <div class="tail">
 <strong>5 modules</strong>
 GEO · STR · FIR · ACO · ENV
@@ -446,7 +446,7 @@ GEO · STR · FIR · ACO · ENV
 <div class="arch-cell">
 <div class="ix">§ Tier 02 · Support</div>
 <h4 data-i18n="platform.tier_sub.s3">Supporting project workflows.</h4>
-<p>Five modules covering complementary deliverables across the project lifecycle. Engineer-reviewed but typically without professional liability. Improve project velocity and capture additional margin.</p>
+<p data-i18n="plt.tier.reviewed.p">Five modules covering complementary deliverables across the project lifecycle. Engineer-reviewed but typically without professional liability. Improve project velocity and capture additional margin.</p>
 <div class="tail">
 <strong>5 modules</strong>
 ARK · TDD · BID · QTY · HSE
@@ -455,7 +455,7 @@ ARK · TDD · BID · QTY · HSE
 <div class="arch-cell">
 <div class="ix">§ Tier 03 · Add-on</div>
 <h4 data-i18n="platform.tier_sub.s4">Automated capabilities.</h4>
-<p>Five modules covering analyses where the market accepts fully automated output as decision basis. Lowest unit price, highest margin, unlimited scalability. Extend platform reach to adjacent buyers.</p>
+<p data-i18n="plt.tier.auto.p">Five modules covering analyses where the market accepts fully automated output as decision basis. Lowest unit price, highest margin, unlimited scalability. Extend platform reach to adjacent buyers.</p>
 <div class="tail">
 <strong>5 modules</strong>
 CLI · SUS · TRA · CRE · PKG
@@ -478,7 +478,7 @@ CLI · SUS · TRA · CRE · PKG
 
 <div class="tier-meta">
 <span class="tag accent">In operation</span>
-<h3>Attested · Professional liability · Highest unit value</h3>
+<h3 data-i18n="plt.tier.attested.h3">Attested · Professional liability · Highest unit value</h3>
 <span class="desc">5 modules</span>
 </div>
 
@@ -491,14 +491,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.geo">Ground conditions, foundations, and Eurocode-7 analysis.</h4>
-<p>Builtly's geotechnical module ingests soil-survey data, regional geological surveys and topographic information to produce ground-condition assessments, foundation-strategy proposals and Eurocode-7 verification reports. The module handles characteristic value derivation, partial-factor methods and limit-state analyses across the three relevant verification methods.</p>
-<p>Used at the early-design stage to set foundation strategy and at the detailed-design stage to verify capacity. Attested by an engineer with regulatory authority in geotechnics.</p>
+<p data-i18n="plt.mod.geo.body">Builtly's geotechnical module ingests soil-survey data, regional geological surveys and topographic information to produce ground-condition assessments, foundation-strategy proposals and Eurocode-7 verification reports. The module handles characteristic value derivation, partial-factor methods and limit-state analyses across the three relevant verification methods.</p>
+<p data-i18n="plt.mod.geo.use">Used at the early-design stage to set foundation strategy and at the detailed-design stage to verify capacity. Attested by an engineer with regulatory authority in geotechnics.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Soil surveys · DWG · regional geo-data</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF report · DOCX · GeoJSON</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Eurocode 7 · local codes</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Foundation strategy · capacity</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.geo.in">Soil surveys · DWG · regional geo-data</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.geo.out">PDF report · DOCX · GeoJSON</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.geo.std">Eurocode 7 · local codes</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.geo.use">Foundation strategy · capacity</span></div>
 <div class="level">Delivery: Attested</div>
 </div>
 </article>
@@ -511,14 +511,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.str">Structural analysis, rationality and dimensioning.</h4>
-<p>Reads DWG, DXF and IFC4 inputs, runs a structural rationality analysis across the model, applies Eurocode-1 through Eurocode-9 verifications, and produces member-sizing recommendations across steel, concrete, timber and composite construction. Outputs include BIM-native IFC4 models with structural attributes embedded.</p>
-<p>Used for both feasibility-stage rationality reviews and detailed-design dimensioning. The output is reviewed by a structural engineer with regulatory authority before release.</p>
+<p data-i18n="plt.mod.struct.body">Reads DWG, DXF and IFC4 inputs, runs a structural rationality analysis across the model, applies Eurocode-1 through Eurocode-9 verifications, and produces member-sizing recommendations across steel, concrete, timber and composite construction. Outputs include BIM-native IFC4 models with structural attributes embedded.</p>
+<p data-i18n="plt.mod.struct.use">Used for both feasibility-stage rationality reviews and detailed-design dimensioning. The output is reviewed by a structural engineer with regulatory authority before release.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">DWG · DXF · IFC4 · loads</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">IFC4 · DOCX · PDF · BCF</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Eurocode 1–9 · local codes</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Rationality · sizing · BIM export</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.struct.in">DWG · DXF · IFC4 · loads</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.struct.out">IFC4 · DOCX · PDF · BCF</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.struct.std">Eurocode 1–9 · local codes</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.struct.use">Rationality · sizing · BIM export</span></div>
 <div class="level">Delivery: Attested</div>
 </div>
 </article>
@@ -531,14 +531,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.fire">Fire-safety concept, compartmentation and egress.</h4>
-<p>Develops the fire-safety concept document for a building from plan inputs, applies jurisdiction-specific code requirements, calculates compartmentation against fire-resistance ratings, and verifies egress paths against capacity and travel-distance limits. Outputs include both plan markups and the supporting concept report.</p>
-<p>Used at concept stage and again at detailed design. Attested by a fire engineer with regulatory authority.</p>
+<p data-i18n="plt.mod.fire.body">Develops the fire-safety concept document for a building from plan inputs, applies jurisdiction-specific code requirements, calculates compartmentation against fire-resistance ratings, and verifies egress paths against capacity and travel-distance limits. Outputs include both plan markups and the supporting concept report.</p>
+<p data-i18n="plt.mod.fire.use">Used at concept stage and again at detailed design. Attested by a fire engineer with regulatory authority.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Plan drawings · use class · capacity</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF concept · marked-up plans</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Building regulations · local code</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Concept · compartmentation · egress</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.fire.in">Plan drawings · use class · capacity</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.fire.out">PDF concept · marked-up plans</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.fire.std">Building regulations · local code</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.fire.use">Concept · compartmentation · egress</span></div>
 <div class="level">Delivery: Attested</div>
 </div>
 </article>
@@ -551,14 +551,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.aco">Sound calculations, building and room acoustics.</h4>
-<p>Computes airborne and impact-sound insulation requirements between dwellings and between functional zones, verifies sound-class compliance across the relevant national standards, and produces room-acoustic predictions for reverberation time and speech intelligibility. Supports both residential and commercial typologies.</p>
-<p>Used to verify acoustic design at planning approval and at construction documentation. Attested by an acoustic consultant with regulatory authority.</p>
+<p data-i18n="plt.mod.acoust.body">Computes airborne and impact-sound insulation requirements between dwellings and between functional zones, verifies sound-class compliance across the relevant national standards, and produces room-acoustic predictions for reverberation time and speech intelligibility. Supports both residential and commercial typologies.</p>
+<p data-i18n="plt.mod.acoust.use">Used to verify acoustic design at planning approval and at construction documentation. Attested by an acoustic consultant with regulatory authority.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Plans · construction build-ups</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF report · calculation appendix</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">National acoustic standards · ISO</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Class verification · room acoustics</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.acoust.in">Plans · construction build-ups</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.acoust.out">PDF report · calculation appendix</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.acoust.std">National acoustic standards · ISO</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.acoust.use">Class verification · room acoustics</span></div>
 <div class="level">Delivery: Attested</div>
 </div>
 </article>
@@ -571,14 +571,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.env">Contaminated ground, biodiversity, environmental monitoring.</h4>
-<p>Assesses environmental conditions for a site — contaminated ground risk, biodiversity exposure, regulatory environmental requirements — and produces the environmental monitoring plan, handling instructions for contaminated material, and the required regulatory submissions. Combines site-survey data with national environmental databases.</p>
-<p>Used at site-acquisition due diligence, at planning application, and to govern environmental monitoring through construction. Attested by an environmental consultant.</p>
+<p data-i18n="plt.mod.env.body">Assesses environmental conditions for a site — contaminated ground risk, biodiversity exposure, regulatory environmental requirements — and produces the environmental monitoring plan, handling instructions for contaminated material, and the required regulatory submissions. Combines site-survey data with national environmental databases.</p>
+<p data-i18n="plt.mod.env.use">Used at site-acquisition due diligence, at planning application, and to govern environmental monitoring through construction. Attested by an environmental consultant.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Site survey · cadastral · ecology data</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF plan · monitoring schedule</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">National environmental code</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">DD · monitoring · regulatory filing</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.env.in">Site survey · cadastral · ecology data</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.env.out">PDF plan · monitoring schedule</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.env.std">National environmental code</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.env.use">DD · monitoring · regulatory filing</span></div>
 <div class="level">Delivery: Attested</div>
 </div>
 </article>
@@ -599,7 +599,7 @@ CLI · SUS · TRA · CRE · PKG
 
 <div class="tier-meta">
 <span class="tag mid">In operation</span>
-<h3>Reviewed · Engineer-validated · Compounding margin</h3>
+<h3 data-i18n="plt.tier.reviewed.h3">Reviewed · Engineer-validated · Compounding margin</h3>
 <span class="desc">5 modules</span>
 </div>
 
@@ -612,14 +612,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.site">Site feasibility, indicative volumes and AI siting.</h4>
-<p>Combines cadastral data, planning regulations and geospatial inputs to produce a site feasibility study — buildable area, indicative volumes, planning constraints, regulatory setbacks. Includes AI-assisted siting of building masses to maximise utilisation within the applicable code envelope.</p>
-<p>Used by developers and land owners at the acquisition or early-feasibility stage to assess what a site can support before committing to design.</p>
+<p data-i18n="plt.mod.feas.body">Combines cadastral data, planning regulations and geospatial inputs to produce a site feasibility study — buildable area, indicative volumes, planning constraints, regulatory setbacks. Includes AI-assisted siting of building masses to maximise utilisation within the applicable code envelope.</p>
+<p data-i18n="plt.mod.feas.use">Used by developers and land owners at the acquisition or early-feasibility stage to assess what a site can support before committing to design.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Cadastral · zoning · topography</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF study · GeoJSON · volume model</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Local planning law</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Acquisition · early feasibility</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.feas.in">Cadastral · zoning · topography</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.feas.out">PDF study · GeoJSON · volume model</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.feas.std">Local planning law</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.feas.use">Acquisition · early feasibility</span></div>
 <div class="level">Delivery: Reviewed</div>
 </div>
 </article>
@@ -632,14 +632,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.dd">Technical due diligence for transactions and asset management.</h4>
-<p>Produces transaction-grade technical due diligence reports — building condition, regulatory exposure, capex requirements, environmental status. Combines drawing input, register data and on-site survey output into a structured DD document suitable for transaction underwriting or portfolio review.</p>
-<p>Used by investors, developers and asset managers at acquisition, refinancing or major portfolio reviews. Engineer-reviewed before release.</p>
+<p data-i18n="plt.mod.dd.body">Produces transaction-grade technical due diligence reports — building condition, regulatory exposure, capex requirements, environmental status. Combines drawing input, register data and on-site survey output into a structured DD document suitable for transaction underwriting or portfolio review.</p>
+<p data-i18n="plt.mod.dd.use">Used by investors, developers and asset managers at acquisition, refinancing or major portfolio reviews. Engineer-reviewed before release.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Existing drawings · register · survey</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF DD report · capex schedule</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Industry DD standards</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Acquisition · refinancing · audit</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.dd.in">Existing drawings · register · survey</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.dd.out">PDF DD report · capex schedule</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.dd.std">Industry DD standards</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.dd.use">Acquisition · refinancing · audit</span></div>
 <div class="level">Delivery: Reviewed</div>
 </div>
 </article>
@@ -652,14 +652,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.tend">Tender checklists, contract review and audit.</h4>
-<p>Constructs the tender checklist for a project, runs received bids against contract criteria, identifies deviations and produces the evaluation memo. Supports both client-side tendering and contractor-side bid response, with structured comparison across multiple submissions.</p>
-<p>Used by clients running competitive tenders and by contractors responding to large bids. Engineer-reviewed for contract-significance.</p>
+<p data-i18n="plt.mod.tender.body">Constructs the tender checklist for a project, runs received bids against contract criteria, identifies deviations and produces the evaluation memo. Supports both client-side tendering and contractor-side bid response, with structured comparison across multiple submissions.</p>
+<p data-i18n="plt.mod.tender.use">Used by clients running competitive tenders and by contractors responding to large bids. Engineer-reviewed for contract-significance.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Tender documents · bids · contract</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF evaluation · DOCX checklist</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Public/private procurement</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Tender evaluation · contract audit</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.tender.in">Tender documents · bids · contract</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.tender.out">PDF evaluation · DOCX checklist</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.tender.std">Public/private procurement</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.tender.use">Tender evaluation · contract audit</span></div>
 <div class="level">Delivery: Reviewed</div>
 </div>
 </article>
@@ -672,14 +672,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.qty">Quantity extraction and estimating basis from BIM.</h4>
-<p>Extracts quantities directly from IFC4 models, classifies materials and assemblies, generates estimating-basis documents structured against national cost-coding systems, and maintains traceability between the BIM source and the quantity output. Supports both cost estimating and procurement preparation.</p>
-<p>Used by estimators, quantity surveyors and procurement teams at design milestones and tender preparation. Engineer-reviewed for completeness.</p>
+<p data-i18n="plt.mod.cost.body">Extracts quantities directly from IFC4 models, classifies materials and assemblies, generates estimating-basis documents structured against national cost-coding systems, and maintains traceability between the BIM source and the quantity output. Supports both cost estimating and procurement preparation.</p>
+<p data-i18n="plt.mod.cost.use">Used by estimators, quantity surveyors and procurement teams at design milestones and tender preparation. Engineer-reviewed for completeness.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">IFC4 · BIM models · classifications</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">XLSX · DOCX · BCF traces</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">National cost coding</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Estimating · procurement</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.cost.in">IFC4 · BIM models · classifications</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.cost.out">XLSX · DOCX · BCF traces</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.cost.std">National cost coding</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.cost.use">Estimating · procurement</span></div>
 <div class="level">Delivery: Reviewed</div>
 </div>
 </article>
@@ -692,14 +692,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.hse">Health, safety and environment plan, risk register and tracking.</h4>
-<p>Constructs the project HSE plan, builds the project-specific risk register from typology and site factors, defines mitigation strategies, and produces the tracking framework for compliance through construction. Aligns to national HSE regulation and to project-specific contractual requirements.</p>
-<p>Used by clients, principal contractors and HSE coordinators from project inception through completion. Engineer-reviewed for compliance.</p>
+<p data-i18n="plt.mod.hse.body">Constructs the project HSE plan, builds the project-specific risk register from typology and site factors, defines mitigation strategies, and produces the tracking framework for compliance through construction. Aligns to national HSE regulation and to project-specific contractual requirements.</p>
+<p data-i18n="plt.mod.hse.use">Used by clients, principal contractors and HSE coordinators from project inception through completion. Engineer-reviewed for compliance.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Project brief · site survey · typology</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF plan · risk register · tracker</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">National HSE regulation</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Project planning · construction</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.hse.in">Project brief · site survey · typology</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.hse.out">PDF plan · risk register · tracker</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.hse.std">National HSE regulation</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.hse.use">Project planning · construction</span></div>
 <div class="level">Delivery: Reviewed</div>
 </div>
 </article>
@@ -720,7 +720,7 @@ CLI · SUS · TRA · CRE · PKG
 
 <div class="tier-meta">
 <span class="tag">In operation</span>
-<h3>Auto · Fully automated · Unlimited scale</h3>
+<h3 data-i18n="plt.tier.auto.h3">Auto · Fully automated · Unlimited scale</h3>
 <span class="desc">5 modules</span>
 </div>
 
@@ -733,14 +733,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.clim">Flood, landslide, sea-level and regulatory climate risk.</h4>
-<p>Computes climate risk exposure for an individual asset across flood, landslide, sea-level rise and other regulatory climate-risk dimensions. Combines national hazard mapping with site-specific topography to produce an asset-level climate-risk report aligned to financial-sector disclosure requirements.</p>
-<p>Used by banks, asset managers, insurers and real-estate platforms for portfolio-level climate-risk assessment. Fully automated, sub-minute turnaround per asset.</p>
+<p data-i18n="plt.mod.climate.body">Computes climate risk exposure for an individual asset across flood, landslide, sea-level rise and other regulatory climate-risk dimensions. Combines national hazard mapping with site-specific topography to produce an asset-level climate-risk report aligned to financial-sector disclosure requirements.</p>
+<p data-i18n="plt.mod.climate.use">Used by banks, asset managers, insurers and real-estate platforms for portfolio-level climate-risk assessment. Fully automated, sub-minute turnaround per asset.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Asset coordinates · type · age</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF report · structured JSON</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">National hazard map · climate disclosure</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Portfolio risk · disclosure</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.climate.in">Asset coordinates · type · age</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.climate.out">PDF report · structured JSON</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.climate.std">National hazard map · climate disclosure</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.climate.use">Portfolio risk · disclosure</span></div>
 <div class="level">Delivery: Auto</div>
 </div>
 </article>
@@ -753,14 +753,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.sust">Sustainability pre-assessment and documentation template.</h4>
-<p>Runs a pre-assessment against the relevant sustainability certification framework — points achievable, evidence required, project-level readiness. Produces the documentation template the project team can populate to pursue formal certification, with field-level guidance on what evidence each criterion expects.</p>
-<p>Used by developers, design teams and sustainability consultants at early design to decide whether certification is feasible and what to design for. Fully automated for the pre-assessment.</p>
+<p data-i18n="plt.mod.sust.body">Runs a pre-assessment against the relevant sustainability certification framework — points achievable, evidence required, project-level readiness. Produces the documentation template the project team can populate to pursue formal certification, with field-level guidance on what evidence each criterion expects.</p>
+<p data-i18n="plt.mod.sust.use">Used by developers, design teams and sustainability consultants at early design to decide whether certification is feasible and what to design for. Fully automated for the pre-assessment.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Project brief · typology · location</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF pre-assessment · DOCX template</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Major certification frameworks</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Early-design feasibility</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.sust.in">Project brief · typology · location</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.sust.out">PDF pre-assessment · DOCX template</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.sust.std">Major certification frameworks</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.sust.use">Early-design feasibility</span></div>
 <div class="level">Delivery: Auto</div>
 </div>
 </article>
@@ -773,14 +773,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.traf">Traffic volume, capacity and planning-impact assessment.</h4>
-<p>Estimates traffic generation for a project, evaluates capacity against existing road geometry, and produces the traffic-impact contribution required for planning submissions. Combines national traffic-coefficient data with site-specific access analysis.</p>
-<p>Used by developers and planning consultants preparing planning applications. Fully automated for standard residential and commercial typologies; complex projects fall back to engineer review.</p>
+<p data-i18n="plt.mod.traf.body">Estimates traffic generation for a project, evaluates capacity against existing road geometry, and produces the traffic-impact contribution required for planning submissions. Combines national traffic-coefficient data with site-specific access analysis.</p>
+<p data-i18n="plt.mod.traf.use">Used by developers and planning consultants preparing planning applications. Fully automated for standard residential and commercial typologies; complex projects fall back to engineer review.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Site location · use · capacity</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF assessment · traffic estimates</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">National traffic methodology</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Planning submission</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.traf.in">Site location · use · capacity</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.traf.out">PDF assessment · traffic estimates</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.traf.std">National traffic methodology</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.traf.use">Planning submission</span></div>
 <div class="level">Delivery: Auto</div>
 </div>
 </article>
@@ -793,14 +793,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.cred">Credit basis, construction-loan monitoring and portfolio risk.</h4>
-<p>Produces the technical-credit basis document for construction lending — building economics, technical risk, regulatory exposure — and the monitoring framework lenders use to track construction progress against drawdown. Supports both individual loan underwriting and portfolio-level construction-loan monitoring.</p>
-<p>Used by banks, alternative lenders and developer finance teams across loan origination and through the construction monitoring cycle. Fully automated for standard residential typologies.</p>
+<p data-i18n="plt.mod.credit.body">Produces the technical-credit basis document for construction lending — building economics, technical risk, regulatory exposure — and the monitoring framework lenders use to track construction progress against drawdown. Supports both individual loan underwriting and portfolio-level construction-loan monitoring.</p>
+<p data-i18n="plt.mod.credit.use">Used by banks, alternative lenders and developer finance teams across loan origination and through the construction monitoring cycle. Fully automated for standard residential typologies.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">Project brief · budgets · schedule</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">PDF credit basis · monitoring schedule</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Lender protocols</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Origination · monitoring</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.credit.in">Project brief · budgets · schedule</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.credit.out">PDF credit basis · monitoring schedule</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.credit.std">Lender protocols</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.credit.use">Origination · monitoring</span></div>
 <div class="level">Delivery: Auto</div>
 </div>
 </article>
@@ -813,14 +813,14 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 <div class="mod-body">
 <h4 data-i18n="platform.mod.reg">Regulatory packs across seven jurisdictions.</h4>
-<p>The mechanism by which the platform scales across markets. Each country pack contains the jurisdiction-specific regulatory logic, code interpretations and authority-interface mappings that the core modules read at runtime. New jurisdictions plug into the same architecture without separate platform builds.</p>
-<p>Used internally by every other module; surfaced externally as the regulatory framework selection on each delivery. Operational across seven jurisdictions, additional markets on roadmap.</p>
+<p data-i18n="plt.found.regEngine.p1">The mechanism by which the platform scales across markets. Each country pack contains the jurisdiction-specific regulatory logic, code interpretations and authority-interface mappings that the core modules read at runtime. New jurisdictions plug into the same architecture without separate platform builds.</p>
+<p data-i18n="plt.found.regEngine.p2">Used internally by every other module; surfaced externally as the regulatory framework selection on each delivery. Operational across seven jurisdictions, additional markets on roadmap.</p>
 </div>
 <div class="mod-meta">
-<div class="row"><span class="k">Inputs</span><span class="v">National code · standards · registers</span></div>
-<div class="row"><span class="k">Outputs</span><span class="v">Machine-readable rule sets</span></div>
-<div class="row"><span class="k">Standard</span><span class="v">Per-jurisdiction code stack</span></div>
-<div class="row"><span class="k">Typical use</span><span class="v">Backbone for every module</span></div>
+<div class="row"><span class="k" data-i18n="lbl.inputs">Inputs</span><span class="v" data-i18n="plt.v.regEngine.in">National code · standards · registers</span></div>
+<div class="row"><span class="k" data-i18n="lbl.outputs">Outputs</span><span class="v" data-i18n="plt.v.regEngine.out">Machine-readable rule sets</span></div>
+<div class="row"><span class="k" data-i18n="lbl.standard">Standard</span><span class="v" data-i18n="plt.v.regEngine.std">Per-jurisdiction code stack</span></div>
+<div class="row"><span class="k" data-i18n="lbl.typicalUse">Typical use</span><span class="v" data-i18n="plt.v.regEngine.use">Backbone for every module</span></div>
 <div class="level">Delivery: Auto</div>
 </div>
 </article>
@@ -843,37 +843,37 @@ CLI · SUS · TRA · CRE · PKG
 <div class="foundation">
 <div class="ix">§ Foundation 01</div>
 <h4 data-i18n="platform.f.ai">Proprietary AI architecture.</h4>
-<p>Multi-engine architecture with automatic failover. Engines operate under regulatory constraint expressed as machine-readable rule logic, so model responses are bounded by the code they target rather than free interpretation.</p>
+<p data-i18n="plt.found.ai.p">Multi-engine architecture with automatic failover. Engines operate under regulatory constraint expressed as machine-readable rule logic, so model responses are bounded by the code they target rather than free interpretation.</p>
 <div class="stack">Multi-engine · failover · regulation-locked</div>
 </div>
 <div class="foundation">
 <div class="ix">§ Foundation 02</div>
 <h4 data-i18n="platform.f.det">Deterministic computation layer.</h4>
-<p>Geometry, statics and physical calculations run as deterministic numerical code, not as model inference. Eurocode-grade verification, exact-by-default. AI describes and writes up the results; the numbers themselves come from numerical libraries.</p>
+<p data-i18n="plt.found.compute.p">Geometry, statics and physical calculations run as deterministic numerical code, not as model inference. Eurocode-grade verification, exact-by-default. AI describes and writes up the results; the numbers themselves come from numerical libraries.</p>
 <div class="stack">Numerical libraries · exact compute · Eurocode</div>
 </div>
 <div class="foundation">
 <div class="ix">§ Foundation 03</div>
 <h4 data-i18n="platform.f.bim">BIM-native processing.</h4>
-<p>Native handling of IFC4, BCF 2.1 and engineering-format inputs through industry-standard processing libraries. The platform reads BIM as a first-class data structure, not as a re-export from a foreign authoring tool.</p>
+<p data-i18n="plt.found.bim.p">Native handling of IFC4, BCF 2.1 and engineering-format inputs through industry-standard processing libraries. The platform reads BIM as a first-class data structure, not as a re-export from a foreign authoring tool.</p>
 <div class="stack">IFC4 · BCF 2.1 · ifcopenshell</div>
 </div>
 <div class="foundation">
 <div class="ix">§ Foundation 04</div>
 <h4 data-i18n="platform.f.geo">Geospatial-native systems.</h4>
-<p>Direct integration with geospatial data, cadastral registers and authority interfaces. Geographic operations are computed in projected coordinate systems with proper handling of national grids and reference frames.</p>
+<p data-i18n="plt.found.geo.p">Direct integration with geospatial data, cadastral registers and authority interfaces. Geographic operations are computed in projected coordinate systems with proper handling of national grids and reference frames.</p>
 <div class="stack">Shapely · GeoJSON · projected CRS · REST</div>
 </div>
 <div class="foundation">
 <div class="ix">§ Foundation 05</div>
-<h4>Regulation engine.</h4>
-<p>Building codes, planning law and engineering standards expressed as machine-readable logic, not free-text instructions to a model. Updates to regulation flow through the engine and propagate across affected modules automatically.</p>
+<h4 data-i18n="plt.found.regEngine.h4">Regulation engine.</h4>
+<p data-i18n="plt.found.regpack.p">Building codes, planning law and engineering standards expressed as machine-readable logic, not free-text instructions to a model. Updates to regulation flow through the engine and propagate across affected modules automatically.</p>
 <div class="stack">Rule packs · seven jurisdictions · modular</div>
 </div>
 <div class="foundation">
 <div class="ix">§ Foundation 06</div>
-<h4>Audit and traceability.</h4>
-<p>Every claim in a signed deliverable can be traced back to the source data behind it. SHA-256 signing on each version, complete audit trail, deterministic re-runs. Compliance and forensic transparency are properties of the architecture, not features bolted on.</p>
+<h4 data-i18n="plt.found.audit.h4">Audit and traceability.</h4>
+<p data-i18n="plt.found.audit.p1">Every claim in a signed deliverable can be traced back to the source data behind it. SHA-256 signing on each version, complete audit trail, deterministic re-runs. Compliance and forensic transparency are properties of the architecture, not features bolted on.</p>
 <div class="stack">SHA-256 · audit trail · deterministic re-run</div>
 </div>
 </div>
@@ -900,10 +900,10 @@ CLI · SUS · TRA · CRE · PKG
 </div>
 </div>
 <div class="cta-side rv">
-<div class="row"><span class="k">Portal</span><span class="v">builtly.ai</span></div>
-<div class="row"><span class="k">Status</span><span class="v">Live · production</span></div>
-<div class="row"><span class="k">Modules live</span><span class="v">15 of 15</span></div>
-<div class="row"><span class="k">Onboarding</span><span class="v">Same day</span></div>
+<div class="row"><span class="k" data-i18n="lbl.portal">Portal</span><span class="v">builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="lbl.status">Status</span><span class="v" data-i18n="val.liveProduction">Live · production</span></div>
+<div class="row"><span class="k" data-i18n="lbl.modulesLive">Modules live</span><span class="v" data-i18n="plt.v.modules15">15 of 15</span></div>
+<div class="row"><span class="k" data-i18n="lbl.onboarding">Onboarding</span><span class="v" data-i18n="val.sameDay">Same day</span></div>
 </div>
 </div>
 </div>
@@ -922,9 +922,9 @@ CLI · SUS · TRA · CRE · PKG
 <li><a href="https://builtly.ai" data-i18n="footer.platform.portal">Portal</a></li>
 <li><a href="/platform.html" data-i18n="footer.platform.caps">Capabilities</a></li>
 <li><a href="/industries.html" data-i18n="nav.industries">Industries</a></li>
-<li><a href="/#delivery">Delivery models</a></li>
+<li><a href="/#delivery" data-i18n="nav.deliveryModels">Delivery models</a></li>
 <li><a href="/#pipeline" data-i18n="nav.howItWorks">How it works</a></li>
-<li><a href="/#approach">Approach</a></li>
+<li><a href="/#approach" data-i18n="footer.platform.approach">Approach</a></li>
 </ul>
 </div>
 <div class="f-col">

@@ -760,9 +760,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <h2 class="dpy-2" data-i18n-html="index.bim.h2">The platform reads<br/>BIM as a first-class input.</h2>
 <p class="lead" data-i18n-html="index.bim.lede">A real IFC4 file from a multi-block residential project — parsed, classified, and replayed in construction sequence. From basement through curtain wall to roof. <span class="serif">The same parser runs in production every day.</span></p>
 <div class="bim-meta">
-<div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.project">Project</span><span class="v">Saga Park</span></div>
-<div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.source">Source</span><span class="v">IFC4 · 36.6 MB</span></div>
-<div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.extents">Extents</span><span class="v">71 × 110 × 22 m</span></div>
+<div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.project">Project</span><span class="v" data-i18n="index.v.sagaPark">Saga Park</span></div>
+<div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.source">Source</span><span class="v" data-i18n="index.v.ifc4_36mb">IFC4 · 36.6 MB</span></div>
+<div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.extents">Extents</span><span class="v" data-i18n="index.v.71x110">71 × 110 × 22 m</span></div>
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.placed">Placed</span><span class="v"><span id="bim-placed">0</span> / 2,622</span></div>
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.stage">Stage</span><span class="v" id="bim-current" data-i18n="index.bim.v.awaiting">Awaiting trigger</span></div>
 </div>
@@ -802,7 +802,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="algo-head">
 <h2 class="rv">Behind every output,<br/><span class="serif">layered algorithms.</span></h2>
-<p class="lede rv">Spatial computation, numerical methods, mathematical optimization, constraint propagation. These are deterministic engines that produce exact results — never inferred by a language model. Below, one example running live on the same Saga Park dataset: Voronoi tessellation deriving load tributary areas from the 15 basement columns you saw rise in the previous section.</p>
+<p data-i18n="index.p.computation" class="lede rv">Spatial computation, numerical methods, mathematical optimization, constraint propagation. These are deterministic engines that produce exact results — never inferred by a language model. Below, one example running live on the same Saga Park dataset: Voronoi tessellation deriving load tributary areas from the 15 basement columns you saw rise in the previous section.</p>
 </div>
 
 <div class="algo-showcase rv">
@@ -813,14 +813,14 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="algo-canvas-foot">Builtly · Voronoi · <b id="algo-progress">0%</b></div>
 </div>
 <div class="algo-meta">
-<h4>Computation</h4>
-<div class="algo-meta-row"><span class="k">Algorithm</span><span class="v">Voronoi tessellation</span></div>
-<div class="algo-meta-row"><span class="k">Input</span><span class="v">15 column positions · plan</span></div>
-<div class="algo-meta-row"><span class="k">Output</span><span class="v"><span class="hi" id="algo-out">—</span> tributary cells</span></div>
-<div class="algo-meta-row"><span class="k">Total area</span><span class="v"><span class="hi" id="algo-area">—</span> m²</span></div>
-<div class="algo-meta-row"><span class="k">Largest cell</span><span class="v"><span class="hi" id="algo-max">—</span> m²</span></div>
-<div class="algo-meta-row"><span class="k">Complexity</span><span class="v">O(n log n)</span></div>
-<p class="algo-meta-prose">Each cell is the region of floor space closest to one column — the area whose self-weight and live load that column carries. The result feeds column-sizing modules, footing design, and lateral-load distribution downstream.</p>
+<h4 data-i18n="index.h4.computation">Computation</h4>
+<div class="algo-meta-row"><span class="k" data-i18n="lbl.algorithm">Algorithm</span><span class="v" data-i18n="index.v.voronoi">Voronoi tessellation</span></div>
+<div class="algo-meta-row"><span class="k" data-i18n="lbl.input">Input</span><span class="v" data-i18n="index.v.cols15">15 column positions · plan</span></div>
+<div class="algo-meta-row"><span class="k" data-i18n="lbl.output">Output</span><span class="v"><span class="hi" id="algo-out">—</span> tributary cells</span></div>
+<div class="algo-meta-row"><span class="k" data-i18n="index.k.totalArea">Total area</span><span class="v"><span class="hi" id="algo-area">—</span> m²</span></div>
+<div class="algo-meta-row"><span class="k" data-i18n="index.k.largestCell">Largest cell</span><span class="v"><span class="hi" id="algo-max">—</span> m²</span></div>
+<div class="algo-meta-row"><span class="k" data-i18n="index.k.complexity">Complexity</span><span class="v" data-i18n="index.v.onlogn">O(n log n)</span></div>
+<p data-i18n="index.p.voronoiExplain" class="algo-meta-prose">Each cell is the region of floor space closest to one column — the area whose self-weight and live load that column carries. The result feeds column-sizing modules, footing design, and lateral-load distribution downstream.</p>
 </div>
 </div>
 
@@ -862,7 +862,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="algo-card">
 <div class="algo-num" data-i18n="index.algo.c6.num">06 · Integration</div>
-<h3>Gaussian quadrature</h3>
+<h3 data-i18n="index.demo.algo">Gaussian quadrature</h3>
 <p data-i18n="index.algo.c6.body">Computes loads over surfaces and volumes by numerical integration. Required for wind-pressure distribution, snow drift on roof geometry, and area-loaded live loads on irregular shapes.</p>
 <div class="algo-where">Used in <b>WIND · SNOW · STR</b></div>
 </div>
@@ -916,7 +916,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <h2 class="dpy-2">Engineering is locked in<br/>manual workflows.</h2>
 </div>
-<p class="lead">Consulting engineering is built on professional accountability, regulation and quality assurance — all correct. Beneath that lies a working pattern that has barely changed in twenty years: parallel tools, manual documentation, and an incentive structure that rewards hours over outcomes.</p>
+<p data-i18n="index.p.thesis" class="lead">Consulting engineering is built on professional accountability, regulation and quality assurance — all correct. Beneath that lies a working pattern that has barely changed in twenty years: parallel tools, manual documentation, and an incentive structure that rewards hours over outcomes.</p>
 </div>
 
 <div class="discipline-grid rvs">
@@ -924,25 +924,25 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="head"><span>01</span><span class="topic">Time allocation</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p1.h3">Manual report production.</h3>
 <p data-i18n="index.prob.p1.body">Engineers spend 40–60% of their time on documentation and report writing rather than engineering analysis. The result is lower productivity, longer delivery cycles, and the most expensive professional capacity in the industry deployed against the lowest-value tasks.</p>
-<div class="marker-bottom"><span>Tied up in paperwork</span><span class="v">40–60%</span></div>
+<div class="marker-bottom"><span>Tied up in paperwork</span><span class="v" data-i18n="index.v.40_60">40–60%</span></div>
 </article>
 <article class="discipline">
 <div class="head"><span>02</span><span class="topic">Incentive structure</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p2.h3">Established firms cannot self-disrupt.</h3>
 <p data-i18n="index.prob.p2.body">When efficiency reduces billable hours, transformation is difficult to drive from within. Genuine reinvention rarely originates from the incumbents — it has to come from outside the existing fee model.</p>
-<div class="marker-bottom"><span>Status quo</span><span class="v">Profitable</span></div>
+<div class="marker-bottom"><span>Status quo</span><span class="v" data-i18n="val.profitable">Profitable</span></div>
 </article>
 <article class="discipline">
 <div class="head"><span>03</span><span class="topic">Senior capacity</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p3.h3">Senior expertise is the bottleneck.</h3>
 <p data-i18n="index.prob.p3.body">Markets globally lack senior structural, geotechnical, fire and acoustical engineers. Automating routine production frees expert capacity for work that genuinely requires professional judgment — where human accountability cannot be replaced.</p>
-<div class="marker-bottom"><span>Bottleneck</span><span class="v">Senior, not software</span></div>
+<div class="marker-bottom"><span>Bottleneck</span><span class="v" data-i18n="index.v.seniorNotSoftware">Senior, not software</span></div>
 </article>
 <article class="discipline">
 <div class="head"><span>04</span><span class="topic">Tooling</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p4.h3">Fragmented workflows.</h3>
 <p data-i18n="index.prob.p4.body">Drawings in CAD. Calculations in spreadsheets. Reports in word processors. Requirements in separate sources. Every handoff is manual — and every manual handoff is a coordination problem, a delay, and a risk of error.</p>
-<div class="marker-bottom"><span>Tools per delivery</span><span class="v">Four, minimum</span></div>
+<div class="marker-bottom"><span>Tools per delivery</span><span class="v" data-i18n="index.v.fourMinimum">Four, minimum</span></div>
 </article>
 </div>
 </div>
@@ -955,14 +955,14 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <h2 class="dpy-2">One platform.<br/>Every discipline.<br/>One workflow.</h2>
 </div>
-<p class="lead">Builtly Engineering is a client portal where geometry, physics, mathematics and AI converge on the complete engineering deliverable. Draw, calculate and analyse directly in the platform — in and out of every relevant file format. Proprietary AI processes against jurisdiction-specific regulations and produces the finished report. The professional engineer reviews and signs where regulatory accountability is required.</p>
+<p data-i18n="index.p.hero1" class="lead">Builtly Engineering is a client portal where geometry, physics, mathematics and AI converge on the complete engineering deliverable. Draw, calculate and analyse directly in the platform — in and out of every relevant file format. Proprietary AI processes against jurisdiction-specific regulations and produces the finished report. The professional engineer reviews and signs where regulatory accountability is required.</p>
 </div>
 
 <div class="discipline-grid rvs" style="margin-top:clamp(40px,5vh,64px)">
 <article class="discipline">
 <div class="head"><span>For the engineer</span><span class="topic">A</span></div>
 <h3 class="dpy-3">Less paperwork.<br/>More judgment.</h3>
-<p>One platform for drawing, calculation and analysis. No switching between four tools to ship one report. AI handles the routine production; the engineer focuses on what professional judgment is actually for. Accountability stays where it should — with the person who signs.</p>
+<p data-i18n="index.p.hero2">One platform for drawing, calculation and analysis. No switching between four tools to ship one report. AI handles the routine production; the engineer focuses on what professional judgment is actually for. Accountability stays where it should — with the person who signs.</p>
 </article>
 <article class="discipline">
 <div class="head"><span>For the client</span><span class="topic">B</span></div>
@@ -980,7 +980,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <h2 class="dpy-2" style="color:var(--dark-paper)" data-i18n="index.pipe.h2">The pipeline.</h2>
 </div>
-<p class="lead on-dark">A processing pipeline where each stage is built to do one thing properly. Geometry and physics are deterministic. AI operates under regulatory constraint. Engineering judgment signs. End-to-end traceability — every claim can be rolled back to the source data behind it.</p>
+<p data-i18n="index.p.pipeline" class="lead on-dark">A processing pipeline where each stage is built to do one thing properly. Geometry and physics are deterministic. AI operates under regulatory constraint. Engineering judgment signs. End-to-end traceability — every claim can be rolled back to the source data behind it.</p>
 </div>
 
 <div class="pipe-svg-wrap rv">
@@ -1080,13 +1080,13 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <h2 class="dpy-2">Fifteen engineering modules.<br/>Three tiers.</h2>
 </div>
-<p class="lead">The platform is delivered modularly. All modules are operational today — core disciplines are commercially prioritised, while supporting workflows and add-on capabilities scale through dedicated engagements. New disciplines plug into the same infrastructure.</p>
+<p data-i18n="index.p.tier" class="lead">The platform is delivered modularly. All modules are operational today — core disciplines are commercially prioritised, while supporting workflows and add-on capabilities scale through dedicated engagements. New disciplines plug into the same infrastructure.</p>
 </div>
 
 <div class="tier rv">
 <div class="tier-head">
 <span class="tag accent">Core disciplines · In operation</span>
-<h3>Functional modules in daily engineering delivery</h3>
+<h3 data-i18n="index.tier.fn.h">Functional modules in daily engineering delivery</h3>
 <span class="desc">Regulatory accountability · attested</span>
 </div>
 <div class="modules rvs">
@@ -1101,7 +1101,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="tier rv">
 <div class="tier-head">
 <span class="tag mid">Supporting workflows · In operation</span>
-<h3>Complementary deliverables for the full project lifecycle</h3>
+<h3 data-i18n="index.tier.cm.h">Complementary deliverables for the full project lifecycle</h3>
 <span class="desc">Reviewed · engineer-validated</span>
 </div>
 <div class="modules mid rvs">
@@ -1116,7 +1116,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="tier rv">
 <div class="tier-head">
 <span class="tag">Add-on capabilities · In operation</span>
-<h3>Functional today, not commercially prioritised</h3>
+<h3 data-i18n="index.tier.r.h">Functional today, not commercially prioritised</h3>
 <span class="desc">Auto · fully automated</span>
 </div>
 <div class="modules ghost rvs">
@@ -1137,7 +1137,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <h2 class="dpy-2">Three delivery levels.<br/>Three margins.<br/>One portal.</h2>
 </div>
-<p class="lead">Every module is delivered at three levels of human involvement — fully automated, engineer-reviewed, or attested under professional liability. The client selects the level the work actually requires. Margin follows the level.</p>
+<p data-i18n="index.p.delivery" class="lead">Every module is delivered at three levels of human involvement — fully automated, engineer-reviewed, or attested under professional liability. The client selects the level the work actually requires. Margin follows the level.</p>
 </div>
 
 <div class="del-grid rvs">
@@ -1145,11 +1145,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="tag"><span><span class="num">01</span> &nbsp; Level</span><span>Low-touch</span></div>
 <div class="nm">Auto</div>
 <div class="sub">Fully automated · no wait</div>
-<p class="ds">AI generates the complete deliverable end-to-end. Used for climate risk, due-diligence screening, tender checklists and similar where the market accepts machine-produced output as decision basis.</p>
+<p data-i18n="index.p.tierAuto" class="ds">AI generates the complete deliverable end-to-end. Used for climate risk, due-diligence screening, tender checklists and similar where the market accepts machine-produced output as decision basis.</p>
 <div class="data">
-<div class="r"><span class="k">Human input</span><span class="v">None</span></div>
-<div class="r"><span class="k">Scalability</span><span class="v">Unlimited</span></div>
-<div class="r"><span class="k">Turnaround</span><span class="v">Minutes</span></div>
+<div class="r"><span class="k" data-i18n="index.k.humanInput">Human input</span><span class="v" data-i18n="val.none">None</span></div>
+<div class="r"><span class="k" data-i18n="index.k.scalability">Scalability</span><span class="v" data-i18n="val.unlimited">Unlimited</span></div>
+<div class="r"><span class="k" data-i18n="index.k.turnaround">Turnaround</span><span class="v" data-i18n="val.minutes">Minutes</span></div>
 </div>
 <div class="margin"><span class="ml">Margin</span><span class="mv">75–90%</span></div>
 </div>
@@ -1158,11 +1158,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="tag"><span><span class="num">02</span> &nbsp; Level</span><span>Mid-touch</span></div>
 <div class="nm">Reviewed</div>
 <div class="sub">Engineer-validated</div>
-<p class="ds">AI produces the draft. A qualified engineer reviews, corrects and approves. Used for transaction-grade due diligence, sustainability pre-assessment and similar where professional judgment must underwrite the result.</p>
+<p data-i18n="index.p.tierReviewed" class="ds">AI produces the draft. A qualified engineer reviews, corrects and approves. Used for transaction-grade due diligence, sustainability pre-assessment and similar where professional judgment must underwrite the result.</p>
 <div class="data">
-<div class="r"><span class="k">Human input</span><span class="v">Review</span></div>
-<div class="r"><span class="k">Scalability</span><span class="v">Moderate</span></div>
-<div class="r"><span class="k">Turnaround</span><span class="v">Hours</span></div>
+<div class="r"><span class="k" data-i18n="index.k.humanInput">Human input</span><span class="v" data-i18n="val.review">Review</span></div>
+<div class="r"><span class="k" data-i18n="index.k.scalability">Scalability</span><span class="v" data-i18n="val.moderate">Moderate</span></div>
+<div class="r"><span class="k" data-i18n="index.k.turnaround">Turnaround</span><span class="v" data-i18n="val.hours">Hours</span></div>
 </div>
 <div class="margin"><span class="ml">Margin</span><span class="mv">60–80%</span></div>
 </div>
@@ -1171,11 +1171,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="tag"><span><span class="num">03</span> &nbsp; Level</span><span>High-touch</span></div>
 <div class="nm">Attested</div>
 <div class="sub">Signed with professional liability</div>
-<p class="ds">A qualified professional engineer with regulatory authority signs. Used for structural, geotechnical, fire, environmental and other deliverables where law, code or insurance requires a name behind the report. AI prepares; the engineer is accountable.</p>
+<p data-i18n="index.p.tierAttested" class="ds">A qualified professional engineer with regulatory authority signs. Used for structural, geotechnical, fire, environmental and other deliverables where law, code or insurance requires a name behind the report. AI prepares; the engineer is accountable.</p>
 <div class="data">
-<div class="r"><span class="k">Human input</span><span class="v">Attestation</span></div>
-<div class="r"><span class="k">Scalability</span><span class="v">Regulatory rhythm</span></div>
-<div class="r"><span class="k">Turnaround</span><span class="v">Same day</span></div>
+<div class="r"><span class="k" data-i18n="index.k.humanInput">Human input</span><span class="v" data-i18n="val.attestation">Attestation</span></div>
+<div class="r"><span class="k" data-i18n="index.k.scalability">Scalability</span><span class="v" data-i18n="index.v.regulatoryRhythm">Regulatory rhythm</span></div>
+<div class="r"><span class="k" data-i18n="index.k.turnaround">Turnaround</span><span class="v" data-i18n="val.sameDay">Same day</span></div>
 </div>
 <div class="margin"><span class="ml">Margin</span><span class="mv">50–70%</span></div>
 </div>
@@ -1192,46 +1192,46 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section app-section" id="approach">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 06</span><span>Approach</span><span class="dash"></span><span>What does not change</span></div>
+<div class="smark rv"><span class="num">§ 06</span><span data-i18n="index.approach.smark.label">Approach</span><span class="dash"></span><span data-i18n="index.approach.smark.tag">What does not change</span></div>
 <div class="app-top rv">
 <div>
 <h2 class="dpy-2" data-i18n="index.signs.h2">Builtly signs nothing.</h2>
 </div>
-<p class="lead">Four principles that govern every module, every deliverable, every release. Software does not carry professional liability — engineers do.</p>
+<p data-i18n="index.approach.lede" class="lead">Four principles that govern every module, every deliverable, every release. Software does not carry professional liability — engineers do.</p>
 </div>
 
 <ol class="app-list rvs">
 <li class="app-item">
 <div class="pnum">01</div>
 <div>
-<h3 class="dpy-3">Rule-driven AI. Not open prose.</h3>
+<h3 class="dpy-3" data-i18n="index.approach.p1.h">Rule-driven AI. Not open prose.</h3>
 <div class="kicker">7 jurisdictions · regulation engine</div>
 </div>
-<p>AI operates within building codes, standards and regulatory frameworks defined as machine-readable logic. The model cannot freely interpret its way out of a compliance requirement.</p>
+<p data-i18n="index.approach.p1.body">AI operates within building codes, standards and regulatory frameworks defined as machine-readable logic. The model cannot freely interpret its way out of a compliance requirement.</p>
 </li>
 <li class="app-item">
 <div class="pnum">02</div>
 <div>
-<h3 class="dpy-3">Deterministic first. AI last.</h3>
+<h3 class="dpy-3" data-i18n="index.approach.p2.h">Deterministic first. AI last.</h3>
 <div class="kicker">Multi-pass · hard validation</div>
 </div>
-<p>Geometry and physics are deterministic, computed exactly. AI describes the result and writes it up. Numbers do not come from a language model — they come from numerical engineering libraries running pure code.</p>
+<p data-i18n="index.approach.p2.body">Geometry and physics are deterministic, computed exactly. AI describes the result and writes it up. Numbers do not come from a language model — they come from numerical engineering libraries running pure code.</p>
 </li>
 <li class="app-item">
 <div class="pnum">03</div>
 <div>
-<h3 class="dpy-3">Human in the loop where it matters.</h3>
+<h3 class="dpy-3" data-i18n="index.approach.p3.h">Human in the loop where it matters.</h3>
 <div class="kicker">Auto · Reviewed · Attested</div>
 </div>
-<p>Qualified engineers with regulatory authority are integrated into the platform. Three levels of involvement. The signature on the report and the person liable for the work are always the same. AI is never the final approver.</p>
+<p data-i18n="index.approach.p3.body">Qualified engineers with regulatory authority are integrated into the platform. Three levels of involvement. The signature on the report and the person liable for the work are always the same. AI is never the final approver.</p>
 </li>
 <li class="app-item">
 <div class="pnum">04</div>
 <div>
-<h3 class="dpy-3">Open formats. No lock-in.</h3>
+<h3 class="dpy-3" data-i18n="index.approach.p4.h">Open formats. No lock-in.</h3>
 <div class="kicker">IFC4 · DOCX · PDF · BCF</div>
 </div>
-<p>IFC4, DWG, DXF, DOCX, PDF, BCF, GeoJSON. It goes in, it comes out. The client owns the result and can take it out of the platform the day it is signed.</p>
+<p data-i18n="index.approach.p4.body">IFC4, DWG, DXF, DOCX, PDF, BCF, GeoJSON. It goes in, it comes out. The client owns the result and can take it out of the platform the day it is signed.</p>
 </li>
 </ol>
 
@@ -1249,18 +1249,18 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <h2 class="dpy-2" style="color:var(--dark-paper)">Not a prototype.<br/>Industrial software.</h2>
 </div>
-<p class="lead on-dark">The platform is tested in real deliveries, deployed in containerised production, and reviewed by professional engineers under regulatory authority. Multi-engine AI architecture, deterministic computation, vision-based interpretation of engineering drawings, and a regulation engine that distinguishes between jurisdictions — all running on a single project basis.</p>
+<p data-i18n="index.p.testing" class="lead on-dark">The platform is tested in real deliveries, deployed in containerised production, and reviewed by professional engineers under regulatory authority. Multi-engine AI architecture, deterministic computation, vision-based interpretation of engineering drawings, and a regulation engine that distinguishes between jurisdictions — all running on a single project basis.</p>
 </div>
 
 <ul class="tech-stack rvs">
-<li><span class="k">AI architecture</span><span class="v">Proprietary multi-engine pipeline <span class="accent">— automatic failover</span></span></li>
-<li><span class="k">Vision system</span><span class="v">DWG / DXF / PDF → structured project data</span></li>
-<li><span class="k">BIM stack</span><span class="v">IFC4 · ifcopenshell · BCF 2.1</span></li>
-<li><span class="k">Geospatial</span><span class="v">Shapely · GeoJSON · ArcGIS REST</span></li>
-<li><span class="k">Regulation packs</span><span class="v">Seven jurisdictions, modular extension</span></li>
-<li><span class="k">Authentication</span><span class="v">Enterprise SSO · role-based access</span></li>
-<li><span class="k">Infrastructure</span><span class="v">Container orchestration · edge delivery</span></li>
-<li><span class="k">Traceability</span><span class="v">SHA-256 signing · complete audit trail</span></li>
+<li><span class="k" data-i18n="index.k.aiArchitecture">AI architecture</span><span class="v">Proprietary multi-engine pipeline <span class="accent">— automatic failover</span></span></li>
+<li><span class="k" data-i18n="index.k.visionSystem">Vision system</span><span class="v" data-i18n="index.v.dwgPdf">DWG / DXF / PDF → structured project data</span></li>
+<li><span class="k" data-i18n="index.k.bimStack">BIM stack</span><span class="v" data-i18n="index.v.ifcBcf">IFC4 · ifcopenshell · BCF 2.1</span></li>
+<li><span class="k" data-i18n="index.k.geospatial">Geospatial</span><span class="v" data-i18n="index.v.shapely">Shapely · GeoJSON · ArcGIS REST</span></li>
+<li><span class="k" data-i18n="index.k.regulationPacks">Regulation packs</span><span class="v" data-i18n="index.v.7jurModular">Seven jurisdictions, modular extension</span></li>
+<li><span class="k" data-i18n="index.k.authentication">Authentication</span><span class="v" data-i18n="index.v.enterpriseSso">Enterprise SSO · role-based access</span></li>
+<li><span class="k" data-i18n="index.k.infrastructure">Infrastructure</span><span class="v" data-i18n="index.v.containerOrch">Container orchestration · edge delivery</span></li>
+<li><span class="k" data-i18n="index.k.traceability">Traceability</span><span class="v" data-i18n="index.v.shaAudit">SHA-256 signing · complete audit trail</span></li>
 </ul>
 </div>
 </section>
@@ -1272,7 +1272,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <h2 class="dpy-2">Same platform.<br/>Local regulation.</h2>
 </div>
-<p class="lead">Builtly does not scale by building new platforms per country. It scales by plugging new regulation packs into the same core infrastructure. Each market gets its own building codes, standards and authority interfaces — same engine underneath.</p>
+<p data-i18n="index.p.scaling" class="lead">Builtly does not scale by building new platforms per country. It scales by plugging new regulation packs into the same core infrastructure. Each market gets its own building codes, standards and authority interfaces — same engine underneath.</p>
 </div>
 
 <div class="gl-list rvs">
@@ -1291,17 +1291,17 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="cta-grid">
 <div class="rv">
 <h2 class="dpy-1" style="font-size:clamp(40px,5.4vw,76px)" data-i18n="index.portal.h2">The portal is live.</h2>
-<p class="lead" style="margin-top:32px;max-width:48ch">Upload an IFC, DWG or floor plan. Run a rationality analysis, a climate risk report or a feasibility study. Get the result back in the format you actually need.</p>
+<p data-i18n="index.p.cta" class="lead" style="margin-top:32px;max-width:48ch">Upload an IFC, DWG or floor plan. Run a rationality analysis, a climate risk report or a feasibility study. Get the result back in the format you actually need.</p>
 <div class="cta-actions">
 <a href="https://builtly.ai" class="btn">Open the portal <span class="arr">→</span></a>
 <a href="mailto:contact@builtly.ai" class="btn btn-ghost">contact@builtly.ai</a>
 </div>
 </div>
 <div class="cta-side rv">
-<div class="row"><span class="k">Status</span><span class="v">Live · production</span></div>
-<div class="row"><span class="k">Access</span><span class="v">Enterprise &amp; per-deliverable</span></div>
-<div class="row"><span class="k">Onboarding</span><span class="v">Same day</span></div>
-<div class="row"><span class="k">Trial</span><span class="v">Pilot project available</span></div>
+<div class="row"><span class="k" data-i18n="lbl.status">Status</span><span class="v" data-i18n="val.liveProduction">Live · production</span></div>
+<div class="row"><span class="k" data-i18n="index.k.access">Access</span><span class="v" data-i18n="index.v.enterprisePer">Enterprise &amp; per-deliverable</span></div>
+<div class="row"><span class="k" data-i18n="lbl.onboarding">Onboarding</span><span class="v" data-i18n="val.sameDay">Same day</span></div>
+<div class="row"><span class="k" data-i18n="index.k.trial">Trial</span><span class="v" data-i18n="index.v.pilotAvailable">Pilot project available</span></div>
 </div>
 </div>
 </div>
