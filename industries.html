@@ -229,7 +229,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 /* HERO AMBIENT FLOCKING SUPPORT */
 .hero{position:relative;overflow:hidden}
-.hero-bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.85}
+.hero-bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.55}
 .hero > .wrap{position:relative;z-index:1}
 
 /* LANGUAGE PICKER */
@@ -396,7 +396,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <div class="eyebrow"><span class="accent-dot"></span><span data-i18n="industries.hero.eyebrow">Industries we serve</span></div>
 <h1 class="dpy-1" data-i18n-html="industries.hero.h1">Built for the consulting profession.<br/>Used across the industry.</h1>
-<p class="lead" data-i18n-html="industries.hero.lede">Builtly's primary customer is the engineering consultancy — the firms that produce signed, regulated deliverables. The platform's automated tiers are also bought directly by the buyers consultancies serve: real-estate developers, lenders, asset managers and the public sector. <span class="serif">One platform. Multiple routes to market.</span></p>
+<p class="lead" data-i18n-html="industries.hero.lede">Builtly's primary customer is the engineering consultancy — the firms that produce signed, regulated deliverables. The platform's automated tiers are also bought directly by the buyers consultancies serve: real-estate developers, lenders, asset managers and the public sector. <span class="serif" data-i18n="industries.lede">One platform. Multiple routes to market.</span></p>
 </div>
 <div class="hero-meta">
 <div class="row"><span class="k" data-i18n="industries.meta.r1.k">Primary buyer</span><span class="v" data-i18n="industries.meta.r1.v">Engineering consultancies</span></div>
@@ -484,7 +484,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="aud-grid rvs">
 <article class="aud">
-<div class="head"><span>Real-estate developers</span><span class="ix">01</span></div>
+<div class="head"><span data-i18n="industries.audience.developers">Real-estate developers</span><span class="ix">01</span></div>
 <h3 data-i18n="industries.uc1.h3">Faster feasibility. Faster diligence.</h3>
 <p data-i18n="industries.uc1.body">Developers buy automated feasibility studies, technical due diligence and climate-risk reports directly. The use case is decision speed: site acquisition runs on tight timelines, and waiting weeks for a consultancy DD often loses the deal.</p>
 <p data-i18n="ind.dev.p1">Builtly turns multi-week reports into same-day deliverables. For complex sites the developer still engages a consultancy — Builtly accelerates the front end of that engagement.</p>
@@ -502,7 +502,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </article>
 
 <article class="aud">
-<div class="head"><span>Banks &amp; lenders</span><span class="ix">02</span></div>
+<div class="head"><span data-i18n="industries.audience.banks">Banks &amp; lenders</span><span class="ix">02</span></div>
 <h3 data-i18n="industries.uc2.h3">Technical underwriting at portfolio scale.</h3>
 <p data-i18n="industries.uc2.body">Lenders use Builtly for the technical-credit basis behind construction loans, for ongoing construction-loan monitoring, and for portfolio-level climate risk against disclosure requirements. The volume of decisions makes manual consultancy review prohibitive.</p>
 <p data-i18n="ind.lend.p1">The platform produces structured outputs that integrate into credit-decisioning systems and portfolio-monitoring dashboards. White-label and API options available for high-volume buyers.</p>
@@ -519,7 +519,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </article>
 
 <article class="aud">
-<div class="head"><span>Asset managers &amp; investors</span><span class="ix">03</span></div>
+<div class="head"><span data-i18n="industries.audience.asset">Asset managers &amp; investors</span><span class="ix">03</span></div>
 <h3 data-i18n="industries.uc3.h3">Portfolio screening, disclosure compliance.</h3>
 <p data-i18n="industries.uc3.body">Asset managers and institutional investors use Builtly for portfolio-level technical and climate-risk screening, sustainability-certification pre-assessments, and the structured disclosure outputs required under financial-sector climate-risk regulation.</p>
 <p data-i18n="ind.asset.p1">The platform scales across thousands of assets without scaling expert capacity. Results are auditable and structured for downstream reporting systems.</p>
@@ -536,7 +536,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </article>
 
 <article class="aud">
-<div class="head"><span>Public sector</span><span class="ix">04</span></div>
+<div class="head"><span data-i18n="industries.audience.public">Public sector</span><span class="ix">04</span></div>
 <h3 data-i18n="industries.uc4.h3">Procurement review, planning capacity.</h3>
 <p data-i18n="industries.uc4.body">Public agencies use Builtly for automated tender-document review and for capacity-augmentation on planning applications. Public-sector engineering capacity is constrained globally, and Builtly closes part of the gap without requiring net new hiring.</p>
 <p data-i18n="ind.public.p1">Typical engagement runs through a consultancy partner that holds the public-sector contract, with Builtly as the underlying production layer. Direct procurement supported in jurisdictions where allowed.</p>
@@ -578,8 +578,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <p data-i18n="ind.uc.acq.result" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">From weeks to same-day. Decision moves from inference to evidence before exclusivity expires.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">ARK · TDD · CLI</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Auto + Reviewed</span>
+<span class="label" data-i18n="industries.lbl.modules">Modules</span><span class="val">ARK · TDD · CLI</span>
+<span class="label" style="margin-top:8px" data-i18n="industries.lbl.delivery">Delivery</span><span class="val accent" data-i18n="industries.lbl.auto_reviewed">Auto + Reviewed</span>
 </div>
 </li>
 
@@ -594,8 +594,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <p data-i18n="ind.uc.lend.result" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Volume that was uneconomic to review manually becomes routine. Risk surfaces earlier in the lending cycle.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">CRE · CLI · TDD</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Auto · API</span>
+<span class="label" data-i18n="industries.lbl.modules">Modules</span><span class="val">CRE · CLI · TDD</span>
+<span class="label" style="margin-top:8px" data-i18n="industries.lbl.delivery">Delivery</span><span class="val accent" data-i18n="industries.lbl.auto_api">Auto · API</span>
 </div>
 </li>
 
@@ -610,8 +610,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <p data-i18n="ind.uc.climate.result" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Portfolio-scale compliance without portfolio-scale consultancy fees. Audit trail intact for regulatory examination.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">CLI · TDD · SUS</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Auto · API</span>
+<span class="label" data-i18n="industries.lbl.modules">Modules</span><span class="val">CLI · TDD · SUS</span>
+<span class="label" style="margin-top:8px" data-i18n="industries.lbl.delivery">Delivery</span><span class="val accent" data-i18n="industries.lbl.auto_api">Auto · API</span>
 </div>
 </li>
 
@@ -626,8 +626,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <p data-i18n="ind.uc.vel.result" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Senior engineer time spent on engineering judgment, not on report formatting. Throughput increases without staffing expansion.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">GEO · STR · FIR · ACO</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Attested</span>
+<span class="label" data-i18n="industries.lbl.modules">Modules</span><span class="val">GEO · STR · FIR · ACO</span>
+<span class="label" style="margin-top:8px" data-i18n="industries.lbl.delivery">Delivery</span><span class="val accent" data-i18n="industries.lbl.attested">Attested</span>
 </div>
 </li>
 
@@ -642,8 +642,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <p data-i18n="ind.uc.tender.result" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Engineering bottleneck inside the agency is unlocked. Procurement cadence accelerates without compromising review quality.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">BID · HSE · QTY</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Reviewed</span>
+<span class="label" data-i18n="industries.lbl.modules">Modules</span><span class="val">BID · HSE · QTY</span>
+<span class="label" style="margin-top:8px" data-i18n="industries.lbl.delivery">Delivery</span><span class="val accent" data-i18n="industries.lbl.reviewed">Reviewed</span>
 </div>
 </li>
 </ol>
@@ -706,7 +706,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="insight-section">
 <div class="insight-inner rv">
-<div class="insight-quote">"One platform, three commercial routes. <span class="accent">The same engineering rigour, regardless of who is buying.</span>"</div>
+<div class="insight-quote">"One platform, three commercial routes. <span class="accent" data-i18n="industries.closing">The same engineering rigour, regardless of who is buying.</span>"</div>
 <div class="insight-attr">— The commercial principle</div>
 </div>
 </section>
