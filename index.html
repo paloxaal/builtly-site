@@ -141,7 +141,8 @@ a{color:inherit;text-decoration:none}
 .stat{padding:clamp(40px,5.5vh,56px) clamp(22px,2.4vw,36px);border-right:1px solid var(--line)}
 .stat:last-child{border-right:0}
 @media (max-width:1000px){.stat{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.stat:nth-child(2n){border-right:0}.stat:nth-last-child(-n+2){border-bottom:0}}
-@media (max-width:540px){.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}}
+@media (max-width:540px){.stat{border-right:0;border-bottom:1px solid var(--line);text-align:center}.stat:last-child{border-bottom:0}.stat .num{justify-content:center}}
+@media (min-width:540.5px) and (max-width:1000px){.stat{text-align:center}.stat .num{justify-content:center}}
 .stat .num{font-family:var(--font-display);font-size:clamp(40px,4.6vw,58px);font-weight:400;line-height:1;letter-spacing:-0.04em;color:var(--ink);margin-bottom:14px;display:flex;align-items:baseline;gap:4px}
 .stat .num .plus{color:var(--accent);font-size:0.6em;line-height:1;transform:translateY(-0.4em);font-weight:500}
 .stat .num .small{font-size:0.5em;color:var(--mid);font-weight:400;margin-left:6px}
@@ -860,12 +861,12 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <section class="bim-section" id="bim-showcase">
 <div class="wrap">
 <div class="smark rv">
-<span class="num">Live</span><span>From BIM, in real time</span><span class="dash"></span><span>Saga Park · IFC4 · multi-block residential</span>
+<span class="num">Live</span><span>From BIM, in real time</span><span class="dash"></span><span data-i18n="sec.bim.tag">Saga Park · IFC4 · multi-block residential</span>
 </div>
 <div class="bim-grid">
 <div class="bim-info rv">
 <h2 class="dpy-2" data-i18n-html="index.bim.h2">The platform reads<br/>BIM as a first-class input.</h2>
-<p class="lead" data-i18n-html="index.bim.lede">A real IFC4 file from a multi-block residential project — parsed, classified, and replayed in construction sequence. From basement through curtain wall to roof. <span class="serif">The same parser runs in production every day.</span></p>
+<p class="lead" data-i18n-html="index.bim.lede">A real IFC4 file from a multi-block residential project — parsed, classified, and replayed in construction sequence. From basement through curtain wall to roof. <span class="serif"><span data-i18n="sec.bim.tagline">The same parser runs in production every day.</span></span></p>
 <div class="bim-meta">
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.project">Project</span><span class="v" data-i18n="index.v.sagaPark">Saga Park</span></div>
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.source">Source</span><span class="v" data-i18n="index.v.ifc4_36mb">IFC4 · 36.6 MB</span></div>
@@ -944,10 +945,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="algo-section" id="algorithms">
 <div class="sec-inner">
-<div class="smark rv"><span class="num">★</span><span>The engine</span><span class="dash"></span><span>Mathematics behind the modules</span></div>
+<div class="smark rv"><span class="num">★</span><span data-i18n="sec.engine.title">The engine</span><span class="dash"></span><span data-i18n="sec.engine.tag">Mathematics behind the modules</span></div>
 
 <div class="algo-head">
-<h2 class="rv">Behind every output,<br/><span class="serif">layered algorithms.</span></h2>
+<h2 class="rv">Behind every output,<br/><span class="serif" data-i18n="sec.algorithms.h2.l2">layered algorithms.</span></h2>
 <p data-i18n="index.p.computation" class="lede rv">Spatial computation, numerical methods, mathematical optimization, constraint propagation. These are deterministic engines that produce exact results — never inferred by a language model. Below, one example running live on the same Saga Park dataset: Voronoi tessellation deriving load tributary areas from the 15 basement columns you saw rise in the previous section.</p>
 </div>
 
@@ -1056,11 +1057,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="sec-inner">
 
 <div class="smark rv">
-<span class="num">★</span><span>Scale</span><span class="dash"></span><span>Multi-storey readings</span>
+<span class="num">★</span><span data-i18n="smark.scale">Scale</span><span class="dash"></span><span data-i18n="smark.scale.tag">Multi-storey readings</span>
 </div>
 
 <div class="vert-head">
-<h2 class="rv">Nine storeys, parsed<br/><span class="serif">end to end.</span></h2>
+<h2 class="rv">Nine storeys, parsed<br/><span class="serif" data-i18n="hero.end_to_end">end to end.</span></h2>
 <p class="lede rv">A 9-storey residential building in Trondheim. <b>1,070 walls, 566 doors, 263 windows</b> across PLAN 00 to PLAN 06, plus a half-mezzanine at PLAN 05-A. The platform reads every storey in milliseconds — separating levels, mapping elevations, classifying elements. Below: each floor's complexity, revealed level by level.</p>
 </div>
 
@@ -1176,7 +1177,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section cap-section" id="challenge">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 01</span><span>The Challenge</span><span class="dash"></span><span>Why Builtly exists</span></div>
+<div class="smark rv"><span class="num">§ 01</span><span data-i18n="smark.challenge">The Challenge</span><span class="dash"></span><span data-i18n="smark.why_builtly">Why Builtly exists</span></div>
 <div class="cap-intro rv">
 <div>
 <h2 class="dpy-2">Engineering is locked in<br/>manual workflows.</h2>
@@ -1186,28 +1187,28 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="discipline-grid rvs">
 <article class="discipline">
-<div class="head"><span>01</span><span class="topic">Time allocation</span></div>
+<div class="head"><span>01</span><span class="topic" data-i18n="disc.time_allocation">Time allocation</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p1.h3">Manual report production.</h3>
 <p data-i18n="index.prob.p1.body">Engineers spend 40–60% of their time on documentation and report writing rather than engineering analysis. The result is lower productivity, longer delivery cycles, and the most expensive professional capacity in the industry deployed against the lowest-value tasks.</p>
-<div class="marker-bottom"><span>Tied up in paperwork</span><span class="v" data-i18n="index.v.40_60">40–60%</span></div>
+<div class="marker-bottom"><span data-i18n="disc.tied_up">Tied up in paperwork</span><span class="v" data-i18n="index.v.40_60">40–60%</span></div>
 </article>
 <article class="discipline">
-<div class="head"><span>02</span><span class="topic">Incentive structure</span></div>
+<div class="head"><span>02</span><span class="topic" data-i18n="disc.incentive_structure">Incentive structure</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p2.h3">Established firms cannot self-disrupt.</h3>
 <p data-i18n="index.prob.p2.body">When efficiency reduces billable hours, transformation is difficult to drive from within. Genuine reinvention rarely originates from the incumbents — it has to come from outside the existing fee model.</p>
-<div class="marker-bottom"><span>Status quo</span><span class="v" data-i18n="val.profitable">Profitable</span></div>
+<div class="marker-bottom"><span data-i18n="disc.status_quo">Status quo</span><span class="v" data-i18n="val.profitable">Profitable</span></div>
 </article>
 <article class="discipline">
-<div class="head"><span>03</span><span class="topic">Senior capacity</span></div>
+<div class="head"><span>03</span><span class="topic" data-i18n="disc.senior_capacity">Senior capacity</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p3.h3">Senior expertise is the bottleneck.</h3>
 <p data-i18n="index.prob.p3.body">Markets globally lack senior structural, geotechnical, fire and acoustical engineers. Automating routine production frees expert capacity for work that genuinely requires professional judgment — where human accountability cannot be replaced.</p>
-<div class="marker-bottom"><span>Bottleneck</span><span class="v" data-i18n="index.v.seniorNotSoftware">Senior, not software</span></div>
+<div class="marker-bottom"><span data-i18n="disc.bottleneck">Bottleneck</span><span class="v" data-i18n="index.v.seniorNotSoftware">Senior, not software</span></div>
 </article>
 <article class="discipline">
-<div class="head"><span>04</span><span class="topic">Tooling</span></div>
+<div class="head"><span>04</span><span class="topic" data-i18n="disc.tooling">Tooling</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p4.h3">Fragmented workflows.</h3>
 <p data-i18n="index.prob.p4.body">Drawings in CAD. Calculations in spreadsheets. Reports in word processors. Requirements in separate sources. Every handoff is manual — and every manual handoff is a coordination problem, a delay, and a risk of error.</p>
-<div class="marker-bottom"><span>Tools per delivery</span><span class="v" data-i18n="index.v.fourMinimum">Four, minimum</span></div>
+<div class="marker-bottom"><span data-i18n="disc.tools_per_delivery">Tools per delivery</span><span class="v" data-i18n="index.v.fourMinimum">Four, minimum</span></div>
 </article>
 </div>
 </div>
@@ -1215,7 +1216,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section section-soft" id="platform-overview" style="padding-top:clamp(72px,10vh,112px);padding-bottom:clamp(72px,10vh,112px)">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 02</span><span>The Platform</span><span class="dash"></span><span>What it is</span></div>
+<div class="smark rv"><span class="num">§ 02</span><span data-i18n="smark.platform">The Platform</span><span class="dash"></span><span data-i18n="smark.what_it_is">What it is</span></div>
 <div class="cap-intro rv">
 <div>
 <h2 class="dpy-2">One platform.<br/>Every discipline.<br/>One workflow.</h2>
@@ -1225,12 +1226,12 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="discipline-grid rvs" style="margin-top:clamp(40px,5vh,64px)">
 <article class="discipline">
-<div class="head"><span>For the engineer</span><span class="topic">A</span></div>
+<div class="head"><span data-i18n="smark.for_engineer">For the engineer</span><span class="topic">A</span></div>
 <h3 class="dpy-3">Less paperwork.<br/>More judgment.</h3>
 <p data-i18n="index.p.hero2">One platform for drawing, calculation and analysis. No switching between four tools to ship one report. AI handles the routine production; the engineer focuses on what professional judgment is actually for. Accountability stays where it should — with the person who signs.</p>
 </article>
 <article class="discipline">
-<div class="head"><span>For the client</span><span class="topic">B</span></div>
+<div class="head"><span data-i18n="smark.for_client">For the client</span><span class="topic">B</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p5.h3">Hours, not days.</h3>
 <p data-i18n="index.prob.p5.body">Delivery on hours instead of days or weeks. Lower cost and faster project velocity throughout. Traceable end-to-end from raw data to signed report. One portal across every discipline — one source of truth for the entire project.</p>
 </article>
@@ -1340,7 +1341,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section plat-section" id="platform">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 04</span><span>Capabilities</span><span class="dash"></span><span>15 modules · 3 tiers</span></div>
+<div class="smark rv"><span class="num">§ 04</span><span data-i18n="smark.capabilities">Capabilities</span><span class="dash"></span><span>15 modules · 3 tiers</span></div>
 <div class="plat-intro rv">
 <div>
 <h2 class="dpy-2">Fifteen engineering modules.<br/>Three tiers.</h2>
@@ -1350,9 +1351,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="tier rv">
 <div class="tier-head">
-<span class="tag accent">Core disciplines · In operation</span>
+<span class="tag accent" data-i18n="cap.core_disc">Core disciplines · In operation</span>
 <h3 data-i18n="index.tier.fn.h">Functional modules in daily engineering delivery</h3>
-<span class="desc">Regulatory accountability · attested</span>
+<span class="desc" data-i18n="cap.regulatory">Regulatory accountability · attested</span>
 </div>
 <div class="modules rvs">
 <div class="module"><div class="dot"></div><div class="code">GEO</div><div class="nm">Geotechnics</div><div class="ds">Ground conditions, foundation strategy, Eurocode-7 analysis with regulatory geodata.</div></div>
@@ -1365,9 +1366,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="tier rv">
 <div class="tier-head">
-<span class="tag mid">Supporting workflows · In operation</span>
+<span class="tag mid" data-i18n="cap.supporting">Supporting workflows · In operation</span>
 <h3 data-i18n="index.tier.cm.h">Complementary deliverables for the full project lifecycle</h3>
-<span class="desc">Reviewed · engineer-validated</span>
+<span class="desc" data-i18n="cap.reviewed">Reviewed · engineer-validated</span>
 </div>
 <div class="modules mid rvs">
 <div class="module"><div class="dot"></div><div class="code">ARK</div><div class="nm">Feasibility</div><div class="ds">AI siting, geospatial data, indicative volume studies.</div></div>
@@ -1380,9 +1381,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="tier rv">
 <div class="tier-head">
-<span class="tag">Add-on capabilities · In operation</span>
+<span class="tag" data-i18n="cap.addon">Add-on capabilities · In operation</span>
 <h3 data-i18n="index.tier.r.h">Functional today, not commercially prioritised</h3>
-<span class="desc">Auto · fully automated</span>
+<span class="desc" data-i18n="cap.auto">Auto · fully automated</span>
 </div>
 <div class="modules ghost rvs">
 <div class="module"><div class="dot"></div><div class="code">CLI</div><div class="nm">Climate risk</div><div class="ds">Flood, landslide, sea level, regulatory climate risk per asset.</div></div>
