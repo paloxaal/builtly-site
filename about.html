@@ -134,6 +134,21 @@ a{color:inherit;text-decoration:none}
 .seat .seat-desc span{display:block}
 .seat .seat-desc span.h{color:var(--ink);font-weight:600;margin-bottom:6px}
 
+
+/* BOARD SEATS — 4-up with photos and bios */
+.seats-4{grid-template-columns:repeat(4,1fr) !important}
+@media (max-width:1200px){.seats-4{grid-template-columns:repeat(2,1fr) !important}}
+@media (max-width:600px){.seats-4{grid-template-columns:1fr !important}}
+.seat-with-photo{min-height:auto;padding:clamp(24px,2.6vw,32px)}
+.seat-photo{width:100%;aspect-ratio:1/1;background:var(--bg-soft);border-radius:2px;overflow:hidden;margin-bottom:clamp(20px,2.4vw,28px);position:relative}
+.seat-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.05)}
+.seat-photo-initials{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--bg-soft) 0%,var(--line) 100%)}
+.seat-photo-initials span{font-family:var(--font-display);font-size:clamp(40px,4.5vw,60px);font-weight:300;letter-spacing:-0.04em;color:var(--mid)}
+.seat-with-photo .seat-title{font-size:clamp(18px,1.8vw,22px);margin-bottom:8px;line-height:1.1}
+.seat-with-photo .seat-status{margin-bottom:clamp(16px,2vh,20px);padding-bottom:clamp(16px,2vh,20px);border-bottom:1px solid var(--line);font-size:10px}
+.seat-with-photo .role{margin-bottom:clamp(12px,1.6vh,16px)}
+.seat-bio{font-family:var(--font-body);font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0}
+
 /* ADVISORY GRID — uses same team-grid pattern as wider team */
 .advisory-section{background:var(--bg)}
 
@@ -599,38 +614,37 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <p class="lead" data-i18n-html="about.s04.lede">An independent board is being assembled to provide governance through the platform's growth phase. Composition is being structured around financial discipline, regulatory authority, and operational deployment across the markets the firm serves.</p>
 </div>
 
-<div class="seats rvs">
-<article class="seat">
-<div class="role"><span>Chair</span><span class="ix">01</span></div>
-<h3 class="seat-title">Independent<br/>Chair</h3>
-<div class="seat-status">— Composition under construction</div>
-<div class="seat-desc">
-<span class="h">Mandate</span>
-<span>Governance · oversight</span>
-<span>Strategic direction</span>
-</div>
+<div class="seats seats-4 rvs">
+<article class="seat seat-with-photo">
+<div class="seat-photo seat-photo-initials"><span>MS</span></div>
+<div class="role"><span data-i18n="about.seat.role.chair">Chair</span><span class="ix">01</span></div>
+<h3 class="seat-title" data-i18n="about.board.s1.name">Magnus Svendsen</h3>
+<div class="seat-status" data-i18n="about.board.s1.status">Chair · Investor</div>
+<p class="seat-bio" data-i18n="about.board.s1.bio">Magnus Svendsen is the CEO of Byggteknikk, a family office with investments across real estate, funds and technology. He has been an active angel investor in early-stage technology companies for more than 20 years, with investments including Tibber, Easee and Kiona. Magnus holds an MSc in Mechanical Engineering from NTNU, a Master's degree in Finance, and an MBA from the University of Newcastle, Australia.</p>
 </article>
 
-<article class="seat">
-<div class="role"><span>Director</span><span class="ix">02</span></div>
-<h3 class="seat-title">Construction<br/>&amp; engineering</h3>
-<div class="seat-status">— Composition under construction</div>
-<div class="seat-desc">
-<span class="h">Mandate</span>
-<span>Industry deployment</span>
-<span>Regulatory authority</span>
-</div>
+<article class="seat seat-with-photo">
+<div class="seat-photo seat-photo-initials"><span>ES</span></div>
+<div class="role"><span data-i18n="about.seat.role.director">Director</span><span class="ix">02</span></div>
+<h3 class="seat-title" data-i18n="about.board.s2.name">Erik Selin</h3>
+<div class="seat-status" data-i18n="about.board.s2.status">Director · Investor</div>
+<p class="seat-bio" data-i18n="about.board.s2.bio">Erik Selin is the founder of Fastighets AB Balder, one of Europe's leading real estate companies. Since founding the company, he has built Balder into a listed property group with assets exceeding NOK 200 billion. Erik serves as Chairman and largest shareholder and is widely recognised as a prominent Nordic investor. He has extensive experience from real estate, capital markets and long-term company building, and holds several board positions in listed companies.</p>
 </article>
 
-<article class="seat">
-<div class="role"><span>Director</span><span class="ix">03</span></div>
-<h3 class="seat-title">Capital<br/>&amp; technology</h3>
-<div class="seat-status">— Composition under construction</div>
-<div class="seat-desc">
-<span class="h">Mandate</span>
-<span>Capital discipline</span>
-<span>Platform strategy</span>
-</div>
+<article class="seat seat-with-photo">
+<div class="seat-photo"><img src="photos/vegard-tyldum.jpg" alt="Vegard Tyldum" loading="lazy"/></div>
+<div class="role"><span data-i18n="about.seat.role.director">Director</span><span class="ix">03</span></div>
+<h3 class="seat-title" data-i18n="about.board.s3.name">Vegard Tyldum</h3>
+<div class="seat-status" data-i18n="about.board.s3.status">Director · Real estate</div>
+<p class="seat-bio" data-i18n="about.board.s3.bio">Vegard Tyldum holds an MSc from the Norwegian School of Economics and has spent his career in real estate and property development. With extensive operational experience from project management and executive roles, he has played a key role in some of Norway's largest development projects.</p>
+</article>
+
+<article class="seat seat-with-photo">
+<div class="seat-photo"><img src="photos/pal-morten-oxaal.jpg" alt="Pål Morten Oxaal" loading="lazy"/></div>
+<div class="role"><span data-i18n="about.seat.role.director">Director</span><span class="ix">04</span></div>
+<h3 class="seat-title" data-i18n="about.board.s4.name">Pål Morten Oxaal</h3>
+<div class="seat-status" data-i18n="about.board.s4.status">Director · Founder</div>
+<p class="seat-bio" data-i18n="about.board.s4.bio">Pål Morten Oxaal holds a BBA from Trondheim Business School and has worked in real estate since 2005. He has held several key roles in the Norwegian real estate industry, including as CEO and co-owner of HENT's real estate platform. He founded Bolig Norge and continues to lead the company, which is jointly owned with Fastighets AB Balder.</p>
 </article>
 </div>
 </div>
@@ -650,27 +664,27 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="team-grid rvs">
 <div class="block">
 <div class="t">Structural engineering</div>
-<div class="d">Senior practitioner · regulatory review · cross-border standards</div>
+<div class="d" data-i18n="about.disc.d1">Senior practitioner · regulatory review · cross-border standards</div>
 </div>
 <div class="block">
 <div class="t">Geotechnical engineering</div>
-<div class="d">Senior practitioner · soil mechanics · foundation deployment</div>
+<div class="d" data-i18n="about.disc.d2">Senior practitioner · soil mechanics · foundation deployment</div>
 </div>
 <div class="block">
 <div class="t">Fire engineering</div>
-<div class="d">Senior practitioner · code interpretation · authority liaison</div>
+<div class="d" data-i18n="about.disc.d3">Senior practitioner · code interpretation · authority liaison</div>
 </div>
 <div class="block">
 <div class="t">Acoustics &amp; vibration</div>
-<div class="d">Senior practitioner · multi-discipline coordination</div>
+<div class="d" data-i18n="about.disc.d4">Senior practitioner · multi-discipline coordination</div>
 </div>
 <div class="block">
 <div class="t">Real estate operations</div>
-<div class="d">Senior operator · development pipeline · deployment guidance</div>
+<div class="d" data-i18n="about.disc.d5">Senior operator · development pipeline · deployment guidance</div>
 </div>
 <div class="block">
 <div class="t">Construction technology</div>
-<div class="d">Senior leader · industry strategy · platform adoption</div>
+<div class="d" data-i18n="about.disc.d6">Senior leader · industry strategy · platform adoption</div>
 </div>
 </div>
 </div>
@@ -697,10 +711,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </div>
 <div class="cta-side rv">
-<div class="row"><span class="k">Portal</span><span class="v">builtly.ai</span></div>
-<div class="row"><span class="k">Contact</span><span class="v">contact@builtly.ai</span></div>
-<div class="row"><span class="k">Status</span><span class="v">Live · production</span></div>
-<div class="row"><span class="k">Onboarding</span><span class="v">Same day</span></div>
+<div class="row"><span class="k" data-i18n="about.so.k.portal">Portal</span><span class="v">builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="about.so.k.contact">Contact</span><span class="v">contact@builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="about.so.k.status">Status</span><span class="v" data-i18n="about.so.v.status">Live · production</span></div>
+<div class="row"><span class="k" data-i18n="about.so.k.onboarding">Onboarding</span><span class="v" data-i18n="about.so.v.onboarding">Same day</span></div>
 </div>
 </div>
 </div>

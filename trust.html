@@ -422,18 +422,18 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="princ-grid rvs">
 <div class="princ-cell">
 <div class="ix">§ Principle 01</div>
-<h4>Customer data stays customer data.</h4>
-<p>Project files, drawings, models and deliverables uploaded by a customer remain the customer's property and are not used to train any model. Data isolation is per-tenant at the storage layer.</p>
+<h4 data-i18n="trust.c1.h">Customer data stays customer data.</h4>
+<p data-i18n="trust.c1.body">Project files, drawings, models and deliverables uploaded by a customer remain the customer's property and are not used to train any model. Data isolation is per-tenant at the storage layer.</p>
 </div>
 <div class="princ-cell">
 <div class="ix">§ Principle 02</div>
-<h4>Everything is auditable.</h4>
-<p>Every deliverable can be traced back to the exact inputs, the exact compute, the exact model version, and the exact engineer who signed. Compliance forensics is a property of the architecture, not a feature.</p>
+<h4 data-i18n="trust.c2.h">Everything is auditable.</h4>
+<p data-i18n="trust.c2.body">Every deliverable can be traced back to the exact inputs, the exact compute, the exact model version, and the exact engineer who signed. Compliance forensics is a property of the architecture, not a feature.</p>
 </div>
 <div class="princ-cell">
 <div class="ix">§ Principle 03</div>
-<h4>The engineer signs.</h4>
-<p>For deliverables that carry professional liability, a named engineer with regulatory authority is the signatory — never the platform, never the AI. The chain of responsibility is preserved end-to-end.</p>
+<h4 data-i18n="trust.c3.h">The engineer signs.</h4>
+<p data-i18n="trust.c3.body">For deliverables that carry professional liability, a named engineer with regulatory authority is the signatory — never the platform, never the AI. The chain of responsibility is preserved end-to-end.</p>
 </div>
 </div>
 </div>
@@ -457,8 +457,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Customer data</div>
 </div>
 <div class="dom-body">
-<h4>The customer owns the data. Always.</h4>
-<p>All project inputs, intermediate artefacts and final deliverables are the property of the customer who uploaded them. Builtly holds operational access to deliver the platform; ownership does not transfer. Data export is available on demand in the formats the platform already produces.</p>
+<h4 data-i18n="trust.c4.h">The customer owns the data. Always.</h4>
+<p data-i18n="trust.c4.body">All project inputs, intermediate artefacts and final deliverables are the property of the customer who uploaded them. Builtly holds operational access to deliver the platform; ownership does not transfer. Data export is available on demand in the formats the platform already produces.</p>
 <p>On contract termination the customer retains the right to export everything. Builtly retains operational logs and audit trails for the regulatory retention period agreed in the contract; everything beyond that is deleted.</p>
 </div>
 <div class="dom-meta">
@@ -477,8 +477,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Privacy</div>
 </div>
 <div class="dom-body">
-<h4>Customer project data is not used to train models.</h4>
-<p>Builtly's proprietary AI architecture is trained on engineering literature, public regulatory text and synthetic engineering datasets — not on customer project files. The contractual default is opt-out; the operational default matches the contract. No covert training pipeline exists.</p>
+<h4 data-i18n="trust.c5.h">Customer project data is not used to train models.</h4>
+<p data-i18n="trust.c5.body">Builtly's proprietary AI architecture is trained on engineering literature, public regulatory text and synthetic engineering datasets — not on customer project files. The contractual default is opt-out; the operational default matches the contract. No covert training pipeline exists.</p>
 <p>Customers who actively want their de-identified data to contribute to model improvement may opt in under a separate addendum — but the default and the practical operation is that customer data stays customer data.</p>
 </div>
 <div class="dom-meta">
@@ -497,8 +497,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Geographic</div>
 </div>
 <div class="dom-body">
-<h4>Regional data residency, configurable per tenant.</h4>
-<p>Customer data is stored and processed in the geographic region selected during onboarding. Cross-border processing happens only when explicitly enabled by the customer, and is logged in the audit trail. The default for customers in regulated industries is in-region storage and in-region processing.</p>
+<h4 data-i18n="trust.c6.h">Regional data residency, configurable per tenant.</h4>
+<p data-i18n="trust.c6.body">Customer data is stored and processed in the geographic region selected during onboarding. Cross-border processing happens only when explicitly enabled by the customer, and is logged in the audit trail. The default for customers in regulated industries is in-region storage and in-region processing.</p>
 <p>For customers with disclosure obligations under climate, financial or public-procurement rules, the residency configuration becomes part of the regulatory record kept against each deliverable.</p>
 </div>
 <div class="dom-meta">
@@ -530,8 +530,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Identity</div>
 </div>
 <div class="dom-body">
-<h4>Enterprise SSO. Role-based access. Hardware-key support.</h4>
-<p>Authentication is delegated to enterprise SSO providers via SAML and OIDC. Local accounts are not the default in enterprise deployments. Role-based access controls determine what each authenticated user can see, do and sign. Hardware security keys are supported for high-assurance roles — particularly engineers authorised to attest deliverables.</p>
+<h4 data-i18n="trust.c7.h">Enterprise SSO. Role-based access. Hardware-key support.</h4>
+<p data-i18n="trust.c7.body">Authentication is delegated to enterprise SSO providers via SAML and OIDC. Local accounts are not the default in enterprise deployments. Role-based access controls determine what each authenticated user can see, do and sign. Hardware security keys are supported for high-assurance roles — particularly engineers authorised to attest deliverables.</p>
 <p>Session management follows enterprise norms: configurable session length, forced re-authentication for sensitive operations, and full audit logging of authentication events.</p>
 </div>
 <div class="dom-meta">
@@ -550,8 +550,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Crypto</div>
 </div>
 <div class="dom-body">
-<h4>Encryption at rest. Encryption in transit. Per-tenant keys.</h4>
-<p>Customer data is encrypted at rest with per-tenant key isolation and in transit with TLS 1.3. Key rotation follows automated schedules. Bring-your-own-key arrangements are available for customers with regulatory or commercial requirements for KMS independence.</p>
+<h4 data-i18n="trust.c8.h">Encryption at rest. Encryption in transit. Per-tenant keys.</h4>
+<p data-i18n="trust.c8.body">Customer data is encrypted at rest with per-tenant key isolation and in transit with TLS 1.3. Key rotation follows automated schedules. Bring-your-own-key arrangements are available for customers with regulatory or commercial requirements for KMS independence.</p>
 <p>Signed deliverables carry SHA-256 cryptographic signatures bound to the platform version and the signing engineer's identity — making post-hoc tampering detectable on the document itself, not just in platform logs.</p>
 </div>
 <div class="dom-meta">
@@ -570,8 +570,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Tenant</div>
 </div>
 <div class="dom-body">
-<h4>Logical isolation by default. Dedicated infrastructure on request.</h4>
-<p>The default deployment model uses logical tenant isolation — separate data stores, separate access scopes, separate audit trails per customer, on shared infrastructure. For customers under elevated regulatory rules, dedicated single-tenant infrastructure is available as part of the platform-licence agreement.</p>
+<h4 data-i18n="trust.c9.h">Logical isolation by default. Dedicated infrastructure on request.</h4>
+<p data-i18n="trust.c9.body">The default deployment model uses logical tenant isolation — separate data stores, separate access scopes, separate audit trails per customer, on shared infrastructure. For customers under elevated regulatory rules, dedicated single-tenant infrastructure is available as part of the platform-licence agreement.</p>
 <p>AI inference is isolated per tenant: requests do not cross tenant boundaries, and model context is reset between requests. There is no shared inference state across customers.</p>
 </div>
 <div class="dom-meta">
@@ -603,8 +603,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Provenance</div>
 </div>
 <div class="dom-body">
-<h4>From raw input to signed output, on one trail.</h4>
-<p>Every deliverable carries a complete provenance record: the source files uploaded, the module version that processed them, the AI engine and model version used, the deterministic computations applied, the engineer who reviewed, and the timestamp at every step. The trail is immutable and can be re-run deterministically against the same inputs.</p>
+<h4 data-i18n="trust.c10.h">From raw input to signed output, on one trail.</h4>
+<p data-i18n="trust.c10.body">Every deliverable carries a complete provenance record: the source files uploaded, the module version that processed them, the AI engine and model version used, the deterministic computations applied, the engineer who reviewed, and the timestamp at every step. The trail is immutable and can be re-run deterministically against the same inputs.</p>
 <p>For regulatory examination, the trail is the answer to "how did this number get into this report?" — without requiring reconstruction or interpretation after the fact.</p>
 </div>
 <div class="dom-meta">
@@ -623,8 +623,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Crypto</div>
 </div>
 <div class="dom-body">
-<h4>Cryptographic binding between document and signer.</h4>
-<p>When an engineer attests a deliverable, the signature is cryptographically bound to: the document content, the version of the platform that produced it, the inputs the platform consumed, and the engineer's identity. Any post-signature modification breaks the signature in a way that can be verified independently of the platform.</p>
+<h4 data-i18n="trust.c11.h">Cryptographic binding between document and signer.</h4>
+<p data-i18n="trust.c11.body">When an engineer attests a deliverable, the signature is cryptographically bound to: the document content, the version of the platform that produced it, the inputs the platform consumed, and the engineer's identity. Any post-signature modification breaks the signature in a way that can be verified independently of the platform.</p>
 <p>The signature artefact travels with the document — the receiving party can verify integrity without depending on Builtly remaining available. The verification mechanism is open-spec.</p>
 </div>
 <div class="dom-meta">
@@ -643,8 +643,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Disputes</div>
 </div>
 <div class="dom-body">
-<h4>Full forensic export available on request.</h4>
-<p>If a deliverable is challenged — in court, in regulatory examination, or by an insurer following an incident — the customer can request the complete forensic record for that deliverable: provenance, signature, all intermediate artefacts, and the model versions involved. Builtly retains the relevant data for the regulatory retention period applicable to the deliverable type.</p>
+<h4 data-i18n="trust.c12.h">Full forensic export available on request.</h4>
+<p data-i18n="trust.c12.body">If a deliverable is challenged — in court, in regulatory examination, or by an insurer following an incident — the customer can request the complete forensic record for that deliverable: provenance, signature, all intermediate artefacts, and the model versions involved. Builtly retains the relevant data for the regulatory retention period applicable to the deliverable type.</p>
 <p>The export is designed to be defensible: a third-party expert can examine the record, re-run the deterministic computations, and arrive at the same result. The audit trail is the answer, not just the supporting evidence for it.</p>
 </div>
 <div class="dom-meta">
@@ -676,8 +676,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Standards</div>
 </div>
 <div class="dom-body">
-<h4>Building codes and engineering standards encoded as logic.</h4>
-<p>The regulation engine encodes building codes, Eurocode-family standards, fire-safety regulations, environmental standards and acoustic-class requirements as machine-readable logic — not as free-text instructions for a model to interpret. When a standard updates, the rule pack updates, and the change propagates to every module that depends on it.</p>
+<h4 data-i18n="trust.c13.h">Building codes and engineering standards encoded as logic.</h4>
+<p data-i18n="trust.c13.body">The regulation engine encodes building codes, Eurocode-family standards, fire-safety regulations, environmental standards and acoustic-class requirements as machine-readable logic — not as free-text instructions for a model to interpret. When a standard updates, the rule pack updates, and the change propagates to every module that depends on it.</p>
 <p>Each module's output specifies the exact code version and rule-pack version applied — so the regulatory basis of every deliverable is unambiguous on the document itself.</p>
 </div>
 <div class="dom-meta">
@@ -696,8 +696,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ GDPR &amp; equivalent</div>
 </div>
 <div class="dom-body">
-<h4>Data protection by design. DPA available.</h4>
-<p>The platform handles personal data only where strictly required for the engineering function — typically engineer identifiers, contact information, and project-team metadata. Customer-personal data outside this scope should not reach the platform; the upload interface and API surface are scoped accordingly.</p>
+<h4 data-i18n="trust.c14.h">Data protection by design. DPA available.</h4>
+<p data-i18n="trust.c14.body">The platform handles personal data only where strictly required for the engineering function — typically engineer identifiers, contact information, and project-team metadata. Customer-personal data outside this scope should not reach the platform; the upload interface and API surface are scoped accordingly.</p>
 <p>A standard Data Processing Agreement is available for customers subject to GDPR or equivalent regional data-protection rules, and the platform supports the data-subject rights — access, correction, deletion — that those rules require.</p>
 </div>
 <div class="dom-meta">
@@ -716,8 +716,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="ix">§ Vendor onboarding</div>
 </div>
 <div class="dom-body">
-<h4>Vendor onboarding ready for enterprise procurement.</h4>
-<p>For customers running formal vendor-onboarding processes — security questionnaires, supplier-risk reviews, financial diligence — Builtly provides a standardised vendor-onboarding pack: the architecture summary, the security posture, the data-handling documentation, the certifications in progress, and named contacts for procurement diligence.</p>
+<h4 data-i18n="trust.c15.h">Vendor onboarding ready for enterprise procurement.</h4>
+<p data-i18n="trust.c15.body">For customers running formal vendor-onboarding processes — security questionnaires, supplier-risk reviews, financial diligence — Builtly provides a standardised vendor-onboarding pack: the architecture summary, the security posture, the data-handling documentation, the certifications in progress, and named contacts for procurement diligence.</p>
 <p>The pack is intended to compress vendor-onboarding from weeks to days. For deeper diligence, additional materials are made available under NDA. Certifications track the standard enterprise sequence: SOC 2 Type I and Type II are on the active roadmap.</p>
 </div>
 <div class="dom-meta">
@@ -745,7 +745,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dt-grid rvs">
 <div class="dt-cell">
 <div class="ix">§ Availability</div>
-<h4>Production uptime target.</h4>
+<h4 data-i18n="trust.c16.h">Production uptime target.</h4>
 <div class="stack">
 <div class="r"><span class="k">Target</span><span class="v">99.5% monthly</span></div>
 <div class="r"><span class="k">Measurement</span><span class="v">External · third-party</span></div>
@@ -755,7 +755,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 <div class="dt-cell">
 <div class="ix">§ Incident response</div>
-<h4>How incidents are handled.</h4>
+<h4 data-i18n="trust.c17.h">How incidents are handled.</h4>
 <div class="stack">
 <div class="r"><span class="k">Acknowledgement</span><span class="v">≤ 30 min · business hours</span></div>
 <div class="r"><span class="k">Customer comms</span><span class="v">During · written summary after</span></div>
@@ -765,7 +765,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 <div class="dt-cell">
 <div class="ix">§ Backup &amp; recovery</div>
-<h4>Backups and disaster recovery.</h4>
+<h4 data-i18n="trust.c18.h">Backups and disaster recovery.</h4>
 <div class="stack">
 <div class="r"><span class="k">Backup cadence</span><span class="v">Daily · encrypted</span></div>
 <div class="r"><span class="k">Retention</span><span class="v">30 days · standard</span></div>
@@ -775,7 +775,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 <div class="dt-cell">
 <div class="ix">§ Vulnerability handling</div>
-<h4>How vulnerabilities are managed.</h4>
+<h4 data-i18n="trust.c19.h">How vulnerabilities are managed.</h4>
 <div class="stack">
 <div class="r"><span class="k">Disclosure</span><span class="v">security@builtly.ai</span></div>
 <div class="r"><span class="k">Acknowledgement</span><span class="v">≤ 24 hours</span></div>

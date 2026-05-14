@@ -826,44 +826,44 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="algo-grid rvs">
 <div class="algo-card">
-<div class="algo-num">01 · Geometric</div>
-<h3>Voronoi tessellation</h3>
-<p>Partitions a plane into regions where each region contains all points closest to a single seed. In structural engineering this derives load tributary areas from column or wall positions.</p>
+<div class="algo-num" data-i18n="index.algo.c1.num">01 · Geometric</div>
+<h3 data-i18n="index.algo.c1.h3">Voronoi tessellation</h3>
+<p data-i18n="index.algo.c1.body">Partitions a plane into regions where each region contains all points closest to a single seed. In structural engineering this derives load tributary areas from column or wall positions.</p>
 <div class="algo-where">Used in <b>STR · GEO · FOU</b></div>
 </div>
 
 <div class="algo-card">
-<div class="algo-num">02 · Numerical</div>
-<h3>Finite element method</h3>
-<p>Discretizes continuous structural domains into a mesh of simple elements, then solves the partial differential equations governing stress, strain and displacement under load.</p>
+<div class="algo-num" data-i18n="index.algo.c2.num">02 · Numerical</div>
+<h3 data-i18n="index.algo.c2.h3">Finite element method</h3>
+<p data-i18n="index.algo.c2.body">Discretizes continuous structural domains into a mesh of simple elements, then solves the partial differential equations governing stress, strain and displacement under load.</p>
 <div class="algo-where">Used in <b>STR · DYN · TIM · STL</b></div>
 </div>
 
 <div class="algo-card">
-<div class="algo-num">03 · Optimization</div>
-<h3>Linear programming</h3>
-<p>Selects optimal profile dimensions from regulatory catalogs by minimizing material cost under load-capacity, deflection and serviceability constraints — guaranteed feasible solutions.</p>
+<div class="algo-num" data-i18n="index.algo.c3.num">03 · Optimization</div>
+<h3 data-i18n="index.algo.c3.h3">Linear programming</h3>
+<p data-i18n="index.algo.c3.body">Selects optimal profile dimensions from regulatory catalogs by minimizing material cost under load-capacity, deflection and serviceability constraints — guaranteed feasible solutions.</p>
 <div class="algo-where">Used in <b>STR · STL · TIM</b></div>
 </div>
 
 <div class="algo-card">
-<div class="algo-num">04 · Logical</div>
-<h3>Constraint propagation</h3>
-<p>Maintains consistency across modules as inputs change. When the FEM module updates a beam, dependent modules — connections, footings, fire ratings — recompute automatically through the constraint graph.</p>
+<div class="algo-num" data-i18n="index.algo.c4.num">04 · Logical</div>
+<h3 data-i18n="index.algo.c4.h3">Constraint propagation</h3>
+<p data-i18n="index.algo.c4.body">Maintains consistency across modules as inputs change. When the FEM module updates a beam, dependent modules — connections, footings, fire ratings — recompute automatically through the constraint graph.</p>
 <div class="algo-where">Used <b>platform-wide</b></div>
 </div>
 
 <div class="algo-card">
-<div class="algo-num">05 · Spatial</div>
-<h3>R-tree spatial indexing</h3>
-<p>O(log n) geometry queries over tens of thousands of building elements. Without it, every "what intersects this zone" question would linearly scan the entire model. With it: instant.</p>
+<div class="algo-num" data-i18n="index.algo.c5.num">05 · Spatial</div>
+<h3 data-i18n="index.algo.c5.h3">R-tree spatial indexing</h3>
+<p data-i18n="index.algo.c5.body">O(log n) geometry queries over tens of thousands of building elements. Without it, every "what intersects this zone" question would linearly scan the entire model. With it: instant.</p>
 <div class="algo-where">Used in <b>STR · GEO · FIRE · ARCH</b></div>
 </div>
 
 <div class="algo-card">
-<div class="algo-num">06 · Integration</div>
+<div class="algo-num" data-i18n="index.algo.c6.num">06 · Integration</div>
 <h3>Gaussian quadrature</h3>
-<p>Computes loads over surfaces and volumes by numerical integration. Required for wind-pressure distribution, snow drift on roof geometry, and area-loaded live loads on irregular shapes.</p>
+<p data-i18n="index.algo.c6.body">Computes loads over surfaces and volumes by numerical integration. Required for wind-pressure distribution, snow drift on roof geometry, and area-loaded live loads on irregular shapes.</p>
 <div class="algo-where">Used in <b>WIND · SNOW · STR</b></div>
 </div>
 </div>
@@ -922,26 +922,26 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="discipline-grid rvs">
 <article class="discipline">
 <div class="head"><span>01</span><span class="topic">Time allocation</span></div>
-<h3 class="dpy-3">Manual report production.</h3>
-<p>Engineers spend 40–60% of their time on documentation and report writing rather than engineering analysis. The result is lower productivity, longer delivery cycles, and the most expensive professional capacity in the industry deployed against the lowest-value tasks.</p>
+<h3 class="dpy-3" data-i18n="index.prob.p1.h3">Manual report production.</h3>
+<p data-i18n="index.prob.p1.body">Engineers spend 40–60% of their time on documentation and report writing rather than engineering analysis. The result is lower productivity, longer delivery cycles, and the most expensive professional capacity in the industry deployed against the lowest-value tasks.</p>
 <div class="marker-bottom"><span>Tied up in paperwork</span><span class="v">40–60%</span></div>
 </article>
 <article class="discipline">
 <div class="head"><span>02</span><span class="topic">Incentive structure</span></div>
-<h3 class="dpy-3">Established firms cannot self-disrupt.</h3>
-<p>When efficiency reduces billable hours, transformation is difficult to drive from within. Genuine reinvention rarely originates from the incumbents — it has to come from outside the existing fee model.</p>
+<h3 class="dpy-3" data-i18n="index.prob.p2.h3">Established firms cannot self-disrupt.</h3>
+<p data-i18n="index.prob.p2.body">When efficiency reduces billable hours, transformation is difficult to drive from within. Genuine reinvention rarely originates from the incumbents — it has to come from outside the existing fee model.</p>
 <div class="marker-bottom"><span>Status quo</span><span class="v">Profitable</span></div>
 </article>
 <article class="discipline">
 <div class="head"><span>03</span><span class="topic">Senior capacity</span></div>
-<h3 class="dpy-3">Senior expertise is the bottleneck.</h3>
-<p>Markets globally lack senior structural, geotechnical, fire and acoustical engineers. Automating routine production frees expert capacity for work that genuinely requires professional judgment — where human accountability cannot be replaced.</p>
+<h3 class="dpy-3" data-i18n="index.prob.p3.h3">Senior expertise is the bottleneck.</h3>
+<p data-i18n="index.prob.p3.body">Markets globally lack senior structural, geotechnical, fire and acoustical engineers. Automating routine production frees expert capacity for work that genuinely requires professional judgment — where human accountability cannot be replaced.</p>
 <div class="marker-bottom"><span>Bottleneck</span><span class="v">Senior, not software</span></div>
 </article>
 <article class="discipline">
 <div class="head"><span>04</span><span class="topic">Tooling</span></div>
-<h3 class="dpy-3">Fragmented workflows.</h3>
-<p>Drawings in CAD. Calculations in spreadsheets. Reports in word processors. Requirements in separate sources. Every handoff is manual — and every manual handoff is a coordination problem, a delay, and a risk of error.</p>
+<h3 class="dpy-3" data-i18n="index.prob.p4.h3">Fragmented workflows.</h3>
+<p data-i18n="index.prob.p4.body">Drawings in CAD. Calculations in spreadsheets. Reports in word processors. Requirements in separate sources. Every handoff is manual — and every manual handoff is a coordination problem, a delay, and a risk of error.</p>
 <div class="marker-bottom"><span>Tools per delivery</span><span class="v">Four, minimum</span></div>
 </article>
 </div>
@@ -966,8 +966,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </article>
 <article class="discipline">
 <div class="head"><span>For the client</span><span class="topic">B</span></div>
-<h3 class="dpy-3">Hours, not days.</h3>
-<p>Delivery on hours instead of days or weeks. Lower cost and faster project velocity throughout. Traceable end-to-end from raw data to signed report. One portal across every discipline — one source of truth for the entire project.</p>
+<h3 class="dpy-3" data-i18n="index.prob.p5.h3">Hours, not days.</h3>
+<p data-i18n="index.prob.p5.body">Delivery on hours instead of days or weeks. Lower cost and faster project velocity throughout. Traceable end-to-end from raw data to signed report. One portal across every discipline — one source of truth for the entire project.</p>
 </article>
 </div>
 </div>
@@ -975,10 +975,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section pipe-section" id="pipeline">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 03</span><span>How it works</span><span class="dash"></span><span class="on-dark" style="color:rgba(247,244,237,0.55)">From raw data to signed deliverable</span></div>
+<div class="smark rv"><span class="num">§ 03</span><span data-i18n="index.pipe.smark.label">How it works</span><span class="dash"></span><span class="on-dark" style="color:rgba(247,244,237,0.55)" data-i18n="index.pipe.smark.tag">From raw data to signed deliverable</span></div>
 <div class="pipe-intro rv">
 <div>
-<h2 class="dpy-2" style="color:var(--dark-paper)">The pipeline.</h2>
+<h2 class="dpy-2" style="color:var(--dark-paper)" data-i18n="index.pipe.h2">The pipeline.</h2>
 </div>
 <p class="lead on-dark">A processing pipeline where each stage is built to do one thing properly. Geometry and physics are deterministic. AI operates under regulatory constraint. Engineering judgment signs. End-to-end traceability — every claim can be rolled back to the source data behind it.</p>
 </div>
@@ -995,70 +995,70 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <g transform="translate(20,40)">
 <rect width="220" height="240" fill="none" stroke="rgba(247,244,237,0.22)" stroke-width="1"/>
 <rect x="0" y="0" width="220" height="30" fill="rgba(247,244,237,0.05)"/>
-<text x="14" y="20" fill="#14B8A6" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2">§ 01 · INPUT</text>
-<text x="14" y="100" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5">Input</text>
-<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13">Project data, files</text>
+<text x="14" y="20" fill="#14B8A6" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2" data-i18n="index.pipe.s1.h">§ 01 · INPUT</text>
+<text x="14" y="100" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5" data-i18n="index.pipe.s1.name">Input</text>
+<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13" data-i18n="index.pipe.s1.sub">Project data, files</text>
 <line x1="14" y1="148" x2="206" y2="148" stroke="rgba(247,244,237,0.18)"/>
-<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">PDF · DWG · DXF</text>
-<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">IFC4 · BCF · BIM</text>
-<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">GeoJSON · TIFF</text>
-<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">REST · webhooks</text>
+<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s1.l1">PDF · DWG · DXF</text>
+<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s1.l2">IFC4 · BCF · BIM</text>
+<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s1.l3">GeoJSON · TIFF</text>
+<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s1.l4">REST · webhooks</text>
 </g>
 <g transform="translate(244,160)"><line x1="0" y1="0" x2="32" y2="0" stroke="#14B8A6" stroke-width="1.5"/><polygon points="28,-4 36,0 28,4" fill="#14B8A6"/></g>
 
 <g transform="translate(284,40)">
 <rect width="220" height="240" fill="none" stroke="rgba(247,244,237,0.22)" stroke-width="1"/>
 <rect x="0" y="0" width="220" height="30" fill="rgba(247,244,237,0.05)"/>
-<text x="14" y="20" fill="#14B8A6" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2">§ 02 · AI</text>
-<text x="14" y="100" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5">Rules</text>
-<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13">Constrained processing</text>
+<text x="14" y="20" fill="#14B8A6" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2" data-i18n="index.pipe.s2.h">§ 02 · AI</text>
+<text x="14" y="100" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5" data-i18n="index.pipe.s2.name">Rules</text>
+<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13" data-i18n="index.pipe.s2.sub">Constrained processing</text>
 <line x1="14" y1="148" x2="206" y2="148" stroke="rgba(247,244,237,0.18)"/>
-<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Proprietary AI</text>
-<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Multi-engine failover</text>
-<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Regulation-locked</text>
-<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Machine-readable code</text>
+<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s2.l1">Proprietary AI</text>
+<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s2.l2">Multi-engine failover</text>
+<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s2.l3">Regulation-locked</text>
+<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s2.l4">Machine-readable code</text>
 </g>
 <g transform="translate(508,160)"><line x1="0" y1="0" x2="32" y2="0" stroke="#14B8A6" stroke-width="1.5"/><polygon points="28,-4 36,0 28,4" fill="#14B8A6"/></g>
 
 <g transform="translate(548,40)">
 <rect width="220" height="240" fill="none" stroke="rgba(247,244,237,0.22)" stroke-width="1"/>
 <rect x="0" y="0" width="220" height="30" fill="rgba(247,244,237,0.05)"/>
-<text x="14" y="20" fill="#14B8A6" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2">§ 03 · PHYSICS</text>
-<text x="14" y="100" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5">Compute</text>
-<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13">Deterministic layer</text>
+<text x="14" y="20" fill="#14B8A6" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2" data-i18n="index.pipe.s3.h">§ 03 · PHYSICS</text>
+<text x="14" y="100" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5" data-i18n="index.pipe.s3.name">Compute</text>
+<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13" data-i18n="index.pipe.s3.sub">Deterministic layer</text>
 <line x1="14" y1="148" x2="206" y2="148" stroke="rgba(247,244,237,0.18)"/>
-<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Geometry · statics</text>
-<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Pure numerical</text>
-<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Eurocode 0–9</text>
-<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Exact, never inferred</text>
+<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s3.l1">Geometry · statics</text>
+<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s3.l2">Pure numerical</text>
+<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s3.l3">Eurocode 0–9</text>
+<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s3.l4">Exact, never inferred</text>
 </g>
 <g transform="translate(772,160)"><line x1="0" y1="0" x2="32" y2="0" stroke="#14B8A6" stroke-width="1.5"/><polygon points="28,-4 36,0 28,4" fill="#14B8A6"/></g>
 
 <g transform="translate(812,40)">
 <rect width="220" height="240" fill="none" stroke="rgba(247,244,237,0.22)" stroke-width="1"/>
 <rect x="0" y="0" width="220" height="30" fill="rgba(247,244,237,0.05)"/>
-<text x="14" y="20" fill="#14B8A6" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2">§ 04 · REVIEW</text>
-<text x="14" y="100" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5">Sign</text>
-<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13">Engineering judgment</text>
+<text x="14" y="20" fill="#14B8A6" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2" data-i18n="index.pipe.s4.h">§ 04 · REVIEW</text>
+<text x="14" y="100" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5" data-i18n="index.pipe.s4.name">Sign</text>
+<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13" data-i18n="index.pipe.s4.sub">Engineering judgment</text>
 <line x1="14" y1="148" x2="206" y2="148" stroke="rgba(247,244,237,0.18)"/>
-<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Auto · Reviewed</text>
-<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Attested by engineer</text>
-<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Professional liability</text>
-<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Audit · SHA-256</text>
+<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s4.l1">Auto · Reviewed</text>
+<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s4.l2">Attested by engineer</text>
+<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s4.l3">Professional liability</text>
+<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s4.l4">Audit · SHA-256</text>
 </g>
 <g transform="translate(1036,160)"><line x1="0" y1="0" x2="32" y2="0" stroke="#14B8A6" stroke-width="1.5"/><polygon points="28,-4 36,0 28,4" fill="#14B8A6"/></g>
 
 <g transform="translate(1076,40)">
 <rect width="148" height="240" fill="none" stroke="rgba(247,244,237,0.22)" stroke-width="1"/>
 <rect x="0" y="0" width="148" height="30" fill="rgba(20,184,166,0.20)"/>
-<text x="14" y="20" fill="#2DD4BF" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2">§ 05 · OUT</text>
-<text x="14" y="100" fill="#2DD4BF" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5">Out</text>
-<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13">Signed delivery</text>
+<text x="14" y="20" fill="#2DD4BF" font-family="JetBrains Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="2" data-i18n="index.pipe.s5.h">§ 05 · OUT</text>
+<text x="14" y="100" fill="#2DD4BF" font-family="Manrope,sans-serif" font-weight="500" font-size="44" letter-spacing="-1.5" data-i18n="index.pipe.s5.name">Out</text>
+<text x="14" y="130" fill="#F7F4ED" font-family="Manrope,sans-serif" font-weight="500" font-size="13" data-i18n="index.pipe.s5.sub">Signed delivery</text>
 <line x1="14" y1="148" x2="134" y2="148" stroke="rgba(247,244,237,0.18)"/>
-<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">PDF · DOCX</text>
-<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">IFC4 · BCF</text>
-<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">GeoJSON</text>
-<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11">Auditable</text>
+<text x="14" y="172" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s5.l1">PDF · DOCX</text>
+<text x="14" y="192" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s5.l2">IFC4 · BCF</text>
+<text x="14" y="212" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s5.l3">GeoJSON</text>
+<text x="14" y="232" fill="rgba(247,244,237,0.62)" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="index.pipe.s5.l4">Auditable</text>
 </g>
 </svg>
 </div>
@@ -1195,7 +1195,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="smark rv"><span class="num">§ 06</span><span>Approach</span><span class="dash"></span><span>What does not change</span></div>
 <div class="app-top rv">
 <div>
-<h2 class="dpy-2">Builtly signs nothing.</h2>
+<h2 class="dpy-2" data-i18n="index.signs.h2">Builtly signs nothing.</h2>
 </div>
 <p class="lead">Four principles that govern every module, every deliverable, every release. Software does not carry professional liability — engineers do.</p>
 </div>
@@ -1290,7 +1290,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="smark rv"><span class="num">§ 09</span><span>Portal</span><span class="dash"></span><span>Upload a file and see it work</span></div>
 <div class="cta-grid">
 <div class="rv">
-<h2 class="dpy-1" style="font-size:clamp(40px,5.4vw,76px)">The portal is live.</h2>
+<h2 class="dpy-1" style="font-size:clamp(40px,5.4vw,76px)" data-i18n="index.portal.h2">The portal is live.</h2>
 <p class="lead" style="margin-top:32px;max-width:48ch">Upload an IFC, DWG or floor plan. Run a rationality analysis, a climate risk report or a feasibility study. Get the result back in the format you actually need.</p>
 <div class="cta-actions">
 <a href="https://builtly.ai" class="btn">Open the portal <span class="arr">→</span></a>
