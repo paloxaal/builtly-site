@@ -848,12 +848,12 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="hero-art rv">
 <div class="pillars">
-<span class="pillar">Mathematics</span>
-<span class="pillar">Physics</span>
-<span class="pillar">Geometry</span>
+<span class="pillar" data-i18n="hero.pillar.math">Mathematics</span>
+<span class="pillar" data-i18n="hero.pillar.physics">Physics</span>
+<span class="pillar" data-i18n="hero.pillar.geometry">Geometry</span>
 <span class="pillar">AI</span>
 </div>
-<div class="scroll-hint">Scroll · §&nbsp;01 ↓</div>
+<div class="scroll-hint"><span data-i18n="hero.scroll">Scroll</span> · §&nbsp;01 ↓</div>
 </div>
 </div>
 </section>
@@ -922,7 +922,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="bim-stage-banner" id="bim-stage-banner">
 <span class="bim-stage-num" id="bim-stage-num">Stage 1 / 5</span>
 <span class="bim-stage-sep">·</span>
-<span class="bim-stage-name" id="bim-stage-name">Foundations</span>
+<span class="bim-stage-name" id="bim-stage-name" data-i18n="bim.stage.foundations">Foundations</span>
 </div>
 <div class="bim-legend">
 <span class="bim-leg-item"><span class="bim-dot t-slab"></span><span data-i18n="index.bim.t.slab">Slab</span></span>
@@ -956,7 +956,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="algo-canvas-wrap">
 <canvas id="algo-canvas"></canvas>
 <div class="algo-canvas-label"><span class="pulse"></span>Voronoi engine · live</div>
-<div class="algo-canvas-stage" id="algo-stage-banner"><span class="num" id="algo-stage-num">Step 1 / 4</span> · <span id="algo-stage-name">Footprint</span></div>
+<div class="algo-canvas-stage" id="algo-stage-banner"><span class="num" id="algo-stage-num"><span data-i18n="algo.step">Step</span> 1 / 4</span> · <span id="algo-stage-name" data-i18n="algo.stage.footprint">Footprint</span></div>
 <div class="algo-canvas-foot">Builtly · Voronoi · <b id="algo-progress">0%</b></div>
 </div>
 <div class="algo-meta">
@@ -1068,8 +1068,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="vert-summary rvs">
 <div class="vert-summary-item"><div class="num" id="vert-walls-total">0</div><div class="l">walls</div></div>
 <div class="vert-summary-item"><div class="num" id="vert-doors-total">0</div><div class="l">doors</div></div>
-<div class="vert-summary-item"><div class="num" id="vert-windows-total">0</div><div class="l">windows</div></div>
-<div class="vert-summary-item"><div class="num" id="vert-storeys-total">0</div><div class="l">storeys read</div></div>
+<div class="vert-summary-item"><div class="num" id="vert-windows-total">0</div><div class="l" data-i18n="algo.label.windows">windows</div></div>
+<div class="vert-summary-item"><div class="num" id="vert-storeys-total">0</div><div class="l" data-i18n="algo.label.storeys">storeys read</div></div>
 </div>
 
 <div class="vert-canvas rv">
@@ -1330,11 +1330,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 
 <div class="pipe-legend rvs">
-<div class="pipe-stage"><div class="ix">§ 01 · Input</div><div class="nm">Input</div><div class="ds">Project files in open formats. The platform accepts every relevant engineering source.</div></div>
-<div class="pipe-stage"><div class="ix">§ 02 · AI</div><div class="nm">Rules</div><div class="ds" data-i18n="sec.pipeline.ai.body">Multi-engine AI with automatic failover. Models operate within machine-readable regulation.</div></div>
-<div class="pipe-stage"><div class="ix">§ 03 · Physics</div><div class="nm">Compute</div><div class="ds">Geometry and statics in pure numerical code. Exact results — never inferred by a language model.</div></div>
-<div class="pipe-stage"><div class="ix">§ 04 · Review</div><div class="nm">Sign</div><div class="ds">Professional engineer with regulatory authority signs. Three levels: auto, reviewed, attested.</div></div>
-<div class="pipe-stage"><div class="ix">§ 05 · Output</div><div class="nm">Output</div><div class="ds">Final deliverable in open formats. Traceable end-to-end from input data to signature.</div></div>
+<div class="pipe-stage"><div class="ix" data-i18n="pipe.input">§ 01 · Input</div><div class="nm">Input</div><div class="ds" data-i18n="pipe.body.input">Project files in open formats. The platform accepts every relevant engineering source.</div></div>
+<div class="pipe-stage"><div class="ix" data-i18n="pipe.ai">§ 02 · AI</div><div class="nm">Rules</div><div class="ds" data-i18n="sec.pipeline.ai.body">Multi-engine AI with automatic failover. Models operate within machine-readable regulation.</div></div>
+<div class="pipe-stage"><div class="ix" data-i18n="pipe.physics">§ 03 · Physics</div><div class="nm" data-i18n="pipe.label.compute">Compute</div><div class="ds" data-i18n="pipe.body.physics">Geometry and statics in pure numerical code. Exact results — never inferred by a language model.</div></div>
+<div class="pipe-stage"><div class="ix" data-i18n="pipe.review">§ 04 · Review</div><div class="nm">Sign</div><div class="ds" data-i18n="pipe.body.review">Professional engineer with regulatory authority signs. Three levels: auto, reviewed, attested.</div></div>
+<div class="pipe-stage"><div class="ix" data-i18n="pipe.output">§ 05 · Output</div><div class="nm" data-i18n="pipe.label.output">Output</div><div class="ds" data-i18n="pipe.body.output">Final deliverable in open formats. Traceable end-to-end from input data to signature.</div></div>
 </div>
 </div>
 </section>
@@ -1356,11 +1356,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="desc" data-i18n="cap.regulatory">Regulatory accountability · attested</span>
 </div>
 <div class="modules rvs">
-<div class="module"><div class="dot"></div><div class="code">GEO</div><div class="nm">Geotechnics</div><div class="ds">Ground conditions, foundation strategy, Eurocode-7 analysis with regulatory geodata.</div></div>
-<div class="module"><div class="dot"></div><div class="code">STR</div><div class="nm">Structural</div><div class="ds">DWG/DXF/IFC parsing, rationality analysis, member sizing, IFC4 export.</div></div>
-<div class="module"><div class="dot"></div><div class="code">FIR</div><div class="nm">Fire safety</div><div class="ds">Concept, compartmentation, egress, automatic regulatory compliance.</div></div>
-<div class="module"><div class="dot"></div><div class="code">ACO</div><div class="nm">Acoustics</div><div class="ds">Sound calculations, building and room acoustics across standards.</div></div>
-<div class="module"><div class="dot"></div><div class="code">ENV</div><div class="nm">Environmental</div><div class="ds">Contaminated ground, biodiversity, environmental monitoring plans.</div></div>
+<div class="module"><div class="dot"></div><div class="code">GEO</div><div class="nm" data-i18n="mod.geotechnics">Geotechnics</div><div class="ds" data-i18n="mod.desc.geotechnics">Ground conditions, foundation strategy, Eurocode-7 analysis with regulatory geodata.</div></div>
+<div class="module"><div class="dot"></div><div class="code">STR</div><div class="nm" data-i18n="mod.structural">Structural</div><div class="ds" data-i18n="mod.desc.structural">DWG/DXF/IFC parsing, rationality analysis, member sizing, IFC4 export.</div></div>
+<div class="module"><div class="dot"></div><div class="code">FIR</div><div class="nm" data-i18n="mod.fire_safety">Fire safety</div><div class="ds" data-i18n="mod.desc.fire">Concept, compartmentation, egress, automatic regulatory compliance.</div></div>
+<div class="module"><div class="dot"></div><div class="code">ACO</div><div class="nm" data-i18n="mod.acoustics">Acoustics</div><div class="ds" data-i18n="mod.desc.acoustics">Sound calculations, building and room acoustics across standards.</div></div>
+<div class="module"><div class="dot"></div><div class="code">ENV</div><div class="nm" data-i18n="mod.environmental">Environmental</div><div class="ds" data-i18n="mod.desc.environmental">Contaminated ground, biodiversity, environmental monitoring plans.</div></div>
 </div>
 </div>
 
@@ -1371,11 +1371,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="desc" data-i18n="cap.reviewed">Reviewed · engineer-validated</span>
 </div>
 <div class="modules mid rvs">
-<div class="module"><div class="dot"></div><div class="code">ARK</div><div class="nm">Feasibility</div><div class="ds">AI siting, geospatial data, indicative volume studies.</div></div>
-<div class="module"><div class="dot"></div><div class="code">TDD</div><div class="nm">Technical DD</div><div class="ds">Due diligence reporting for transactions and asset management.</div></div>
-<div class="module"><div class="dot"></div><div class="code">BID</div><div class="nm">Bid control</div><div class="ds">Tender checklists, contract review, evaluation and audit.</div></div>
-<div class="module"><div class="dot"></div><div class="code">QTY</div><div class="nm">Quantities</div><div class="ds">Quantity extraction from model, estimating basis, BIM traceability.</div></div>
-<div class="module"><div class="dot"></div><div class="code">HSE</div><div class="nm">HSE plan</div><div class="ds">Health, safety and environment plan, risk register and tracking.</div></div>
+<div class="module"><div class="dot"></div><div class="code">ARK</div><div class="nm" data-i18n="mod.feasibility">Feasibility</div><div class="ds" data-i18n="mod.desc.feasibility">AI siting, geospatial data, indicative volume studies.</div></div>
+<div class="module"><div class="dot"></div><div class="code">TDD</div><div class="nm" data-i18n="mod.technical_dd">Technical DD</div><div class="ds" data-i18n="mod.desc.technical_dd">Due diligence reporting for transactions and asset management.</div></div>
+<div class="module"><div class="dot"></div><div class="code">BID</div><div class="nm" data-i18n="mod.bid_control">Bid control</div><div class="ds" data-i18n="mod.desc.bid_control">Tender checklists, contract review, evaluation and audit.</div></div>
+<div class="module"><div class="dot"></div><div class="code">QTY</div><div class="nm" data-i18n="mod.quantities">Quantities</div><div class="ds" data-i18n="mod.desc.quantities">Quantity extraction from model, estimating basis, BIM traceability.</div></div>
+<div class="module"><div class="dot"></div><div class="code">HSE</div><div class="nm" data-i18n="mod.hse_plan">HSE plan</div><div class="ds" data-i18n="mod.desc.hse">Health, safety and environment plan, risk register and tracking.</div></div>
 </div>
 </div>
 
@@ -1386,10 +1386,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="desc" data-i18n="cap.auto">Auto · fully automated</span>
 </div>
 <div class="modules ghost rvs">
-<div class="module"><div class="dot"></div><div class="code">CLI</div><div class="nm">Climate risk</div><div class="ds">Flood, landslide, sea level, regulatory climate risk per asset.</div></div>
-<div class="module"><div class="dot"></div><div class="code">SUS</div><div class="nm">Sustainability</div><div class="ds">Pre-assessment, certification screening, documentation templates.</div></div>
-<div class="module"><div class="dot"></div><div class="code">TRA</div><div class="nm">Traffic</div><div class="ds">Volume, capacity, traffic impact assessment for planning.</div></div>
-<div class="module"><div class="dot"></div><div class="code">CRE</div><div class="nm">Bank &amp; lending</div><div class="ds">Credit basis, construction loan monitoring, portfolio risk.</div></div>
+<div class="module"><div class="dot"></div><div class="code">CLI</div><div class="nm" data-i18n="mod.climate_risk">Climate risk</div><div class="ds" data-i18n="mod.desc.climate_risk">Flood, landslide, sea level, regulatory climate risk per asset.</div></div>
+<div class="module"><div class="dot"></div><div class="code">SUS</div><div class="nm" data-i18n="mod.sustainability">Sustainability</div><div class="ds" data-i18n="mod.desc.sustainability">Pre-assessment, certification screening, documentation templates.</div></div>
+<div class="module"><div class="dot"></div><div class="code">TRA</div><div class="nm" data-i18n="mod.traffic">Traffic</div><div class="ds" data-i18n="mod.desc.traffic">Volume, capacity, traffic impact assessment for planning.</div></div>
+<div class="module"><div class="dot"></div><div class="code">CRE</div><div class="nm" data-i18n="mod.bank_lending">Bank &amp; lending</div><div class="ds" data-i18n="mod.desc.bank">Credit basis, construction loan monitoring, portfolio risk.</div></div>
 <div class="module"><div class="dot"></div><div class="code">PKG</div><div class="nm" data-i18n="global.country_pack">Country packs</div><div class="ds" data-i18n="cap.country_pack_desc">Regulatory packs across seven jurisdictions, same platform.</div></div>
 </div>
 </div>
@@ -1401,49 +1401,46 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="smark rv"><span class="num">§ 05</span><span data-i18n="cta.delivery_models">Delivery Models</span><span class="dash"></span><span data-i18n="tier.auto_reviewed_attested">Auto · Reviewed · Attested</span></div>
 <div class="del-intro rv">
 <div>
-<h2 class="dpy-2" data-i18n-html="sec.delivery.h2">Three delivery levels.<br/>Three margins.<br/>One portal.</h2>
+<h2 class="dpy-2" data-i18n-html="sec.delivery.h2">Three delivery levels.<br/>Three workflows.<br/>One portal.</h2>
 </div>
-<p data-i18n="index.p.delivery" class="lead">Every module is delivered at three levels of human involvement — fully automated, engineer-reviewed, or attested under professional liability. The client selects the level the work actually requires. Margin follows the level.</p>
+<p data-i18n="index.p.delivery" class="lead">Every module is delivered at three levels of human involvement — fully automated, engineer-reviewed, or attested under professional liability. The client selects the level the work actually requires.</p>
 </div>
 
 <div class="del-grid rvs">
 <div class="del">
 <div class="tag"><span><span class="num">01</span> &nbsp; Level</span><span data-i18n="tier.low_touch">Low-touch</span></div>
 <div class="nm">Auto</div>
-<div class="sub">Fully automated · no wait</div>
+<div class="sub" data-i18n="tier.sub.auto">Fully automated · no wait</div>
 <p data-i18n="index.p.tierAuto" class="ds">AI generates the complete deliverable end-to-end. Used for climate risk, due-diligence screening, tender checklists and similar where the market accepts machine-produced output as decision basis.</p>
 <div class="data">
 <div class="r"><span class="k" data-i18n="index.k.humanInput">Human input</span><span class="v" data-i18n="val.none">None</span></div>
 <div class="r"><span class="k" data-i18n="index.k.scalability">Scalability</span><span class="v" data-i18n="val.unlimited">Unlimited</span></div>
 <div class="r"><span class="k" data-i18n="index.k.turnaround">Turnaround</span><span class="v" data-i18n="val.minutes">Minutes</span></div>
 </div>
-<div class="margin"><span class="ml">Margin</span><span class="mv">75–90%</span></div>
 </div>
 
 <div class="del">
 <div class="tag"><span><span class="num">02</span> &nbsp; Level</span><span data-i18n="tier.mid_touch">Mid-touch</span></div>
 <div class="nm">Reviewed</div>
-<div class="sub">Engineer-validated</div>
+<div class="sub" data-i18n="tier.sub.reviewed">Engineer-validated</div>
 <p data-i18n="index.p.tierReviewed" class="ds">AI produces the draft. A qualified engineer reviews, corrects and approves. Used for transaction-grade due diligence, sustainability pre-assessment and similar where professional judgment must underwrite the result.</p>
 <div class="data">
 <div class="r"><span class="k" data-i18n="index.k.humanInput">Human input</span><span class="v" data-i18n="val.review">Review</span></div>
 <div class="r"><span class="k" data-i18n="index.k.scalability">Scalability</span><span class="v" data-i18n="val.moderate">Moderate</span></div>
 <div class="r"><span class="k" data-i18n="index.k.turnaround">Turnaround</span><span class="v" data-i18n="val.hours">Hours</span></div>
 </div>
-<div class="margin"><span class="ml">Margin</span><span class="mv">60–80%</span></div>
 </div>
 
 <div class="del">
 <div class="tag"><span><span class="num">03</span> &nbsp; Level</span><span data-i18n="tier.high_touch">High-touch</span></div>
 <div class="nm">Attested</div>
-<div class="sub">Signed with professional liability</div>
+<div class="sub" data-i18n="tier.sub.attested">Signed with professional liability</div>
 <p data-i18n="index.p.tierAttested" class="ds">A qualified professional engineer with regulatory authority signs. Used for structural, geotechnical, fire, environmental and other deliverables where law, code or insurance requires a name behind the report. AI prepares; the engineer is accountable.</p>
 <div class="data">
 <div class="r"><span class="k" data-i18n="index.k.humanInput">Human input</span><span class="v" data-i18n="val.attestation">Attestation</span></div>
 <div class="r"><span class="k" data-i18n="index.k.scalability">Scalability</span><span class="v" data-i18n="index.v.regulatoryRhythm">Regulatory rhythm</span></div>
 <div class="r"><span class="k" data-i18n="index.k.turnaround">Turnaround</span><span class="v" data-i18n="val.sameDay">Same day</span></div>
 </div>
-<div class="margin"><span class="ml">Margin</span><span class="mv">50–70%</span></div>
 </div>
 </div>
 </div>
@@ -1451,8 +1448,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="insight-section">
 <div class="insight-inner rv">
-<div class="insight-quote">"Let advisors advise. <span class="accent" data-i18n="cta.geo_phys_math">Geometry, physics, mathematics and AI handle the rest.</span>"</div>
-<div class="insight-attr">— The operating principle</div>
+<div class="insight-quote" data-i18n-html="cta.insight_quote_html">"Let advisors advise. <span class="accent">Geometry, physics, mathematics and AI handle the rest.</span>"</div>
+<div class="insight-attr" data-i18n="cta.operating_principle_attr">— The operating principle</div>
 </div>
 </section>
 
@@ -1471,7 +1468,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="pnum">01</div>
 <div>
 <h3 class="dpy-3" data-i18n="index.approach.p1.h">Rule-driven AI. Not open prose.</h3>
-<div class="kicker">7 jurisdictions · regulation engine</div>
+<div class="kicker" data-i18n="approach.kicker.p1">7 jurisdictions · regulation engine</div>
 </div>
 <p data-i18n="index.approach.p1.body">AI operates within building codes, standards and regulatory frameworks defined as machine-readable logic. The model cannot freely interpret its way out of a compliance requirement.</p>
 </li>
@@ -1479,7 +1476,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="pnum">02</div>
 <div>
 <h3 class="dpy-3" data-i18n="index.approach.p2.h">Deterministic first. AI last.</h3>
-<div class="kicker">Multi-pass · hard validation</div>
+<div class="kicker" data-i18n="approach.kicker.p2">Multi-pass · hard validation</div>
 </div>
 <p data-i18n="index.approach.p2.body">Geometry and physics are deterministic, computed exactly. AI describes the result and writes it up. Numbers do not come from a language model — they come from numerical engineering libraries running pure code.</p>
 </li>
@@ -1487,7 +1484,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="pnum">03</div>
 <div>
 <h3 class="dpy-3" data-i18n="index.approach.p3.h">Human in the loop where it matters.</h3>
-<div class="kicker">Auto · Reviewed · Attested</div>
+<div class="kicker" data-i18n="approach.kicker.p3">Auto · Reviewed · Attested</div>
 </div>
 <p data-i18n="index.approach.p3.body">Qualified engineers with regulatory authority are integrated into the platform. Three levels of involvement. The signature on the report and the person liable for the work are always the same. AI is never the final approver.</p>
 </li>
@@ -1495,7 +1492,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="pnum">04</div>
 <div>
 <h3 class="dpy-3" data-i18n="index.approach.p4.h">Open formats. No lock-in.</h3>
-<div class="kicker">IFC4 · DOCX · PDF · BCF</div>
+<div class="kicker" data-i18n="approach.kicker.p4">IFC4 · DOCX · PDF · BCF</div>
 </div>
 <p data-i18n="index.approach.p4.body">IFC4, DWG, DXF, DOCX, PDF, BCF, GeoJSON. It goes in, it comes out. The client owns the result and can take it out of the platform the day it is signed.</p>
 </li>
@@ -1510,7 +1507,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section tech-section" id="technology">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 07</span><span>Technology</span><span class="dash"></span><span class="on-dark" style="color:rgba(247,244,237,0.55)" data-i18n="cta.built_for_production">Built for production</span></div>
+<div class="smark rv"><span class="num">§ 07</span><span data-i18n="smark.technology">Technology</span><span class="dash"></span><span class="on-dark" style="color:rgba(247,244,237,0.55)" data-i18n="cta.built_for_production">Built for production</span></div>
 <div class="tech-head rv">
 <div>
 <h2 class="dpy-2" style="color:var(--dark-paper)" data-i18n-html="sec.signs.h2">Not a prototype.<br/>Industrial software.</h2>
@@ -1519,7 +1516,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 
 <ul class="tech-stack rvs">
-<li><span class="k" data-i18n="index.k.aiArchitecture">AI architecture</span><span class="v">Proprietary multi-engine pipeline <span class="accent">— automatic failover</span></span></li>
+<li><span class="k" data-i18n="index.k.aiArchitecture">AI architecture</span><span class="v" data-i18n-html="index.v.aiArchitecture">Proprietary multi-engine pipeline <span class="accent">— automatic failover</span></span></li>
 <li><span class="k" data-i18n="index.k.visionSystem">Vision system</span><span class="v" data-i18n="index.v.dwgPdf">DWG / DXF / PDF → structured project data</span></li>
 <li><span class="k" data-i18n="index.k.bimStack">BIM stack</span><span class="v" data-i18n="index.v.ifcBcf">IFC4 · ifcopenshell · BCF 2.1</span></li>
 <li><span class="k" data-i18n="index.k.geospatial">Geospatial</span><span class="v" data-i18n="index.v.shapely">Shapely · GeoJSON · ArcGIS REST</span></li>
@@ -1542,7 +1539,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 
 <div class="gl-list rvs">
-<div class="gl-row"><span class="seal">01</span><span class="nm" data-i18n="global.home_market">Home market</span><span class="st-col"><span class="st live">Operational</span></span><span class="rg rg-col">National building code · planning law · cadastre · geological survey</span></div>
+<div class="gl-row"><span class="seal">01</span><span class="nm" data-i18n="global.home_market">Home market</span><span class="st-col"><span class="st live" data-i18n="global.status.operational">Operational</span></span><span class="rg rg-col" data-i18n="global.home_market.frameworks">National building code · planning law · cadastre · geological survey</span></div>
 <div class="gl-row"><span class="seal">02</span><span class="nm" data-i18n="global.nordic_markets">Nordic markets</span><span class="st-col"><span class="st" data-i18n="global.country_pack_label">Country pack</span></span><span class="rg rg-col" data-i18n="global.nordic.frameworks">Regional codes · cross-border standards · land registries</span></div>
 <div class="gl-row"><span class="seal">03</span><span class="nm" data-i18n="global.country.uk">United Kingdom</span><span class="st-col"><span class="st" data-i18n="global.country_pack_label">Country pack</span></span><span class="rg rg-col">Building Safety Act · Building Regulations · Ordnance Survey</span></div>
 <div class="gl-row"><span class="seal">04</span><span class="nm" data-i18n="global.country.de">Germany</span><span class="st-col"><span class="st" data-i18n="global.country_pack_label">Country pack</span></span><span class="rg rg-col">Landesbauordnungen · DIN standards · Bundesländer authorities</span></div>
@@ -1553,7 +1550,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="cta-section" id="contact">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 09</span><span>Portal</span><span class="dash"></span><span data-i18n="cta.upload_file">Upload a file and see it work</span></div>
+<div class="smark rv"><span class="num">§ 09</span><span data-i18n="common.portal_smark">Portal</span><span class="dash"></span><span data-i18n="cta.upload_file">Upload a file and see it work</span></div>
 <div class="cta-grid">
 <div class="rv">
 <h2 class="dpy-1" style="font-size:clamp(40px,5.4vw,76px)" data-i18n="index.portal.h2">The portal is live.</h2>
@@ -1920,26 +1917,31 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   const STAGES = [
     {
       name: 'Foundations',
+      nameKey: 'bim.stage.foundations',
       duration: 1400,
       match: (el, lvlIdx) => lvlIdx === 0 && el.t === 'Slab'
     },
     {
       name: 'Structural frame',
+      nameKey: 'bim.stage.frame',
       duration: 2600,
       match: (el, lvlIdx) => el.t === 'Column' || el.t === 'Beam'
     },
     {
       name: 'Floor decks',
+      nameKey: 'bim.stage.floors',
       duration: 2400,
       match: (el, lvlIdx) => lvlIdx > 0 && el.t === 'Slab'
     },
     {
       name: 'Walls',
+      nameKey: 'bim.stage.walls',
       duration: 3600,
       match: (el, lvlIdx) => el.t === 'Wall'
     },
     {
       name: 'Roof',
+      nameKey: 'bim.stage.roof',
       duration: 900,
       match: (el, lvlIdx) => el.t === 'Roof'
     }
@@ -2367,7 +2369,33 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   // Stage banner DOM
   const stageBanner = document.getElementById('bim-stage-banner');
   const stageBannerNum = document.getElementById('bim-stage-num');
+
+  // Stage name i18n helpers - look up translation key, fall back to English  
+  const BIM_STAGE_KEYS = {
+    'Foundations': 'bim.stage.foundations',
+    'Structural frame': 'bim.stage.frame',
+    'Floor decks': 'bim.stage.floors',
+    'Walls': 'bim.stage.walls',
+    'Roof': 'bim.stage.roof'
+  };
+  function getBimStageName(englishName) {
+    const key = BIM_STAGE_KEYS[englishName];
+    if (key && window.BUILTLY_I18N && window.BUILTLY_I18N.T) {
+      return window.BUILTLY_I18N.T(key) || englishName;
+    }
+    return englishName;
+  }
   const stageBannerName = document.getElementById('bim-stage-name');
+  let currentStageIdx = 0;
+  // Re-render current BIM stage on lang change
+  if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) {
+    window.BUILTLY_I18N.onLangChange(function() {
+      if (stageBannerName && stageBannerName.textContent && currentStageIdx >= 0 && currentStageIdx < STAGES.length) {
+        stageBannerName.textContent = getBimStageName(STAGES[currentStageIdx].name);
+      }
+    });
+  }
+
 
   function updateStageBanner(t){
     let stageIdx = -1;
@@ -2384,7 +2412,8 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     if (stageIdx >= 0) {
       const s = stageTimeline[stageIdx];
       if (stageBannerNum) stageBannerNum.textContent = 'Stage ' + (stageIdx + 1) + ' / ' + stageTimeline.length;
-      if (stageBannerName) stageBannerName.textContent = s.name;
+      currentStageIdx = stageIdx;
+        if (stageBannerName) stageBannerName.textContent = getBimStageName(s.name);
       if (stageBanner) stageBanner.classList.add('visible');
       // Also update meta sidebar's current label
       currentEl.textContent = s.name;
@@ -2596,6 +2625,27 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   const canvas = document.getElementById('algo-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+
+  // Algo stage i18n
+  const ALGO_STAGE_KEYS = {
+    'Footprint': 'algo.stage.footprint',
+    'Seeds': 'algo.stage.seeds',
+    'Tessellation': 'algo.stage.tessellation',
+    'Tributary': 'algo.stage.tributary'
+  };
+  function getAlgoStageName(englishName) {
+    const key = ALGO_STAGE_KEYS[englishName];
+    if (key && window.BUILTLY_I18N && window.BUILTLY_I18N.T) {
+      return window.BUILTLY_I18N.T(key) || englishName;
+    }
+    return englishName;
+  }
+  function getAlgoStepLabel() {
+    if (window.BUILTLY_I18N && window.BUILTLY_I18N.T) {
+      return window.BUILTLY_I18N.T('algo.step') || 'Step';
+    }
+    return 'Step';
+  }
   const stageNumEl  = document.getElementById('algo-stage-num');
   const stageNameEl = document.getElementById('algo-stage-name');
   const progressEl  = document.getElementById('algo-progress');
@@ -2747,12 +2797,24 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
 
   // Stages
   const STAGES = [
-    { name: 'Footprint',    duration: 1200 },
-    { name: 'Seeds',        duration: 1500 },
-    { name: 'Tessellation', duration: 3500 },
-    { name: 'Tributary',    duration: 2200 }
+    { name: 'Footprint',    nameKey: 'algo.stage.footprint',    duration: 1200 },
+    { name: 'Seeds',        nameKey: 'algo.stage.seeds',        duration: 1500 },
+    { name: 'Tessellation', nameKey: 'algo.stage.tessellation', duration: 3500 },
+    { name: 'Tributary',    nameKey: 'algo.stage.tributary',    duration: 2200 }
   ];
   const TOTAL_MS = STAGES.reduce((s, st) => s + st.duration, 0);
+  let currentAlgoStageIdx = 0;
+  if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) {
+    window.BUILTLY_I18N.onLangChange(function() {
+      if (stageNameEl && currentAlgoStageIdx >= 0 && currentAlgoStageIdx < STAGES.length) {
+        stageNameEl.textContent = getAlgoStageName(STAGES[currentAlgoStageIdx].name);
+      }
+      if (stageNumEl) {
+        stageNumEl.innerHTML = '<span data-i18n="algo.step">' + getAlgoStepLabel() + '</span> ' + (currentAlgoStageIdx + 1) + ' / ' + STAGES.length;
+      }
+    });
+  }
+
   const HOLD_MS = 1800;
 
   let startTime = null;
@@ -2977,8 +3039,8 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     }
 
     // Banner
-    if (stageNumEl)  stageNumEl.textContent  = 'Step ' + (idx + 1) + ' / ' + STAGES.length;
-    if (stageNameEl) stageNameEl.textContent = STAGES[idx].name;
+    if (stageNumEl)  stageNumEl.innerHTML  = '<span data-i18n="algo.step">' + getAlgoStepLabel() + '</span> ' + (idx + 1) + ' / ' + STAGES.length;
+    if (stageNameEl) { currentAlgoStageIdx = idx; stageNameEl.textContent = getAlgoStageName(STAGES[idx].name); }
 
     // Builtly engine reveal on stage change
     if (idx !== algoLastStageIdx) {

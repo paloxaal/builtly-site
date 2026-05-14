@@ -421,17 +421,17 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="princ-grid rvs">
 <div class="princ-cell">
-<div class="ix">§ Principle 01</div>
+<div class="ix">§ <span data-i18n="trust.smark.principle">Principle</span> 01</div>
 <h4 data-i18n="trust.c1.h">Customer data stays customer data.</h4>
 <p data-i18n="trust.c1.body">Project files, drawings, models and deliverables uploaded by a customer remain the customer's property and are not used to train any model. Data isolation is per-tenant at the storage layer.</p>
 </div>
 <div class="princ-cell">
-<div class="ix">§ Principle 02</div>
+<div class="ix">§ <span data-i18n="trust.smark.principle">Principle</span> 02</div>
 <h4 data-i18n="trust.c2.h">Everything is auditable.</h4>
 <p data-i18n="trust.c2.body">Every deliverable can be traced back to the exact inputs, the exact compute, the exact model version, and the exact engineer who signed. Compliance forensics is a property of the architecture, not a feature.</p>
 </div>
 <div class="princ-cell">
-<div class="ix">§ Principle 03</div>
+<div class="ix">§ <span data-i18n="trust.smark.principle">Principle</span> 03</div>
 <h4 data-i18n="trust.c3.h">The engineer signs.</h4>
 <p data-i18n="trust.c3.body">For deliverables that carry professional liability, a named engineer with regulatory authority is the signatory — never the platform, never the AI. The chain of responsibility is preserved end-to-end.</p>
 </div>
@@ -453,8 +453,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">01</div>
-<div class="nm">Ownership</div>
-<div class="ix">§ Customer data</div>
+<div class="nm" data-i18n="trust.label.ownership">Ownership</div>
+<div class="ix">§ <span data-i18n="trust.smark.customer_data">Customer data</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c4.h">The customer owns the data. Always.</h4>
@@ -466,15 +466,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.export">Export</span><span class="v" data-i18n="trust.v.onDemand">On demand · open formats</span></div>
 <div class="row"><span class="k" data-i18n="lbl.retention">Retention</span><span class="v" data-i18n="trust.v.perContract">Per contract</span></div>
 <div class="row"><span class="k" data-i18n="lbl.termination">Termination</span><span class="v" data-i18n="trust.v.fullExport">Full export available</span></div>
-<div class="level">Standard: Per-tenant isolation</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.per_tenant_iso">Per-tenant isolation</span></div>
 </div>
 </div>
 
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">02</div>
-<div class="nm">Model training</div>
-<div class="ix">§ Privacy</div>
+<div class="nm" data-i18n="trust.label.model_training">Model training</div>
+<div class="ix">§ <span data-i18n="trust.smark.privacy">Privacy</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c5.h">Customer project data is not used to train models.</h4>
@@ -486,15 +486,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.optin">Opt-in</span><span class="v" data-i18n="trust.v.availAddendum">Available · addendum</span></div>
 <div class="row"><span class="k" data-i18n="lbl.deIdentification">De-identification</span><span class="v" data-i18n="trust.v.requiredOptin">Required if opted in</span></div>
 <div class="row"><span class="k" data-i18n="lbl.audit">Audit</span><span class="v" data-i18n="trust.v.trainingPipeline">Training pipeline logged</span></div>
-<div class="level">Standard: No silent training</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.no_silent_training">No silent training</span></div>
 </div>
 </div>
 
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">03</div>
-<div class="nm">Residency</div>
-<div class="ix">§ Geographic</div>
+<div class="nm" data-i18n="trust.label.residency">Residency</div>
+<div class="ix">§ <span data-i18n="trust.smark.geographic">Geographic</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c6.h">Regional data residency, configurable per tenant.</h4>
@@ -506,7 +506,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.crossBorder">Cross-border</span><span class="v" data-i18n="trust.v.explicitOptin">Explicit opt-in</span></div>
 <div class="row"><span class="k" data-i18n="lbl.regions">Regions</span><span class="v" data-i18n="trust.v.multiJur">Multi-jurisdiction</span></div>
 <div class="row"><span class="k" data-i18n="lbl.audit">Audit</span><span class="v" data-i18n="trust.v.residencyLogged">Residency logged per request</span></div>
-<div class="level">Standard: Configurable residency</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.config_residency">Configurable residency</span></div>
 </div>
 </div>
 </div>
@@ -526,8 +526,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">04</div>
-<div class="nm">Authentication</div>
-<div class="ix">§ Identity</div>
+<div class="nm" data-i18n="trust.label.authentication">Authentication</div>
+<div class="ix">§ <span data-i18n="trust.smark.identity">Identity</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c7.h">Enterprise SSO. Role-based access. Hardware-key support.</h4>
@@ -539,15 +539,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.rbac">RBAC</span><span class="v" data-i18n="trust.v.granularRoles">Granular roles</span></div>
 <div class="row"><span class="k" data-i18n="lbl.hardwareKeys">Hardware keys</span><span class="v" data-i18n="val.supported">Supported</span></div>
 <div class="row"><span class="k" data-i18n="lbl.sessions">Sessions</span><span class="v" data-i18n="trust.v.configurableLogged">Configurable · logged</span></div>
-<div class="level">Standard: Enterprise SSO</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.enterprise_sso">Enterprise SSO</span></div>
 </div>
 </div>
 
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">05</div>
-<div class="nm">Encryption</div>
-<div class="ix">§ Crypto</div>
+<div class="nm" data-i18n="trust.label.encryption">Encryption</div>
+<div class="ix">§ <span data-i18n="trust.smark.crypto">Crypto</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c8.h">Encryption at rest. Encryption in transit. Per-tenant keys.</h4>
@@ -559,15 +559,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.inTransit">In transit</span><span class="v" data-i18n="trust.v.tls13">TLS 1.3</span></div>
 <div class="row"><span class="k" data-i18n="lbl.byok">BYOK</span><span class="v" data-i18n="val.available">Available</span></div>
 <div class="row"><span class="k" data-i18n="lbl.signing">Signing</span><span class="v" data-i18n="trust.v.shaBound">SHA-256 · bound to version</span></div>
-<div class="level">Standard: Per-tenant keys</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.per_tenant_keys">Per-tenant keys</span></div>
 </div>
 </div>
 
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">06</div>
-<div class="nm">Isolation</div>
-<div class="ix">§ Tenant</div>
+<div class="nm" data-i18n="trust.label.isolation">Isolation</div>
+<div class="ix">§ <span data-i18n="trust.smark.tenant">Tenant</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c9.h">Logical isolation by default. Dedicated infrastructure on request.</h4>
@@ -579,7 +579,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.dedicated">Dedicated</span><span class="v" data-i18n="trust.v.availPerRequest">Available · per request</span></div>
 <div class="row"><span class="k" data-i18n="lbl.inference">Inference</span><span class="v" data-i18n="trust.v.perTenantStateless">Per-tenant · stateless</span></div>
 <div class="row"><span class="k" data-i18n="lbl.audit">Audit</span><span class="v" data-i18n="trust.v.perTenantTrail">Per-tenant trail</span></div>
-<div class="level">Standard: Tenant-isolated</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.tenant_isolated">Tenant-isolated</span></div>
 </div>
 </div>
 </div>
@@ -599,8 +599,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">07</div>
-<div class="nm">Chain of custody</div>
-<div class="ix">§ Provenance</div>
+<div class="nm" data-i18n="trust.label.chain_custody">Chain of custody</div>
+<div class="ix">§ <span data-i18n="trust.smark.provenance">Provenance</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c10.h">From raw input to signed output, on one trail.</h4>
@@ -612,15 +612,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.mutability">Mutability</span><span class="v" data-i18n="trust.v.immutable">Immutable · append-only</span></div>
 <div class="row"><span class="k" data-i18n="lbl.rerun">Re-run</span><span class="v" data-i18n="val.deterministic">Deterministic</span></div>
 <div class="row"><span class="k" data-i18n="lbl.format">Format</span><span class="v" data-i18n="trust.v.structuredMR">Structured · machine-readable</span></div>
-<div class="level">Standard: End-to-end provenance</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.e2e_provenance">End-to-end provenance</span></div>
 </div>
 </div>
 
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">08</div>
-<div class="nm">Signature binding</div>
-<div class="ix">§ Crypto</div>
+<div class="nm" data-i18n="trust.label.signature_binding">Signature binding</div>
+<div class="ix">§ <span data-i18n="trust.smark.crypto">Crypto</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c11.h">Cryptographic binding between document and signer.</h4>
@@ -632,15 +632,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.binding">Binding</span><span class="v" data-i18n="trust.v.docInputsVer">Document + inputs + version</span></div>
 <div class="row"><span class="k" data-i18n="lbl.verification">Verification</span><span class="v" data-i18n="trust.v.independentOpen">Independent · open spec</span></div>
 <div class="row"><span class="k" data-i18n="lbl.tamperDetection">Tamper detection</span><span class="v" data-i18n="trust.v.atDocLevel">At document level</span></div>
-<div class="level">Standard: Independently verifiable</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.indep_verifiable">Independently verifiable</span></div>
 </div>
 </div>
 
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">09</div>
-<div class="nm">Forensic export</div>
-<div class="ix">§ Disputes</div>
+<div class="nm" data-i18n="trust.label.forensic_export">Forensic export</div>
+<div class="ix">§ <span data-i18n="trust.smark.disputes">Disputes</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c12.h">Full forensic export available on request.</h4>
@@ -652,7 +652,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.scope">Scope</span><span class="v" data-i18n="trust.v.fullForensic">Full forensic record</span></div>
 <div class="row"><span class="k" data-i18n="lbl.retention">Retention</span><span class="v" data-i18n="trust.v.regulatoryPeriod">Regulatory period</span></div>
 <div class="row"><span class="k" data-i18n="lbl.verifiability">Verifiability</span><span class="v" data-i18n="trust.v.thirdPartyRerun">Third-party · re-runnable</span></div>
-<div class="level">Standard: Defensible export</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.defensible_export">Defensible export</span></div>
 </div>
 </div>
 </div>
@@ -672,8 +672,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">10</div>
-<div class="nm">Engineering codes</div>
-<div class="ix">§ Standards</div>
+<div class="nm" data-i18n="trust.label.engineering_codes">Engineering codes</div>
+<div class="ix">§ <span data-i18n="trust.smark.standards">Standards</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c13.h">Building codes and engineering standards encoded as logic.</h4>
@@ -685,15 +685,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.versioning">Versioning</span><span class="v" data-i18n="trust.v.packVerOnOutput">Pack version on output</span></div>
 <div class="row"><span class="k" data-i18n="lbl.updates">Updates</span><span class="v" data-i18n="trust.v.propagatedAudited">Propagated · audited</span></div>
 <div class="row"><span class="k" data-i18n="lbl.jurisdictions">Jurisdictions</span><span class="v" data-i18n="trust.v.sevenExpanding">Seven · expanding</span></div>
-<div class="level">Standard: Versioned rule packs</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.versioned_rule_packs">Versioned rule packs</span></div>
 </div>
 </div>
 
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">11</div>
-<div class="nm">Data protection</div>
-<div class="ix">§ GDPR &amp; equivalent</div>
+<div class="nm" data-i18n="trust.label.data_protection">Data protection</div>
+<div class="ix">§ <span data-i18n="trust.smark.gdpr">GDPR &amp; equivalent</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c14.h">Data protection by design. DPA available.</h4>
@@ -705,15 +705,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.dpa">DPA</span><span class="v" data-i18n="trust.v.availStandard">Available · standard</span></div>
 <div class="row"><span class="k" data-i18n="lbl.subjectRights">Subject rights</span><span class="v" data-i18n="val.supported">Supported</span></div>
 <div class="row"><span class="k" data-i18n="lbl.dpoContact">DPO contact</span><span class="v">contact@builtly.ai</span></div>
-<div class="level">Standard: Data-protection by design</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.dp_by_design">Data-protection by design</span></div>
 </div>
 </div>
 
 <div class="dom-block">
 <div class="dom-id">
 <div class="code">12</div>
-<div class="nm">Procurement</div>
-<div class="ix">§ Vendor onboarding</div>
+<div class="nm" data-i18n="trust.label.procurement">Procurement</div>
+<div class="ix">§ <span data-i18n="trust.smark.vendor_onboarding">Vendor onboarding</span></div>
 </div>
 <div class="dom-body">
 <h4 data-i18n="trust.c15.h">Vendor onboarding ready for enterprise procurement.</h4>
@@ -725,7 +725,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="lbl.ndaMaterials">NDA materials</span><span class="v" data-i18n="trust.v.deeperDiligence">Deeper diligence</span></div>
 <div class="row"><span class="k" data-i18n="lbl.soc2">SOC 2</span><span class="v" data-i18n="trust.v.roadmapInProgress">Roadmap · in progress</span></div>
 <div class="row"><span class="k" data-i18n="lbl.contact">Contact</span><span class="v">contact@builtly.ai</span></div>
-<div class="level">Standard: Enterprise-ready onboarding</div>
+<div class="level"><span data-i18n="common.standard_prefix">Standard</span>: <span data-i18n="trust.standard.enterprise_ready">Enterprise-ready onboarding</span></div>
 </div>
 </div>
 </div>
@@ -744,7 +744,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="dt-grid rvs">
 <div class="dt-cell">
-<div class="ix">§ Availability</div>
+<div class="ix">§ <span data-i18n="trust.smark.availability">Availability</span></div>
 <h4 data-i18n="trust.c16.h">Production uptime target.</h4>
 <div class="stack">
 <div class="r"><span class="k" data-i18n="lbl.target">Target</span><span class="v" data-i18n="trust.v.99_5">99.5% monthly</span></div>
@@ -754,7 +754,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </div>
 <div class="dt-cell">
-<div class="ix">§ Incident response</div>
+<div class="ix">§ <span data-i18n="trust.smark.incident">Incident response</span></div>
 <h4 data-i18n="trust.c17.h">How incidents are handled.</h4>
 <div class="stack">
 <div class="r"><span class="k" data-i18n="lbl.acknowledgement">Acknowledgement</span><span class="v" data-i18n="trust.v.30minBiz">≤ 30 min · business hours</span></div>
@@ -764,7 +764,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </div>
 <div class="dt-cell">
-<div class="ix">§ Backup &amp; recovery</div>
+<div class="ix">§ <span data-i18n="trust.smark.backup">Backup &amp; recovery</span></div>
 <h4 data-i18n="trust.c18.h">Backups and disaster recovery.</h4>
 <div class="stack">
 <div class="r"><span class="k" data-i18n="lbl.backupCadence">Backup cadence</span><span class="v" data-i18n="val.daily30">Daily · encrypted</span></div>
@@ -774,7 +774,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </div>
 <div class="dt-cell">
-<div class="ix">§ Vulnerability handling</div>
+<div class="ix">§ <span data-i18n="trust.smark.vuln">Vulnerability handling</span></div>
 <h4 data-i18n="trust.c19.h">How vulnerabilities are managed.</h4>
 <div class="stack">
 <div class="r"><span class="k" data-i18n="lbl.disclosure">Disclosure</span><span class="v">security@builtly.ai</span></div>
@@ -790,7 +790,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <section class="insight-section">
 <div class="insight-inner rv">
 <div class="insight-quote">"Compliance is not a feature. <span class="accent" data-i18n="trust.property">It is a property of how the platform is built.</span>"</div>
-<div class="insight-attr">— The trust principle</div>
+<div class="insight-attr" data-i18n="cta.trust_principle">— The trust principle</div>
 </div>
 </section>
 
