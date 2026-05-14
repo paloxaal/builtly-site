@@ -758,6 +758,241 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 }
 
 /* ===========================================================================
+ * Collaboration Flow — multi-stakeholder data pipeline visualization (§ 06)
+ * Inputs flow into engine, engine processes, outputs flow out. Particles
+ * stream along SVG paths. Live metrics tick up below.
+ * =========================================================================== */
+.flow-section{padding:clamp(96px,12vh,160px) 0;background:var(--ink);color:var(--dark-paper);position:relative;overflow:hidden}
+.flow-section .smark{color:var(--dark-paper);opacity:0.85;margin-bottom:clamp(40px,5vh,72px)}
+.flow-section .smark .num{color:var(--accent-bright)}
+.flow-section .smark .dash{background:rgba(247,244,237,0.30)}
+.flow-section .smark span:nth-child(2){color:var(--dark-paper)}
+.flow-section .smark span:nth-child(4){color:rgba(247,244,237,0.55)}
+.flow-intro{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,5vw,80px);margin-bottom:clamp(56px,7vh,96px);align-items:start}
+.flow-intro h2{color:var(--dark-paper)}
+.flow-intro h2 .serif{color:var(--accent-bright);font-style:italic;font-weight:500}
+.flow-intro .lead{font-family:var(--font-body);font-size:clamp(16px,1.4vw,18px);color:rgba(247,244,237,0.72);line-height:1.55;max-width:62ch}
+.flow-stage{position:relative;background:linear-gradient(180deg,rgba(247,244,237,0.018) 0%,rgba(20,184,166,0.025) 50%,rgba(247,244,237,0.018) 100%),var(--ink);border:1px solid rgba(247,244,237,0.08);padding:clamp(28px,3.5vh,48px) clamp(20px,2.5vw,40px);margin-bottom:clamp(40px,5vh,64px);border-radius:2px;box-shadow:0 1px 0 rgba(247,244,237,0.04) inset,0 20px 60px -20px rgba(0,0,0,0.4)}
+.flow-stage::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(247,244,237,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(247,244,237,0.018) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px;pointer-events:none;border-radius:inherit;mask-image:radial-gradient(ellipse at center,black 30%,transparent 90%);-webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 90%)}
+.flow-stage::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(20,184,166,0.06) 0%,transparent 60%);pointer-events:none;border-radius:inherit}
+/* Corner instrumentation marks — L-shaped accents at all 4 corners */
+.stage-corner{position:absolute;width:18px;height:18px;pointer-events:none;z-index:1}
+.stage-corner::before,.stage-corner::after{content:'';position:absolute;background:rgba(94,234,212,0.45);box-shadow:0 0 6px rgba(20,184,166,0.3)}
+.stage-corner::before{width:18px;height:1px;top:0;left:0}
+.stage-corner::after{width:1px;height:18px;top:0;left:0}
+.stage-corner-tl{top:8px;left:8px}
+.stage-corner-tr{top:8px;right:8px;transform:scaleX(-1)}
+.stage-corner-bl{bottom:8px;left:8px;transform:scaleY(-1)}
+.stage-corner-br{bottom:8px;right:8px;transform:scale(-1,-1)}
+/* Burst flash overlay — covers entire stage, briefly fills with teal at climax */
+.flow-burst-flash{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 60%,rgba(94,234,212,0.22) 0%,rgba(94,234,212,0.08) 30%,transparent 70%);opacity:0;pointer-events:none;border-radius:inherit;z-index:0;mix-blend-mode:screen}
+.flow-stage.burst-active .flow-burst-flash{animation:burst-stage-flash 1100ms cubic-bezier(0.2,0.6,0.3,1)}
+@keyframes burst-stage-flash{
+  0%{opacity:0}
+  18%{opacity:1}
+  100%{opacity:0}
+}
+/* Stage corners light up at burst */
+.flow-stage.burst-active .stage-corner::before,
+.flow-stage.burst-active .stage-corner::after{
+  animation:corner-burst 900ms cubic-bezier(0.2,0.6,0.3,1)
+}
+@keyframes corner-burst{
+  0%{background:rgba(94,234,212,0.45);box-shadow:0 0 6px rgba(20,184,166,0.3)}
+  25%{background:#5EEAD4;box-shadow:0 0 16px rgba(94,234,212,1)}
+  100%{background:rgba(94,234,212,0.45);box-shadow:0 0 6px rgba(20,184,166,0.3)}
+}
+.flow-svg{display:block;width:100%;height:auto;max-height:560px;position:relative;z-index:1}
+.flow-bg-grid{stroke:rgba(247,244,237,0.04);stroke-width:1}
+.flow-path{fill:none;stroke:rgba(247,244,237,0.07);stroke-width:1;stroke-linecap:round;transition:stroke 0.7s cubic-bezier(0.4,0,0.2,1),stroke-width 0.7s ease}
+.flow-path.active{stroke:rgba(94,234,212,0.32);stroke-width:1.2;filter:drop-shadow(0 0 3px rgba(20,184,166,0.35))}
+.flow-particle{fill:#2DD4BF;filter:drop-shadow(0 0 9px rgba(45,212,191,0.85))}
+.flow-particle.bright{fill:#5EEAD4;r:4;filter:drop-shadow(0 0 12px rgba(94,234,212,0.95))}
+.flow-particle-trail{fill:#5EEAD4;opacity:0.35;filter:drop-shadow(0 0 5px rgba(45,212,191,0.5));pointer-events:none;mix-blend-mode:screen}
+.flow-particle-trail.bright{opacity:0.42}
+.engine-ring{fill:none;stroke:#5EEAD4;stroke-width:1.6;opacity:0;pointer-events:none;animation:ring-expand 520ms cubic-bezier(0.2,0.5,0.3,1) forwards}
+@keyframes ring-expand{
+  0%{r:2;opacity:0.95;stroke-width:2.2}
+  55%{opacity:0.45;stroke-width:1.2}
+  100%{r:22;opacity:0;stroke-width:0.3}
+}
+.node.arrival-pulse .node-box{fill:rgba(45,212,191,0.18);stroke:#5EEAD4;stroke-width:1.5;filter:drop-shadow(0 0 14px rgba(45,212,191,0.6))}
+.node.arrival-pulse .node-counter{fill:#FFFFFF}
+.node{opacity:0;transform-origin:center;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1)}
+.node.in{opacity:1}
+.node-box{fill:rgba(247,244,237,0.025);stroke:rgba(247,244,237,0.14);stroke-width:0.8;transition:stroke 0.5s ease,fill 0.5s ease,filter 0.5s ease}
+.node.active .node-box{fill:rgba(20,184,166,0.08);stroke:rgba(45,212,191,0.55);filter:drop-shadow(0 0 16px rgba(20,184,166,0.18))}
+.node-icon-circle{fill:none;stroke:rgba(247,244,237,0.28);stroke-width:1;transition:stroke 0.5s ease}
+.node.active .node-icon-circle{stroke:var(--accent-bright)}
+.node-icon{fill:rgba(247,244,237,0.52);transition:fill 0.5s ease}
+.node.active .node-icon{fill:var(--accent-bright)}
+.node-label{fill:var(--dark-paper);font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:0.08em;text-anchor:middle;text-transform:uppercase}
+.node-sub{fill:rgba(247,244,237,0.42);font-family:var(--font-mono);font-size:9px;text-anchor:middle;letter-spacing:0.08em}
+.node.active .node-sub{fill:rgba(94,234,212,0.78)}
+.engine-core{transform-origin:600px 300px}
+/* Engine logo container — Builtly brand mark scaled into engine center */
+.engine-logo{transform-origin:0 0}
+.engine-aura{stroke:rgba(94,234,212,0.22);stroke-width:0.7;stroke-dasharray:1.5 5;transform-origin:0 0;transform-box:fill-box}
+.engine-core.pulsing .engine-aura{animation:aura-rotate 16s linear infinite,aura-fade 2.4s ease-in-out infinite}
+@keyframes aura-rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes aura-fade{0%,100%{stroke:rgba(94,234,212,0.18)}50%{stroke:rgba(94,234,212,0.38)}}
+.engine-logo-box{fill:rgba(20,184,166,0.06);stroke:rgba(94,234,212,0.55);stroke-width:1.4;transition:fill 0.5s ease,stroke 0.5s ease}
+.engine-core.pulsing .engine-logo-box{animation:logo-pulse 2.4s cubic-bezier(0.4,0,0.6,1) infinite}
+@keyframes logo-pulse{0%,100%{stroke:rgba(94,234,212,0.55);fill:rgba(20,184,166,0.06)}50%{stroke:rgba(94,234,212,0.95);fill:rgba(20,184,166,0.18)}}
+.engine-logo-dot{fill:#5EEAD4;filter:drop-shadow(0 0 6px rgba(94,234,212,0.75))}
+.engine-core.pulsing .engine-logo-dot{animation:dot-heartbeat 1.6s cubic-bezier(0.4,0,0.6,1) infinite}
+@keyframes dot-heartbeat{0%,100%{filter:drop-shadow(0 0 6px rgba(94,234,212,0.75))}50%{filter:drop-shadow(0 0 14px rgba(94,234,212,1))}}
+/* Slowly rotating orbit ring — "data in motion" around the core */
+.engine-orbit{stroke:rgba(94,234,212,0.20);stroke-width:0.7;stroke-dasharray:2 7;stroke-linecap:round;animation:orbit-rotate 48s linear infinite;transform-origin:600px 300px}
+.engine-core.pulsing .engine-orbit{stroke:rgba(94,234,212,0.32)}
+@keyframes orbit-rotate{to{transform:rotate(360deg)}}
+.engine-glow{fill:url(#engine-glow);opacity:0}
+.engine-core.pulsing .engine-glow{opacity:1;animation:engine-glow-pulse 2.4s cubic-bezier(0.4,0,0.6,1) infinite}
+@keyframes engine-glow-pulse{0%,100%{opacity:0.5}50%{opacity:0.95}}
+/* Completed state — calmer rhythm when cycle has held its final state */
+.engine-core.completed.pulsing .engine-logo-box{animation-duration:3.6s}
+.engine-core.completed.pulsing .engine-logo-dot{animation-duration:2.8s}
+.engine-core.completed.pulsing .engine-glow{animation-duration:3.6s;opacity:0.55}
+.engine-core.completed .engine-orbit{animation-duration:80s;stroke:rgba(94,234,212,0.22)}
+/* Completion mark — "✓ SIGNERT" badge appears at cycle end below engine */
+.engine-complete-mark{fill:rgba(94,234,212,0.85);font-family:var(--font-mono);font-size:9px;text-anchor:middle;letter-spacing:0.32em;text-transform:uppercase;font-weight:600;opacity:0;transition:opacity 0.9s cubic-bezier(0.3,0.7,0.3,1) 0.2s;paint-order:stroke fill;stroke:var(--ink);stroke-width:4;stroke-linejoin:round}
+.engine-core.completed .engine-complete-mark{opacity:1}
+.engine-counter{fill:rgba(94,234,212,0.55);font-family:var(--font-mono);font-size:9px;text-anchor:middle;letter-spacing:0.22em;text-transform:uppercase;font-weight:500}
+.flow-tag-in{fill:rgba(247,244,237,0.40);font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.20em;text-transform:uppercase;paint-order:stroke fill;stroke:var(--ink);stroke-width:3;stroke-linejoin:round;opacity:0;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1)}
+.flow-tag-pos{fill:rgba(94,234,212,0.78);font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.20em;text-transform:uppercase;paint-order:stroke fill;stroke:var(--ink);stroke-width:3;stroke-linejoin:round;opacity:0;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1)}
+.flow-tag-in.visible{opacity:1}
+.flow-tag-pos.visible{opacity:1}
+
+/* Module halo — 12 discipline chips orbiting the engine */
+.module-chip rect{fill:rgba(247,244,237,0.025);stroke:rgba(247,244,237,0.15);stroke-width:0.7;transition:fill 0.20s ease,stroke 0.20s ease,filter 0.20s ease}
+.module-chip text{fill:rgba(247,244,237,0.50);font-family:var(--font-mono);font-size:7.5px;letter-spacing:0.16em;text-anchor:middle;font-weight:600;transition:fill 0.20s ease}
+.module-chip.active rect{fill:rgba(20,184,166,0.32);stroke:#5EEAD4;stroke-width:1;filter:drop-shadow(0 0 6px rgba(20,184,166,0.65))}
+.module-chip.active text{fill:#FAFAF7}
+.engine-core.flash .module-chip rect{fill:rgba(45,212,191,0.50);stroke:#5EEAD4;stroke-width:1.4}
+.engine-core.flash .module-chip text{fill:#FFFFFF}
+.engine-core.flash .engine-logo-box{fill:rgba(94,234,212,0.30);stroke:#5EEAD4;stroke-width:2;filter:drop-shadow(0 0 18px rgba(94,234,212,0.9))}
+.engine-core.flash .engine-logo-dot{filter:drop-shadow(0 0 20px rgba(94,234,212,1));fill:#FFFFFF}
+.engine-core.burst .engine-logo-dot{animation:dot-burst 900ms cubic-bezier(0.2,0.6,0.3,1)}
+@keyframes dot-burst{
+  0%{r:5;filter:drop-shadow(0 0 6px rgba(94,234,212,0.75))}
+  20%{r:11;filter:drop-shadow(0 0 28px rgba(94,234,212,1))}
+  60%{r:6.5;filter:drop-shadow(0 0 14px rgba(94,234,212,0.9))}
+  100%{r:5;filter:drop-shadow(0 0 6px rgba(94,234,212,0.75))}
+}
+.engine-core.burst .engine-aura{animation:aura-burst 900ms cubic-bezier(0.2,0.6,0.3,1) forwards}
+@keyframes aura-burst{
+  0%{stroke:rgba(94,234,212,0.22);stroke-width:0.7}
+  25%{stroke:#5EEAD4;stroke-width:2;filter:drop-shadow(0 0 12px rgba(94,234,212,0.95))}
+  100%{stroke:rgba(94,234,212,0.22);stroke-width:0.7}
+}
+
+/* Burst wave — climactic pulse expanding rings */
+.burst-wave{fill:none;stroke:rgba(45,212,191,0.65);stroke-width:2;opacity:0;pointer-events:none}
+.engine-core.burst .burst-wave{animation:burst-expand 900ms cubic-bezier(0.18,0.6,0.3,1) forwards}
+.engine-core.burst .burst-wave-2{animation:burst-expand 1100ms cubic-bezier(0.18,0.6,0.3,1) 220ms forwards}
+@keyframes burst-expand{
+  0%{r:30;opacity:0.85;stroke-width:3}
+  60%{opacity:0.35;stroke-width:1.5}
+  100%{r:300;opacity:0;stroke-width:0.5}
+}
+
+/* Ambient pulse — subtle ring emanates from engine every ~5s to signal "alive" */
+.ambient-pulse{fill:none;stroke:rgba(94,234,212,0.40);stroke-width:1;opacity:0;pointer-events:none;animation:ambient-expand 2400ms cubic-bezier(0.3,0.4,0.1,0.9) forwards}
+@keyframes ambient-expand{
+  0%{r:30;opacity:0.55;stroke-width:1.4}
+  60%{opacity:0.20;stroke-width:0.8}
+  100%{r:140;opacity:0;stroke-width:0.3}
+}
+.engine-core.burst .engine-box{animation:engine-flash 700ms ease-out}
+@keyframes engine-flash{
+  0%{fill:rgba(20,184,166,0.18);stroke:rgba(20,184,166,0.45)}
+  20%{fill:rgba(94,234,212,0.55);stroke:#5EEAD4;stroke-width:2}
+  100%{fill:rgba(20,184,166,0.18);stroke:rgba(20,184,166,0.45)}
+}
+
+/* Node counter (3rd line in node box) */
+.node-counter{fill:rgba(247,244,237,0.35);font-family:var(--font-mono);font-size:9.5px;text-anchor:middle;letter-spacing:0.04em;font-variant-numeric:tabular-nums;transition:fill 0.4s ease}
+.node.active .node-counter{fill:var(--accent-bright)}
+
+/* Climactic flash on nodes */
+.node.flash .node-box{fill:rgba(45,212,191,0.20);stroke:#5EEAD4;stroke-width:1.8;filter:drop-shadow(0 0 14px rgba(45,212,191,0.65))}
+.node.flash .node-counter{fill:#FFFFFF;font-weight:600}
+
+/* Live operations log — terminal-style strip below the SVG showing engineering ops */
+.flow-log{margin-top:24px;background:linear-gradient(180deg,rgba(0,0,0,0.46) 0%,rgba(0,0,0,0.36) 100%);border:1px solid rgba(247,244,237,0.07);padding:14px 22px 16px;font-family:var(--font-mono);font-size:10.5px;line-height:1.55;color:rgba(247,244,237,0.58);height:166px;overflow:hidden;position:relative;border-radius:2px;box-shadow:0 1px 0 rgba(247,244,237,0.025) inset}
+.flow-log::before{content:'';position:absolute;top:14px;left:22px;width:6px;height:6px;border-radius:50%;background:#5EEAD4;box-shadow:0 0 10px rgba(94,234,212,0.95);animation:log-blink 1.6s ease-in-out infinite}
+.flow-log::after{content:'LIVE OPERATIONS';position:absolute;top:12px;left:38px;font-size:9px;letter-spacing:0.26em;color:rgba(94,234,212,0.72);font-weight:600}
+.flow-log-header-right{position:absolute;top:12px;right:22px;font-size:9px;letter-spacing:0.20em;color:rgba(247,244,237,0.32);font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+@keyframes log-blink{0%,100%{opacity:1}50%{opacity:0.32}}
+.flow-log-stream{margin-top:32px;height:102px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.log-line{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;animation:log-fadein 0.36s cubic-bezier(0.4,0,0.2,1) forwards;font-variant-numeric:tabular-nums}
+.log-line .mod{color:#5EEAD4;font-weight:600;letter-spacing:0.06em}
+.log-line .dots{color:rgba(247,244,237,0.14);user-select:none}
+.log-line .result{color:rgba(247,244,237,0.82)}
+.log-line .ok{color:#5EEAD4;font-weight:600;margin-left:7px}
+@keyframes log-fadein{from{opacity:0;transform:translateY(4px)}to{opacity:0.92;transform:translateY(0)}}
+
+/* Particle trails — uses .flow-particle-trail (defined above) */
+.flow-trail{fill:#2DD4BF;pointer-events:none;mix-blend-mode:screen}
+.flow-trail.bright{fill:#5EEAD4}
+
+/* Phase indicator strip — top of stage, shows current pipeline phase */
+.phase-indicator{display:flex;align-items:stretch;gap:0;margin-bottom:24px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.24em;text-transform:uppercase;border-bottom:1px solid rgba(247,244,237,0.06);padding-bottom:18px;position:relative;z-index:2}
+.phase-step{flex:1;padding:6px 4px 4px;color:rgba(247,244,237,0.28);text-align:center;position:relative;transition:color 0.5s cubic-bezier(0.4,0,0.2,1);border-right:1px solid rgba(247,244,237,0.05)}
+.phase-step:last-child{border-right:none}
+.phase-step.done{color:rgba(94,234,212,0.65)}
+.phase-step.active{color:#5EEAD4;text-shadow:0 0 12px rgba(94,234,212,0.45)}
+.phase-step.active::before{content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:-19px;width:32px;height:1px;background:#5EEAD4;box-shadow:0 0 8px rgba(94,234,212,0.6);animation:phase-pulse 1.6s ease-in-out infinite}
+.phase-step.done::before{content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:-22px;width:5px;height:5px;border-radius:50%;background:rgba(94,234,212,0.55);box-shadow:0 0 6px rgba(94,234,212,0.4)}
+.phase-step .ph-num{display:inline-block;color:inherit;opacity:0.55;margin-right:10px;font-weight:600;letter-spacing:0.18em}
+@keyframes phase-pulse{0%,100%{opacity:1}50%{opacity:0.45}}
+
+/* Engine inner sparkline — 6 vertical bars showing live computation rate */
+.engine-bars rect{fill:rgba(94,234,212,0.55);transition:height 0.18s ease,y 0.18s ease,fill 0.18s ease}
+.engine-core.pulsing .engine-bars rect{fill:#5EEAD4;filter:drop-shadow(0 0 3px rgba(94,234,212,0.7))}
+
+/* Arrival pulse rings — small expanding circles when particles reach engine/output */
+.arrival-pulse{fill:none;stroke:#5EEAD4;stroke-width:1.2;opacity:0;pointer-events:none}
+
+/* BID emphasis — chip has distinct subtle pulse, even pre-burst */
+.module-chip[data-mod="BID"] rect{stroke-width:1.0}
+.module-chip[data-mod="BID"].always-on rect{fill:rgba(20,184,166,0.18);stroke:rgba(94,234,212,0.55)}
+.module-chip[data-mod="BID"].always-on text{fill:rgba(247,244,237,0.85)}
+
+/* Metrics row */
+.flow-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:transparent;border:1px solid rgba(247,244,237,0.07);border-radius:2px;overflow:hidden;box-shadow:0 1px 0 rgba(247,244,237,0.025) inset}
+.metric{background:linear-gradient(180deg,rgba(247,244,237,0.012) 0%,transparent 100%);padding:clamp(34px,4vh,48px) clamp(20px,2vw,32px) clamp(28px,3.6vh,42px);text-align:center;border-right:1px solid rgba(247,244,237,0.05);position:relative}
+.metric::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);width:20px;height:1px;background:rgba(94,234,212,0.42);box-shadow:0 0 6px rgba(94,234,212,0.35)}
+.metric:last-child{border-right:none}
+.metric-value{font-family:var(--font-display);font-size:clamp(26px,3vw,44px);font-weight:600;color:#5EEAD4;letter-spacing:-0.025em;line-height:1;font-variant-numeric:tabular-nums;margin-bottom:14px;white-space:nowrap}
+.metric-value .arrow{color:rgba(247,244,237,0.30);margin:0 8px;font-weight:300}
+.metric-value .from{color:rgba(247,244,237,0.30);font-size:0.48em;font-weight:400;letter-spacing:0.02em}
+/* Time metric stacks vertically: "from →" small above, "to" big below */
+#metric-time{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;gap:8px}
+#metric-time .time-from{font-size:0.38em;color:rgba(247,244,237,0.42);letter-spacing:0.04em;line-height:1.2}
+#metric-time .time-from .from{font-size:1em;color:inherit;letter-spacing:inherit}
+#metric-time .time-from .arrow{color:rgba(94,234,212,0.55);margin:0 4px;font-weight:400}
+.metric-label{font-family:var(--font-mono);font-size:9.5px;color:rgba(247,244,237,0.45);letter-spacing:0.22em;text-transform:uppercase}
+
+@media (max-width:900px){
+  .flow-intro{grid-template-columns:1fr;gap:24px}
+  .flow-stage{padding:18px 12px}
+  .flow-metrics{grid-template-columns:repeat(2,1fr)}
+  .metric{padding:22px 16px}
+  .flow-log{height:118px;padding:12px 14px 10px;font-size:10.5px}
+  .flow-log-stream{height:76px;margin-top:16px}
+}
+@media (max-width:540px){
+  .flow-section{padding:72px 0}
+  .flow-stage{padding:14px 8px}
+  .metric-value{font-size:24px}
+  .metric-label{font-size:9.5px}
+  .flow-log{height:100px;font-size:9.5px;padding:10px 12px 8px}
+  .flow-log-stream{height:60px;margin-top:14px}
+  .flow-log::after{font-size:8.5px}
+}
+
+/* ===========================================================================
  * Cookie consent banner — bottom of viewport, dismissable
  * =========================================================================== */
 .cookie-banner {
@@ -1007,6 +1242,197 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </section>
 
+<section class="section flow-section" id="collaboration">
+<div class="wrap">
+<div class="smark rv"><span class="num">★</span><span data-i18n="flow.smark.label">Collaboration</span><span class="dash"></span><span data-i18n="flow.smark.tag">From four desks to one signal</span></div>
+
+<div class="flow-intro rv">
+<div>
+<h2 class="dpy-2" data-i18n-html="flow.h2">Architect, developer,<br/>regulator, market — <span class="serif">one pulse.</span></h2>
+</div>
+<p class="lead" data-i18n="flow.lede">In a traditional project, four desks exchange forty-seven documents over six weeks before anyone signs anything. Builtly accepts the same four inputs, processes them in one kernel, and returns four signed outputs in hours. Below: the flow is live.</p>
+</div>
+
+<div class="flow-stage rv">
+<span class="stage-corner stage-corner-tl"></span>
+<span class="stage-corner stage-corner-tr"></span>
+<span class="stage-corner stage-corner-bl"></span>
+<span class="stage-corner stage-corner-br"></span>
+<div class="flow-burst-flash" aria-hidden="true"></div>
+<div class="phase-indicator" aria-hidden="true">
+  <div class="phase-step" data-phase="0"><span class="ph-num">01</span><span data-i18n="flow.phase.intake">Innhenting</span></div>
+  <div class="phase-step" data-phase="1"><span class="ph-num">02</span><span data-i18n="flow.phase.process">Prosessering</span></div>
+  <div class="phase-step" data-phase="2"><span class="ph-num">03</span><span data-i18n="flow.phase.distribute">Distribusjon</span></div>
+  <div class="phase-step" data-phase="3"><span class="ph-num">04</span><span data-i18n="flow.phase.sign">Signering</span></div>
+</div>
+<svg class="flow-svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <defs>
+    <radialGradient id="engine-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="rgba(20,184,166,0.4)"/>
+      <stop offset="60%" stop-color="rgba(20,184,166,0.10)"/>
+      <stop offset="100%" stop-color="rgba(20,184,166,0)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Flow paths: inputs to engine -->
+  <path id="path-in-0" class="flow-path" data-flow="in" data-idx="0" d="M200,100 C360,100 470,240 565,288"/>
+  <path id="path-in-1" class="flow-path" data-flow="in" data-idx="1" d="M200,230 C360,230 480,275 565,295"/>
+  <path id="path-in-2" class="flow-path" data-flow="in" data-idx="2" d="M200,370 C360,370 480,325 565,305"/>
+  <path id="path-in-3" class="flow-path" data-flow="in" data-idx="3" d="M200,500 C360,500 470,360 565,312"/>
+
+  <!-- Flow paths: engine to outputs -->
+  <path id="path-out-0" class="flow-path" data-flow="out" data-idx="0" d="M635,288 C730,240 840,100 1000,100"/>
+  <path id="path-out-1" class="flow-path" data-flow="out" data-idx="1" d="M635,295 C720,275 840,230 1000,230"/>
+  <path id="path-out-2" class="flow-path" data-flow="out" data-idx="2" d="M635,305 C720,325 840,370 1000,370"/>
+  <path id="path-out-3" class="flow-path" data-flow="out" data-idx="3" d="M635,312 C730,360 840,500 1000,500"/>
+
+  <!-- Tag labels on paths (input side) -->
+  <text class="flow-tag-in" x="270" y="92" data-i18n="flow.tag.ifc">IFC · DWG</text>
+  <text class="flow-tag-in" x="270" y="222" data-i18n="flow.tag.brief">brief · budget</text>
+  <text class="flow-tag-in" x="270" y="362" data-i18n="flow.tag.codes">TEK17 · NS-EN</text>
+  <text class="flow-tag-in" x="270" y="492" data-i18n="flow.tag.market">SSB · matrikkel</text>
+
+  <!-- Tag labels on paths (output side) -->
+  <text class="flow-tag-pos" x="820" y="92" text-anchor="end" data-i18n="flow.tag.signed">8 disipliner · signert</text>
+  <text class="flow-tag-pos" x="820" y="222" text-anchor="end" data-i18n="flow.tag.verdict">GO ✓ · marginal</text>
+  <text class="flow-tag-pos" x="820" y="362" text-anchor="end" data-i18n="flow.tag.risk">Risiko · lav</text>
+  <text class="flow-tag-pos" x="820" y="492" text-anchor="end" data-i18n="flow.tag.bom">Anbud · BOM</text>
+
+  <!-- Engine glow + core + module halo -->
+  <g class="engine-core" id="engine-core">
+    <!-- Outer glow -->
+    <circle class="engine-glow" cx="600" cy="300" r="180"/>
+    <!-- Burst wave for climactic pulse (invisible by default) -->
+    <circle class="burst-wave" id="burst-wave" cx="600" cy="300" r="60"/>
+    <circle class="burst-wave burst-wave-2" id="burst-wave-2" cx="600" cy="300" r="60"/>
+    <!-- Slowly rotating dashed orbit ring — "data in motion" around the core -->
+    <circle class="engine-orbit" cx="600" cy="300" r="62" fill="none"/>
+    <!-- Module halo: 12 disciplines orbiting engine at radius 100 -->
+    <g class="module-halo" id="module-halo">
+      <g class="module-chip" data-mod="STR" transform="translate(600,200)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">STR</text></g>
+      <g class="module-chip" data-mod="GEO" transform="translate(650,213)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">GEO</text></g>
+      <g class="module-chip" data-mod="FIR" transform="translate(687,250)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">FIR</text></g>
+      <g class="module-chip" data-mod="ACO" transform="translate(700,300)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">ACO</text></g>
+      <g class="module-chip" data-mod="ENV" transform="translate(687,350)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">ENV</text></g>
+      <g class="module-chip" data-mod="ARK" transform="translate(650,387)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">ARK</text></g>
+      <g class="module-chip" data-mod="TDD" transform="translate(600,400)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">TDD</text></g>
+      <g class="module-chip" data-mod="BID" transform="translate(550,387)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">BID</text></g>
+      <g class="module-chip" data-mod="QTY" transform="translate(513,350)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">QTY</text></g>
+      <g class="module-chip" data-mod="HSE" transform="translate(500,300)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">HSE</text></g>
+      <g class="module-chip" data-mod="SUS" transform="translate(513,250)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">SUS</text></g>
+      <g class="module-chip" data-mod="CLM" transform="translate(550,213)"><rect x="-18" y="-7" width="36" height="14" rx="2"/><text y="3.5">CLM</text></g>
+    </g>
+    <!-- Builtly logo as engine center: rounded square + signature corner dot -->
+    <g class="engine-logo" transform="translate(600,300)">
+      <!-- Outer compute-boundary ring — slow rotating hairline -->
+      <circle class="engine-aura" cx="0" cy="0" r="42" fill="none"/>
+      <rect class="engine-logo-box" x="-25" y="-25" width="50" height="50" rx="8"/>
+      <circle class="engine-logo-dot" cx="10" cy="-10" r="5"/>
+    </g>
+    <text class="engine-counter" id="engine-throughput" x="600" y="350">0 pts/s</text>
+    <text class="engine-complete-mark" id="engine-complete-mark" x="600" y="376" data-i18n="flow.completed">✓ Signert</text>
+  </g>
+
+  <!-- Input nodes -->
+  <g class="node node-input" data-node="in-0" transform="translate(60, 100)">
+    <rect class="node-box" x="0" y="-36" width="140" height="72" rx="2"/>
+    <circle class="node-icon-circle" cx="22" cy="-10" r="11"/>
+    <path class="node-icon" d="M16,-6 L22,-15 L28,-6 Z M14,-4 L30,-4"/>
+    <text class="node-label" x="80" y="-15" data-i18n="flow.input.architect">ARKITEKT</text>
+    <text class="node-sub" x="80" y="2" data-i18n="flow.input.architect.sub">CAD · IFC</text>
+    <text class="node-counter" id="counter-in-0" x="80" y="22">0 elementer</text>
+  </g>
+  <g class="node node-input" data-node="in-1" transform="translate(60, 230)">
+    <rect class="node-box" x="0" y="-36" width="140" height="72" rx="2"/>
+    <circle class="node-icon-circle" cx="22" cy="-10" r="11"/>
+    <rect class="node-icon" x="16" y="-15" width="12" height="10" stroke="currentColor" fill="none"/>
+    <text class="node-label" x="80" y="-15" data-i18n="flow.input.developer">UTBYGGER</text>
+    <text class="node-sub" x="80" y="2" data-i18n="flow.input.developer.sub">brief · krav</text>
+    <text class="node-counter" id="counter-in-1" x="80" y="22">0 krav</text>
+  </g>
+  <g class="node node-input" data-node="in-2" transform="translate(60, 370)">
+    <rect class="node-box" x="0" y="-36" width="140" height="72" rx="2"/>
+    <circle class="node-icon-circle" cx="22" cy="-10" r="11"/>
+    <path class="node-icon" d="M16,-15 L28,-15 L28,-5 L16,-5 Z M19,-12 L25,-12 M19,-9 L25,-9"/>
+    <text class="node-label" x="80" y="-15" data-i18n="flow.input.regulator">REGULATOR</text>
+    <text class="node-sub" x="80" y="2" data-i18n="flow.input.regulator.sub">TEK17 · NS</text>
+    <text class="node-counter" id="counter-in-2" x="80" y="22">0 sjekker</text>
+  </g>
+  <g class="node node-input" data-node="in-3" transform="translate(60, 500)">
+    <rect class="node-box" x="0" y="-36" width="140" height="72" rx="2"/>
+    <circle class="node-icon-circle" cx="22" cy="-10" r="11"/>
+    <path class="node-icon" d="M16,-5 L20,-12 L24,-7 L28,-15" stroke="currentColor" fill="none" stroke-width="1.4"/>
+    <text class="node-label" x="80" y="-15" data-i18n="flow.input.market">MARKED</text>
+    <text class="node-sub" x="80" y="2" data-i18n="flow.input.market.sub">SSB · P50</text>
+    <text class="node-counter" id="counter-in-3" x="80" y="22">0 P50-punkter</text>
+  </g>
+
+  <!-- Output nodes -->
+  <g class="node node-output" data-node="out-0" transform="translate(1000, 100)">
+    <rect class="node-box" x="0" y="-36" width="140" height="72" rx="2"/>
+    <path class="node-icon" d="M14,-13 L20,-7 L30,-17" stroke="currentColor" fill="none" stroke-width="1.6"/>
+    <text class="node-label" x="80" y="-15" data-i18n="flow.output.engineer">INGENIØR</text>
+    <text class="node-sub" x="80" y="2" data-i18n="flow.output.engineer.sub">signerer</text>
+    <text class="node-counter" id="counter-out-0" x="80" y="22">0 / 8 disipliner</text>
+  </g>
+  <g class="node node-output" data-node="out-1" transform="translate(1000, 230)">
+    <rect class="node-box" x="0" y="-36" width="140" height="72" rx="2"/>
+    <circle class="node-icon-circle" cx="22" cy="-10" r="11"/>
+    <text class="node-icon" x="22" y="-6" text-anchor="middle" font-size="13" font-weight="600" font-family="JetBrains Mono">✓</text>
+    <text class="node-label" x="80" y="-15" data-i18n="flow.output.board">STYRE</text>
+    <text class="node-sub" x="80" y="2" data-i18n="flow.output.board.sub">GO · HOLD</text>
+    <text class="node-counter" id="counter-out-1" x="80" y="22">— · venter</text>
+  </g>
+  <g class="node node-output" data-node="out-2" transform="translate(1000, 370)">
+    <rect class="node-box" x="0" y="-36" width="140" height="72" rx="2"/>
+    <circle class="node-icon-circle" cx="22" cy="-10" r="11"/>
+    <text class="node-icon" x="22" y="-6" text-anchor="middle" font-size="11" font-family="JetBrains Mono">$</text>
+    <text class="node-label" x="80" y="-15" data-i18n="flow.output.lender">LÅNGIVER</text>
+    <text class="node-sub" x="80" y="2" data-i18n="flow.output.lender.sub">risiko-rapport</text>
+    <text class="node-counter" id="counter-out-2" x="80" y="22">— · scoring</text>
+  </g>
+  <g class="node node-output" data-node="out-3" transform="translate(1000, 500)">
+    <rect class="node-box" x="0" y="-36" width="140" height="72" rx="2"/>
+    <circle class="node-icon-circle" cx="22" cy="-10" r="11"/>
+    <path class="node-icon" d="M16,-13 L18,-17 L26,-17 L28,-13 M14,-13 L30,-13 L30,-5 L14,-5 Z" stroke="currentColor" fill="none" stroke-width="1.2"/>
+    <text class="node-label" x="80" y="-15" data-i18n="flow.output.contractor">ENTREPRENØR</text>
+    <text class="node-sub" x="80" y="2" data-i18n="flow.output.contractor.sub">anbud · sekvens</text>
+    <text class="node-counter" id="counter-out-3" x="80" y="22">0 BOM-rader</text>
+  </g>
+
+  <!-- Particles container (populated by JS) -->
+  <g class="particles" id="flow-particles"></g>
+</svg>
+
+<div class="flow-log" aria-hidden="true">
+  <span class="flow-log-header-right" id="flow-log-clock">t=0.000s</span>
+  <div class="flow-log-stream" id="flow-log-stream"></div>
+</div>
+</div>
+
+<div class="flow-metrics rv">
+<div class="metric">
+<div class="metric-value" id="metric-data">0</div>
+<div class="metric-label" data-i18n="flow.metric.data">Data points processed</div>
+</div>
+<div class="metric">
+<div class="metric-value" id="metric-savings">0.0 MNOK</div>
+<div class="metric-label" data-i18n="flow.metric.savings">Engineering savings</div>
+</div>
+<div class="metric">
+<div class="metric-value" id="metric-time"><div class="time-from"><span class="from" data-i18n="flow.time.from">6 weeks</span> <span class="arrow">→</span></div><span data-i18n="flow.time.to">4 hours</span></div>
+<div class="metric-label" data-i18n="flow.metric.time">Time to signed</div>
+</div>
+<div class="metric">
+<div class="metric-value" id="metric-accuracy">0%</div>
+<div class="metric-label" data-i18n="flow.metric.accuracy">Element classification accuracy</div>
+</div>
+</div>
+
+</div>
+</section>
+
+
 <section class="algo-section" id="algorithms">
 <div class="sec-inner">
 <div class="smark rv"><span class="num">★</span><span data-i18n="sec.engine.title">The engine</span><span class="dash"></span><span data-i18n="sec.engine.tag">Mathematics behind the modules</span></div>
@@ -1126,12 +1552,12 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="vert-head">
 <h2 class="rv"><span data-i18n="sec.steinan.h2.l1">Nine storeys, parsed</span><br/><span class="serif" data-i18n="hero.end_to_end">end to end.</span></h2>
-<p class="lede rv">A 9-storey residential building in Trondheim. <b>1,070 walls, 566 doors, 263 windows</b> across PLAN 00 to PLAN 06, plus a half-mezzanine at PLAN 05-A. The platform reads every storey in milliseconds — separating levels, mapping elevations, classifying elements. Below: each floor's complexity, revealed level by level.</p>
+<p class="lede rv" data-i18n-html="sec.steinan.lede">A 9-storey residential building in Trondheim. <b>1,070 walls, 566 doors, 263 windows</b> across PLAN 00 to PLAN 06, plus a half-mezzanine at PLAN 05-A. The platform reads every storey in milliseconds — separating levels, mapping elevations, classifying elements. Below: each floor's complexity, revealed level by level.</p>
 </div>
 
 <div class="vert-summary rvs">
-<div class="vert-summary-item"><div class="num" id="vert-walls-total">0</div><div class="l">walls</div></div>
-<div class="vert-summary-item"><div class="num" id="vert-doors-total">0</div><div class="l">doors</div></div>
+<div class="vert-summary-item"><div class="num" id="vert-walls-total">0</div><div class="l" data-i18n="algo.label.walls">walls</div></div>
+<div class="vert-summary-item"><div class="num" id="vert-doors-total">0</div><div class="l" data-i18n="algo.label.doors">doors</div></div>
 <div class="vert-summary-item"><div class="num" id="vert-windows-total">0</div><div class="l" data-i18n="algo.label.windows">windows</div></div>
 <div class="vert-summary-item"><div class="num" id="vert-storeys-total">0</div><div class="l" data-i18n="algo.label.storeys">storeys read</div></div>
 </div>
@@ -4129,6 +4555,720 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       }
     });
   }, { threshold: 0.25 });
+  obs.observe(section);
+})();
+</script>
+<script>
+/* ===========================================================================
+ * Collaboration Flow animation — particles stream along SVG paths from
+ * 4 stakeholders into Builtly Engine, then out to 4 decision-maker nodes.
+ * Live metric counters tick up. Auto-plays on scroll-in, loops gracefully.
+ * =========================================================================== */
+(function(){
+  const section = document.getElementById('collaboration');
+  if (!section) return;
+  const svg = section.querySelector('.flow-svg');
+  if (!svg) return;
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+
+  const inPaths  = Array.from(section.querySelectorAll('.flow-path[data-flow="in"]'));
+  const outPaths = Array.from(section.querySelectorAll('.flow-path[data-flow="out"]'));
+  const inNodes  = Array.from(section.querySelectorAll('.node-input'));
+  const outNodes = Array.from(section.querySelectorAll('.node-output'));
+  const engineCore = section.querySelector('#engine-core');
+  const flowStage = section.querySelector('.flow-stage');
+  const particlesG = section.querySelector('#flow-particles');
+  const throughputEl = section.querySelector('#engine-throughput');
+  const moduleChips = Array.from(section.querySelectorAll('.module-chip'));
+  const logStreamEl = section.querySelector('#flow-log-stream');
+  const logClockEl = section.querySelector('#flow-log-clock');
+  const phaseSteps = Array.from(section.querySelectorAll('.phase-step'));
+  const flowTagsIn = Array.from(section.querySelectorAll('.flow-tag-in'));
+  const flowTagsPos = Array.from(section.querySelectorAll('.flow-tag-pos'));
+
+  function updatePhase(t) {
+    // 4 phases: Intake (0-flowStart), Process (flowStart-outFlowStart),
+    // Distribute (outFlowStart-burstAt), Sign (burstAt-cycleEnd)
+    let phaseIdx;
+    if (t < T.flowStart) phaseIdx = 0;
+    else if (t < T.outFlowStart) phaseIdx = 1;
+    else if (t < T.burstAt) phaseIdx = 2;
+    else phaseIdx = 3;
+    phaseSteps.forEach((step, i) => {
+      step.classList.toggle('active', i === phaseIdx);
+      step.classList.toggle('done', i < phaseIdx);
+    });
+  }
+
+  // Live operations log — real engineering ops cycling through
+  // Norwegian set (used for NO/SV/DA — Scandinavian audience recognises terms)
+  const LOG_LINES_NO = [
+    { mod: 'STR', op: 'parsing IFC4 geometri',            result: '2 847 elt' },
+    { mod: 'BID', op: 'anbudsmatrise NS 8407 generert',   result: '47 poster' },
+    { mod: 'STR', op: 'dimensjonering bjelker pass 1',    result: '312 bjelker' },
+    { mod: 'GEO', op: 'NGU borehulls-DB kryssjekk',       result: '4 borehull' },
+    { mod: 'BID', op: 'tilbudsevaluering matrix klar',    result: '12 kriterier' },
+    { mod: 'GEO', op: 'Eurokode-7 fundamentstrategi',     result: 'klasse 2' },
+    { mod: 'FIR', op: 'TEK17 §11 brannseksjonering',      result: 'pass' },
+    { mod: 'BID', op: 'kontraktrevisjon NS 8407 §17',     result: '3 avvik' },
+    { mod: 'FIR', op: 'rømningskapasitet beregnet',       result: '372 prs' },
+    { mod: 'ACO', op: 'NS 8175 klasse C',                 result: '-3 dB' },
+    { mod: 'BID', op: 'underleverandør sjekkliste',       result: '8 godkjent' },
+    { mod: 'ACO', op: 'romakustikk R\u2032w',             result: '55 dB' },
+    { mod: 'ENV', op: 'Miljødirektoratet artskart',       result: 'ingen konflikt' },
+    { mod: 'ENV', op: 'grunnforurensning historikk',      result: 'rent' },
+    { mod: 'BID', op: 'referanseprosjekter kryssjekk',    result: '4/4 ok' },
+    { mod: 'QTY', op: 'BoM-uttrekk fra modell',           result: '4 856 rader' },
+    { mod: 'QTY', op: 'kostnadsbasis kryssjekk',          result: '99.7%' },
+    { mod: 'STR', op: 'lasttilfelle 1.35G + 1.5Q',        result: 'SF 1.18' },
+    { mod: 'BID', op: 'anbudspakke sammenstilt',          result: '247 sider' },
+    { mod: 'GEO', op: 'setningsanalyse',                  result: '14 mm' },
+    { mod: 'CLM', op: 'TEK17 §17 innebygd karbon',        result: '-11%' },
+    { mod: 'TDD', op: 'teknisk DD-rapport utkast',        result: '47 sider' },
+    { mod: 'BID', op: 'kontraktssum sannsynlighet P85',   result: '38.4 MNOK' },
+    { mod: 'ARK', op: 'AI tomte-analyse',                 result: 'optimum' },
+    { mod: 'HSE', op: 'risikoregister oppdatert',         result: '23 punkter' },
+    { mod: 'CLM', op: 'LCA modul A1-A3',                  result: '3 232 t' },
+    { mod: 'SUS', op: 'BREEAM In-Use score',              result: 'A−' },
+    { mod: 'STR', op: 'IFC4 eksport validering',          result: 'pass' },
+    { mod: 'FIR', op: 'sprinkler dekning',                result: '100%' },
+    { mod: 'ENV', op: 'aktsomhetsområder DSB+NVE',        result: 'pass' },
+    { mod: 'QTY', op: 'BIM-sporing pr. element',          result: '100%' },
+    { mod: 'GEO', op: 'geodata NGU + DSB hentet',         result: 'ok' },
+    { mod: 'STR', op: 'forbindelseskapasitet',            result: 'pass' },
+    { mod: 'FIR', op: 'TEK17 §12 universell utforming',   result: 'pass' }
+  ];
+  // English set (used for EN/DE/FI — keeps NO regulation refs which are universal)
+  const LOG_LINES_EN = [
+    { mod: 'STR', op: 'parsing IFC4 geometry',            result: '2,847 elt' },
+    { mod: 'BID', op: 'tender matrix NS 8407 generated',  result: '47 items' },
+    { mod: 'STR', op: 'member sizing pass 1',             result: '312 beams' },
+    { mod: 'GEO', op: 'NGU borehole DB cross-check',      result: '4 holes' },
+    { mod: 'BID', op: 'bid evaluation matrix ready',      result: '12 criteria' },
+    { mod: 'GEO', op: 'Eurocode-7 foundation strategy',   result: 'class 2' },
+    { mod: 'FIR', op: 'TEK17 §11 compartmentation',       result: 'pass' },
+    { mod: 'BID', op: 'NS 8407 contract review §17',      result: '3 issues' },
+    { mod: 'FIR', op: 'egress capacity calculated',       result: '372 prs' },
+    { mod: 'ACO', op: 'NS 8175 class C',                  result: '-3 dB' },
+    { mod: 'BID', op: 'subcontractor checklist',          result: '8 approved' },
+    { mod: 'ACO', op: 'room acoustics R\u2032w',          result: '55 dB' },
+    { mod: 'ENV', op: 'Miljødirektoratet species map',    result: 'no conflict' },
+    { mod: 'ENV', op: 'soil contamination history',       result: 'clean' },
+    { mod: 'BID', op: 'reference projects cross-check',   result: '4/4 ok' },
+    { mod: 'QTY', op: 'BoM extraction from model',        result: '4,856 rows' },
+    { mod: 'QTY', op: 'cost basis cross-check',           result: '99.7%' },
+    { mod: 'STR', op: 'load case 1.35G + 1.5Q',           result: 'SF 1.18' },
+    { mod: 'BID', op: 'tender package compiled',          result: '247 pages' },
+    { mod: 'GEO', op: 'settlement analysis',              result: '14 mm' },
+    { mod: 'CLM', op: 'TEK17 §17 embodied carbon',        result: '-11%' },
+    { mod: 'TDD', op: 'technical DD report draft',        result: '47 pages' },
+    { mod: 'BID', op: 'contract value probability P85',   result: '38.4 MNOK' },
+    { mod: 'ARK', op: 'AI site analysis',                 result: 'optimum' },
+    { mod: 'HSE', op: 'risk register updated',            result: '23 items' },
+    { mod: 'CLM', op: 'LCA module A1-A3',                 result: '3,232 t' },
+    { mod: 'SUS', op: 'BREEAM In-Use score',              result: 'A−' },
+    { mod: 'STR', op: 'IFC4 export validation',           result: 'pass' },
+    { mod: 'FIR', op: 'sprinkler coverage',               result: '100%' },
+    { mod: 'ENV', op: 'DSB+NVE hazard zones',             result: 'pass' },
+    { mod: 'QTY', op: 'BIM traceability per element',     result: '100%' },
+    { mod: 'GEO', op: 'geodata NGU + DSB fetched',        result: 'ok' },
+    { mod: 'STR', op: 'connection capacity',              result: 'pass' },
+    { mod: 'FIR', op: 'TEK17 §12 accessibility',          result: 'pass' }
+  ];
+  function currentLogLines() {
+    const lang = (document.documentElement.lang || 'en').toLowerCase();
+    return (lang === 'no' || lang === 'sv' || lang === 'da') ? LOG_LINES_NO : LOG_LINES_EN;
+  }
+
+  // Cache path lengths
+  const inLen  = inPaths.map(p => p.getTotalLength());
+  const outLen = outPaths.map(p => p.getTotalLength());
+
+  // Node counter targets — units localised via i18n lookup
+  const NODE_COUNTERS = {
+    'in-0':  { target: 2847, unitKey: 'flow.unit.elements',   isFraction: false },
+    'in-1':  { target: 192,  unitKey: 'flow.unit.units',       isFraction: false },
+    'in-2':  { target: 47,   unitKey: 'flow.unit.checks',      isFraction: false },
+    'in-3':  { target: 12,   unitKey: 'flow.unit.p50',         isFraction: false },
+    'out-0': { target: 8,    unitKey: 'flow.unit.disciplines', isFraction: true,  denom: 8 },
+    'out-1': { staticAt: 0.0, staticAtTarget: 'GO ✓ · 38.4%' },
+    'out-2': { staticAt: 0.0, staticAtTarget: 'A− · BBB+' },
+    'out-3': { target: 4856, unitKey: 'flow.unit.bom',         isFraction: false }
+  };
+  const nodeCounterEls = {};
+  Object.keys(NODE_COUNTERS).forEach(k => { nodeCounterEls[k] = section.querySelector('#counter-' + k); });
+
+  function flowUnit(key, fallback) {
+    if (window.BUILTLY_I18N && window.BUILTLY_I18N.t) return window.BUILTLY_I18N.t(key) || fallback;
+    return fallback;
+  }
+  function fmtNum(v) {
+    return Math.floor(v).toLocaleString('en-US').replace(/,/g, ' ');
+  }
+  function renderNodeCounter(key, progress) {
+    const el = nodeCounterEls[key];
+    if (!el) return;
+    const cfg = NODE_COUNTERS[key];
+    if (cfg.staticAt !== undefined) {
+      // Static result: shows placeholder, then transitions to result at progress >= 0.95
+      const fallbacks = { 'out-1': flowUnit('flow.unit.waiting','— · venter'), 'out-2': flowUnit('flow.unit.scoring','— · scoring') };
+      el.textContent = progress >= 0.95 ? cfg.staticAtTarget : fallbacks[key];
+      return;
+    }
+    // Snap to exact target at end to avoid floor() off-by-one from easing precision
+    const v = progress >= 0.99 ? cfg.target : cfg.target * progress;
+    if (cfg.isFraction) {
+      el.textContent = fmtNum(v) + ' / ' + cfg.denom + ' ' + flowUnit(cfg.unitKey, 'disipliner');
+    } else {
+      const unit = flowUnit(cfg.unitKey, '');
+      el.textContent = fmtNum(v) + ' ' + unit;
+    }
+  }
+  function renderAllNodeCounters(progress) {
+    Object.keys(NODE_COUNTERS).forEach(k => renderNodeCounter(k, progress));
+  }
+
+  // Active particles: { pathIdx, dir, t, speed, born, elem }
+  let particles = [];
+  let rafId = null;
+  let running = false;
+  let phase = 'idle';
+  let phaseStart = 0;
+  let cycleNum = 0;
+  let throughput = 0;
+  let lastModuleStep = 0;
+  let activeModuleIdx = 0;
+  let burstFired = false;
+  let cycleCompleted = false;
+  // Log streaming state
+  let logIdx = 0;
+  let lastLogTime = 0;
+  const LOG_INTERVAL_MS = 260;
+  const MAX_LOG_LINES = 5;
+
+  function spawnLogLine(now) {
+    if (!logStreamEl) return;
+    if (now - lastLogTime < LOG_INTERVAL_MS) return;
+    lastLogTime = now;
+    const lines = currentLogLines();
+    const line = lines[logIdx % lines.length];
+    logIdx++;
+    const div = document.createElement('div');
+    div.className = 'log-line';
+    const opLen = line.op.length;
+    const dotCount = Math.max(3, 38 - opLen);
+    const dots = '\u00A0' + '.'.repeat(dotCount) + '\u00A0';
+    div.innerHTML = '<span class="mod">[' + line.mod + ']</span> ' +
+                    line.op +
+                    '<span class="dots">' + dots + '</span>' +
+                    '<span class="result">' + line.result + '</span>' +
+                    (line.ok !== false ? '<span class="ok">\u2713</span>' : '');
+    logStreamEl.appendChild(div);
+    while (logStreamEl.children.length > MAX_LOG_LINES) {
+      logStreamEl.removeChild(logStreamEl.firstChild);
+    }
+  }
+  function clearLog() {
+    if (logStreamEl) logStreamEl.innerHTML = '';
+    if (logClockEl) logClockEl.textContent = 't=0.000s';
+    logIdx = 0;
+    lastLogTime = 0;
+  }
+
+  // Spawn cadence (ms between particle spawns per active path)
+  const SPAWN_INTERVAL_MS = 280;
+  // Time per particle to traverse its path (ms)
+  const TRAVERSE_MS = 1700;
+  let lastSpawn = { in: [0,0,0,0], out: [0,0,0,0] };
+
+  function spawnParticle(side, idx, brightness) {
+    const path = (side === 'in' ? inPaths : outPaths)[idx];
+    if (!path) return;
+    const r = brightness === 'bright' ? 3.6 : 2.4;
+    const main = document.createElementNS(SVG_NS, 'circle');
+    main.setAttribute('r', r);
+    main.setAttribute('class', 'flow-particle' + (brightness === 'bright' ? ' bright' : ''));
+    // 3 trail dots — successively smaller, dimmer, lagging behind main
+    const trails = [];
+    const TRAIL_COUNT = 3;
+    for (let i = 0; i < TRAIL_COUNT; i++) {
+      const tr = document.createElementNS(SVG_NS, 'circle');
+      const trR = r * (0.72 - i * 0.18);
+      tr.setAttribute('r', Math.max(0.5, trR).toFixed(2));
+      tr.setAttribute('class', 'flow-particle-trail' + (brightness === 'bright' ? ' bright' : ''));
+      particlesG.appendChild(tr);  // append trails first so main renders on top
+      trails.push(tr);
+    }
+    particlesG.appendChild(main);
+    particles.push({
+      side: side,
+      idx: idx,
+      duration: TRAVERSE_MS + (Math.random() * 200 - 100),
+      born: performance.now(),
+      elem: main,
+      trails: trails
+    });
+  }
+
+  // Arrival points where input particles hit the engine box edge
+  const INPUT_ARRIVAL_POINTS = [
+    { x: 565, y: 288 },  // upper input
+    { x: 565, y: 295 },  // upper-mid
+    { x: 565, y: 305 },  // lower-mid
+    { x: 565, y: 312 }   // lower
+  ];
+
+  function spawnEngineRing(idx) {
+    const pt = INPUT_ARRIVAL_POINTS[idx];
+    if (!pt || !particlesG) return;
+    const ring = document.createElementNS(SVG_NS, 'circle');
+    ring.setAttribute('cx', pt.x);
+    ring.setAttribute('cy', pt.y);
+    ring.setAttribute('r', '2');
+    ring.setAttribute('class', 'engine-ring');
+    particlesG.appendChild(ring);
+    setTimeout(function(){ if (ring.parentNode) ring.parentNode.removeChild(ring); }, 560);
+  }
+
+  // Ambient pulse — periodic ring from engine center, signals "alive"
+  let lastAmbientPulse = 0;
+  const AMBIENT_PULSE_INTERVAL = 4800;
+  function maybeSpawnAmbientPulse(now) {
+    if (now - lastAmbientPulse < AMBIENT_PULSE_INTERVAL) return;
+    if (!particlesG) return;
+    lastAmbientPulse = now;
+    const ring = document.createElementNS(SVG_NS, 'circle');
+    ring.setAttribute('cx', '600');
+    ring.setAttribute('cy', '300');
+    ring.setAttribute('r', '30');
+    ring.setAttribute('class', 'ambient-pulse');
+    particlesG.appendChild(ring);
+    setTimeout(function(){ if (ring.parentNode) ring.parentNode.removeChild(ring); }, 2500);
+  }
+
+  function pulseOutputNode(idx) {
+    const node = outNodes[idx];
+    if (!node) return;
+    node.classList.add('arrival-pulse');
+    setTimeout(function(){ node.classList.remove('arrival-pulse'); }, 240);
+  }
+
+  function updateParticles(now) {
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      const elapsed = now - p.born;
+      const t = elapsed / p.duration;
+      if (t >= 1) {
+        // Particle arrived — trigger arrival effect
+        if (p.side === 'in') {
+          spawnEngineRing(p.idx);
+          throughput++;
+        } else if (p.side === 'out') {
+          pulseOutputNode(p.idx);
+        }
+        if (p.elem.parentNode) p.elem.parentNode.removeChild(p.elem);
+        if (p.trails) p.trails.forEach(tr => { if (tr.parentNode) tr.parentNode.removeChild(tr); });
+        particles.splice(i, 1);
+        continue;
+      }
+      const path = (p.side === 'in' ? inPaths : outPaths)[p.idx];
+      const len  = (p.side === 'in' ? inLen   : outLen  )[p.idx];
+      // Main position
+      const pt = path.getPointAtLength(t * len);
+      p.elem.setAttribute('cx', pt.x.toFixed(2));
+      p.elem.setAttribute('cy', pt.y.toFixed(2));
+      const fadeIn  = Math.min(1, t / 0.08);
+      const fadeOut = Math.min(1, (1 - t) / 0.12);
+      const opacity = Math.min(fadeIn, fadeOut);
+      p.elem.setAttribute('opacity', opacity.toFixed(2));
+      // Trail dots: position each at increasing offset behind main, decreasing opacity
+      if (p.trails) {
+        const TRAIL_STEP = 0.038;
+        for (let j = 0; j < p.trails.length; j++) {
+          const tt = t - TRAIL_STEP * (j + 1);
+          if (tt > 0) {
+            const tpt = path.getPointAtLength(tt * len);
+            p.trails[j].setAttribute('cx', tpt.x.toFixed(2));
+            p.trails[j].setAttribute('cy', tpt.y.toFixed(2));
+            const trailOp = opacity * (0.55 - j * 0.14);
+            p.trails[j].setAttribute('opacity', trailOp.toFixed(2));
+          } else {
+            p.trails[j].setAttribute('opacity', '0');
+          }
+        }
+      }
+    }
+  }
+
+  // Metric counters: animate from 0 to target
+  const metrics = {
+    data:     { el: section.querySelector('#metric-data'),     target: 17840, current: 0, fmt: (v) => Math.floor(v).toLocaleString('en-US').replace(/,/g, ' ') },
+    savings:  { el: section.querySelector('#metric-savings'),  target: 25.3,  current: 0, fmt: (v) => v.toFixed(1) + ' MNOK' },
+    accuracy: { el: section.querySelector('#metric-accuracy'), target: 99.97, current: 0, fmt: (v) => v.toFixed(2) + '%' }
+  };
+  let metricStart = null;
+  function animateMetrics(now) {
+    if (metricStart === null) return;
+    const elapsed = now - metricStart;
+    const DUR = 2400;
+    const t = Math.min(1, elapsed / DUR);
+    const e = 1 - Math.pow(1 - t, 3);
+    for (const k in metrics) {
+      const m = metrics[k];
+      const v = m.target * e;
+      m.current = v;
+      if (m.el) m.el.textContent = m.fmt(v);
+    }
+  }
+
+  function refreshSavingsCurrency() {
+    // When language changes, re-format the savings metric in user's currency
+    const fm = window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK;
+    if (fm && metrics.savings.el) {
+      metrics.savings.fmt = (v) => fm(v, '');
+      metrics.savings.el.textContent = metrics.savings.fmt(metrics.savings.current);
+    }
+  }
+
+  function setPhase(newPhase, now) {
+    phase = newPhase;
+    phaseStart = now;
+    if (newPhase === 'flowing') {
+      engineCore.classList.add('pulsing');
+    } else if (newPhase === 'idle') {
+      engineCore.classList.remove('pulsing');
+    }
+  }
+
+  function activateNode(node, on) {
+    if (!node) return;
+    if (on) node.classList.add('in', 'active');
+    else { node.classList.remove('active'); }
+  }
+  function fadeInNode(node) { if (node) node.classList.add('in'); }
+  function fadeOutNode(node) { if (node) node.classList.remove('active'); }
+
+  function activatePath(path, on) {
+    if (!path) return;
+    path.classList.toggle('active', on);
+  }
+
+  function resetAll() {
+    inNodes.forEach(n => { n.classList.remove('in','active','flash'); });
+    outNodes.forEach(n => { n.classList.remove('in','active','flash'); });
+    inPaths.forEach(p => p.classList.remove('active'));
+    outPaths.forEach(p => p.classList.remove('active'));
+    particles.forEach(p => {
+      if (p.elem && p.elem.parentNode) p.elem.parentNode.removeChild(p.elem);
+      if (p.trails) p.trails.forEach(tr => { if (tr.parentNode) tr.parentNode.removeChild(tr); });
+      if (p.trail && p.trail.parentNode) p.trail.parentNode.removeChild(p.trail);
+    });
+    particles = [];
+    // Remove any in-flight engine rings still attached
+    if (particlesG) {
+      Array.from(particlesG.querySelectorAll('.engine-ring')).forEach(r => r.remove());
+    }
+    // Clear arrival-pulse state on any output nodes
+    outNodes.forEach(n => n.classList.remove('arrival-pulse'));
+    throughput = 0;
+    if (throughputEl) throughputEl.textContent = '0 pts/s';
+    for (const k in metrics) { metrics[k].current = 0; if (metrics[k].el) metrics[k].el.textContent = metrics[k].fmt(0); }
+    metricStart = null;
+    engineCore.classList.remove('pulsing','burst','flash','completed');
+    moduleChips.forEach(c => c.classList.remove('active','always-on'));
+    activeModuleIdx = 0;
+    lastModuleStep = 0;
+    burstFired = false;
+    cycleCompleted = false;
+    lastAmbientPulse = 0;
+    // Also remove any in-flight ambient pulses
+    if (particlesG) Array.from(particlesG.querySelectorAll('.ambient-pulse')).forEach(r => r.remove());
+    clearLog();
+    phaseSteps.forEach(s => s.classList.remove('active','done'));
+    if (phaseSteps[0]) phaseSteps[0].classList.add('active');
+    flowTagsIn.forEach(t => t.classList.remove('visible'));
+    flowTagsPos.forEach(t => t.classList.remove('visible'));
+    renderAllNodeCounters(0);
+  }
+
+  // Phase timeline (cumulative milliseconds from cycle start)
+  const T = {
+    inFadeStart: 0,
+    inFadeStep: 220,
+    flowStart: 1600,
+    enginePulse: 2400,
+    moduleRotateStart: 2500,
+    moduleRotateInterval: 130,
+    outFlowStart: 3200,
+    outActivateStart: 4000,
+    outActivateStep: 220,
+    metricsStart: 4000,
+    metricsDuration: 2400,
+    burstAt: 6500,
+    flashDuration: 700,
+    holdStart: 7200,
+    cycleEnd: 13500
+  };
+
+  function step(now) {
+    if (!running) return;
+    const t = now - phaseStart;
+
+    // Update phase indicator strip
+    updatePhase(t);
+
+    // BID chip always-on subtle highlight (during flow phases)
+    const bidChip = moduleChips.find(c => c.dataset.mod === 'BID');
+    if (bidChip && t >= T.flowStart && t < T.burstAt) {
+      bidChip.classList.add('always-on');
+    }
+
+    // Stagger input node activation
+    inNodes.forEach((node, i) => {
+      const activateAt = T.inFadeStart + i * T.inFadeStep;
+      if (t >= activateAt && !node.classList.contains('active')) {
+        node.classList.add('in', 'active');
+        activatePath(inPaths[i], true);
+      }
+    });
+
+    // Spawn input particles
+    if (t >= T.flowStart) {
+      // Fade in input path tags
+      flowTagsIn.forEach(tag => tag.classList.add('visible'));
+      inPaths.forEach((_, i) => {
+        if (now - lastSpawn.in[i] > SPAWN_INTERVAL_MS) {
+          lastSpawn.in[i] = now;
+          spawnParticle('in', i, 'normal');
+        }
+      });
+      // Stream live operations log entries
+      spawnLogLine(now);
+      // Ambient pulse rings from engine center (~every 4.8s)
+      maybeSpawnAmbientPulse(now);
+    }
+
+    // Update log clock readout (t in seconds since cycle start)
+    if (logClockEl && t >= T.flowStart) {
+      logClockEl.textContent = 't=' + ((t - T.flowStart) / 1000).toFixed(3) + 's';
+    }
+
+    // Engine pulse on
+    if (t >= T.enginePulse && !engineCore.classList.contains('pulsing')) {
+      engineCore.classList.add('pulsing');
+    }
+
+    // Climactic burst: fire BEFORE rotation so all-chips-active state survives
+    if (t >= T.burstAt && !burstFired) {
+      burstFired = true;
+      engineCore.classList.add('burst','flash');
+      if (flowStage) flowStage.classList.add('burst-active');
+      inNodes.forEach(n => n.classList.add('flash'));
+      outNodes.forEach(n => n.classList.add('flash'));
+      moduleChips.forEach(c => c.classList.add('active'));
+      setTimeout(function() {
+        engineCore.classList.remove('burst','flash');
+        if (flowStage) flowStage.classList.remove('burst-active');
+        inNodes.forEach(n => n.classList.remove('flash'));
+        outNodes.forEach(n => n.classList.remove('flash'));
+      }, T.flashDuration);
+    }
+
+    // Module halo rotation — one chip lit at a time, stops after burst fires
+    if (!burstFired && t >= T.moduleRotateStart) {
+      if (now - lastModuleStep > T.moduleRotateInterval) {
+        lastModuleStep = now;
+        moduleChips.forEach((c, i) => c.classList.toggle('active', i === activeModuleIdx));
+        activeModuleIdx = (activeModuleIdx + 1) % moduleChips.length;
+      }
+    }
+
+    // Spawn output particles + activate output paths
+    if (t >= T.outFlowStart) {
+      // Fade in output path tags
+      flowTagsPos.forEach(tag => tag.classList.add('visible'));
+      outPaths.forEach((path, i) => {
+        if (!path.classList.contains('active')) path.classList.add('active');
+        if (now - lastSpawn.out[i] > SPAWN_INTERVAL_MS + 50) {
+          lastSpawn.out[i] = now;
+          spawnParticle('out', i, 'bright');
+        }
+      });
+    }
+
+    // Stagger output node activation
+    outNodes.forEach((node, i) => {
+      const activateAt = T.outActivateStart + i * T.outActivateStep;
+      if (t >= activateAt && !node.classList.contains('active')) {
+        node.classList.add('in', 'active');
+      }
+    });
+
+    // Start metric counters
+    if (t >= T.metricsStart && metricStart === null) {
+      metricStart = now;
+    }
+    animateMetrics(now);
+
+    // Animate node counters in lock-step with metrics
+    if (metricStart !== null) {
+      const elapsed = now - metricStart;
+      const tt = Math.min(1, elapsed / T.metricsDuration);
+      const e = 1 - Math.pow(1 - tt, 3);
+      renderAllNodeCounters(e);
+    }
+
+    // Climactic burst: at t=6500ms, fire the "one pulse" payoff
+    if (t >= T.burstAt && !burstFired) {
+      burstFired = true;
+      // Trigger burst wave + engine flash + all-modules-flash
+      engineCore.classList.add('burst','flash');
+      // Flash all nodes
+      inNodes.forEach(n => n.classList.add('flash'));
+      outNodes.forEach(n => n.classList.add('flash'));
+      // Activate ALL module chips (override rotation)
+      moduleChips.forEach(c => c.classList.add('active'));
+      // After flash, cleanup
+      setTimeout(function() {
+        engineCore.classList.remove('burst','flash');
+        inNodes.forEach(n => n.classList.remove('flash'));
+        outNodes.forEach(n => n.classList.remove('flash'));
+        // Keep all chips lit during hold (signals "all modules engaged")
+      }, T.flashDuration);
+    }
+
+    // Move particles
+    updateParticles(now);
+
+    // Update throughput readout
+    if (throughputEl) {
+      const rate = throughput / Math.max(0.5, (t - T.flowStart) / 1000);
+      const display = isFinite(rate) && rate > 0 ? Math.floor(rate) : 0;
+      throughputEl.textContent = display + ' pts/s';
+    }
+
+    // Cycle end: hold in final "signed/complete" state.
+    // Animation stops here. Restart only happens when user scrolls away and back.
+    if (t >= T.cycleEnd) {
+      cycleCompleted = true;
+      // Mark engine as completed — triggers slower, calmer pulse rhythm
+      engineCore.classList.add('completed');
+      // Clean up any in-flight particles so the frozen state is clean
+      particles.forEach(p => {
+        if (p.elem && p.elem.parentNode) p.elem.parentNode.removeChild(p.elem);
+        if (p.trails) p.trails.forEach(tr => { if (tr.parentNode) tr.parentNode.removeChild(tr); });
+        if (p.trail && p.trail.parentNode) p.trail.parentNode.removeChild(p.trail);
+      });
+      particles = [];
+      // Also remove any in-flight engine rings + ambient pulses
+      if (particlesG) {
+        Array.from(particlesG.querySelectorAll('.engine-ring,.ambient-pulse')).forEach(r => r.remove());
+      }
+      // Mark all 4 phases as done — cycle is complete
+      phaseSteps.forEach(s => { s.classList.remove('active'); s.classList.add('done'); });
+      // Freeze the loop. CSS animations (orbit rotation, engine pulse) continue.
+      running = false;
+      rafId = null;
+      return;
+    }
+
+    rafId = requestAnimationFrame(step);
+  }
+
+  // Re-render metrics on language change (currency conversion)
+  if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) {
+    window.BUILTLY_I18N.onLangChange(refreshSavingsCurrency);
+  } else {
+    setTimeout(function(){
+      if (window.BUILTLY_I18N && window.BUILTLY_I18N.onLangChange) {
+        window.BUILTLY_I18N.onLangChange(refreshSavingsCurrency);
+        refreshSavingsCurrency();
+      }
+    }, 600);
+  }
+
+  // Respect user's motion preference — show static end state instead of animation
+  const reducedMotion = (typeof window.matchMedia === 'function') &&
+                        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) {
+    // Defer reveal until i18n dictionary is loaded so unit labels render
+    function staticReveal() {
+      if (!(window.BUILTLY_I18N && window.BUILTLY_I18N.t)) {
+        setTimeout(staticReveal, 60);
+        return;
+      }
+      inNodes.forEach(n => n.classList.add('in','active'));
+      outNodes.forEach(n => n.classList.add('in','active'));
+      inPaths.forEach(p => p.classList.add('active'));
+      outPaths.forEach(p => p.classList.add('active'));
+      moduleChips.forEach(c => c.classList.add('active'));
+      engineCore.classList.add('pulsing');
+      renderAllNodeCounters(1);
+      for (const k in metrics) { metrics[k].current = metrics[k].target; if (metrics[k].el) metrics[k].el.textContent = metrics[k].fmt(metrics[k].target); }
+      refreshSavingsCurrency();
+      if (throughputEl) throughputEl.textContent = '17 pts/s';
+      // Populate log with a sample of static lines (no animation)
+      if (logStreamEl) {
+        const lines = currentLogLines();
+        logStreamEl.innerHTML = '';
+        for (let i = 0; i < 6; i++) {
+          const line = lines[i];
+          const div = document.createElement('div');
+          div.className = 'log-line';
+          div.style.animation = 'none';
+          div.style.opacity = '0.85';
+          const dots = '\u00A0' + '.'.repeat(Math.max(3, 38 - line.op.length)) + '\u00A0';
+          div.innerHTML = '<span class="mod">[' + line.mod + ']</span> ' + line.op +
+                          '<span class="dots">' + dots + '</span>' +
+                          '<span class="result">' + line.result + '</span>' +
+                          '<span class="ok">\u2713</span>';
+          logStreamEl.appendChild(div);
+        }
+      }
+      if (logClockEl) logClockEl.textContent = 't=ready';
+      // Re-render on language change so units stay correct
+      if (window.BUILTLY_I18N.onLangChange) {
+        window.BUILTLY_I18N.onLangChange(function(){
+          renderAllNodeCounters(1);
+          refreshSavingsCurrency();
+        });
+      }
+    }
+    staticReveal();
+    return;
+  }
+
+  // Start on scroll-in, pause on scroll-out.
+  // First entry: reset + start fresh.
+  // Re-entry after cycle completed: reset + start fresh.
+  // Re-entry mid-cycle (paused due to scroll-out): resume where we left off.
+  let everStarted = false;
+  let pausedAt = null;
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && !running) {
+        running = true;
+        if (!everStarted || cycleCompleted) {
+          // Fresh start (first time or after a completed cycle)
+          resetAll();
+          phaseStart = performance.now();
+          everStarted = true;
+          pausedAt = null;
+        } else if (pausedAt !== null) {
+          // Resume from pause: adjust phaseStart so animation continues from where it paused
+          phaseStart += performance.now() - pausedAt;
+          pausedAt = null;
+        }
+        refreshSavingsCurrency();
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(step);
+      } else if (!e.isIntersecting && running) {
+        running = false;
+        pausedAt = performance.now();
+        if (rafId) cancelAnimationFrame(rafId);
+      }
+    });
+  }, { threshold: 0.15 });
   obs.observe(section);
 })();
 </script>
