@@ -114,7 +114,7 @@ a{color:inherit;text-decoration:none}
 .hero > .wrap{position:relative;z-index:1}
 .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
 @media (max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:48px}}
-.hero h1{margin-top:20px}
+.hero h1{margin-top:20px;text-wrap:balance;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:10 5 4;font-size:clamp(38px,5.4vw,76px)}
 .hero .lead{margin-top:36px;max-width:48ch}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:48px}
 .hero-side{display:flex;flex-direction:column;gap:24px;align-self:end;padding-bottom:8px}
@@ -722,7 +722,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="hero-grid rv">
 <div>
 <div class="eyebrow"><span class="accent-dot"></span><span data-i18n="hero.eyebrow">A unified engineering platform</span></div>
-<h1 class="dpy-1"><span data-i18n="hero.h1.l1">A unified platform</span><br/><span data-i18n="hero.h1.l2">for engineering consultancies.</span></h1>
+<h1 class="dpy-1"><span data-i18n="hero.h1.l1">A unified platform</span> <span data-i18n="hero.h1.l2">for engineering consultancies.</span></h1>
 <p class="lead"><span data-i18n="hero.lede.body">Builtly Engineering combines deterministic computation, regulatory logic and modern AI in one workflow — taking projects from raw data through to final, signed deliverables.</span> <span class="serif" data-i18n="hero.lede.tagline">One platform. Every discipline. One source of truth.</span></p>
 <div class="hero-actions">
 <a href="https://builtly.ai" class="btn"><span data-i18n="hero.cta.primary">Open the portal</span> <span class="arr">→</span></a>
