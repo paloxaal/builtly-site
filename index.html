@@ -110,7 +110,7 @@ a{color:inherit;text-decoration:none}
 
 /* HERO */
 .hero{padding:clamp(80px,14vh,160px) 0 clamp(96px,14vh,160px);position:relative;overflow:hidden}
-.hero-bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.85}
+.hero-bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.55}
 .hero > .wrap{position:relative;z-index:1}
 .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
 @media (max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:48px}}
@@ -331,7 +331,74 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .bim-replay:hover{background:var(--accent);color:var(--bg);border-color:var(--accent)}
 .bim-replay:disabled{opacity:0.45;cursor:not-allowed}
 
-.bim-canvas-wrap{position:relative;background:transparent;min-height:340px;display:flex;flex-direction:column;overflow:hidden}
+.bim-engine{margin:24px 0;border:1px solid var(--line-strong);background:color-mix(in srgb, var(--bg-soft) 60%, transparent);padding:14px 16px 12px}
+.bim-engine-head{display:flex;align-items:baseline;gap:10px;padding-bottom:11px;border-bottom:1px solid var(--line);margin-bottom:8px;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.14em;font-weight:600}
+.bim-engine-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:bim-pulse 1.6s ease-in-out infinite;flex-shrink:0;align-self:center}
+.bim-engine-title{color:var(--ink);flex:1}
+.bim-engine-total{color:var(--mid);font-weight:500;font-variant-numeric:tabular-nums}
+.bim-engine-total #bim-eng-total{color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:-0.005em;transition:color 0.3s}
+.bim-engine-total-unit{color:var(--mid);font-size:9.5px;margin-left:2px}
+.bim-engine-rows{display:flex;flex-direction:column;gap:0}
+.bim-eng-row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;padding:7px 0;border-bottom:1px dashed var(--line);font-family:var(--font-mono);font-size:10.5px;align-items:baseline;opacity:0.28;transition:opacity 0.6s ease,background 0.5s ease,padding 0.3s ease,color 0.3s ease;font-variant-numeric:tabular-nums}
+.bim-eng-row:last-child{border-bottom:none}
+.bim-eng-row.active{opacity:1}
+.bim-eng-row.computing{background:color-mix(in srgb, var(--accent) 6%, transparent);padding-left:6px;padding-right:6px}
+.bim-eng-k{color:var(--mid);text-transform:uppercase;letter-spacing:0.12em;font-size:9.5px;font-weight:600;min-width:0;white-space:nowrap}
+.bim-eng-row.active .bim-eng-k{color:var(--ink)}
+.bim-eng-row.active .bim-eng-v{filter:drop-shadow(0 0 0 rgba(20,184,166,0));animation:bim-row-breathe 3.2s ease-in-out infinite}
+@keyframes bim-row-breathe{0%,100%{filter:drop-shadow(0 0 0 rgba(20,184,166,0))}50%{filter:drop-shadow(0 0 5px rgba(20,184,166,0.4))}}
+.bim-eng-row.active{position:relative}
+.bim-eng-row.active::before{content:"";position:absolute;left:-8px;top:50%;transform:translateY(-50%);width:3px;height:60%;background:var(--accent);opacity:0;transition:opacity 0.4s ease}
+.bim-eng-row.computing::before{opacity:1;animation:bim-marker-pulse 1.4s ease-in-out infinite}
+@keyframes bim-marker-pulse{0%,100%{opacity:0.6}50%{opacity:1}}
+.bim-eng-q{color:var(--ink-soft);font-weight:500;text-align:right;font-feature-settings:"tnum";white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.bim-eng-row.active .bim-eng-q{color:var(--ink)}
+.bim-eng-v{color:var(--accent);font-weight:700;text-align:right;font-feature-settings:"tnum";min-width:9ch;white-space:nowrap}
+.bim-eng-total-row{margin-top:6px;padding-top:11px;border-top:2px solid var(--ink);border-bottom:none;font-size:12px}
+.bim-eng-total-row .bim-eng-k{color:var(--ink);font-weight:700;font-size:10.5px}
+.bim-eng-total-row .bim-eng-q{color:var(--accent);font-weight:600;font-size:9.5px;text-transform:uppercase;letter-spacing:0.1em}
+.bim-eng-total-row .bim-eng-v{font-size:15px;font-weight:800;letter-spacing:-0.01em}
+.bim-eng-total-row.active .bim-eng-v{animation:bim-eng-flash 1.2s ease-out}
+@keyframes bim-eng-flash{0%{filter:brightness(1)}30%{filter:brightness(1.4) drop-shadow(0 0 4px var(--accent))}100%{filter:brightness(1)}}
+@keyframes total-pulse{0%{transform:scale(1)}40%{transform:scale(1.12);filter:drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 50%, transparent))}100%{transform:scale(1)}}
+.bim-engine-total #bim-eng-total.pulse,
+.bim-engine-total #algo-eng-total.pulse,
+.bim-engine-total #vert-eng-total.pulse{animation:total-pulse 700ms ease-out;display:inline-block;transform-origin:center}
+@keyframes tile-pop{0%{transform:scale(0.94);opacity:0}45%{transform:scale(1.025);opacity:1}100%{transform:scale(1);opacity:1}}
+.bim-eng-row.active.tile-pop{animation:tile-pop 520ms cubic-bezier(0.34,1.32,0.4,1) both}
+.vert-eng-tile.active.tile-pop{animation:tile-pop 520ms cubic-bezier(0.34,1.32,0.4,1) both}
+
+/* Ambient breathing: very subtle accent breathing on active elements — suggests "live computation" */
+@keyframes ambient-breathe{0%,100%{box-shadow:inset 0 0 0 0 transparent}50%{box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent)}}
+.vert-eng-tile.active{animation:ambient-breathe 3.4s ease-in-out infinite}
+.vert-eng-total-tile.active{animation:ambient-breathe 3.4s ease-in-out infinite}
+
+/* Ripple ring that briefly expands behind a tile/row when it first reveals */
+@keyframes reveal-ripple{0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 42%, transparent)}80%{box-shadow:0 0 0 8px color-mix(in srgb, var(--accent) 0%, transparent)}100%{box-shadow:0 0 0 8px transparent}}
+.vert-eng-tile.tile-pop{animation:tile-pop 520ms cubic-bezier(0.34,1.32,0.4,1) both, reveal-ripple 800ms ease-out 100ms both}
+.bim-eng-row.tile-pop{animation:tile-pop 520ms cubic-bezier(0.34,1.32,0.4,1) both, reveal-ripple 700ms ease-out 80ms both}
+
+/* Stronger pulse on .computing rows (during counter animation) — gentle accent border breathing */
+@keyframes computing-pulse{0%,100%{border-color:var(--accent)}50%{border-color:color-mix(in srgb, var(--accent) 60%, var(--line-strong))}}
+.bim-eng-row.computing{animation:computing-pulse 1.2s ease-in-out infinite}
+.vert-eng-tile.computing{animation:computing-pulse 1.2s ease-in-out infinite}
+
+.algo-engine{margin:16px 0 18px}
+.algo-engine .bim-engine-head{font-size:10px}
+.bim-eng-v.algo-eng-info{color:var(--ink-soft);font-weight:500;font-size:9.5px;letter-spacing:0.04em}
+.bim-eng-row.active .bim-eng-v.algo-eng-info{color:var(--ink)}
+
+@media (max-width:640px){
+  .bim-engine{padding:11px 12px 10px;margin:18px 0}
+  .bim-engine-head{font-size:9.5px;gap:8px}
+  .bim-eng-row{font-size:9.5px;gap:10px;padding:6px 0}
+  .bim-eng-k{font-size:8.5px;letter-spacing:0.1em}
+  .bim-eng-total-row .bim-eng-v{font-size:13px}
+}
+
+.bim-canvas-wrap{position:relative;background:transparent;min-height:340px;display:flex;flex-direction:column;overflow:hidden;transition:box-shadow 0.5s ease}
+.bim-canvas-wrap.engine-flash{box-shadow:inset 0 0 0 2px var(--accent),inset 0 0 24px color-mix(in srgb, var(--accent) 25%, transparent);animation:bim-canvas-flash 1.4s ease-out}
+@keyframes bim-canvas-flash{0%{box-shadow:inset 0 0 0 0 var(--accent),inset 0 0 0px transparent}30%{box-shadow:inset 0 0 0 2px var(--accent),inset 0 0 28px color-mix(in srgb, var(--accent) 35%, transparent)}100%{box-shadow:inset 0 0 0 1px var(--line),inset 0 0 0 transparent}}
 @media (max-width:1000px){.bim-canvas-wrap{min-height:300px}}
 @media (max-width:640px){.bim-canvas-wrap{min-height:260px}}
 #bim-canvas{display:block;width:100%;height:100%;flex:1;cursor:grab}
@@ -523,6 +590,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   margin-top: 8px;
 }
 
+.vert-canvas.engine-flash{box-shadow:inset 0 0 0 2px var(--accent), inset 0 0 28px color-mix(in srgb, var(--accent) 28%, transparent);animation:vert-engine-flash 1.4s ease-out}
+@keyframes vert-engine-flash{0%{box-shadow:inset 0 0 0 0 var(--accent), inset 0 0 0 transparent}30%{box-shadow:inset 0 0 0 2px var(--accent), inset 0 0 28px color-mix(in srgb, var(--accent) 35%, transparent)}100%{box-shadow:inset 0 0 0 1px var(--line-strong), inset 0 0 0 transparent}}
+
 .vert-canvas {
   background: rgba(19, 24, 32, 0.018);
   border: 1px solid var(--line);
@@ -563,6 +633,43 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   color: var(--ink);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+}
+
+.vert-engine{margin:32px 0 0;border:1px solid var(--line-strong);background:color-mix(in srgb, var(--bg-soft) 50%, transparent);padding:18px 22px 16px}
+.vert-engine .bim-engine-head{padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:14px;font-size:11px;letter-spacing:0.16em}
+.vert-engine .bim-engine-title{flex:1}
+.vert-engine .bim-engine-total #vert-eng-total{font-size:14px;letter-spacing:-0.005em}
+.vert-eng-grid{display:grid;grid-template-columns:repeat(6, 1fr);gap:14px}
+@media (max-width:1100px){.vert-eng-grid{grid-template-columns:repeat(3, 1fr)}}
+@media (max-width:640px){.vert-eng-grid{grid-template-columns:repeat(2, 1fr);gap:10px}}
+.vert-eng-tile{display:flex;align-items:flex-start;gap:11px;padding:13px 12px 14px;border:1px solid var(--line);background:var(--bg);opacity:0.28;transition:opacity 0.65s ease,border-color 0.5s ease,background 0.5s ease;font-family:var(--font-mono);font-variant-numeric:tabular-nums;position:relative;overflow:hidden}
+.vert-eng-tile::before{content:"";position:absolute;top:0;left:0;height:2px;width:0;background:var(--accent);transition:width 0.9s cubic-bezier(0.4,0,0.2,1)}
+.vert-eng-tile.active::before{width:100%}
+.vert-eng-total-tile.active::before{height:3px}
+.vert-eng-tile.active{opacity:1;border-color:var(--line-strong)}
+.vert-eng-tile.computing{background:color-mix(in srgb, var(--accent) 5%, var(--bg));border-color:var(--accent)}
+.vert-eng-icon{color:var(--mid);flex-shrink:0;display:flex;align-items:center;justify-content:center;width:24px;height:24px;transition:color 0.4s ease}
+.vert-eng-tile.active .vert-eng-icon{color:var(--accent);filter:drop-shadow(0 0 4px rgba(20,184,166,0.45));animation:vert-icon-breathe 2.8s ease-in-out infinite}
+@keyframes vert-icon-breathe{0%,100%{filter:drop-shadow(0 0 4px rgba(20,184,166,0.35))}50%{filter:drop-shadow(0 0 7px rgba(20,184,166,0.65))}}
+.vert-eng-tile.active{box-shadow:inset 0 -2px 0 0 rgba(20,184,166,0.0);transition:opacity 0.65s ease,border-color 0.5s ease,background 0.5s ease,box-shadow 0.4s ease}
+.vert-eng-tile.computing{box-shadow:inset 0 -2px 0 0 rgba(20,184,166,0.85)}
+.vert-eng-body{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.vert-eng-k{font-size:9.5px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);font-weight:600;line-height:1.1}
+.vert-eng-tile.active .vert-eng-k{color:var(--ink)}
+.vert-eng-v{font-size:16.5px;font-weight:700;color:var(--accent);letter-spacing:-0.015em;line-height:1.05;font-feature-settings:"tnum"}
+.vert-eng-d{font-size:9px;color:var(--mid);letter-spacing:0.05em;line-height:1.2;margin-top:1px}
+.vert-eng-total-tile{border:1px solid var(--ink);background:color-mix(in srgb, var(--accent) 4%, var(--bg))}
+.vert-eng-total-tile.active{border-color:var(--accent);background:color-mix(in srgb, var(--accent) 7%, var(--bg))}
+.vert-eng-total-tile .vert-eng-icon{color:var(--accent)}
+.vert-eng-total-tile .vert-eng-k{color:var(--ink)}
+.vert-eng-total-tile .vert-eng-v{font-size:19px;font-weight:800}
+.vert-eng-total-tile .vert-eng-d{color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.1em}
+.vert-eng-total-tile.active .vert-eng-v{animation:bim-eng-flash 1.4s ease-out}
+@media (max-width:640px){
+  .vert-engine{padding:14px 14px 12px;margin-top:24px}
+  .vert-engine .bim-engine-head{font-size:9.5px;gap:8px}
+  .vert-eng-v{font-size:14px}
+  .vert-eng-total-tile .vert-eng-v{font-size:16px}
 }
 
 #vert-svg {
@@ -766,6 +873,45 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.placed">Placed</span><span class="v"><span id="bim-placed">0</span> / 2,622</span></div>
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.stage">Stage</span><span class="v" id="bim-current" data-i18n="index.bim.v.awaiting">Awaiting trigger</span></div>
 </div>
+<div class="bim-engine" id="bim-engine">
+  <div class="bim-engine-head">
+    <span class="bim-engine-dot"></span>
+    <span class="bim-engine-title">Builtly Engine · Output</span>
+    <span class="bim-engine-total"><span id="bim-eng-total">0.0</span> <span class="bim-engine-total-unit">MNOK</span></span>
+  </div>
+  <div class="bim-engine-rows">
+    <div class="bim-eng-row" data-stage="0">
+      <span class="bim-eng-k">Betong B30</span>
+      <span class="bim-eng-q" data-target="2850" data-suffix=" m³" data-mode="int">0 m³</span>
+      <span class="bim-eng-v" data-target="1.4" data-fmt="mnok-neg">−0.0 MNOK</span>
+    </div>
+    <div class="bim-eng-row" data-stage="1">
+      <span class="bim-eng-k">Stål · Søyler</span>
+      <span class="bim-eng-q" data-target="872" data-suffix=" t · 47→38" data-mode="int">0 t · 47→38</span>
+      <span class="bim-eng-v" data-target="5.7" data-fmt="mnok-neg">−0.0 MNOK</span>
+    </div>
+    <div class="bim-eng-row" data-stage="2">
+      <span class="bim-eng-k">BRA-i</span>
+      <span class="bim-eng-q" data-target="17240" data-suffix=" m²" data-mode="int">0 m²</span>
+      <span class="bim-eng-v" data-target="17.0" data-fmt="mnok-pos">+0.0 MNOK</span>
+    </div>
+    <div class="bim-eng-row" data-stage="3">
+      <span class="bim-eng-k">Vegg-areal</span>
+      <span class="bim-eng-q" data-target="8400" data-suffix=" m²" data-mode="int">0 m²</span>
+      <span class="bim-eng-v" data-target="1.2" data-fmt="mnok-neg">−0.0 MNOK</span>
+    </div>
+    <div class="bim-eng-row" data-stage="4">
+      <span class="bim-eng-k">CO₂e</span>
+      <span class="bim-eng-q" data-target="5040" data-suffix=" t · TEK17 §17" data-mode="int">0 t · TEK17 §17</span>
+      <span class="bim-eng-v" data-target="560" data-fmt="co2-neg">−0 t</span>
+    </div>
+    <div class="bim-eng-row bim-eng-total-row" data-stage="5">
+      <span class="bim-eng-k">Total besparelse</span>
+      <span class="bim-eng-q">Builtly-optimert</span>
+      <span class="bim-eng-v" data-target="25.3" data-fmt="mnok-big">0.0 MNOK</span>
+    </div>
+  </div>
+</div>
 <button class="bim-replay" id="bim-replay" disabled><span data-i18n="index.bim.replay">Replay sequence</span> <span style="font-size:14px">↻</span></button>
 </div>
 
@@ -820,6 +966,41 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="algo-meta-row"><span class="k" data-i18n="index.k.totalArea">Total area</span><span class="v"><span class="hi" id="algo-area">—</span> m²</span></div>
 <div class="algo-meta-row"><span class="k" data-i18n="index.k.largestCell">Largest cell</span><span class="v"><span class="hi" id="algo-max">—</span> m²</span></div>
 <div class="algo-meta-row"><span class="k" data-i18n="index.k.complexity">Complexity</span><span class="v" data-i18n="index.v.onlogn">O(n log n)</span></div>
+<div class="bim-engine algo-engine" id="algo-engine">
+  <div class="bim-engine-head">
+    <span class="bim-engine-dot"></span>
+    <span class="bim-engine-title">Builtly Engine · Fundament</span>
+    <span class="bim-engine-total"><span id="algo-eng-total">0.0</span> <span class="bim-engine-total-unit">MNOK</span></span>
+  </div>
+  <div class="bim-engine-rows">
+    <div class="bim-eng-row" data-algo-stage="0">
+      <span class="bim-eng-k">Footprint</span>
+      <span class="bim-eng-q" data-target="1190" data-suffix=" m²" data-mode="int">0 m²</span>
+      <span class="bim-eng-v algo-eng-info">tributærdomene · 15 søyler</span>
+    </div>
+    <div class="bim-eng-row" data-algo-stage="1">
+      <span class="bim-eng-k">Søyle-seeds</span>
+      <span class="bim-eng-q" data-target="15" data-suffix=" posisjoner" data-mode="int">0 posisjoner</span>
+      <span class="bim-eng-v algo-eng-info">O(n log n) · plan</span>
+    </div>
+    <div class="bim-eng-row" data-algo-stage="2">
+      <span class="bim-eng-k">Voronoi-celler</span>
+      <span class="bim-eng-q" data-target="15" data-suffix=" tributærceller" data-mode="int">0 tributærceller</span>
+      <span class="bim-eng-v algo-eng-info" data-target="79" data-suffix=" m² avg · 136 max" data-fmt="int">0 m² avg</span>
+    </div>
+    <div class="bim-eng-row" data-algo-stage="3">
+      <span class="bim-eng-k">Lastfordeling</span>
+      <span class="bim-eng-q" data-target="5440" data-suffix=" kN max" data-mode="int">0 kN max</span>
+      <span class="bim-eng-v algo-eng-info" data-target="47600" data-suffix=" kN total" data-fmt="int">0 kN total</span>
+    </div>
+    <div class="bim-eng-row bim-eng-total-row" data-algo-stage="4">
+      <span class="bim-eng-k">Fundament · optimert</span>
+      <span class="bim-eng-q">84 m³ · −42 t CO₂e</span>
+      <span class="bim-eng-v" data-target="0.4" data-fmt="mnok-neg-big">−0.0 MNOK</span>
+    </div>
+  </div>
+</div>
+
 <p data-i18n="index.p.voronoiExplain" class="algo-meta-prose">Each cell is the region of floor space closest to one column — the area whose self-weight and live load that column carries. The result feeds column-sizing modules, footing design, and lateral-load distribution downstream.</p>
 </div>
 </div>
@@ -894,6 +1075,90 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="vert-canvas-label"><span class="pulse"></span>Vertical section · live</div>
 <svg id="vert-svg"></svg>
 <div class="vert-canvas-foot">Builtly · vertical section · <b id="vert-progress">0%</b></div>
+</div>
+
+<div class="bim-engine vert-engine" id="vert-engine">
+  <div class="bim-engine-head">
+    <span class="bim-engine-dot"></span>
+    <span class="bim-engine-title">Builtly Engine · Steinan B1 — Optimering</span>
+    <span class="bim-engine-total"><span id="vert-eng-total">0.0</span> <span class="bim-engine-total-unit">MNOK</span></span>
+  </div>
+  <div class="vert-eng-grid">
+    <div class="vert-eng-tile" data-vert-stage="0">
+      <div class="vert-eng-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21h18M5 17h2v4H5zM10 13h2v8h-2zM15 9h2v12h-2zM20 5h2v16h-2"/>
+        </svg>
+      </div>
+      <div class="vert-eng-body">
+        <div class="vert-eng-k">Mengde stål</div>
+        <div class="vert-eng-v" data-target="2.1" data-fmt="mnok-neg">−0.0 MNOK</div>
+        <div class="vert-eng-d">83 t · NS 1993</div>
+      </div>
+    </div>
+    <div class="vert-eng-tile" data-vert-stage="1">
+      <div class="vert-eng-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 4v16M12 4v16M18 4v16M3 22h18"/>
+        </svg>
+      </div>
+      <div class="vert-eng-body">
+        <div class="vert-eng-k">Bærelinje</div>
+        <div class="vert-eng-v" data-target="1.8" data-fmt="mnok-neg">−0.0 MNOK</div>
+        <div class="vert-eng-d">47 → 38 søyler · RIB</div>
+      </div>
+    </div>
+    <div class="vert-eng-tile" data-vert-stage="2">
+      <div class="vert-eng-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18"/>
+          <path d="M3 12h6M12 3v6"/>
+        </svg>
+      </div>
+      <div class="vert-eng-body">
+        <div class="vert-eng-k">BRA-i opt.</div>
+        <div class="vert-eng-v" data-target="14.3" data-fmt="mnok-pos">+0.0 MNOK</div>
+        <div class="vert-eng-d">+220 m² salgbart</div>
+      </div>
+    </div>
+    <div class="vert-eng-tile" data-vert-stage="3">
+      <div class="vert-eng-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>
+        </svg>
+      </div>
+      <div class="vert-eng-body">
+        <div class="vert-eng-k">Dagslys</div>
+        <div class="vert-eng-v" data-target="12" data-fmt="pct-pos">+0%</div>
+        <div class="vert-eng-d">NS-EN 17037</div>
+      </div>
+    </div>
+    <div class="vert-eng-tile" data-vert-stage="4">
+      <div class="vert-eng-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v14M12 17l-5-5M12 17l5-5M4 21h16"/>
+        </svg>
+      </div>
+      <div class="vert-eng-body">
+        <div class="vert-eng-k">CO₂e</div>
+        <div class="vert-eng-v" data-target="287" data-fmt="co2-neg">−0 t</div>
+        <div class="vert-eng-d">TEK17 §17 ✓</div>
+      </div>
+    </div>
+    <div class="vert-eng-tile vert-eng-total-tile" data-vert-stage="5">
+      <div class="vert-eng-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16l-7 8 7 8H4l7-8z"/>
+        </svg>
+      </div>
+      <div class="vert-eng-body">
+        <div class="vert-eng-k">Total besparelse</div>
+        <div class="vert-eng-v" data-target="18.2" data-fmt="mnok-big">0.0 MNOK</div>
+        <div class="vert-eng-d">Builtly-optimert</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </div>
@@ -1927,6 +2192,120 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   const POST_HOLD = 1400;
   const ORBIT_DURATION = 7000;
 
+  // === Builtly Engine Output: reveal rows + animate counters as stages progress ===
+  const engineRows = Array.from(document.querySelectorAll('.bim-eng-row'));
+  const engineTotalEl = document.getElementById('bim-eng-total');
+  let engineTotalNOK = 0;
+  let bimTotalRaf = null;
+  const engineRowState = new Array(engineRows.length).fill(false);
+
+  function fmtEngineV(target, fmt, val) {
+    if (fmt === 'mnok-neg') return '−' + val.toFixed(1) + ' MNOK';
+    if (fmt === 'mnok-pos') return '+' + val.toFixed(1) + ' MNOK';
+    if (fmt === 'mnok-big') return val.toFixed(1) + ' MNOK';
+    if (fmt === 'co2-neg')  return '−' + Math.round(val) + ' t';
+    return val.toString();
+  }
+  function fmtEngineQ(target, suffix, mode, val) {
+    if (mode === 'int') {
+      const n = Math.round(val);
+      // Thousand-separator with thin space for ≥1000
+      const s = n >= 1000 ? n.toLocaleString('nb-NO').replace(/,/g, ' ').replace(/\u00a0/g,' ') : n.toString();
+      return s + suffix;
+    }
+    return val.toFixed(1) + suffix;
+  }
+  function animateCounter(el, target, dur, fmt) {
+    const start = performance.now();
+    const fromVal = 0;
+    function step(now){
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const v = fromVal + (target - fromVal) * eased;
+      el.textContent = fmt(v);
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+  function revealEngineRow(idx) {
+    if (idx < 0 || idx >= engineRows.length) return;
+    if (engineRowState[idx]) return;
+    engineRowState[idx] = true;
+    const row = engineRows[idx];
+    row.classList.add('active', 'computing', 'tile-pop');
+    setTimeout(() => row.classList.remove('tile-pop'), 600);
+    const qEl = row.querySelector('.bim-eng-q');
+    const vEl = row.querySelector('.bim-eng-v');
+    if (qEl && qEl.dataset.target) {
+      const target = parseFloat(qEl.dataset.target);
+      const suffix = qEl.dataset.suffix || '';
+      const mode = qEl.dataset.mode || 'float';
+      animateCounter(qEl, target, 900, (v) => fmtEngineQ(target, suffix, mode, v));
+    }
+    if (vEl && vEl.dataset.target) {
+      const target = parseFloat(vEl.dataset.target);
+      const fmt = vEl.dataset.fmt || 'mnok-neg';
+      animateCounter(vEl, target, 900, (v) => fmtEngineV(target, fmt, v));
+      // Update running total NOK (only for MNOK rows, both pos and neg contribute to savings/gain)
+      if (fmt === 'mnok-neg' || fmt === 'mnok-pos') {
+        // Synchronously update true target (avoids race)
+        engineTotalNOK += target;
+        const newTarget = engineTotalNOK;
+        setTimeout(() => {
+          if (bimTotalRaf) cancelAnimationFrame(bimTotalRaf);
+          const startDisplay = parseFloat((engineTotalEl && engineTotalEl.textContent) || '0') || 0;
+          const t0 = performance.now();
+          function tStep(now) {
+            const t = Math.min(1, (now - t0) / 700);
+            const e = 1 - Math.pow(1 - t, 3);
+            const v = startDisplay + (newTarget - startDisplay) * e;
+            if (engineTotalEl) engineTotalEl.textContent = v.toFixed(1);
+            if (t < 1) bimTotalRaf = requestAnimationFrame(tStep);
+            else { if (engineTotalEl) engineTotalEl.textContent = newTarget.toFixed(1); bimTotalRaf = null; }
+          }
+          bimTotalRaf = requestAnimationFrame(tStep);
+        }, 200);
+      }
+    }
+    // Settle 'computing' state after counter completes
+    setTimeout(() => row.classList.remove('computing'), 1200);
+  }
+  function revealTotalRow() {
+    const totalIdx = engineRows.length - 1;
+    if (totalIdx >= 0 && !engineRowState[totalIdx]) {
+      revealEngineRow(totalIdx);
+      // Flash the canvas to visually connect the total to the BIM model
+      const canvasWrap = document.querySelector('.bim-canvas-wrap');
+      if (canvasWrap) {
+        canvasWrap.classList.remove('engine-flash');
+        void canvasWrap.offsetWidth;  // reflow to restart animation
+        canvasWrap.classList.add('engine-flash');
+        setTimeout(() => canvasWrap.classList.remove('engine-flash'), 1500);
+      }
+    }
+  }
+  function resetEngineRows() {
+    engineRowState.fill(false);
+    engineTotalNOK = 0;
+    if (bimTotalRaf) { cancelAnimationFrame(bimTotalRaf); bimTotalRaf = null; }
+    if (engineTotalEl) engineTotalEl.textContent = '0.0';
+    engineRows.forEach(r => {
+      r.classList.remove('active', 'computing');
+      const q = r.querySelector('.bim-eng-q');
+      const v = r.querySelector('.bim-eng-v');
+      if (q && q.dataset.target) {
+        const sfx = q.dataset.suffix || '';
+        const mode = q.dataset.mode || 'float';
+        q.textContent = (mode === 'int' ? '0' : '0.0') + sfx;
+      }
+      if (v && v.dataset.target) {
+        const fmt = v.dataset.fmt || 'mnok-neg';
+        v.textContent = fmtEngineV(parseFloat(v.dataset.target), fmt, 0);
+      }
+    });
+  }
+
   // Stage banner DOM
   const stageBanner = document.getElementById('bim-stage-banner');
   const stageBannerNum = document.getElementById('bim-stage-num');
@@ -1951,6 +2330,8 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       if (stageBanner) stageBanner.classList.add('visible');
       // Also update meta sidebar's current label
       currentEl.textContent = s.name;
+      // Reveal Builtly engine output for this stage
+      revealEngineRow(stageIdx);
     } else if (buildComplete) {
       // Complete: hide banner
       if (stageBanner) stageBanner.classList.remove('visible');
@@ -1995,6 +2376,8 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   function startBuild(){
     if (isAnimating) return;
     resetScene();
+    resetEngineRows();
+    activeStageIdx = -2;
     buildComplete = false;
     orbitStarted = false;
     orbitEndTime = null;
@@ -2086,6 +2469,7 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
 
       if (t > buildEndTime && placedCount === totalCount && !buildComplete) {
         buildComplete = true;
+        revealTotalRow();
         currentEl.textContent = 'Complete · ' + totalCount.toLocaleString('en-US') + ' elements';
         accentGeo.setDrawRange(0, 0);
         if (stageBanner) stageBanner.classList.remove('visible');
@@ -2319,11 +2703,108 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
 
   function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
+  // === Builtly Engine Output (Voronoi/foundation) ===
+  const algoEngineRows = Array.from(document.querySelectorAll('#algo-engine .bim-eng-row'));
+  const algoEngineTotalEl = document.getElementById('algo-eng-total');
+  let algoEngineTotalNOK = 0;
+  let algoTotalRaf = null;
+  const algoEngineRowState = new Array(algoEngineRows.length).fill(false);
+  let algoLastStageIdx = -1;
+
+  function algoFmtV(fmt, val, target) {
+    if (fmt === 'mnok-neutral')  return val.toFixed(1) + ' MNOK';
+    if (fmt === 'mnok-neg-big')  return '−' + val.toFixed(1) + ' MNOK';
+    if (fmt === 'int') {
+      const n = Math.round(val);
+      const s = n >= 1000 ? n.toLocaleString('nb-NO').replace(/,/g, ' ').replace(/\u00a0/g, ' ') : n.toString();
+      return s;
+    }
+    return val.toString();
+  }
+  function algoAnimateCounter(el, target, dur, fmt) {
+    const start = performance.now();
+    function step(now){
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const v = target * eased;
+      el.textContent = fmt(v);
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+  function algoRevealRow(idx) {
+    if (idx < 0 || idx >= algoEngineRows.length) return;
+    if (algoEngineRowState[idx]) return;
+    algoEngineRowState[idx] = true;
+    const row = algoEngineRows[idx];
+    row.classList.add('active', 'computing', 'tile-pop');
+    setTimeout(() => row.classList.remove('tile-pop'), 600);
+    const qEl = row.querySelector('.bim-eng-q');
+    const vEl = row.querySelector('.bim-eng-v');
+    if (qEl && qEl.dataset.target) {
+      const target = parseFloat(qEl.dataset.target);
+      const suffix = qEl.dataset.suffix || '';
+      algoAnimateCounter(qEl, target, 900, (v) => algoFmtV('int', v, target) + suffix);
+    }
+    if (vEl && vEl.dataset.target) {
+      const target = parseFloat(vEl.dataset.target);
+      const fmt = vEl.dataset.fmt || 'mnok-neutral';
+      const suffix = vEl.dataset.suffix || '';
+      const formatter = (fmt === 'int')
+        ? (v) => algoFmtV('int', v, target) + suffix
+        : (v) => algoFmtV(fmt, v, target);
+      algoAnimateCounter(vEl, target, 900, formatter);
+      // Running total for MNOK rows (always positive savings contribution)
+      if (fmt === 'mnok-neutral' || fmt === 'mnok-neg-big') {
+        algoEngineTotalNOK += target;
+        const newTarget = algoEngineTotalNOK;
+        setTimeout(() => {
+          if (algoTotalRaf) cancelAnimationFrame(algoTotalRaf);
+          const startDisplay = parseFloat((algoEngineTotalEl && algoEngineTotalEl.textContent) || '0') || 0;
+          const t0 = performance.now();
+          function tStep(now) {
+            const t = Math.min(1, (now - t0) / 700);
+            const e = 1 - Math.pow(1 - t, 3);
+            const v = startDisplay + (newTarget - startDisplay) * e;
+            if (algoEngineTotalEl) algoEngineTotalEl.textContent = v.toFixed(1);
+            if (t < 1) algoTotalRaf = requestAnimationFrame(tStep);
+            else { if (algoEngineTotalEl) algoEngineTotalEl.textContent = newTarget.toFixed(1); algoTotalRaf = null; }
+          }
+          algoTotalRaf = requestAnimationFrame(tStep);
+        }, 200);
+      }
+    }
+    setTimeout(() => row.classList.remove('computing'), 1200);
+  }
+  function algoResetEngineRows() {
+    algoEngineRowState.fill(false);
+    algoEngineTotalNOK = 0;
+    algoLastStageIdx = -1;
+    if (algoTotalRaf) { cancelAnimationFrame(algoTotalRaf); algoTotalRaf = null; }
+    if (algoEngineTotalEl) algoEngineTotalEl.textContent = '0.0';
+    algoEngineRows.forEach(r => {
+      r.classList.remove('active', 'computing');
+      const q = r.querySelector('.bim-eng-q');
+      const v = r.querySelector('.bim-eng-v');
+      if (q && q.dataset.target) {
+        const sfx = q.dataset.suffix || '';
+        q.textContent = '0' + sfx;
+      }
+      if (v && v.dataset.target) {
+        const fmt = v.dataset.fmt || 'mnok-neutral';
+        const sfx = v.dataset.suffix || '';
+        if (fmt === 'int') v.textContent = '0' + sfx;
+        else v.textContent = algoFmtV(fmt, 0, 0);
+      }
+    });
+  }
+
   function render(now) {
     if (!running) return;
     if (startTime === null) startTime = now;
     let elapsed = now - startTime;
-    if (elapsed > TOTAL_MS + HOLD_MS) { startTime = now; elapsed = 0; }
+    if (elapsed > TOTAL_MS + HOLD_MS) { startTime = now; elapsed = 0; algoResetEngineRows(); }
 
     const t = getTransform();
     ctx.clearRect(0, 0, t.w, t.h);
@@ -2366,6 +2847,16 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     // Banner
     if (stageNumEl)  stageNumEl.textContent  = 'Step ' + (idx + 1) + ' / ' + STAGES.length;
     if (stageNameEl) stageNameEl.textContent = STAGES[idx].name;
+
+    // Builtly engine reveal on stage change
+    if (idx !== algoLastStageIdx) {
+      algoLastStageIdx = idx;
+      algoRevealRow(idx);
+      // When the last stage (Tributary) starts, schedule the TOTAL row reveal
+      if (idx === STAGES.length - 1) {
+        setTimeout(() => algoRevealRow(STAGES.length), STAGES[idx].duration * 0.7);
+      }
+    }
 
     // Live stats
     updateStats(idx, p);
@@ -2753,7 +3244,145 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       setX(doorBars[i], COL_BAR_START); setW(doorBars[i], 0);
       setX(windowBars[i], COL_BAR_START); setW(windowBars[i], 0);
     }
+    resetVertEngine();
   }
+
+  // === Builtly Engine Output for vert-section ===
+  const vertEngineTiles = Array.from(document.querySelectorAll('#vert-engine .vert-eng-tile'));
+  const vertEngineTotalEl = document.getElementById('vert-eng-total');
+  let vertEngineTotalNOK = 0;
+  let vertTotalRaf = null;
+  const vertEngineState = new Array(vertEngineTiles.length).fill(false);
+
+  function fmtVertV(fmt, val) {
+    if (fmt === 'mnok-neg') return '−' + val.toFixed(1) + ' MNOK';
+    if (fmt === 'mnok-pos') return '+' + val.toFixed(1) + ' MNOK';
+    if (fmt === 'mnok-big') return val.toFixed(1) + ' MNOK';
+    if (fmt === 'co2-neg')  return '−' + Math.round(val) + ' t';
+    if (fmt === 'pct-pos')  return '+' + Math.round(val) + '%';
+    return val.toString();
+  }
+  function animateVertCounter(el, target, dur, fmt) {
+    const start = performance.now();
+    function step(now){
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const v = target * eased;
+      el.textContent = fmt(v);
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = fmt(target);
+    }
+    requestAnimationFrame(step);
+  }
+  // Tile → storey-display-index mapping (STOREYS array is top-down PLAN 06=0 .. PLAN 00=7)
+  // Each tile highlights the storeys most relevant to its metric
+  const TILE_STOREY_MAP = [
+    [7],            // 0 Stål: PLAN 00 (structural podium)
+    [6, 7],         // 1 Bærelinje: PLAN 00, PLAN 01 (column-dense)
+    [2, 3, 4, 5],   // 2 BRA-i: PLAN 02–05 (mid livable)
+    [0, 1, 2],      // 3 Dagslys: PLAN 04, 05, 05-A, 06 (top floors)
+    [0, 1, 2, 3, 4, 5, 6, 7],  // 4 CO₂e: whole building
+    [0, 1, 2, 3, 4, 5, 6, 7],  // 5 TOTAL: whole building
+  ];
+
+  function pulseStoreys(storeyIdxs, isFinale) {
+    storeyIdxs.forEach(sIdx => {
+      const plate = storeyPlates[sIdx];
+      if (!plate) return;
+      const peak = isFinale ? 0.42 : 0.32;
+      const baseFill = 0.12;
+      const t0 = performance.now();
+      const dur = isFinale ? 1400 : 900;
+      function step(now) {
+        const t = Math.min(1, (now - t0) / dur);
+        // Pulse: ease-out up to peak at t=0.25, then ease back to base
+        let v;
+        if (t < 0.25) {
+          const u = t / 0.25;
+          v = baseFill + (peak - baseFill) * (1 - Math.pow(1 - u, 2));
+        } else {
+          const u = (t - 0.25) / 0.75;
+          v = peak - (peak - baseFill) * (1 - Math.pow(1 - u, 2));
+        }
+        plate.setAttribute('fill', 'rgba(20,184,166,' + v.toFixed(3) + ')');
+        if (t < 1) requestAnimationFrame(step);
+        else plate.setAttribute('fill', 'rgba(20,184,166,' + baseFill + ')');
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  function revealVertTile(idx) {
+    if (idx < 0 || idx >= vertEngineTiles.length) return;
+    if (vertEngineState[idx]) return;
+    vertEngineState[idx] = true;
+    const tile = vertEngineTiles[idx];
+    tile.classList.add('active', 'computing', 'tile-pop');
+    setTimeout(() => tile.classList.remove('tile-pop'), 600);
+    // Pulse the relevant storeys in the canvas — visually connects panel to model
+    const mappedStoreys = TILE_STOREY_MAP[idx] || [];
+    const isFinale = tile.classList.contains('vert-eng-total-tile');
+    pulseStoreys(mappedStoreys, isFinale);
+    const vEl = tile.querySelector('.vert-eng-v');
+    if (vEl && vEl.dataset.target) {
+      const target = parseFloat(vEl.dataset.target);
+      const fmt = vEl.dataset.fmt || 'mnok-neg';
+      animateVertCounter(vEl, target, 950, (v) => fmtVertV(fmt, v));
+      const isTotalTile = tile.classList.contains('vert-eng-total-tile');
+      if (!isTotalTile && (fmt === 'mnok-neg' || fmt === 'mnok-pos')) {
+        // Sync target now; animate display separately and cancel any in-flight raf
+        vertEngineTotalNOK += target;
+        const targetNok = vertEngineTotalNOK;
+        setTimeout(() => {
+          if (vertTotalRaf) cancelAnimationFrame(vertTotalRaf);
+          const startNok = parseFloat((vertEngineTotalEl && vertEngineTotalEl.textContent) || '0') || 0;
+          const t0 = performance.now();
+          function tStep(now) {
+            const t = Math.min(1, (now - t0) / 700);
+            const e = 1 - Math.pow(1 - t, 3);
+            const v = startNok + (targetNok - startNok) * e;
+            if (vertEngineTotalEl) vertEngineTotalEl.textContent = v.toFixed(1);
+            if (t < 1) vertTotalRaf = requestAnimationFrame(tStep);
+            else { if (vertEngineTotalEl) vertEngineTotalEl.textContent = targetNok.toFixed(1); vertTotalRaf = null; }
+          }
+          vertTotalRaf = requestAnimationFrame(tStep);
+        }, 220);
+      }
+      // Flash the canvas when TOTAL tile reveals — visually ties total to the building
+      if (isTotalTile) {
+        const canvasWrap = document.querySelector('.vert-canvas');
+        if (canvasWrap) {
+          canvasWrap.classList.remove('engine-flash');
+          void canvasWrap.offsetWidth;
+          canvasWrap.classList.add('engine-flash');
+          setTimeout(() => canvasWrap.classList.remove('engine-flash'), 1500);
+        }
+      }
+    }
+    setTimeout(() => tile.classList.remove('computing'), 1300);
+  }
+  function resetVertEngine() {
+    vertEngineState.fill(false);
+    vertEngineTotalNOK = 0;
+    if (vertTotalRaf) { cancelAnimationFrame(vertTotalRaf); vertTotalRaf = null; }
+    if (vertEngineTotalEl) vertEngineTotalEl.textContent = '0.0';
+    vertEngineTiles.forEach(tile => {
+      tile.classList.remove('active', 'computing');
+      const v = tile.querySelector('.vert-eng-v');
+      if (v && v.dataset.target) {
+        v.textContent = fmtVertV(v.dataset.fmt || 'mnok-neg', 0);
+      }
+    });
+  }
+
+  const VERT_MILESTONES = [
+    T_OUTLINE + 1 * T_PER_STOREY,
+    T_OUTLINE + 2 * T_PER_STOREY,
+    T_OUTLINE + 4 * T_PER_STOREY,
+    T_OUTLINE + 6 * T_PER_STOREY,
+    T_OUTLINE + 7 * T_PER_STOREY,
+    T_OUTLINE + 8 * T_PER_STOREY + 200,
+  ];
 
   function render(now) {
     if (!running) return;
@@ -2820,6 +3449,13 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       const denom = TOTAL_MS - T_PAUSE;
       const pct = Math.min(100, Math.floor((elapsed / denom) * 100));
       progressEl.textContent = pct + '%';
+    }
+
+    // Builtly engine reveals — check milestones each frame
+    for (let i = 0; i < VERT_MILESTONES.length; i++) {
+      if (elapsed >= VERT_MILESTONES[i] && !vertEngineState[i]) {
+        revealVertTile(i);
+      }
     }
 
     rafId = requestAnimationFrame(render);
