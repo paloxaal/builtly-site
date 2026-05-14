@@ -872,7 +872,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.source">Source</span><span class="v" data-i18n="index.v.ifc4_36mb">IFC4 · 36.6 MB</span></div>
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.extents">Extents</span><span class="v" data-i18n="index.v.71x110">71 × 110 × 22 m</span></div>
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.placed">Placed</span><span class="v"><span id="bim-placed">0</span> / 2,622</span></div>
-<div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.stage">Stage</span><span class="v" id="bim-current" data-i18n="index.bim.v.awaiting">Awaiting trigger</span></div>
+<div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.stage">Stage</span><span class="v" id="bim-current">Awaiting trigger</span></div>
 </div>
 <div class="bim-engine" id="bim-engine">
   <div class="bim-engine-head">
@@ -1907,7 +1907,7 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     const el = document.getElementById('saga-data');
     data = JSON.parse(el.textContent);
   } catch (e) {
-    currentEl.textContent = 'Error parsing model data';
+    currentEl.textContent = bimT('bim.status.error_parsing', 'Error parsing model data');
     return;
   }
 
@@ -2295,6 +2295,12 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   }
   function revealTotalRow() {
     const totalIdx = engineRows.length - 1;
+    // If user scrolled out during build and returned, contributing rows may
+    // not have been revealed (updateStageBanner skipped past them). Ensure
+    // all contributing rows reveal before TOTAL so the math reconciles.
+    for (let i = 0; i < totalIdx; i++) {
+      if (!engineRowState[i]) revealEngineRow(i);
+    }
     if (totalIdx >= 0 && !engineRowState[totalIdx]) {
       revealEngineRow(totalIdx);
       // Flash the canvas to visually connect the total to the BIM model
@@ -2385,6 +2391,19 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     }
     return englishName;
   }
+  function bimT(key, fallback) {
+    if (window.BUILTLY_I18N && window.BUILTLY_I18N.T) {
+      return window.BUILTLY_I18N.T(key) || fallback;
+    }
+    return fallback;
+  }
+  function getBimStatusText(state, count) {
+    if (state === 'ready')    return bimT('bim.status.ready', 'Ready');
+    if (state === 'building') return bimT('bim.status.building', 'Building...');
+    if (state === 'complete') return bimT('bim.status.complete', 'Complete · {n} elements').replace('{n}', (count || 0).toLocaleString());
+    if (state === 'replay')   return bimT('bim.status.replay', 'Replay sequence ↻');
+    return '';
+  }
   const stageBannerName = document.getElementById('bim-stage-name');
   let currentStageIdx = 0;
   // Re-render current BIM stage on lang change
@@ -2392,6 +2411,29 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     window.BUILTLY_I18N.onLangChange(function() {
       if (stageBannerName && stageBannerName.textContent && currentStageIdx >= 0 && currentStageIdx < STAGES.length) {
         stageBannerName.textContent = getBimStageName(STAGES[currentStageIdx].name);
+      }
+      // Re-render Stage X / N banner number with translated 'Stage' word
+      if (stageBannerNum && stageBannerNum.textContent && currentStageIdx >= 0 && stageTimeline && stageTimeline.length) {
+        stageBannerNum.textContent = bimT('bim.banner.stage', 'Stage') + ' ' + (currentStageIdx + 1) + ' / ' + stageTimeline.length;
+      }
+      // Re-render currentEl status text based on current state
+      if (currentEl) {
+        if (buildComplete) {
+          currentEl.textContent = getBimStatusText('complete', totalCount);
+        } else if (buildStartTime === null) {
+          currentEl.textContent = getBimStatusText('ready');
+        } else if (currentStageIdx >= 0 && currentStageIdx < STAGES.length) {
+          // Mid-build: show translated stage name
+          currentEl.textContent = getBimStageName(STAGES[currentStageIdx].name);
+        }
+      }
+      // Re-render replay button text based on its state
+      if (replayBtn) {
+        if (replayBtn.disabled) {
+          replayBtn.textContent = getBimStatusText('building');
+        } else if (buildComplete) {
+          replayBtn.innerHTML = getBimStatusText('replay');
+        }
       }
     });
   }
@@ -2411,12 +2453,12 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     activeStageIdx = stageIdx;
     if (stageIdx >= 0) {
       const s = stageTimeline[stageIdx];
-      if (stageBannerNum) stageBannerNum.textContent = 'Stage ' + (stageIdx + 1) + ' / ' + stageTimeline.length;
+      if (stageBannerNum) stageBannerNum.textContent = bimT('bim.banner.stage', 'Stage') + ' ' + (stageIdx + 1) + ' / ' + stageTimeline.length;
       currentStageIdx = stageIdx;
         if (stageBannerName) stageBannerName.textContent = getBimStageName(s.name);
       if (stageBanner) stageBanner.classList.add('visible');
       // Also update meta sidebar's current label
-      currentEl.textContent = s.name;
+      currentEl.textContent = getBimStageName(s.name);
       // Reveal Builtly engine output for this stage
       revealEngineRow(stageIdx);
     } else if (buildComplete) {
@@ -2429,7 +2471,7 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   }
 
   replayBtn.disabled = false;
-  currentEl.textContent = 'Ready';
+  currentEl.textContent = getBimStatusText('ready');
 
   function resetScene(){
     for (const type in byType) {
@@ -2472,10 +2514,10 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
     placedCount = 0;
     buildStartTime = performance.now();
     replayBtn.disabled = true;
-    replayBtn.textContent = 'Building...';
+    replayBtn.textContent = getBimStatusText('building');
     placedEl.textContent = '0';
     progressEl.textContent = '0%';
-    currentEl.textContent = stageTimeline[0].name;
+    currentEl.textContent = getBimStageName(stageTimeline[0].name);
   }
 
   const easeOut = (t) => 1 - Math.pow(1 - t, 3);
@@ -2557,7 +2599,7 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       if (t > buildEndTime && placedCount === totalCount && !buildComplete) {
         buildComplete = true;
         revealTotalRow();
-        currentEl.textContent = 'Complete · ' + totalCount.toLocaleString('en-US') + ' elements';
+        currentEl.textContent = getBimStatusText('complete', totalCount);
         accentGeo.setDrawRange(0, 0);
         if (stageBanner) stageBanner.classList.remove('visible');
       }
@@ -2579,7 +2621,7 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
         controls.autoRotateSpeed = 0.13;
         isAnimating = false;
         replayBtn.disabled = false;
-        replayBtn.innerHTML = 'Replay sequence <span style="font-size:14px">↻</span>';
+        replayBtn.innerHTML = getBimStatusText('replay');
         orbitEndTime = null;
       }
     }
@@ -3048,7 +3090,15 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       algoRevealRow(idx);
       // When the last stage (Tributary) starts, schedule the TOTAL row reveal
       if (idx === STAGES.length - 1) {
-        setTimeout(() => algoRevealRow(STAGES.length), STAGES[idx].duration * 0.7);
+        setTimeout(() => {
+          // Safety net: if user scrolled out during animation, some
+          // contributing rows may not have revealed. Catch them up before
+          // revealing TOTAL so the math reconciles.
+          for (let i = 0; i < STAGES.length; i++) {
+            if (!algoEngineRowState[i]) algoRevealRow(i);
+          }
+          algoRevealRow(STAGES.length);
+        }, STAGES[idx].duration * 0.7);
       }
     }
 
@@ -3165,6 +3215,11 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
       if (e.isIntersecting && !running) {
         running = true;
         startTime = null;
+        // Clean restart: clear stage tracker + engine row state so the
+        // canvas redraw matches the engine row reveals (avoids stale state
+        // if the previous run was interrupted by scroll-out).
+        algoLastStageIdx = -1;
+        algoResetEngineRows();
         if (rafId) cancelAnimationFrame(rafId);
         rafId = requestAnimationFrame(render);
       } else if (!e.isIntersecting && running) {
