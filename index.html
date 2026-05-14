@@ -1189,25 +1189,25 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="discipline">
 <div class="head"><span>01</span><span class="topic" data-i18n="disc.time_allocation">Time allocation</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p1.h3">Manual report production.</h3>
-<p data-i18n="index.prob.p1.body">Engineers spend 40–60% of their time on documentation and report writing rather than engineering analysis. The result is lower productivity, longer delivery cycles, and the most expensive professional capacity in the industry deployed against the lowest-value tasks.</p>
-<div class="marker-bottom"><span data-i18n="disc.tied_up">Tied up in paperwork</span><span class="v" data-i18n="index.v.40_60">40–60%</span></div>
+<p data-i18n="index.prob.p1.body">Documentation and reporting consume 40–60% of an engineer's day — driven by stricter regulation, more complex documentation requirements and tool chains that have grown fragmented over twenty years. Builtly is for engineers who want to spend more time on the actual engineering.</p>
+<div class="marker-bottom"><span data-i18n="disc.tied_up">Time on paperwork</span><span class="v" data-i18n="index.v.40_60">40–60%</span></div>
 </article>
 <article class="discipline">
-<div class="head"><span>02</span><span class="topic" data-i18n="disc.incentive_structure">Incentive structure</span></div>
-<h3 class="dpy-3" data-i18n="index.prob.p2.h3">Established firms cannot self-disrupt.</h3>
-<p data-i18n="index.prob.p2.body">When efficiency reduces billable hours, transformation is difficult to drive from within. Genuine reinvention rarely originates from the incumbents — it has to come from outside the existing fee model.</p>
-<div class="marker-bottom"><span data-i18n="disc.status_quo">Status quo</span><span class="v" data-i18n="val.profitable">Profitable</span></div>
+<div class="head"><span>02</span><span class="topic" data-i18n="disc.incentive_structure">Technology</span></div>
+<h3 class="dpy-3" data-i18n="index.prob.p2.h3">The tools have changed.</h3>
+<p data-i18n="index.prob.p2.body">AI, geometry processing and distributed compute have matured over the past five years to the point where compliance-grade engineering software is actually possible — not as an integration layer between existing tools, but as one coherent portal. Builtly is for engineers who want to use that mature technology now.</p>
+<div class="marker-bottom"><span data-i18n="disc.status_quo">Technology window</span><span class="v" data-i18n="val.profitable">Open now</span></div>
 </article>
 <article class="discipline">
 <div class="head"><span>03</span><span class="topic" data-i18n="disc.senior_capacity">Senior capacity</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p3.h3">Senior expertise is the bottleneck.</h3>
-<p data-i18n="index.prob.p3.body">Markets globally lack senior structural, geotechnical, fire and acoustical engineers. Automating routine production frees expert capacity for work that genuinely requires professional judgment — where human accountability cannot be replaced.</p>
+<p data-i18n="index.prob.p3.body">Markets globally lack senior structural, geotechnical, fire and acoustical engineers. Builtly automates the routine layer so senior expertise can be deployed where professional judgment is actually required — where human accountability cannot be replaced. For firms that want to get more out of their senior capacity.</p>
 <div class="marker-bottom"><span data-i18n="disc.bottleneck">Bottleneck</span><span class="v" data-i18n="index.v.seniorNotSoftware">Senior, not software</span></div>
 </article>
 <article class="discipline">
 <div class="head"><span>04</span><span class="topic" data-i18n="disc.tooling">Tooling</span></div>
 <h3 class="dpy-3" data-i18n="index.prob.p4.h3">Fragmented workflows.</h3>
-<p data-i18n="index.prob.p4.body">Drawings in CAD. Calculations in spreadsheets. Reports in word processors. Requirements in separate sources. Every handoff is manual — and every manual handoff is a coordination problem, a delay, and a risk of error.</p>
+<p data-i18n="index.prob.p4.body">Drawings in CAD. Calculations in spreadsheets. Reports in word processors. Requirements in separate sources. Every handoff is manual — and every manual handoff is a coordination problem, a delay and a risk of error. Builtly consolidates it into one portal — for engineers who want a single source of truth per project.</p>
 <div class="marker-bottom"><span data-i18n="disc.tools_per_delivery">Tools per delivery</span><span class="v" data-i18n="index.v.fourMinimum">Four, minimum</span></div>
 </article>
 </div>
@@ -2194,7 +2194,7 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   const ORBIT_DURATION = 7000;
 
   // === Builtly Engine Output: reveal rows + animate counters as stages progress ===
-  const engineRows = Array.from(document.querySelectorAll('.bim-eng-row'));
+  const engineRows = Array.from(document.querySelectorAll('#bim-engine .bim-eng-row'));
   const engineTotalEl = document.getElementById('bim-eng-total');
   let engineTotalNOK = 0;
   let bimTotalRaf = null;
