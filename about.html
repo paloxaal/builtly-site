@@ -113,7 +113,7 @@ a{color:inherit;text-decoration:none}
 @media (max-width:900px){.leaders{grid-template-columns:1fr}}
 .leader{background:var(--bg);padding:clamp(36px,4vw,52px);display:flex;flex-direction:column;min-height:480px;position:relative}
 .leader .role{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:clamp(28px,4vh,44px);display:flex;justify-content:space-between}
-.leader .role .ix{color:var(--mid);font-weight:500}
+.leader 
 .leader .name{font-family:var(--font-display);font-size:clamp(26px,2.8vw,38px);font-weight:500;letter-spacing:-0.022em;line-height:1.0;color:var(--ink);margin-bottom:clamp(24px,3vh,32px)}
 .leader .bio{font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin-bottom:clamp(28px,4vh,36px);flex-grow:1}
 .leader .cred{border-top:1px solid var(--line);padding-top:18px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);line-height:1.85}
@@ -123,45 +123,28 @@ a{color:inherit;text-decoration:none}
 
 /* BOARD SEATS — abstracted founder-style cards for board/advisory placeholders */
 .board-section{background:var(--bg-soft)}
-.seats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
-@media (max-width:900px){.seats{grid-template-columns:1fr}}
-.seat{background:var(--bg);padding:clamp(32px,3.6vw,44px);display:flex;flex-direction:column;min-height:280px;position:relative}
-.seat .role{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:clamp(24px,3.5vh,36px);display:flex;justify-content:space-between}
-.seat .role .ix{color:var(--mid);font-weight:500}
-.seat .seat-title{font-family:var(--font-display);font-size:clamp(22px,2.3vw,30px);font-weight:500;letter-spacing:-0.02em;line-height:1.0;color:var(--ink);margin-bottom:14px}
-.seat .seat-status{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid);font-weight:500;margin-bottom:auto;padding-bottom:24px}
+
+.seat 
+.seat 
 .seat .seat-desc{border-top:1px solid var(--line);padding-top:16px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);line-height:1.7}
 .seat .seat-desc span{display:block}
 .seat .seat-desc span.h{color:var(--ink);font-weight:600;margin-bottom:6px}
-
 
 /* BOARD SEATS — 4-up with photos and bios */
 .seats-4{grid-template-columns:repeat(4,1fr) !important}
 @media (max-width:1200px){.seats-4{grid-template-columns:repeat(2,1fr) !important}}
 @media (max-width:600px){.seats-4{grid-template-columns:1fr !important}}
-.seat-with-photo{min-height:auto;padding:clamp(24px,2.6vw,32px)}
-.seat-photo{width:100%;aspect-ratio:1/1;background:var(--bg-soft);border-radius:2px;overflow:hidden;margin-bottom:clamp(20px,2.4vw,28px);position:relative}
-.seat-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.05)}
+
 .seat-photo-initials{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--bg-soft) 0%,var(--line) 100%)}
 .seat-photo-initials span{font-family:var(--font-display);font-size:clamp(40px,4.5vw,60px);font-weight:300;letter-spacing:-0.04em;color:var(--mid)}
-.seat-with-photo .seat-title{font-size:clamp(18px,1.8vw,22px);margin-bottom:8px;line-height:1.1}
-.seat-with-photo .seat-status{margin-bottom:clamp(16px,2vh,20px);padding-bottom:clamp(16px,2vh,20px);border-bottom:1px solid var(--line);font-size:10px}
+.seat-with-photo 
+.seat-with-photo 
 .seat-with-photo .role{margin-bottom:clamp(12px,1.6vh,16px)}
-.seat-bio{font-family:var(--font-body);font-size:13px;line-height:1.6;color:var(--ink-soft);margin:0}
 
 /* ADVISORY GRID — uses same team-grid pattern as wider team */
 .advisory-section{background:var(--bg)}
 
 /* TRUSTED BY — minimal logo wall, monochrome on cream */
-
-
-@media (max-width:900px){}
-@media (max-width:500px){}
-
-
-
-
-
 
 .trust-foot{margin-top:clamp(20px,3vh,32px);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);text-align:center}
 .trust-foot .num{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
@@ -421,39 +404,70 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .r-foot .seal{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
 @media (max-width:760px){.discretion-grid{grid-template-columns:1fr;gap:24px}.redacted-list{max-width:100%}}
 
-
-
-
 /* LEADERSHIP — unified section with sub-blocks */
-.leadership-section{background:var(--bg-soft)}
-.lead-block{margin-top:clamp(40px,5vh,56px)}
+
 .lead-block:first-of-type{margin-top:clamp(48px,6vh,64px)}
-.lead-subhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(20px,2.4vh,28px);padding-bottom:clamp(14px,1.8vh,18px);border-bottom:1px solid var(--line)}
-.lead-suplabel{font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink);font-weight:600}
-.lead-supcount{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid)}
-.seat-empty{background:transparent !important}
-@media (max-width:600px){.seat-empty{display:none}}
 
 /* SEATS-2 and SEATS-3 — for split leadership rows */
-.seats-2{grid-template-columns:repeat(2,1fr) !important}
-@media (max-width:700px){.seats-2{grid-template-columns:1fr !important}}
-.seats-3{grid-template-columns:repeat(3,1fr) !important}
-@media (max-width:900px){.seats-3{grid-template-columns:repeat(2,1fr) !important}}
-@media (max-width:600px){.seats-3{grid-template-columns:1fr !important}}
 
 /* COMPACT — tightened about-page rhythm */
 .about-page .section{padding:clamp(56px,8vh,100px) 0}
-.leadership-section .lead-block{margin-top:clamp(28px,3.5vh,40px)}
-.leadership-section .lead-block:first-of-type{margin-top:clamp(36px,4.5vh,48px)}
-.leadership-section .lead-subhead{margin-bottom:clamp(14px,1.8vh,20px);padding-bottom:clamp(10px,1.4vh,14px)}
-.seat-with-photo{padding:clamp(20px,2.2vw,28px) !important}
-.seat-with-photo .seat-photo{margin-bottom:clamp(16px,1.8vw,20px) !important}
-.seat-with-photo .seat-title{font-size:clamp(17px,1.6vw,20px) !important;margin-bottom:6px !important}
-.seat-with-photo .seat-status{margin-bottom:clamp(12px,1.6vh,16px) !important;padding-bottom:clamp(12px,1.4vh,14px) !important}
+.leadership-section 
+
+.leadership-section 
+
+.seat-with-photo 
+.seat-with-photo 
+.seat-with-photo 
 .seat-with-photo .role{margin-bottom:clamp(10px,1.4vh,14px) !important}
-.seat-bio{font-size:12.5px !important;line-height:1.55 !important}
+
 .principles-strip{padding:clamp(40px,5vh,56px) 0 !important}
 .glance-section{padding:clamp(56px,8vh,96px) 0 !important}
+
+/* === Leadership section (Phase 17 redesign) === */
+.leadership-section{background:var(--bg-soft)}
+.leadership-section .lead{max-width:780px}
+
+.lead-block{margin-top:clamp(48px,5.5vh,72px)}
+.lead-block:first-of-type{margin-top:clamp(40px,4.5vh,56px)}
+.lead-block-advisory{margin-top:clamp(64px,7vh,96px)}
+
+.lead-subhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(20px,2.4vh,28px);padding-bottom:clamp(14px,1.8vh,18px);border-bottom:1px solid var(--line)}
+.lead-suplabel{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink);font-weight:600}
+.lead-supcount{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid)}
+
+/* Horizontal full-width seat cards (mirrors .mod design) */
+.seats-stack{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+
+.seat{background:var(--bg);padding:clamp(28px,3.4vw,44px);display:grid;grid-template-columns:0.7fr 2fr 1.2fr;gap:clamp(24px,3.5vw,56px);align-items:start}
+
+.seat-id{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.seat-photo{width:clamp(88px,8.4vw,108px);height:clamp(88px,8.4vw,108px);background:var(--bg-soft);border-radius:2px;overflow:hidden;flex-shrink:0}
+.seat-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.05)}
+.seat-num{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);padding-top:8px;border-top:1px solid var(--line);width:clamp(88px,8.4vw,108px)}
+
+.seat-body{display:flex;flex-direction:column;gap:10px}
+.seat-role-tag{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);font-weight:600;margin-bottom:2px}
+.seat-name{font-family:var(--font-display);font-size:clamp(20px,2vw,26px);font-weight:500;letter-spacing:-0.015em;line-height:1.2;color:var(--ink);margin:0}
+.seat-bio{font-family:var(--font-body);font-size:13.5px;line-height:1.65;color:var(--ink-soft);margin:6px 0 0 0}
+
+.seat-stamp{display:flex;flex-direction:column;gap:12px;padding-top:6px}
+.seat-stamp-row{display:flex;flex-direction:column;gap:4px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.seat-stamp-row:last-child{border-bottom:none;padding-bottom:0}
+.seat-stamp-row .k{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid);font-weight:500}
+.seat-stamp-row .v{font-family:var(--font-body);font-size:13px;color:var(--ink);font-weight:500;line-height:1.4}
+
+@media (max-width:960px){
+  .seat{grid-template-columns:0.8fr 2fr;gap:24px}
+  .seat-stamp{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;gap:24px;padding-top:16px;border-top:1px solid var(--line);margin-top:8px}
+  .seat-stamp-row{padding-bottom:0;border-bottom:none;min-width:140px}
+}
+@media (max-width:640px){
+  .seat{grid-template-columns:1fr;gap:18px}
+  .seat-id{flex-direction:row;align-items:center;gap:18px}
+  .seat-num{border-top:none;padding-top:0;width:auto}
+  .lead-subhead{flex-direction:column;align-items:flex-start;gap:6px}
+}
 </style>
 </head>
 <body class="about-page">
@@ -499,7 +513,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="hero-meta">
 <div class="row"><span class="k" data-i18n="about.meta.r1.k">Founded</span><span class="v" data-i18n="about.meta.r1.v">2025</span></div>
 <div class="row"><span class="k" data-i18n="about.meta.r2.k">Industry</span><span class="v" data-i18n="about.meta.r2.v">Engineering software</span></div>
-<div class="row"><span class="k" data-i18n="about.meta.r3.k">Architecture</span><span class="v" data-i18n="about.meta.r3.v">Proprietary AI</span></div>
+<div class="row"><span class="k" data-i18n="about.meta.r3.k">Architecture</span><span class="v" data-i18n="about.meta.r3.v">Hybrid AI</span></div>
 <div class="row"><span class="k" data-i18n="about.meta.r4.k">Markets</span><span class="v" data-i18n="about.meta.r4.v">Seven jurisdictions</span></div>
 <div class="row"><span class="k" data-i18n="about.meta.r5.k">Portal</span><span class="v" data-i18n="about.meta.r5.v">Operational</span></div>
 </div>
@@ -562,8 +576,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="glance-cell">
 <div class="k" data-i18n="about.glance.c5.k">Architecture</div>
-<div class="v" data-i18n="about.glance.c5.v">Proprietary AI</div>
-<div class="d" data-i18n="about.glance.c5.d">Multi-engine, deterministic computation, BIM-native processing.</div>
+<div class="v" data-i18n="about.glance.c5.v">Hybrid AI</div>
+<div class="d" data-i18n="about.glance.c5.d">Multi-engine, deterministic computation. Proprietary models combined with Anthropic and OpenAI capabilities under regulatory boundaries.</div>
 </div>
 
 <div class="glance-cell">
@@ -640,62 +654,107 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section leadership-section" id="board">
 <div class="inner">
-<div class="smark"><span class="num" data-i18n="about.lead.smark.num">§ 04</span><span data-i18n="about.lead.smark.label">Leadership</span><span class="dash"></span><span data-i18n="about.lead.smark.tag">Governance and technical authority</span></div>
+<div class="smark"><span class="num" data-i18n="about.lead.smark.num">§ 04</span><span data-i18n="about.lead.smark.label">Leadership</span><span class="dash"></span><span data-i18n="about.lead.smark.tag">Operational team and advisory</span></div>
 <h2 class="dpy-2" data-i18n-html="about.lead.h2">Leadership.</h2>
-<p class="lead" data-i18n-html="about.lead.lede">An independent board provides governance through the platform's growth phase, structured around financial discipline, regulatory authority and operational deployment. Day-to-day execution is held by senior practitioners with decades of regulatory practice and active operational experience from real estate and engineering delivery.</p>
+<p class="lead" data-i18n-html="about.lead.lede">Day-to-day execution is held by senior practitioners with decades of regulatory practice and active operational experience from real estate and engineering delivery. An independent advisory committee provides governance through the platform's growth phase, structured around financial discipline and regulatory authority.</p>
 
 <div class="lead-block">
 <div class="lead-subhead">
 <span class="lead-suplabel" data-i18n="about.lead.sub2.label">Operational leadership</span>
 <span class="lead-supcount" data-i18n="about.lead.sub2.count">03 members · active contribution</span>
 </div>
-<div class="seats seats-3 rvs">
-<article class="seat seat-with-photo">
+<div class="seats-stack rvs">
+
+<article class="seat">
+<div class="seat-id">
 <div class="seat-photo"><img src="photos/kristian-nossum.png" alt="Kristian Nossum" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.tech">Technical Director</span><span class="ix">01</span></div>
-<h3 class="seat-title" data-i18n="about.team.k1.name">Kristian Nossum</h3>
-<div class="seat-status" data-i18n="about.team.k1.status">Technical Director</div>
+<div class="seat-num">01</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.tech">Technical Director</div>
+<h3 class="seat-name" data-i18n="about.team.k1.name">Kristian Nossum</h3>
 <p class="seat-bio" data-i18n="about.team.k1.bio">Kristian Nossum holds an engineering degree from Trondheim College of Engineering and has more than 30 years of experience from Skanska. He brings broad technical expertise across architecture, geotechnics, structural engineering, acoustics and building application processes. Kristian actively contributes to the development of Builtly's technical modules and quality-assures the platform's professional content.</p>
+</div>
+<div class="seat-stamp">
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.affiliation">Affiliation</span><span class="v" data-i18n="about.team.k1.aff">Skanska · 30+ years</span></div>
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.focus">Focus</span><span class="v" data-i18n="about.team.k1.focus">All six disciplines</span></div>
+</div>
 </article>
 
-<article class="seat seat-with-photo">
+<article class="seat">
+<div class="seat-id">
 <div class="seat-photo"><img src="photos/vegard-tyldum.jpg" alt="Vegard Tyldum" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.consult">Senior Consultant</span><span class="ix">02</span></div>
-<h3 class="seat-title" data-i18n="about.board.s2.name">Vegard Tyldum</h3>
-<div class="seat-status" data-i18n="about.team.s2.status">Senior Consultant</div>
+<div class="seat-num">02</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.consult">Senior Consultant</div>
+<h3 class="seat-name" data-i18n="about.board.s2.name">Vegard Tyldum</h3>
 <p class="seat-bio" data-i18n="about.board.s2.bio">Vegard holds an MSc from the Norwegian School of Economics and has spent his entire career in real estate and property development. He has extensive operational experience from both project management and executive roles, and has played a key role in delivering some of Norway's largest development projects. Today, he leads Byggteknikk Utvikling AS, which is jointly owned with the Svendsen family.</p>
+</div>
+<div class="seat-stamp">
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.affiliation">Affiliation</span><span class="v" data-i18n="about.team.s2.aff">Byggteknikk Utvikling AS</span></div>
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.focus">Focus</span><span class="v" data-i18n="about.team.s2.focus">Real estate · Development</span></div>
+</div>
 </article>
 
-<article class="seat seat-with-photo">
+<article class="seat">
+<div class="seat-id">
 <div class="seat-photo"><img src="photos/pal-morten-oxaal.jpg" alt="Pål Morten Oxaal" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.consult">Senior Consultant</span><span class="ix">03</span></div>
-<h3 class="seat-title" data-i18n="about.board.s3.name">Pål Morten Oxaal</h3>
-<div class="seat-status" data-i18n="about.team.s3.status">Senior Consultant</div>
+<div class="seat-num">03</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.consult">Senior Consultant</div>
+<h3 class="seat-name" data-i18n="about.board.s3.name">Pål Morten Oxaal</h3>
 <p class="seat-bio" data-i18n="about.board.s3.bio">Pål Morten holds a BBA from Trondheim Business School and has worked in real estate since 2005. He has held several key roles in the Norwegian real estate industry, including as CEO and co-owner of HENT's real estate platform. He founded Bolig Norge and continues to lead the company, which is jointly owned with Fastighets AB Balder.</p>
-</article>
 </div>
+<div class="seat-stamp">
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.affiliation">Affiliation</span><span class="v" data-i18n="about.team.s3.aff">Bolig Norge AS</span></div>
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.focus">Focus</span><span class="v" data-i18n="about.team.s3.focus">Real estate · Operations</span></div>
 </div>
-<div class="lead-block">
-<div class="lead-subhead">
-<span class="lead-suplabel" data-i18n="about.lead.sub1.label">Board of directors</span>
-<span class="lead-supcount" data-i18n="about.lead.sub1.count">02 members</span>
-</div>
-<div class="seats seats-2 rvs">
-<article class="seat seat-with-photo">
-<div class="seat-photo"><img src="photos/erik-selin.png" alt="Erik Selin" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.chair">Chair</span><span class="ix">04</span></div>
-<h3 class="seat-title" data-i18n="about.board.s1.name">Erik Selin</h3>
-<div class="seat-status" data-i18n="about.board.s1.status">Chairman</div>
-<p class="seat-bio" data-i18n="about.board.s1.bio">Erik Selin is the founder of Fastighets AB Balder, one of Europe's leading real estate companies. Since founding the company, he has built Balder into a listed property group with assets exceeding NOK 200 billion. Erik serves as Chairman and largest shareholder and is a prominent Nordic investor with extensive experience from real estate, capital markets and long-term company building. He also holds several board positions in listed companies.</p>
 </article>
 
-<article class="seat seat-with-photo">
-<div class="seat-photo"><img src="photos/magnus-svendsen.jpg" alt="Magnus Svendsen" loading="lazy"/></div>
-<div class="role"><span data-i18n="about.seat.role.member">Board Member</span><span class="ix">05</span></div>
-<h3 class="seat-title" data-i18n="about.board.s4.name">Magnus Svendsen</h3>
-<div class="seat-status" data-i18n="about.board.s4.status">Board Member</div>
-<p class="seat-bio" data-i18n="about.board.s4.bio">Magnus Svendsen is the CEO of Byggteknikk, a family office with investments across real estate, funds and technology. He has been an active angel investor in early-stage technology companies for more than 20 years, with investments including Tibber, Easee and Kiona. Magnus holds an MSc in Mechanical Engineering from NTNU, a Master's degree in Finance, and an MBA from the University of Newcastle, Australia.</p>
+</div>
+</div>
+
+<div class="lead-block lead-block-advisory">
+<div class="lead-subhead">
+<span class="lead-suplabel" data-i18n="about.lead.sub1.label">Advisory committee</span>
+<span class="lead-supcount" data-i18n="about.lead.sub1.count">02 members · governance</span>
+</div>
+<div class="seats-stack rvs">
+
+<article class="seat">
+<div class="seat-id">
+<div class="seat-photo"><img src="photos/erik-selin.png" alt="Erik Selin" loading="lazy"/></div>
+<div class="seat-num">04</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.chair">Chair · Advisory</div>
+<h3 class="seat-name" data-i18n="about.board.s1.name">Erik Selin</h3>
+<p class="seat-bio" data-i18n="about.board.s1.bio">Erik Selin is the founder of Fastighets AB Balder, one of Europe's leading real estate companies. Since founding the company, he has built Balder into a listed property group with assets exceeding NOK 200 billion. Erik serves as Chairman and largest shareholder and is a prominent Nordic investor with extensive experience from real estate, capital markets and long-term company building. He also holds several board positions in listed companies.</p>
+</div>
+<div class="seat-stamp">
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.affiliation">Affiliation</span><span class="v" data-i18n="about.team.s1.aff">Fastighets AB Balder</span></div>
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.focus">Focus</span><span class="v" data-i18n="about.team.s1.focus">Capital · Governance</span></div>
+</div>
 </article>
+
+<article class="seat">
+<div class="seat-id">
+<div class="seat-photo"><img src="photos/magnus-svendsen.jpg" alt="Magnus Svendsen" loading="lazy"/></div>
+<div class="seat-num">05</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.advisor">Advisor</div>
+<h3 class="seat-name" data-i18n="about.board.s4.name">Magnus Svendsen</h3>
+<p class="seat-bio" data-i18n="about.board.s4.bio">Magnus Svendsen is the CEO of Byggteknikk, a family office with investments across real estate, funds and technology. He has been an active angel investor in early-stage technology companies for more than 20 years, with investments including Tibber, Easee and Kiona. Magnus holds an MSc in Mechanical Engineering from NTNU, a Master's degree in Finance, and an MBA from the University of Newcastle, Australia.</p>
+</div>
+<div class="seat-stamp">
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.affiliation">Affiliation</span><span class="v" data-i18n="about.team.s4.aff">Byggteknikk AS</span></div>
+<div class="seat-stamp-row"><span class="k" data-i18n="about.seat.k.focus">Focus</span><span class="v" data-i18n="about.team.s4.focus">Engineering · Investment</span></div>
+</div>
+</article>
+
 </div>
 </div>
 
