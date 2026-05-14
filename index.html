@@ -2256,15 +2256,33 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
         const newTarget = engineTotalNOK;
         setTimeout(() => {
           if (bimTotalRaf) cancelAnimationFrame(bimTotalRaf);
-          const startDisplay = parseFloat((engineTotalEl && engineTotalEl.textContent) || '0') || 0;
+          // Use previous NOK value, not parsed display (which may be EUR-formatted)
+          const startDisplay = newTarget - target;
           const t0 = performance.now();
           function tStep(now) {
             const t = Math.min(1, (now - t0) / 700);
             const e = 1 - Math.pow(1 - t, 3);
             const v = startDisplay + (newTarget - startDisplay) * e;
-            if (engineTotalEl) engineTotalEl.textContent = v.toFixed(1);
+            if (engineTotalEl) {
+              const fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK)
+                ? window.BUILTLY_I18N.fmtMoneyMNOK(v, '').split(' ')
+                : [v.toFixed(1), 'MNOK'];
+              engineTotalEl.textContent = fm[0];
+              const unitEl = document.querySelector('#bim-engine .bim-engine-total-unit');
+              if (unitEl) unitEl.textContent = fm.slice(1).join(' ');
+            }
             if (t < 1) bimTotalRaf = requestAnimationFrame(tStep);
-            else { if (engineTotalEl) engineTotalEl.textContent = newTarget.toFixed(1); bimTotalRaf = null; }
+            else { 
+              if (engineTotalEl) {
+                const fm2 = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK)
+                  ? window.BUILTLY_I18N.fmtMoneyMNOK(newTarget, '').split(' ')
+                  : [newTarget.toFixed(1), 'MNOK'];
+                engineTotalEl.textContent = fm2[0];
+                const unitEl = document.querySelector('#bim-engine .bim-engine-total-unit');
+                if (unitEl) unitEl.textContent = fm2.slice(1).join(' ');
+              }
+              bimTotalRaf = null;
+            }
           }
           bimTotalRaf = requestAnimationFrame(tStep);
         }, 200);
@@ -2810,7 +2828,8 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
         const newTarget = algoEngineTotalNOK;
         setTimeout(() => {
           if (algoTotalRaf) cancelAnimationFrame(algoTotalRaf);
-          const startDisplay = parseFloat((algoEngineTotalEl && algoEngineTotalEl.textContent) || '0') || 0;
+          // Use previous NOK value, not parsed display (which may be EUR-formatted)
+          const startDisplay = newTarget - addNok;
           const t0 = performance.now();
           function tStep(now) {
             const t = Math.min(1, (now - t0) / 700);
@@ -3449,15 +3468,33 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
         const targetNok = vertEngineTotalNOK;
         setTimeout(() => {
           if (vertTotalRaf) cancelAnimationFrame(vertTotalRaf);
-          const startNok = parseFloat((vertEngineTotalEl && vertEngineTotalEl.textContent) || '0') || 0;
+          // Use previous NOK value as start, not parsed display (which may be EUR)
+          const startNok = targetNok - target;  // i.e. value before this addition
           const t0 = performance.now();
           function tStep(now) {
             const t = Math.min(1, (now - t0) / 700);
             const e = 1 - Math.pow(1 - t, 3);
             const v = startNok + (targetNok - startNok) * e;
-            if (vertEngineTotalEl) vertEngineTotalEl.textContent = v.toFixed(1);
+            if (vertEngineTotalEl) {
+              const fm = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK)
+                ? window.BUILTLY_I18N.fmtMoneyMNOK(v, '').split(' ')
+                : [v.toFixed(1), 'MNOK'];
+              vertEngineTotalEl.textContent = fm[0];
+              const unitEl = document.querySelector('#vert-engine .bim-engine-total-unit');
+              if (unitEl) unitEl.textContent = fm.slice(1).join(' ');
+            }
             if (t < 1) vertTotalRaf = requestAnimationFrame(tStep);
-            else { if (vertEngineTotalEl) vertEngineTotalEl.textContent = targetNok.toFixed(1); vertTotalRaf = null; }
+            else {
+              if (vertEngineTotalEl) {
+                const fm2 = (window.BUILTLY_I18N && window.BUILTLY_I18N.fmtMoneyMNOK)
+                  ? window.BUILTLY_I18N.fmtMoneyMNOK(targetNok, '').split(' ')
+                  : [targetNok.toFixed(1), 'MNOK'];
+                vertEngineTotalEl.textContent = fm2[0];
+                const unitEl = document.querySelector('#vert-engine .bim-engine-total-unit');
+                if (unitEl) unitEl.textContent = fm2.slice(1).join(' ');
+              }
+              vertTotalRaf = null;
+            }
           }
           vertTotalRaf = requestAnimationFrame(tStep);
         }, 220);
