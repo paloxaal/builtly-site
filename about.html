@@ -1902,29 +1902,44 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
 
   // Annotations
   // Builtly engine outputs — concrete savings from Mengde & Scope, RIB, Kredittgrunnlag modules
+  // i18n helper — reads current language from documentElement, falls back to key text
+  function tt(key, fallback) {
+    const lang = (document.documentElement.lang || 'en').toLowerCase();
+    const T = window.BUILTLY_I18N && window.BUILTLY_I18N.T;
+    if (T && T[lang] && T[lang][key]) return T[lang][key];
+    if (T && T.en && T.en[key]) return T.en[key];
+    return fallback || key;
+  }
+  // Annotations — labels & details resolved from i18n at render time, supports language switching
   const annotations = [
     { ax: 18, ay: 50, az: 7.3,  dx: -56, dy: -34,
-      lbl: ['MENGDE STÅL', '−18%'], detail: '83 t · NS 1993',
+      lblKey: 'engine.vert.k.stal', lblFallback: 'Mengde stål',
+      detailKey: 'engine.vert.d.stal', detailFallback: '83 t · NS 1993',
       cFrom: 0, cTo: 2.1, cFmt: (v) => v.toFixed(1) + ' MNOK',
       icon: 'M0 8V5M2 8V3M4 8V1M6 8V4M8 8V6' },
     { ax: 90, ay: 8, az: 13.3, dx: 42, dy: -38,
-      lbl: ['BRA-i OPT.', '+220 m²'], detail: '+220 m² salgbart',
+      lblKey: 'engine.vert.k.brai', lblFallback: 'BRA-i opt.',
+      detailKey: 'engine.vert.d.brai', detailFallback: '+220 m² salgbart',
       cFrom: 0, cTo: 14.3, cFmt: (v) => v.toFixed(1) + ' MNOK',
       icon: 'M1 7H7V1H1V7M1 4H4M4 1V4' },
     { ax: 52, ay: 30, az: 10.3, dx: 0, dy: -72,
-      lbl: ['CO₂e', '−287 t'], detail: 'TEK17 §17 ✓',
+      lblKey: 'engine.label.co2', lblFallback: 'CO₂e',
+      detailKey: 'engine.vert.d.co2', detailFallback: 'TEK17 §17 ✓',
       cFrom: 0, cTo: 287, cFmt: (v) => '−' + Math.round(v) + ' t',
       icon: 'M4 1L4 7M4 7L1 4M4 7L7 4M0 8H8' },
     { ax: 30, ay: 22, az: 1.5, dx: -58, dy: 34,
-      lbl: ['BÆRELINJE', '−9 søyler'], detail: '47 → 38 søyler',
+      lblKey: 'engine.vert.k.baerelinje', lblFallback: 'Bærelinje',
+      detailKey: 'engine.vert.d.baerelinje', detailFallback: '47 → 38 søyler · RIB',
       cFrom: 0, cTo: 1.8, cFmt: (v) => v.toFixed(1) + ' MNOK',
       icon: 'M0 8V0M4 8V2M8 8V0' },
     { ax: 76, ay: 48, az: 16.3, dx: 50, dy: 22,
-      lbl: ['DAGSLYS', '+12%'], detail: 'NS-EN 17037',
+      lblKey: 'engine.vert.k.dagslys', lblFallback: 'Dagslys',
+      detailKey: 'engine.vert.d.dagslys', detailFallback: 'NS-EN 17037',
       cFrom: 0, cTo: 12, cFmt: (v) => '+' + Math.round(v) + '%',
       icon: 'M0 8A4 4 0 0 1 8 8M-1 8H9M4 1L4 4M0.5 4.5L2.5 6M7.5 4.5L5.5 6' },
     { ax: 50, ay: 30, az: 22.5, dx: 0, dy: -82,
-      lbl: ['TOTAL BESPARELSE', '18.2 MNOK'], detail: 'BUILTLY-OPTIMERT',
+      lblKey: 'engine.label.total', lblFallback: 'Total besparelse',
+      detailKey: 'engine.label.optimized', detailFallback: 'Builtly-optimert',
       cFrom: 0, cTo: 18.2, cFmt: (v) => v.toFixed(1) + ' MNOK',
       icon: 'M0 0H8M0 4H8M0 8H8', isFinale: true }
   ];
@@ -1939,9 +1954,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
     const t1   = el('text', { class:'s-anno-text k' });
     const t2   = el('text', { class:'s-anno-text v acc' });
     const t3   = el('text', { class:'s-anno-text d' });
-    t1.textContent = an.lbl[0];
+    t1.textContent = tt(an.lblKey, an.lblFallback).toUpperCase();
     t2.textContent = an.cFmt(an.cFrom);
-    t3.textContent = an.detail || '';
+    t3.textContent = tt(an.detailKey, an.detailFallback) || '';
     icon.setAttribute('d', an.icon);
     grp.appendChild(ring1); grp.appendChild(ring2);
     grp.appendChild(line); grp.appendChild(dot); grp.appendChild(box);
@@ -1949,6 +1964,33 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
     layerAnno.appendChild(grp);
     return { def: an, grp, ring1, ring2, line, dot, box, icon, t1, t2, t3 };
   });
+
+  // Refresh annotation labels once i18n.js has likely loaded (deferred script)
+  setTimeout(() => {
+    annoEls.forEach((a, i) => {
+      const an = annotations[i];
+      if (a.t1) a.t1.textContent = tt(an.lblKey, an.lblFallback).toUpperCase();
+      if (a.t3) a.t3.textContent = tt(an.detailKey, an.detailFallback) || '';
+    });
+  }, 300);
+  // Also listen for language changes — patch applyLang to refresh annotations
+  function refreshAnnoLabels(){
+    annoEls.forEach((a, i) => {
+      const an = annotations[i];
+      if (a.t1) a.t1.textContent = tt(an.lblKey, an.lblFallback).toUpperCase();
+      if (a.t3) a.t3.textContent = tt(an.detailKey, an.detailFallback) || '';
+    });
+  }
+  // Hook into language-change after i18n.js fully initialized
+  setTimeout(() => {
+    if (window.BUILTLY_I18N && typeof window.BUILTLY_I18N.applyLang === 'function') {
+      const orig = window.BUILTLY_I18N.applyLang;
+      window.BUILTLY_I18N.applyLang = function(lang){
+        orig.call(this, lang);
+        refreshAnnoLabels();
+      };
+    }
+  }, 500);
 
   // Convergence lines — one per non-finale annotation, drawing toward the finale anchor
   const finaleIdx = annotations.findIndex(a => a.isFinale);
@@ -1973,6 +2015,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
 
   function reset(){
     window._finaleGlowed = false;
+    // Refresh all annotation labels/details from current i18n (catches deferred i18n.js load + lang switch)
+    if (typeof annoEls !== 'undefined') {
+      annoEls.forEach((a, i) => {
+        const an = annotations[i];
+        if (a.t1) a.t1.textContent = tt(an.lblKey, an.lblFallback).toUpperCase();
+        if (a.t3) a.t3.textContent = tt(an.detailKey, an.detailFallback) || '';
+      });
+    }
     if (typeof convLines !== 'undefined' && convLines) {
       convLines.forEach(cl => { if (cl) { cl.classList.remove('draw', 'fade'); cl.setAttribute('d', ''); } });
     }
@@ -2340,6 +2390,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
       const ease = 1 - Math.pow(1 - counterT, 3);
       const curVal = an.cFrom + (an.cTo - an.cFrom) * ease;
       a.t2.textContent = an.cFmt(curVal);
+      // Refresh label + detail from i18n (cheap, supports language switching mid-cycle)
+      a.t1.textContent = tt(an.lblKey, an.lblFallback).toUpperCase();
+      a.t3.textContent = tt(an.detailKey, an.detailFallback) || '';
 
       // Anchor rings — two staggered expanding pulses on reveal (during fade-in only)
       // Ring grows from r=2 to r=10, opacity 0.8 → 0

@@ -876,38 +876,38 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="bim-engine" id="bim-engine">
   <div class="bim-engine-head">
     <span class="bim-engine-dot"></span>
-    <span class="bim-engine-title">Builtly Engine · Output</span>
+    <span class="bim-engine-title" data-i18n="engine.bim.title">Builtly Engine · Output</span>
     <span class="bim-engine-total"><span id="bim-eng-total">0.0</span> <span class="bim-engine-total-unit">MNOK</span></span>
   </div>
   <div class="bim-engine-rows">
     <div class="bim-eng-row" data-stage="0">
-      <span class="bim-eng-k">Betong B30</span>
+      <span class="bim-eng-k" data-i18n="engine.bim.k.betong">Betong B30</span>
       <span class="bim-eng-q" data-target="2850" data-suffix=" m³" data-mode="int">0 m³</span>
       <span class="bim-eng-v" data-target="1.4" data-fmt="mnok-neg">−0.0 MNOK</span>
     </div>
     <div class="bim-eng-row" data-stage="1">
-      <span class="bim-eng-k">Stål · Søyler</span>
+      <span class="bim-eng-k" data-i18n="engine.bim.k.stal">Stål · Søyler</span>
       <span class="bim-eng-q" data-target="872" data-suffix=" t · 47→38" data-mode="int">0 t · 47→38</span>
       <span class="bim-eng-v" data-target="5.7" data-fmt="mnok-neg">−0.0 MNOK</span>
     </div>
     <div class="bim-eng-row" data-stage="2">
-      <span class="bim-eng-k">BRA-i</span>
+      <span class="bim-eng-k" data-i18n="engine.bim.k.brai">BRA-i</span>
       <span class="bim-eng-q" data-target="17240" data-suffix=" m²" data-mode="int">0 m²</span>
       <span class="bim-eng-v" data-target="17.0" data-fmt="mnok-pos">+0.0 MNOK</span>
     </div>
     <div class="bim-eng-row" data-stage="3">
-      <span class="bim-eng-k">Vegg-areal</span>
+      <span class="bim-eng-k" data-i18n="engine.bim.k.vegg">Vegg-areal</span>
       <span class="bim-eng-q" data-target="8400" data-suffix=" m²" data-mode="int">0 m²</span>
       <span class="bim-eng-v" data-target="1.2" data-fmt="mnok-neg">−0.0 MNOK</span>
     </div>
     <div class="bim-eng-row" data-stage="4">
-      <span class="bim-eng-k">CO₂e</span>
+      <span class="bim-eng-k" data-i18n="engine.label.co2">CO₂e</span>
       <span class="bim-eng-q" data-target="5040" data-suffix=" t · TEK17 §17" data-mode="int">0 t · TEK17 §17</span>
       <span class="bim-eng-v" data-target="560" data-fmt="co2-neg">−0 t</span>
     </div>
     <div class="bim-eng-row bim-eng-total-row" data-stage="5">
-      <span class="bim-eng-k">Total besparelse</span>
-      <span class="bim-eng-q">Builtly-optimert</span>
+      <span class="bim-eng-k" data-i18n="engine.label.total">Total besparelse</span>
+      <span class="bim-eng-q" data-i18n="engine.label.optimized">Builtly-optimert</span>
       <span class="bim-eng-v" data-target="25.3" data-fmt="mnok-big">0.0 MNOK</span>
     </div>
   </div>
@@ -969,33 +969,33 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="bim-engine algo-engine" id="algo-engine">
   <div class="bim-engine-head">
     <span class="bim-engine-dot"></span>
-    <span class="bim-engine-title">Builtly Engine · Fundament</span>
+    <span class="bim-engine-title" data-i18n="engine.algo.title">Builtly Engine · Fundament</span>
     <span class="bim-engine-total"><span id="algo-eng-total">0.0</span> <span class="bim-engine-total-unit">MNOK</span></span>
   </div>
   <div class="bim-engine-rows">
     <div class="bim-eng-row" data-algo-stage="0">
-      <span class="bim-eng-k">Footprint</span>
+      <span class="bim-eng-k" data-i18n="engine.algo.k.footprint">Footprint</span>
       <span class="bim-eng-q" data-target="1190" data-suffix=" m²" data-mode="int">0 m²</span>
-      <span class="bim-eng-v algo-eng-info">tributærdomene · 15 søyler</span>
+      <span class="bim-eng-v algo-eng-info" data-i18n="engine.algo.d.footprint">tributærdomene · 15 søyler</span>
     </div>
     <div class="bim-eng-row" data-algo-stage="1">
-      <span class="bim-eng-k">Søyle-seeds</span>
+      <span class="bim-eng-k" data-i18n="engine.algo.k.seeds">Søyle-seeds</span>
       <span class="bim-eng-q" data-target="15" data-suffix=" posisjoner" data-mode="int">0 posisjoner</span>
-      <span class="bim-eng-v algo-eng-info">O(n log n) · plan</span>
+      <span class="bim-eng-v algo-eng-info" data-i18n="engine.algo.d.seeds">O(n log n) · plan</span>
     </div>
     <div class="bim-eng-row" data-algo-stage="2">
-      <span class="bim-eng-k">Voronoi-celler</span>
-      <span class="bim-eng-q" data-target="15" data-suffix=" tributærceller" data-mode="int">0 tributærceller</span>
+      <span class="bim-eng-k" data-i18n="engine.algo.k.cells">Voronoi-celler</span>
+      <span class="bim-eng-q" data-target="15" data-suffix=" tributærceller" data-i18n-suffix="engine.algo.suffix.cells" data-mode="int">0 tributærceller</span>
       <span class="bim-eng-v algo-eng-info" data-target="79" data-suffix=" m² avg · 136 max" data-fmt="int">0 m² avg</span>
     </div>
     <div class="bim-eng-row" data-algo-stage="3">
-      <span class="bim-eng-k">Lastfordeling</span>
+      <span class="bim-eng-k" data-i18n="engine.algo.k.load">Lastfordeling</span>
       <span class="bim-eng-q" data-target="5440" data-suffix=" kN max" data-mode="int">0 kN max</span>
       <span class="bim-eng-v algo-eng-info" data-target="47600" data-suffix=" kN total" data-fmt="int">0 kN total</span>
     </div>
     <div class="bim-eng-row bim-eng-total-row" data-algo-stage="4">
-      <span class="bim-eng-k">Fundament · optimert</span>
-      <span class="bim-eng-q">84 m³ · −42 t CO₂e</span>
+      <span class="bim-eng-k" data-i18n="engine.algo.k.foundation">Fundament · optimert</span>
+      <span class="bim-eng-q" data-i18n="engine.algo.d.foundation">84 m³ · −42 t CO₂e</span>
       <span class="bim-eng-v" data-target="0.4" data-fmt="mnok-neg-big">−0.0 MNOK</span>
     </div>
   </div>
@@ -1080,7 +1080,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="bim-engine vert-engine" id="vert-engine">
   <div class="bim-engine-head">
     <span class="bim-engine-dot"></span>
-    <span class="bim-engine-title">Builtly Engine · Steinan B1 — Optimering</span>
+    <span class="bim-engine-title" data-i18n="engine.vert.title">Builtly Engine · Steinan B1 — Optimering</span>
     <span class="bim-engine-total"><span id="vert-eng-total">0.0</span> <span class="bim-engine-total-unit">MNOK</span></span>
   </div>
   <div class="vert-eng-grid">
@@ -1091,9 +1091,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
         </svg>
       </div>
       <div class="vert-eng-body">
-        <div class="vert-eng-k">Mengde stål</div>
+        <div class="vert-eng-k" data-i18n="engine.vert.k.stal">Mengde stål</div>
         <div class="vert-eng-v" data-target="2.1" data-fmt="mnok-neg">−0.0 MNOK</div>
-        <div class="vert-eng-d">83 t · NS 1993</div>
+        <div class="vert-eng-d" data-i18n="engine.vert.d.stal">83 t · NS 1993</div>
       </div>
     </div>
     <div class="vert-eng-tile" data-vert-stage="1">
@@ -1103,9 +1103,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
         </svg>
       </div>
       <div class="vert-eng-body">
-        <div class="vert-eng-k">Bærelinje</div>
+        <div class="vert-eng-k" data-i18n="engine.vert.k.baerelinje">Bærelinje</div>
         <div class="vert-eng-v" data-target="1.8" data-fmt="mnok-neg">−0.0 MNOK</div>
-        <div class="vert-eng-d">47 → 38 søyler · RIB</div>
+        <div class="vert-eng-d" data-i18n="engine.vert.d.baerelinje">47 → 38 søyler · RIB</div>
       </div>
     </div>
     <div class="vert-eng-tile" data-vert-stage="2">
@@ -1116,9 +1116,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
         </svg>
       </div>
       <div class="vert-eng-body">
-        <div class="vert-eng-k">BRA-i opt.</div>
+        <div class="vert-eng-k" data-i18n="engine.vert.k.brai">BRA-i opt.</div>
         <div class="vert-eng-v" data-target="14.3" data-fmt="mnok-pos">+0.0 MNOK</div>
-        <div class="vert-eng-d">+220 m² salgbart</div>
+        <div class="vert-eng-d" data-i18n="engine.vert.d.brai">+220 m² salgbart</div>
       </div>
     </div>
     <div class="vert-eng-tile" data-vert-stage="3">
@@ -1129,9 +1129,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
         </svg>
       </div>
       <div class="vert-eng-body">
-        <div class="vert-eng-k">Dagslys</div>
+        <div class="vert-eng-k" data-i18n="engine.vert.k.dagslys">Dagslys</div>
         <div class="vert-eng-v" data-target="12" data-fmt="pct-pos">+0%</div>
-        <div class="vert-eng-d">NS-EN 17037</div>
+        <div class="vert-eng-d" data-i18n="engine.vert.d.dagslys">NS-EN 17037</div>
       </div>
     </div>
     <div class="vert-eng-tile" data-vert-stage="4">
@@ -1141,9 +1141,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
         </svg>
       </div>
       <div class="vert-eng-body">
-        <div class="vert-eng-k">CO₂e</div>
+        <div class="vert-eng-k" data-i18n="engine.label.co2">CO₂e</div>
         <div class="vert-eng-v" data-target="287" data-fmt="co2-neg">−0 t</div>
-        <div class="vert-eng-d">TEK17 §17 ✓</div>
+        <div class="vert-eng-d" data-i18n="engine.vert.d.co2">TEK17 §17 ✓</div>
       </div>
     </div>
     <div class="vert-eng-tile vert-eng-total-tile" data-vert-stage="5">
@@ -1153,9 +1153,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
         </svg>
       </div>
       <div class="vert-eng-body">
-        <div class="vert-eng-k">Total besparelse</div>
+        <div class="vert-eng-k" data-i18n="engine.label.total">Total besparelse</div>
         <div class="vert-eng-v" data-target="18.2" data-fmt="mnok-big">0.0 MNOK</div>
-        <div class="vert-eng-d">Builtly-optimert</div>
+        <div class="vert-eng-d" data-i18n="engine.label.optimized">Builtly-optimert</div>
       </div>
     </div>
   </div>
