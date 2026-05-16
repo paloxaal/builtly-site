@@ -328,18 +328,23 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   font-size:clamp(28px,3.2vw,40px);
 }
 .mulighet-section .lead{
-  max-width:54ch;
+  max-width:58ch;
   margin-bottom:0;
+  font-size:15.5px;
+  line-height:1.55;
 }
 .mulighet-intro{
   display:grid;
   grid-template-columns:1.2fr 1fr;
   gap:clamp(40px,5vw,80px);
-  align-items:end;
-  margin-bottom:clamp(24px,3vh,36px);
+  align-items:start;
+  margin-bottom:clamp(36px,4.5vh,52px);
 }
+.mulighet-intro-right{display:flex;flex-direction:column;gap:clamp(18px,2.2vh,26px)}
+.mulighet-intro-right .mulighet-actions{margin:0}
 @media (max-width:900px){
   .mulighet-intro{grid-template-columns:1fr;gap:18px;align-items:start;margin-bottom:24px}
+  .mulighet-intro-right{gap:14px}
 }
 .mulighet-frame{
   position:relative;
@@ -388,12 +393,14 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .bim-section .smark{margin-bottom:clamp(28px,3.5vh,42px)}
 .bim-grid{display:grid;grid-template-columns:0.95fr 1.05fr;gap:clamp(32px,4vw,56px);align-items:stretch}
 @media (max-width:1000px){.bim-grid{grid-template-columns:1fr;gap:24px}}
-.bim-info{display:flex;flex-direction:column;justify-content:flex-start;min-height:auto}
+.bim-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,64px);align-items:end;margin-bottom:clamp(28px,3.5vh,44px)}
+@media (max-width:900px){.bim-head{grid-template-columns:1fr;gap:14px;align-items:start;margin-bottom:24px}}
+.bim-head h2{margin:0;font-size:clamp(28px,3.2vw,40px)}
+.bim-head .lead{margin:0;max-width:58ch;font-size:15.5px;line-height:1.55}
+.bim-info{display:flex;flex-direction:column;justify-content:flex-start;min-height:auto;gap:18px}
 @media (max-width:1000px){.bim-info{min-height:auto}}
-.bim-info h2{margin-bottom:18px;font-size:clamp(28px, 3.2vw, 40px)}
-.bim-info .lead{max-width:56ch;margin-bottom:22px;font-size:15.5px;line-height:1.55}
-.bim-meta{border-top:1px solid var(--ink);margin-bottom:24px}
-.bim-meta-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);align-items:baseline;gap:16px;font-family:var(--font-mono);font-size:12px}
+.bim-meta{border-top:1px solid var(--ink);margin-bottom:0}
+.bim-meta-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);align-items:baseline;gap:16px;font-family:var(--font-mono);font-size:12px}
 .bim-meta-row .k{color:var(--mid);text-transform:uppercase;letter-spacing:0.14em;font-size:10.5px;font-weight:500}
 .bim-meta-row .v{color:var(--ink);font-weight:500;letter-spacing:-0.005em;text-align:right}
 .bim-meta-row .v #bim-current{color:var(--accent);font-weight:600}
@@ -402,7 +409,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .bim-replay:hover{background:var(--accent);color:var(--bg);border-color:var(--accent)}
 .bim-replay:disabled{opacity:0.45;cursor:not-allowed}
 
-.bim-engine{margin:24px 0;border:1px solid var(--line-strong);background:color-mix(in srgb, var(--bg-soft) 60%, transparent);padding:14px 16px 12px}
+.bim-engine{margin:0;border:1px solid var(--line-strong);background:color-mix(in srgb, var(--bg-soft) 60%, transparent);padding:14px 16px 12px}
 .bim-engine-head{display:flex;align-items:baseline;gap:10px;padding-bottom:11px;border-bottom:1px solid var(--line);margin-bottom:8px;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.14em;font-weight:600}
 .bim-engine-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:bim-pulse 1.6s ease-in-out infinite;flex-shrink:0;align-self:center}
 .bim-engine-title{color:var(--ink);flex:1}
@@ -460,7 +467,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .bim-eng-row.active .bim-eng-v.algo-eng-info{color:var(--ink)}
 
 @media (max-width:640px){
-  .bim-engine{padding:11px 12px 10px;margin:18px 0}
+  .bim-engine{padding:11px 12px 10px;margin:0}
   .bim-engine-head{font-size:9.5px;gap:8px}
   .bim-eng-row{font-size:9.5px;gap:10px;padding:6px 0}
   .bim-eng-k{font-size:8.5px;letter-spacing:0.1em}
@@ -512,6 +519,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 .algo-showcase{display:grid;grid-template-columns:1.15fr 0.85fr;gap:clamp(20px,2.6vw,40px);align-items:start;margin-bottom:clamp(56px,7vh,88px);background:var(--bg-soft);border:1px solid var(--line);padding:clamp(20px,2.4vw,28px);position:relative}
 @media (max-width:880px){.algo-showcase{grid-template-columns:1fr;align-items:stretch}}
+.algo-left{display:flex;flex-direction:column;gap:clamp(14px,1.8vh,22px)}
 .algo-canvas-wrap{position:relative;background:var(--bg);border:1px solid var(--line);height:clamp(360px,46vh,520px);overflow:hidden}
 #algo-canvas{display:block;width:100%;height:100%;cursor:default}
 .algo-canvas-label{position:absolute;top:10px;left:12px;font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.2em;color:var(--mid);font-weight:600;pointer-events:none;display:flex;align-items:center;gap:8px}
@@ -528,7 +536,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .algo-meta-row .k{color:var(--mid);text-transform:uppercase;letter-spacing:0.14em;font-size:10.5px;font-weight:500}
 .algo-meta-row .v{color:var(--ink);font-weight:500;letter-spacing:-0.005em;text-align:right}
 .algo-meta-row .v .hi{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
-.algo-meta-prose{font-family:var(--font-display);font-size:14px;line-height:1.62;color:var(--ink-soft);margin:20px 0 0 0;font-weight:400}
+.algo-meta-prose{font-family:var(--font-display);font-size:14px;line-height:1.62;color:var(--ink-soft);margin:0;font-weight:400}
 
 .algo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
 @media (max-width:980px){.algo-grid{grid-template-columns:repeat(2,1fr)}}
@@ -839,16 +847,17 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
  * Inputs flow into engine, engine processes, outputs flow out. Particles
  * stream along SVG paths. Live metrics tick up below.
  * =========================================================================== */
-.flow-section{padding:clamp(96px,12vh,160px) 0;background:var(--ink);color:var(--dark-paper);position:relative;overflow:hidden}
-.flow-section .smark{color:var(--dark-paper);opacity:0.85;margin-bottom:clamp(40px,5vh,72px)}
+.flow-section{padding:clamp(64px,9vh,108px) 0 clamp(56px,8vh,96px);background:var(--ink);color:var(--dark-paper);position:relative;overflow:hidden}
+.flow-section .smark{color:var(--dark-paper);opacity:0.85;margin-bottom:clamp(28px,3.5vh,44px)}
 .flow-section .smark .num{color:var(--accent-bright)}
 .flow-section .smark .dash{background:rgba(247,244,237,0.30)}
 .flow-section .smark span:nth-child(2){color:var(--dark-paper)}
 .flow-section .smark span:nth-child(4){color:rgba(247,244,237,0.55)}
-.flow-intro{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,5vw,80px);margin-bottom:clamp(56px,7vh,96px);align-items:start}
-.flow-intro h2{color:var(--dark-paper)}
+.flow-intro{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,64px);margin-bottom:clamp(36px,4.5vh,52px);align-items:end}
+.flow-intro h2{color:var(--dark-paper);font-size:clamp(28px,3.4vw,42px);margin:0}
 .flow-intro h2 .serif{color:var(--accent-bright);font-style:italic;font-weight:500}
-.flow-intro .lead{font-family:var(--font-body);font-size:clamp(16px,1.4vw,18px);color:rgba(247,244,237,0.72);line-height:1.55;max-width:62ch}
+.flow-intro .lead{color:rgba(247,244,237,0.78);font-size:15.5px;line-height:1.55;margin:0;max-width:58ch}
+@media (max-width:900px){.flow-intro{grid-template-columns:1fr;gap:16px;align-items:start}}
 .flow-stage{position:relative;background:linear-gradient(180deg,rgba(247,244,237,0.018) 0%,rgba(20,184,166,0.025) 50%,rgba(247,244,237,0.018) 100%),var(--ink);border:1px solid rgba(247,244,237,0.08);padding:clamp(28px,3.5vh,48px) clamp(20px,2.5vw,40px);margin-bottom:clamp(40px,5vh,64px);border-radius:2px;box-shadow:0 1px 0 rgba(247,244,237,0.04) inset,0 20px 60px -20px rgba(0,0,0,0.4)}
 .flow-stage::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(247,244,237,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(247,244,237,0.018) 1px,transparent 1px);background-size:48px 48px;background-position:-1px -1px;pointer-events:none;border-radius:inherit;mask-image:radial-gradient(ellipse at center,black 30%,transparent 90%);-webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 90%)}
 .flow-stage::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(20,184,166,0.06) 0%,transparent 60%);pointer-events:none;border-radius:inherit}
@@ -1333,10 +1342,12 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="smark rv">
 <span class="num">Live</span><span data-i18n="sec.bim.live.label">From BIM, in real time</span><span class="dash"></span><span data-i18n="sec.bim.tag">Project North · IFC4 · multi-block residential</span>
 </div>
-<div class="bim-grid">
-<div class="bim-info rv">
+<div class="bim-head rv">
 <h2 class="dpy-2" data-i18n-html="index.bim.h2">The platform reads<br/>BIM as a first-class input.</h2>
 <p class="lead" data-i18n-html="index.bim.lede">A real IFC4 file from a multi-block residential project — parsed, classified, and replayed in construction sequence. From basement through curtain wall to roof. <span class="serif"><span data-i18n="sec.bim.tagline">The same parser runs in production every day.</span></span></p>
+</div>
+<div class="bim-grid">
+<div class="bim-info rv">
 <div class="bim-meta">
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.project">Project</span><span class="v" data-i18n="index.v.sagaPark">Project North</span></div>
 <div class="bim-meta-row"><span class="k" data-i18n="index.bim.k.source">Source</span><span class="v" data-i18n="index.v.ifc4_36mb">IFC4 · 36.6 MB</span></div>
@@ -1427,9 +1438,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 <div class="mulighet-intro rv">
 <h2 class="dpy-2" data-i18n-html="index.mulighet.h2">From site data to volume study,<br/>generated end-to-end.</h2>
+<div class="mulighet-intro-right">
 <p class="lead" data-i18n-html="index.mulighet.lede">A live preview of the mulighetsstudie module: parcel and zoning from public geodata, AI-driven volume placement, sun analysis on 21 June, sightline corridors, top-down plan and a section A–A — all from one project source.</p>
+<p class="mulighet-actions"><a class="mulighet-open-link" href="/mulighetsstudie.html" target="_blank" rel="noopener" data-i18n="sec.mulighet.openFull">Open in full window →</a></p>
 </div>
-<p class="mulighet-actions rv"><a class="mulighet-open-link" href="/mulighetsstudie.html" target="_blank" rel="noopener" data-i18n="sec.mulighet.openFull">Open in full window →</a></p>
+</div>
 <div class="mulighet-frame rv" id="mulighetFrame">
 <iframe src="/mulighetsstudie.html" loading="lazy" title="Builtly Mulighetsstudie — live volume study demo" data-i18n-attr-title="sec.mulighet.iframeTitle" id="mulighetIframe"></iframe>
 </div>
@@ -1637,11 +1650,14 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 
 <div class="algo-showcase rv">
+<div class="algo-left">
 <div class="algo-canvas-wrap">
 <canvas id="algo-canvas"></canvas>
 <div class="algo-canvas-label"><span class="pulse"></span><span data-i18n="canvas.algo.label">Voronoi engine · live</span></div>
 <div class="algo-canvas-stage" id="algo-stage-banner"><span class="num" id="algo-stage-num"><span data-i18n="algo.step">Step</span> 1 / 4</span> · <span id="algo-stage-name" data-i18n="algo.stage.footprint">Footprint</span></div>
 <div class="algo-canvas-foot">Builtly · Voronoi · <b id="algo-progress">0%</b></div>
+</div>
+<p data-i18n="index.p.voronoiExplain" class="algo-meta-prose">Each cell is the region of floor space closest to one column — the area whose self-weight and live load that column carries. The result feeds column-sizing modules, footing design, and lateral-load distribution downstream.</p>
 </div>
 <div class="algo-meta">
 <h4 data-i18n="index.h4.computation">Computation</h4>
@@ -1686,7 +1702,6 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   </div>
 </div>
 
-<p data-i18n="index.p.voronoiExplain" class="algo-meta-prose">Each cell is the region of floor space closest to one column — the area whose self-weight and live load that column carries. The result feeds column-sizing modules, footing design, and lateral-load distribution downstream.</p>
 </div>
 </div>
 
