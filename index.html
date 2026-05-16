@@ -109,7 +109,7 @@ a{color:inherit;text-decoration:none}
 @media (max-width:520px){.nav-inner{gap:14px;padding:14px var(--gutter)}.logo .sub{display:none}.btn{padding:9px 14px;font-size:12px}}
 
 /* HERO */
-.hero{padding:clamp(80px,14vh,160px) 0 clamp(96px,14vh,160px);position:relative;overflow:hidden}
+.hero{padding:clamp(40px,7vh,80px) 0 clamp(56px,9vh,112px);position:relative;overflow:hidden}
 .hero-bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.55}
 .hero > .wrap{position:relative;z-index:1}
 .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
@@ -126,7 +126,7 @@ a{color:inherit;text-decoration:none}
 .hero-side .row .v .accent-text{color:var(--accent)}
 
 /* Hero illustration (architectural axonometric) */
-.hero-art{margin-top:clamp(56px,9vh,112px);padding-top:clamp(40px,5vh,64px);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,64px);align-items:end}
+.hero-art{margin-top:clamp(32px,5vh,64px);padding-top:clamp(24px,3vh,40px);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,64px);align-items:end}
 @media (max-width:760px){.hero-art{grid-template-columns:1fr;gap:32px}}
 .hero-art .pillars{display:flex;gap:clamp(24px,3.5vw,56px);align-items:center;flex-wrap:wrap}
 .hero-art .pillar{font-family:var(--font-display);font-size:clamp(14px,1.3vw,17px);font-weight:600;letter-spacing:-0.005em;color:var(--ink-soft);display:inline-flex;align-items:center;gap:14px}
@@ -1957,7 +1957,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="desc" data-i18n="cap.reviewed">Reviewed · engineer-validated</span>
 </div>
 <div class="modules mid rvs">
-<div class="module"><div class="dot"></div><div class="code">ARK</div><div class="nm" data-i18n="mod.feasibility">Feasibility</div><div class="ds" data-i18n="mod.desc.feasibility">AI siting, geospatial data, indicative volume studies.</div></div>
+<a class="module" href="/mulighetsstudie.html" style="display:block;text-decoration:none;color:inherit;position:relative"><div class="dot"></div><div class="code">ARK</div><div class="nm" data-i18n="mod.feasibility">Feasibility</div><div class="ds" data-i18n="mod.desc.feasibility">AI siting, geospatial data, indicative volume studies.</div><div style="position:absolute;top:14px;right:14px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);font-weight:600">Se live →</div></a>
 <div class="module"><div class="dot"></div><div class="code">TDD</div><div class="nm" data-i18n="mod.technical_dd">Technical DD</div><div class="ds" data-i18n="mod.desc.technical_dd">Due diligence reporting for transactions and asset management.</div></div>
 <div class="module"><div class="dot"></div><div class="code">BID</div><div class="nm" data-i18n="mod.bid_control">Bid control</div><div class="ds" data-i18n="mod.desc.bid_control">Tender checklists, contract review, evaluation and audit.</div></div>
 <div class="module"><div class="dot"></div><div class="code">QTY</div><div class="nm" data-i18n="mod.quantities">Quantities</div><div class="ds" data-i18n="mod.desc.quantities">Quantity extraction from model, estimating basis, BIM traceability.</div></div>
@@ -1995,7 +1995,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="del-grid rvs">
 <div class="del">
 <div class="tag"><span><span class="num">01</span> &nbsp; Level</span><span data-i18n="tier.low_touch">Low-touch</span></div>
-<div class="nm">Auto</div>
+<div class="nm" data-i18n="tier.name.auto">Auto</div>
 <div class="sub" data-i18n="tier.sub.auto">Fully automated · no wait</div>
 <p data-i18n="index.p.tierAuto" class="ds">AI generates the complete deliverable end-to-end. Used for climate risk, due-diligence screening, tender checklists and similar where the market accepts machine-produced output as decision basis.</p>
 <div class="data">
@@ -2007,7 +2007,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="del">
 <div class="tag"><span><span class="num">02</span> &nbsp; Level</span><span data-i18n="tier.mid_touch">Mid-touch</span></div>
-<div class="nm">Reviewed</div>
+<div class="nm" data-i18n="tier.name.reviewed">Reviewed</div>
 <div class="sub" data-i18n="tier.sub.reviewed">Engineer-validated</div>
 <p data-i18n="index.p.tierReviewed" class="ds">AI produces the draft. A qualified engineer reviews, corrects and approves. Used for transaction-grade due diligence, sustainability pre-assessment and similar where professional judgment must underwrite the result.</p>
 <div class="data">
@@ -2019,7 +2019,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="del">
 <div class="tag"><span><span class="num">03</span> &nbsp; Level</span><span data-i18n="tier.high_touch">High-touch</span></div>
-<div class="nm">Attested</div>
+<div class="nm" data-i18n="tier.name.attested">Attested</div>
 <div class="sub" data-i18n="tier.sub.attested">Signed with professional liability</div>
 <p data-i18n="index.p.tierAttested" class="ds">A qualified professional engineer with regulatory authority signs. Used for structural, geotechnical, fire, environmental and other deliverables where law, code or insurance requires a name behind the report. AI prepares; the engineer is accountable.</p>
 <div class="data">
