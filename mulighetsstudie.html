@@ -1453,7 +1453,6 @@ if(window.self !== window.top){
 
   <div class="hud-bottom">
     <div class="l">
-      <div class="demo-tag" id="demoTagEl" data-i18n-html="demo.full"><span class="lt">demo</span><span class="dot">·</span>utvalg av modulens funksjoner<span class="dot">·</span>full versjon: volum i reelle omgivelser, utsikt og fjernpåvirkning, AI-tomteanalyse, prosjekteringseksport</div>
       <div class="title" data-i18n-html="title.full">Fra tomt til <span class="accent-text">volumstudie</span>.</div>
       <div class="subtitle" id="subtitleEl" data-i18n-html="bolig.subtitle">
         Parsell, regulering og terreng fra Geodata.<br/>
@@ -3947,9 +3946,6 @@ function animate(){
   }
 
   // Demo-tag stays visible throughout all phases — its "this is a demo, full
-  // version includes additional features" message is the most important framing
-  // for viewers, especially during phases like sikt/snitt where the 3D action
-  // gets dense. Keep opacity locked at 1 (overrides rise animation end-keyframe).
   if(demoTagEl){
     demoTagEl.style.setProperty('opacity', '1', 'important');
   }
