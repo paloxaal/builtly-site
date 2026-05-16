@@ -135,16 +135,15 @@ a{color:inherit;text-decoration:none}
 .hero-art .scroll-hint{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid)}
 
 /* STATS — restrained corporate */
-.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg);padding:0 var(--gutter)}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:var(--max);margin:0 auto}
 @media (max-width:1000px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:540px){.stats-grid{grid-template-columns:1fr}}
-.stat{padding:clamp(40px,5.5vh,56px) clamp(22px,2.4vw,36px);border-right:1px solid var(--line)}
+.stat{padding:clamp(40px,5.5vh,56px) clamp(22px,2.4vw,36px);border-right:1px solid var(--line);text-align:center}
 .stat:last-child{border-right:0}
 @media (max-width:1000px){.stat{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.stat:nth-child(2n){border-right:0}.stat:nth-last-child(-n+2){border-bottom:0}}
-@media (max-width:540px){.stat{border-right:0;border-bottom:1px solid var(--line);text-align:center}.stat:last-child{border-bottom:0}.stat .num{justify-content:center}}
-@media (min-width:540.5px) and (max-width:1000px){.stat{text-align:center}.stat .num{justify-content:center}}
-.stat .num{font-family:var(--font-display);font-size:clamp(40px,4.6vw,58px);font-weight:400;line-height:1;letter-spacing:-0.04em;color:var(--ink);margin-bottom:14px;display:flex;align-items:baseline;gap:4px}
+@media (max-width:540px){.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}}
+.stat .num{font-family:var(--font-display);font-size:clamp(40px,4.6vw,58px);font-weight:400;line-height:1;letter-spacing:-0.04em;color:var(--ink);margin-bottom:14px;display:flex;align-items:baseline;gap:4px;justify-content:center}
 .stat .num .plus{color:var(--accent);font-size:0.6em;line-height:1;transform:translateY(-0.4em);font-weight:500}
 .stat .num .small{font-size:0.5em;color:var(--mid);font-weight:400;margin-left:6px}
 .stat .l{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);line-height:1.6}
@@ -776,6 +775,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   }
   .vert-summary-item:nth-child(2n) { border-right: none; }
   .vert-summary-item:nth-last-child(-n+2) { border-bottom: none; }
+  /* Avoid overlap with SVG legend on narrow screens — keep pulse dot, hide descriptive text */
+  .vert-canvas-label span[data-i18n] { display: none; }
 }
 
 /* ===========================================================================
