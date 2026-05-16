@@ -428,7 +428,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 /* === Leadership section (Phase 17 redesign) === */
 .leadership-section{background:var(--bg-soft)}
-.leadership-section .lead{max-width:780px}
+.leadership-section .lead{max-width:62ch;font-size:15.5px;line-height:1.6}
 
 .lead-block{margin-top:clamp(28px,3.5vh,44px)}
 .lead-block:first-of-type{margin-top:clamp(24px,3vh,36px)}
@@ -460,11 +460,14 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   .lead-subhead{flex-direction:column;align-items:flex-start;gap:6px}
 }
 
-/* === Leadership intro: 2-col with IFC viz on right === */
-.lead-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,80px);align-items:start;margin-top:clamp(16px,2vh,24px)}
-@media (max-width:900px){.lead-intro-grid{grid-template-columns:1fr;gap:32px}}
-.lead-intro-grid .lead{max-width:none;margin:0}
-.lead-intro-text{display:flex;flex-direction:column;justify-content:center;min-height:280px}
+/* === Leadership intro: 2-col with compact IFC viz on right === */
+.lead-intro-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(40px,5vw,72px);align-items:start;margin-top:clamp(8px,1.4vh,16px)}
+@media (max-width:900px){.lead-intro-grid{grid-template-columns:1fr;gap:24px}}
+.lead-intro-grid .lead{max-width:60ch;margin:0}
+.lead-intro-text{display:flex;flex-direction:column;justify-content:flex-start;min-height:0}
+.lead-intro-text h2{margin:0 0 clamp(12px,1.6vh,18px) 0}
+.steinan-anim{max-height:260px}
+.steinan-anim svg{max-height:240px;height:auto;width:auto;max-width:100%;display:block;margin-left:auto}
 
 /* === Project B1 — Computational Emergence === */
 .steinan-anim{position:relative;width:100%;isolation:isolate}
@@ -842,9 +845,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <section class="section leadership-section" id="board">
 <div class="wrap">
 <div class="smark"><span class="num" data-i18n="about.lead.smark.num">§ 04</span><span data-i18n="about.lead.smark.label">Leadership</span><span class="dash"></span><span data-i18n="about.lead.smark.tag">Operational team and board</span></div>
-<h2 class="dpy-2" data-i18n-html="about.lead.h2">Leadership.</h2>
 <div class="lead-intro-grid rv">
 <div class="lead-intro-text">
+<h2 class="dpy-2" data-i18n-html="about.lead.h2">Leadership.</h2>
 <p class="lead" data-i18n-html="about.lead.lede">Day-to-day execution is held by senior practitioners with decades of regulatory practice and active operational experience from real estate and engineering delivery. An independent board provides governance through the platform's growth phase, structured around financial discipline and regulatory authority.</p>
 </div>
 <div class="steinan-anim" id="steinanAnim">
