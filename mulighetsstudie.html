@@ -1,0 +1,4595 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Mulighetsstudie · Builtly Engineering</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#FAFAF7;
+  --bg-soft:#F1EEE6;
+  --bg-warm:#EDE9DF;
+  --ink:#0A0F18;
+  --ink-soft:#1C232E;
+  --mid:#5A5F68;
+  --mid-soft:#8B8F96;
+  --line:rgba(10,15,24,0.10);
+  --line-strong:rgba(10,15,24,0.24);
+  --accent:#0F9E91;
+  --accent-bright:#2DD4BF;
+  --accent-soft:#0D7E73;
+  --gold:#C99B3A;
+  --green:#5B8C5A;
+  --green-soft:#8FAA7E;
+  --font-display:'Manrope','Helvetica Neue',system-ui,sans-serif;
+  --font-serif:'Newsreader','Times New Roman',serif;
+  --font-mono:'JetBrains Mono',Menlo,monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-display);
+  font-size:16px;
+  line-height:1.5;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+  user-select:none;
+}
+
+.stage{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 90% 60% at 55% 35%, #FFFEF9 0%, var(--bg) 50%, var(--bg-soft) 100%);
+}
+
+#scene{position:absolute;inset:0;display:block;width:100%;height:100%}
+
+/* SVG layer for leader lines (between 3D scene and HTML labels) */
+#leaders{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:4;
+  overflow:visible;
+}
+#leaders line{
+  stroke:var(--ink);
+  stroke-width:0.8;
+  stroke-opacity:0.42;
+}
+#leaders circle{
+  fill:var(--ink);
+  fill-opacity:0.7;
+}
+
+/* ============ TOP HUD ============ */
+.hud-top{
+  position:absolute;
+  top:0;left:0;right:0;
+  padding:clamp(18px,3vh,32px) clamp(20px,4vw,56px) 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  z-index:10;
+  pointer-events:none;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--mid);
+}
+.brand .dot{
+  width:8px;height:8px;border-radius:1px;
+  background:var(--accent);
+  box-shadow:0 0 0 4px rgba(15,158,145,0.12);
+}
+.brand .b{color:var(--ink);font-weight:700}
+
+.head-r{
+  display:flex;
+  align-items:flex-start;
+  gap:clamp(20px,3vw,40px);
+  opacity:0;
+  animation:fadeIn 0.6s 0.3s ease forwards;
+}
+.head-r .col{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--mid);
+  text-align:right;
+  line-height:1.6;
+}
+.head-r .col .num,.head-r .col .b{color:var(--ink);font-weight:700}
+
+/* Sun compass widget */
+.sun-compass{
+  position:relative;
+  width:74px;
+  height:74px;
+  flex-shrink:0;
+}
+.sun-compass .ring{
+  position:absolute;
+  inset:8px;
+  border:1px solid var(--line-strong);
+  border-radius:50%;
+}
+.sun-compass .ring::before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px dashed rgba(10,15,24,0.10);
+  border-radius:50%;
+}
+.sun-compass .axis::before,
+.sun-compass .axis::after{
+  content:"";
+  position:absolute;
+  background:rgba(10,15,24,0.16);
+}
+.sun-compass .axis::before{
+  left:50%;top:6px;bottom:6px;width:1px;transform:translateX(-50%);
+}
+.sun-compass .axis::after{
+  top:50%;left:6px;right:6px;height:1px;transform:translateY(-50%);
+}
+.sun-compass .lbl{
+  position:absolute;
+  font-family:var(--font-mono);
+  font-size:8px;
+  letter-spacing:0.08em;
+  color:var(--mid);
+  font-weight:600;
+}
+.sun-compass .lbl.n{top:-2px;left:50%;transform:translateX(-50%)}
+.sun-compass .lbl.s{bottom:-2px;left:50%;transform:translateX(-50%)}
+.sun-compass .lbl.e{right:-4px;top:50%;transform:translateY(-50%)}
+.sun-compass .lbl.w{left:-4px;top:50%;transform:translateY(-50%)}
+.sun-compass .sun-dot{
+  position:absolute;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:
+    0 0 0 4px rgba(201,155,58,0.20),
+    0 0 14px rgba(201,155,58,0.55);
+  top:50%;left:50%;
+  margin-left:-5px;margin-top:-5px;
+  transition:transform 0.35s linear;
+}
+.sun-compass .arc{
+  position:absolute;
+  inset:8px;
+  pointer-events:none;
+}
+.sun-compass .time-readout{
+  position:absolute;
+  bottom:-22px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:0.10em;
+  color:var(--ink);
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* Phase indicator — large pill below brand */
+.phase{
+  position:absolute;
+  left:clamp(20px,4vw,56px);
+  top:calc(clamp(18px,3vh,32px) + 28px);
+  z-index:10;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+  opacity:0;
+  transition:opacity 0.4s ease;
+  white-space:nowrap;
+}
+.phase.show{opacity:1}
+.phase .ph-num{
+  display:inline-block;
+  width:18px;height:18px;
+  border:1px solid var(--accent);
+  border-radius:2px;
+  text-align:center;
+  line-height:16px;
+  font-size:9px;
+  color:var(--accent);
+}
+.phase .ph-sub{
+  color:var(--mid);
+  margin-left:4px;
+}
+
+/* ============ BOTTOM HUD ============ */
+.hud-bottom{
+  position:absolute;
+  left:0;right:0;
+  bottom:0;
+  padding:clamp(18px,3vh,42px) clamp(20px,4vw,56px);
+  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:24px;
+  flex-wrap:wrap;
+  pointer-events:none;
+}
+.hud-bottom .l{max-width:480px}
+.hud-bottom .r{
+  display:block;
+}
+.stat-group{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,auto));
+  gap:clamp(18px,2.4vw,38px);
+  align-items:end;
+}
+
+.demo-tag{
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--mid);
+  opacity:0;
+  margin-bottom:14px;
+  animation:rise 0.8s 0.3s ease forwards;
+  max-width:42ch;
+  line-height:1.55;
+  padding:5px 9px;
+  background:rgba(250,250,247,0.82);
+  border-radius:2px;
+  display:inline-block;
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+}
+.demo-tag .dot{color:var(--accent);margin:0 7px;font-weight:700}
+.demo-tag .lt{color:var(--ink-soft);font-weight:600}
+
+.title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(24px,3.2vw,40px);
+  line-height:1.02;
+  letter-spacing:-0.022em;
+  color:var(--ink);
+  margin-bottom:12px;
+  opacity:0;
+  animation:rise 0.8s 0.5s ease forwards;
+}
+.title .accent-text{
+  color:var(--accent);
+  font-style:italic;
+  font-family:var(--font-serif);
+  font-weight:400;
+  letter-spacing:-0.015em;
+}
+.subtitle{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  font-weight:400;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mid);
+  line-height:1.75;
+  max-width:46ch;
+  opacity:0;
+  animation:rise 0.8s 0.75s ease forwards;
+}
+.subtitle em{font-style:normal;color:var(--ink-soft);font-weight:600}
+.subtitle .acc{color:var(--accent);font-weight:600}
+
+.stat{font-family:var(--font-mono);text-align:left;opacity:0}
+.stat .k{
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:0.20em;
+  text-transform:uppercase;
+  color:var(--mid);
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.stat .k::before{
+  content:"";
+  display:inline-block;
+  width:8px;height:1px;background:var(--accent);
+}
+.stat .k .intl{
+  color:var(--mid);
+  opacity:0.45;
+  font-weight:400;
+  letter-spacing:0.16em;
+  margin-left:4px;
+}
+/* The .intl spans are English secondary labels intended for Norwegian audiences.
+   Hide them when current language is not Norwegian to avoid duplicate labels. */
+html:not([lang="no"]) .stat .k .intl{display:none}
+.stat .v{
+  font-family:var(--font-display);
+  font-size:clamp(20px,2.2vw,26px);
+  font-weight:700;
+  letter-spacing:-0.018em;
+  color:var(--ink);
+  line-height:1;
+  font-feature-settings:"tnum","cv11";
+  white-space:nowrap;
+}
+.stat .v small{
+  font-size:0.50em;
+  font-weight:500;
+  color:var(--mid);
+  letter-spacing:0;
+  margin-left:3px;
+}
+
+/* ===== Mode toggle (Bolig / Hotell) ===== */
+.mode-toggle{
+  position:absolute;
+  top:clamp(20px,3vh,36px);
+  left:50%;
+  transform:translateX(-50%);
+  z-index:11;
+  display:inline-flex;
+  border:1px solid var(--line-strong);
+  border-radius:2px;
+  background:rgba(250,250,247,0.85);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  font-family:var(--font-mono);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  opacity:0;
+  animation:fadeIn 0.6s 0.8s ease forwards;
+}
+.mode-toggle button{
+  background:transparent;
+  border:none;
+  padding:8px 16px;
+  cursor:pointer;
+  color:var(--mid);
+  font-family:inherit;
+  font-size:inherit;
+  font-weight:inherit;
+  letter-spacing:inherit;
+  text-transform:inherit;
+  transition:color 0.18s ease, background 0.18s ease;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.mode-toggle button .ti{
+  font-size:8.5px;
+  opacity:0.5;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:none;
+}
+.mode-toggle button:hover{color:var(--ink)}
+.mode-toggle button.active{
+  background:var(--ink);
+  color:var(--bg);
+}
+.mode-toggle button.active .ti{
+  opacity:0.55;
+  color:var(--bg);
+}
+.mode-toggle .sep{
+  width:1px;
+  background:var(--line-strong);
+  flex-shrink:0;
+}
+@media (max-width:760px){
+  .mode-toggle{
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:auto;
+    padding:0;
+  }
+  .mode-toggle button{padding:5px 11px;font-size:8.5px;letter-spacing:0.14em}
+  .mode-toggle button .ti{display:none}
+  .brand-sub{display:none}
+}
+.stat .v .sub{
+  display:block;
+  font-size:0.42em;
+  font-weight:500;
+  color:var(--mid);
+  letter-spacing:0.10em;
+  margin-top:3px;
+}
+
+/* ============ LANG PICKER (matches index.html pattern) ============ */
+.lang-wrap{
+  position:absolute;
+  top:clamp(20px,3vh,36px);
+  right:clamp(98px,16vw,180px);
+  z-index:12;
+  opacity:0;
+  animation:fadeIn 0.6s 0.8s ease forwards;
+}
+/* When embedded in an iframe (parent page has its own language picker), hide
+   this internal picker to avoid two simultaneous controls. .embedded is set on
+   <html> by the inline script at top of body. */
+html.embedded .lang-wrap{display:none !important}
+.lang-picker{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 9px 6px 8px;
+  background:rgba(250,250,247,0.85);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  border:1px solid var(--line-strong);
+  color:var(--ink);
+  font-family:var(--font-mono);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.10em;
+  cursor:pointer;
+  transition:all 0.18s ease;
+  line-height:1;
+  border-radius:2px;
+}
+.lang-picker:hover{background:rgba(250,250,247,0.98)}
+.lang-picker .lang-globe{width:12px;height:12px;stroke:currentColor;stroke-width:1.5;fill:none;flex-shrink:0}
+.lang-picker .lang-code{letter-spacing:0.1em}
+.lang-picker .lang-chev{width:8px;height:8px;stroke:currentColor;stroke-width:1.8;fill:none;transition:transform 0.2s ease;margin-left:1px}
+.lang-picker[aria-expanded="true"] .lang-chev{transform:rotate(180deg)}
+.lang-menu{
+  position:absolute;
+  top:calc(100% + 6px);
+  right:0;
+  background:var(--bg);
+  border:1px solid var(--line-strong);
+  min-width:180px;
+  padding:5px;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  box-shadow:0 8px 24px rgba(19,24,32,0.10);
+  z-index:120;
+}
+.lang-menu[hidden]{display:none}
+.lang-option{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  padding:7px 10px;
+  background:transparent;
+  border:none;
+  font-family:var(--font-display);
+  font-size:12px;
+  font-weight:500;
+  color:var(--ink);
+  cursor:pointer;
+  text-align:left;
+  transition:background 0.14s ease;
+  border-radius:0;
+}
+.lang-option:hover{background:var(--bg-soft)}
+.lang-option.active{background:var(--bg-soft)}
+.lang-option .native{color:var(--mid);font-size:10.5px;font-weight:400}
+.lang-option .check{width:11px;height:11px;stroke:var(--accent);stroke-width:2;fill:none;opacity:0;flex-shrink:0;margin-left:auto}
+.lang-option.active .check{opacity:1}
+@media (max-width:760px){
+  .lang-wrap{
+    top:14px;
+    right:84px;
+  }
+  .lang-picker{padding:4px 7px;font-size:9px}
+  .lang-picker .lang-globe{width:10px;height:10px}
+  .lang-menu{min-width:160px}
+  .lang-option{padding:6px 9px;font-size:11px}
+}
+  text-transform:uppercase;
+}
+.stat.s1{animation:rise 0.6s 8.0s ease forwards}
+.stat.s2{animation:rise 0.6s 8.25s ease forwards}
+.stat.s3{animation:rise 0.6s 8.5s ease forwards}
+.stat.s4{animation:rise 0.6s 8.75s ease forwards}
+.stat.s5{animation:rise 0.6s 9.0s ease forwards}
+
+/* ============ BUILDING LABELS ============ */
+.tags-layer{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:6;
+}
+.tag{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  color:var(--ink);
+  background:rgba(250,250,247,0.94);
+  padding:6px 10px;
+  border:1px solid var(--line-strong);
+  border-radius:2px;
+  white-space:nowrap;
+  line-height:1.2;
+  opacity:0;
+  transition:opacity 0.35s ease;
+  box-shadow:0 1px 8px rgba(10,15,24,0.04);
+}
+.tag .a{color:var(--accent);font-weight:700;margin-right:5px}
+.tag .sm{
+  display:block;
+  font-size:8px;
+  font-weight:500;
+  color:var(--mid);
+  letter-spacing:0.10em;
+  margin-top:3px;
+}
+.tag.show{opacity:1}
+
+/* Context-building height annotations — small, monochrome, discrete */
+.ctx-tag{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:7.5px;
+  font-weight:500;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  color:rgba(40,52,72,0.62);
+  background:rgba(250,250,247,0.55);
+  padding:2px 5px;
+  border-radius:1px;
+  white-space:nowrap;
+  line-height:1.15;
+  opacity:0;
+  transition:opacity 0.5s ease;
+  pointer-events:none;
+}
+.ctx-tag .v{
+  color:rgba(40,52,72,0.85);
+  font-weight:600;
+}
+.ctx-tag .sep{
+  display:inline-block;
+  margin:0 3px;
+  opacity:0.5;
+}
+.ctx-tag.show{opacity:1}
+
+/* Dimension labels for setback measurements (Plan phase) */
+.dim-tag{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:0.10em;
+  color:var(--ink);
+  background:rgba(250,250,247,0.96);
+  border:1px solid var(--ink);
+  border-radius:1px;
+  padding:3px 7px;
+  white-space:nowrap;
+  line-height:1;
+  opacity:0;
+  transition:opacity 0.4s ease;
+  pointer-events:none;
+}
+.dim-tag.show{opacity:1}
+@media (max-width:760px){
+  .dim-tag{font-size:8px;padding:2px 5px}
+}
+@media (max-width:760px){
+  .ctx-tag{font-size:6.5px;padding:1px 4px}
+}
+
+/* Scale bar — architectural convention, sits unobtrusively in scene area */
+.scale-bar{
+  position:absolute;
+  left:clamp(20px, 4vw, 56px);
+  bottom:clamp(210px, 26vh, 260px);
+  z-index:8;
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  font-weight:500;
+  letter-spacing:0.10em;
+  color:var(--mid);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.5s ease;
+}
+.scale-bar.show{opacity:1}
+.scale-bar .ticks{
+  display:flex;
+  align-items:flex-end;
+  gap:0;
+  height:9px;
+  margin-bottom:3px;
+}
+.scale-bar .seg{
+  height:5px;
+  width:20px;
+  border-top:1px solid var(--ink);
+  border-left:1px solid var(--ink);
+  border-right:1px solid var(--ink);
+}
+.scale-bar .seg.f{background:var(--ink)}
+.scale-bar .lbls{
+  display:flex;
+  font-size:7.5px;
+  color:var(--mid);
+  letter-spacing:0.08em;
+}
+.scale-bar .lbls span{
+  width:20px;
+  text-align:right;
+  transform:translateX(50%);
+}
+.scale-bar .unit{
+  margin-left:6px;
+  color:var(--ink);
+  font-weight:600;
+}
+@media (max-width:760px){
+  .scale-bar{
+    left:14px;
+    top:auto;
+    bottom:clamp(230px, 30vh, 270px);
+    font-size:7.5px;
+  }
+  .scale-bar .seg{width:16px}
+  .scale-bar .lbls span{width:16px}
+}
+
+/* Live data ticker — small diagnostic panel that shows during orbit */
+.data-ticker{
+  position:absolute;
+  right:clamp(20px, 4vw, 56px);
+  bottom:clamp(210px, 26vh, 260px);
+  z-index:8;
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  font-weight:500;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  color:var(--mid);
+  background:rgba(250,250,247,0.78);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:7px 10px 8px;
+  text-align:right;
+  line-height:1.7;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.6s ease;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  min-width:138px;
+}
+.data-ticker.show{opacity:1}
+.data-ticker .row{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+}
+/* Cycle progress bar — subtle, hairline at the very top of the stage area */
+.cycle-progress{
+  position:absolute;
+  top:0;
+  left:0;
+  height:2px;
+  width:0;
+  background:linear-gradient(90deg, var(--accent), rgba(74,156,128,0.45));
+  z-index:30;
+  pointer-events:none;
+  transition:width 0.12s linear;
+}
+.cycle-progress .marker{
+  position:absolute;
+  right:0;
+  top:-1px;
+  width:6px;
+  height:4px;
+  background:var(--accent);
+  border-radius:1px;
+  box-shadow:0 0 8px rgba(74,156,128,0.7);
+}
+
+/* AI analyses checklist — progressively-checked items during orbit */
+.ai-checklist{
+  position:absolute;
+  left:clamp(20px, 4vw, 56px);
+  top:calc(clamp(18px, 3vh, 32px) + 100px);
+  z-index:9;
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  font-weight:500;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  color:var(--mid);
+  background:rgba(250,250,247,0.82);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:8px 11px 9px;
+  min-width:182px;
+  line-height:1.8;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.5s ease;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.ai-checklist.show{opacity:1}
+.ai-checklist .head{
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:0.16em;
+  color:var(--ink);
+  padding-bottom:6px;
+  margin-bottom:5px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.ai-checklist .head::after{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--accent);
+  animation:pulse 1.4s ease-in-out infinite;
+}
+.ai-checklist .item{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--mid);
+  font-size:7.8px;
+  transition:color 0.25s ease;
+}
+.ai-checklist .item .ic{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:11px;
+  height:11px;
+  border:1px solid var(--line-strong);
+  border-radius:50%;
+  background:transparent;
+  flex-shrink:0;
+  transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+  position:relative;
+}
+.ai-checklist .item.done{color:var(--ink); font-weight:600}
+.ai-checklist .item.done .ic{
+  background:var(--accent);
+  border-color:var(--accent);
+}
+.ai-checklist .item.done .ic::after{
+  content:"";
+  position:absolute;
+  left:2px;
+  top:1px;
+  width:3px;
+  height:5px;
+  border-right:1.4px solid #FAFAF7;
+  border-bottom:1.4px solid #FAFAF7;
+  transform:rotate(45deg);
+}
+@media (max-width:760px){
+  .ai-checklist{
+    left:14px;
+    top:120px;
+    bottom:auto;
+    font-size:7px;
+    padding:6px 9px 7px;
+    min-width:148px;
+    line-height:1.65;
+  }
+  .ai-checklist .head{font-size:7px;margin-bottom:4px;padding-bottom:4px}
+  .ai-checklist .item{font-size:7px;gap:5px}
+  .ai-checklist .item .ic{width:9px;height:9px}
+  .ai-checklist .item.done .ic::after{
+    left:1.5px;top:0.5px;width:2.5px;height:4px;
+    border-right-width:1.2px;border-bottom-width:1.2px;
+  }
+}
+.data-ticker .label{
+  color:var(--mid);
+  font-size:7.5px;
+}
+.data-ticker .val{
+  color:var(--ink);
+  font-weight:700;
+  font-size:9px;
+  letter-spacing:0.08em;
+  font-variant-numeric:tabular-nums;
+}
+.data-ticker .val.acc{color:var(--accent)}
+.data-ticker .head{
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:0.16em;
+  color:var(--ink);
+  text-align:right;
+  margin-bottom:5px;
+  padding-bottom:5px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+}
+.data-ticker .head::before{
+  content:"";
+  display:inline-block;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--accent);
+  animation:pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%, 100%{opacity:1; transform:scale(1)}
+  50%{opacity:0.5; transform:scale(0.7)}
+}
+@media (max-width:760px){
+  .data-ticker{
+    right:14px;
+    top:calc(88px + 38px);
+    bottom:auto;
+    font-size:7.5px;
+    padding:6px 8px;
+    min-width:120px;
+  }
+  .data-ticker .val{font-size:8px}
+  .data-ticker .head{font-size:7px}
+}
+
+.tag-court{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  background:rgba(10,15,24,0.86);
+  color:#A8C39F;
+  padding:7px 12px;
+  border:1px solid rgba(143,170,126,0.45);
+  border-radius:2px;
+  white-space:nowrap;
+  line-height:1.4;
+  text-align:center;
+  opacity:0;
+  transition:opacity 0.5s ease;
+  box-shadow:0 2px 12px rgba(10,15,24,0.18);
+}
+.tag-court .lead{
+  display:block;
+  color:#FFFCF2;
+  font-weight:700;
+  font-size:10px;
+  letter-spacing:0.18em;
+  margin-bottom:2px;
+}
+.tag-court.show{opacity:1}
+
+.parking-tag{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  background:rgba(74,98,128,0.92);
+  color:#E8F0FA;
+  padding:6px 10px;
+  border:1px solid rgba(120,160,200,0.40);
+  border-radius:2px;
+  white-space:nowrap;
+  line-height:1.4;
+  text-align:center;
+  opacity:0;
+  transition:opacity 0.45s ease;
+  box-shadow:0 2px 10px rgba(10,15,24,0.20);
+}
+.parking-tag .lead{
+  display:block;
+  color:#FFFCF2;
+  font-weight:700;
+  font-size:9.5px;
+  letter-spacing:0.18em;
+  margin-bottom:2px;
+}
+.parking-tag.show{opacity:1}
+
+/* Sight-line endpoint markers */
+.sikt-tag{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+  background:rgba(250,250,247,0.94);
+  padding:5px 9px;
+  border:1px solid rgba(201,155,58,0.45);
+  border-radius:2px;
+  white-space:nowrap;
+  line-height:1.2;
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+.sikt-tag.show{opacity:1}
+.sikt-tag::before{
+  content:"◆";
+  margin-right:5px;
+  color:var(--gold);
+}
+
+@keyframes rise{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.boot-veil{
+  position:absolute;
+  inset:0;
+  background:var(--bg);
+  z-index:20;
+  opacity:1;
+  transition:opacity 0.7s ease 0.1s;
+  pointer-events:none;
+}
+.boot-veil.gone{opacity:0}
+
+/* Brief overlay at phase transitions for cinematic feel */
+.phase-veil{
+  position:absolute;
+  inset:0;
+  background:var(--ink);
+  z-index:15;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.45s ease;
+  mix-blend-mode:multiply;
+}
+.phase-veil.show{opacity:0.20}
+
+/* ============ PLAN-PHASE LABELS (P-anlegg, innkjørsel, koter) ============ */
+.plan-label{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink);
+  background:rgba(250,250,247,0.94);
+  padding:6px 10px;
+  border:1px solid var(--line-strong);
+  border-left:2px solid var(--accent);
+  border-radius:2px;
+  white-space:nowrap;
+  line-height:1.4;
+  opacity:0;
+  transition:opacity 0.45s ease;
+  z-index:7;
+  text-align:left;
+  pointer-events:none;
+}
+.plan-label .lead{
+  display:block;
+  color:var(--accent);
+  font-weight:700;
+  font-size:10px;
+  letter-spacing:0.16em;
+}
+.plan-label .info{
+  display:block;
+  color:var(--mid);
+  font-size:8.5px;
+  margin-top:2px;
+}
+.plan-label.show{opacity:1}
+.plan-label.dw{
+  border-left:2px solid var(--gold);
+}
+.plan-label.dw .lead{color:var(--gold)}
+
+.contour-label{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:8.5px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  color:#7E6E55;
+  background:rgba(250,250,247,0.78);
+  padding:2px 6px;
+  border-radius:1px;
+  line-height:1;
+  opacity:0;
+  transition:opacity 0.4s ease;
+  z-index:6;
+  pointer-events:none;
+}
+.contour-label.show{opacity:1}
+
+@media (max-width:760px){
+  .plan-label{font-size:8.5px;padding:5px 8px}
+  .plan-label .lead{font-size:9px}
+  .plan-label .info{font-size:7.5px}
+  .contour-label{font-size:7.5px;padding:1px 4px}
+}
+
+/* ============ SNITT (cross-section) dimension labels ============ */
+.snitt-dims{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:7;
+}
+.dim-label{
+  position:absolute;
+  transform:translate(-100%,-50%);
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  color:var(--ink);
+  background:rgba(250,250,247,0.94);
+  padding:4px 8px;
+  border:1px solid var(--line-strong);
+  border-radius:2px;
+  white-space:nowrap;
+  line-height:1.2;
+  opacity:0;
+  transition:opacity 0.4s ease;
+  margin-right:14px;
+}
+.dim-label.show{opacity:1}
+.dim-label .h{
+  color:var(--accent);
+  font-weight:700;
+  margin-right:5px;
+}
+.dim-label .lvl{
+  display:block;
+  font-size:7.5px;
+  color:var(--mid);
+  letter-spacing:0.10em;
+  margin-top:1px;
+  font-weight:500;
+}
+.snitt-marker{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  font-family:var(--font-mono);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.10em;
+  color:#FAFAF7;
+  background:#C13C2D;
+  padding:3px 7px;
+  border-radius:1px;
+  line-height:1;
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+.snitt-marker.show{opacity:1}
+.snitt-info{
+  position:absolute;
+  right:clamp(20px,4vw,56px);
+  bottom:calc(clamp(18px,3vh,42px) + 122px);
+  z-index:11;
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:500;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink);
+  background:rgba(250,250,247,0.92);
+  padding:10px 14px;
+  border:1px solid var(--line-strong);
+  border-left:2px solid var(--accent);
+  border-radius:2px;
+  text-align:right;
+  line-height:1.7;
+  opacity:0;
+  transition:opacity 0.5s ease;
+  max-width:240px;
+}
+.snitt-info.show{opacity:1}
+.snitt-info .lead{
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:0.18em;
+  font-size:10.5px;
+}
+.snitt-info .row{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  color:var(--mid);
+}
+.snitt-info .row .v{color:var(--ink);font-weight:600}
+@media (max-width:760px){
+  .snitt-info{
+    left:14px;
+    right:auto;
+    bottom:auto;
+    top:88px;
+    font-size:8.5px;
+    padding:8px 10px;
+    max-width:none;
+    text-align:left;
+  }
+  .snitt-info .lead{font-size:9.5px}
+  .dim-label{font-size:8px;padding:3px 6px}
+  .dim-label .lvl{font-size:6.5px}
+  .snitt-marker{font-size:9px;padding:2px 5px}
+}
+
+/* ============ SUN-HOURS LEGEND ============ */
+.heat-legend{
+  position:absolute;
+  right:clamp(20px,4vw,56px);
+  top:calc(clamp(18px,3vh,32px) + 98px);
+  z-index:11;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 0.5s ease;
+  font-family:var(--font-mono);
+  text-align:right;
+  background:rgba(250,250,247,0.86);
+  padding:9px 12px 11px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.heat-legend.show{opacity:1}
+.heat-legend .title{
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin:0 0 7px 0;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  animation:none;
+}
+.heat-legend .title::before{
+  content:"";
+  display:inline-block;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:linear-gradient(135deg, #E89A3E, #5A8493);
+}
+.heat-legend .bar{
+  width:148px;
+  height:8px;
+  border-radius:1px;
+  background:linear-gradient(to right,
+    #384B6A 0%,
+    #5A8493 22%,
+    #A5C098 50%,
+    #E0CC68 75%,
+    #E89A3E 100%);
+  position:relative;
+  border:1px solid rgba(10,15,24,0.18);
+}
+.heat-legend .ticks{
+  display:flex;
+  justify-content:space-between;
+  margin-top:5px;
+  font-size:8.5px;
+  letter-spacing:0.10em;
+  color:var(--ink);
+  width:148px;
+  font-weight:600;
+}
+@media (max-width:760px){
+  .heat-legend{
+    right:auto;
+    left:14px;
+    top:88px;
+    padding:7px 10px 9px;
+  }
+  .heat-legend .title{font-size:8.5px;justify-content:flex-start}
+  .heat-legend .bar{width:120px;height:6px}
+  .heat-legend .ticks{font-size:7.5px;width:120px}
+}
+@media (max-width:760px){
+  .hud-top{
+    padding:14px 14px 0;
+    flex-direction:row;
+    align-items:center;
+    gap:12px;
+  }
+  .brand{font-size:10px;letter-spacing:0.12em}
+  .head-r{
+    align-items:center;
+    gap:12px;
+    opacity:1;
+    animation:none;
+  }
+  .head-r .col{font-size:9px;line-height:1.4;display:none}
+  .head-r .col:last-child{display:block}
+  .sun-compass{width:54px;height:54px}
+  .sun-compass .lbl{font-size:7px}
+  .sun-compass .time-readout{font-size:8.5px;bottom:-16px;font-weight:700}
+  .phase{
+    top:auto;
+    position:absolute;
+    left:14px;
+    bottom:auto;
+    top:48px;
+    font-size:9.5px;
+    letter-spacing:0.12em;
+  }
+  .phase .ph-num{width:15px;height:15px;font-size:8px;line-height:14px}
+  .phase .ph-sub{display:none}
+  .hud-bottom{
+    padding:14px 14px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .hud-bottom .l{max-width:100%}
+  .title{font-size:22px;margin-bottom:6px;line-height:1.05}
+  .subtitle{font-size:9.5px;line-height:1.6;max-width:none}
+  .stat-group{
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    width:100%;
+  }
+  .stat .v{font-size:16px;line-height:1}
+  .stat .v small{font-size:9px}
+  .stat .v .sub{font-size:7.5px;margin-top:1px}
+  .stat .k{font-size:8.5px;letter-spacing:0.14em}
+  .stat .k .intl{display:none}
+  .tag{font-size:8.5px;padding:4px 7px;letter-spacing:0.06em}
+  .tag .sm{font-size:7px;margin-top:1px}
+  .tag-court{font-size:8px;padding:5px 8px}
+  .tag-court .lead{font-size:9px}
+  .sikt-tag{font-size:8px;padding:4px 7px}
+}
+
+@media (max-width:420px){
+  .stat-group{grid-template-columns:repeat(2,1fr)}
+  .stat.s5{display:none}
+}
+</style>
+</head>
+<body>
+<script>
+// Detect iframe embedding — used to hide the internal lang picker so the
+// parent page's picker remains the single source of truth. Runs synchronously
+// before any other script so the .embedded class is set before first paint.
+if(window.self !== window.top){
+  document.documentElement.classList.add('embedded');
+}
+</script>
+<div class="stage">
+  <canvas id="scene"></canvas>
+  <svg id="leaders" xmlns="http://www.w3.org/2000/svg"></svg>
+
+  <div class="hud-top">
+    <div class="brand">
+      <span class="dot"></span>
+      <span><span class="b">Builtly</span><span class="brand-sub">&nbsp;·&nbsp; <span data-i18n="brand.sub">Mulighetsstudie</span></span></span>
+    </div>
+    <div class="head-r">
+      <div class="col">
+        <div data-i18n-html="mod.label">§&nbsp;<span class="num">04</span> · Modul</div>
+        <div style="margin-top:4px" data-i18n="mod.flow">Auto · Reviewed · Attested</div>
+      </div>
+      <div class="sun-compass">
+        <div class="ring"></div>
+        <div class="axis"></div>
+        <div class="lbl n" data-i18n="compass.n">N</div>
+        <div class="lbl s" data-i18n="compass.s">S</div>
+        <div class="lbl e" data-i18n="compass.e">Ø</div>
+        <div class="lbl w" data-i18n="compass.w">V</div>
+        <svg class="arc" viewBox="0 0 58 58">
+          <path id="sunArc" d="M 6 29 A 23 23 0 0 1 52 29" fill="none" stroke="rgba(201,155,58,0.25)" stroke-width="1" stroke-dasharray="2 2"/>
+        </svg>
+        <div class="sun-dot" id="sunDot"></div>
+        <div class="time-readout" id="sunTime">12:00</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase" id="phase">
+    <span class="ph-num" id="phNum">1</span>
+    <span id="phName" data-i18n="phase.1.name">Volumstudie</span>
+    <span class="ph-sub" id="phSub">· tomtebenyttelse</span>
+  </div>
+
+  <div class="tags-layer" id="tags"></div>
+  <div class="tag-court" id="courtTag" data-i18n-html="bolig.court">
+    <span class="lead">Felles uteareal</span><br/>3 040 m² · TEK17 § 8-4
+  </div>
+
+  <div class="heat-legend" id="heatLegend">
+    <div class="title" data-i18n="heat.title">Soltimer · 21. juni</div>
+    <div class="bar"></div>
+    <div class="ticks">
+      <span data-i18n="heat.0">0 t</span>
+      <span data-i18n="heat.4">4 t</span>
+      <span data-i18n="heat.8">8 t+</span>
+    </div>
+  </div>
+
+  <!-- Cycle progress bar — hairline at the top showing playback through 56s cycle -->
+  <div class="cycle-progress" id="cycleProgress"><div class="marker"></div></div>
+
+  <!-- Architectural scale bar — sits unobtrusively in the scene -->
+  <div class="scale-bar" id="scaleBar">
+    <div class="ticks">
+      <div class="seg"></div>
+      <div class="seg f"></div>
+      <div class="seg"></div>
+      <div class="seg f"></div>
+      <div class="seg"></div>
+    </div>
+    <div class="lbls">
+      <span>0</span><span>10</span><span>20</span><span>30</span><span>40</span><span class="unit">m</span>
+    </div>
+  </div>
+
+  <!-- Live data ticker — shows during 360° orbit -->
+  <div class="data-ticker" id="dataTicker">
+    <div class="head" data-i18n="ticker.title">AI · Live volumstudie</div>
+    <div class="row"><span class="label" data-i18n="ticker.bra">BRA</span><span class="val">12 240 m²</span></div>
+    <div class="row"><span class="label" data-i18n="ticker.brai">BRA-i</span><span class="val acc">10 200 m²</span></div>
+    <div class="row"><span class="label" data-i18n="ticker.ugrad">U-grad</span><span class="val">170 %</span></div>
+    <div class="row"><span class="label" data-i18n="ticker.usage">Tomtebenytt.</span><span class="val">22 %</span></div>
+    <div class="row"><span class="label" data-i18n="ticker.units">Boenheter</span><span class="val">145</span></div>
+    <div class="row"><span class="label" data-i18n="ticker.angle">Vinkel</span><span class="val" id="orbitDeg">000°</span></div>
+  </div>
+
+  <!-- AI analyses checklist — items get checked progressively during the orbit -->
+  <div class="ai-checklist" id="aiChecklist">
+    <div class="head" data-i18n="ai.title">AI · Analyser</div>
+    <div class="item" data-at="0.10"><span class="ic"></span><span data-i18n="ai.item.1">Tomtebenyttelse</span></div>
+    <div class="item" data-at="0.22"><span class="ic"></span><span data-i18n="ai.item.2">Volumoptimering</span></div>
+    <div class="item" data-at="0.34"><span class="ic"></span><span data-i18n-html="ai.item.3">BRA-i &amp; salgbart</span></div>
+    <div class="item" data-at="0.46"><span class="ic"></span><span data-i18n="ai.item.4">Solanalyse 21.06</span></div>
+    <div class="item" data-at="0.58"><span class="ic"></span><span data-i18n-html="ai.item.5">Sikt &amp; utsiktskorridorer</span></div>
+    <div class="item" data-at="0.70"><span class="ic"></span><span data-i18n="ai.item.6">TEK17 § 8-4 uteareal</span></div>
+    <div class="item" data-at="0.82"><span class="ic"></span><span data-i18n="ai.item.7">P-anlegg · 180 plasser</span></div>
+    <div class="item" data-at="0.92"><span class="ic"></span><span data-i18n-html="ai.item.8">IFC &amp; DWG eksport</span></div>
+  </div>
+
+  <!-- Underground parking label (Plan/Snitt phase) -->
+  <div class="parking-tag" id="parkingTag" data-i18n-html="parking.full">
+    <span class="lead">P-anlegg · U1+U2</span><br/>5 980 m² · 180 plasser · 48 EL
+  </div>
+
+  <!-- Snitt (cross-section) overlays -->
+  <div class="snitt-dims" id="snittDims">
+    <div class="dim-label" id="dim7"><span class="h" data-i18n="snitt.dim.roof">Tak</span>+18,0 m<span class="lvl" data-i18n="snitt.maxHeight">Mønehøyde</span></div>
+    <div class="dim-label" id="dim5"><span class="h" data-i18n-html="snitt.dim.floor5">5. ET</span>+12,0 m<span class="lvl" data-i18n="snitt.dim.floor5.sub">Etasjehøyde 3,0 m</span></div>
+    <div class="dim-label" id="dim3"><span class="h" data-i18n-html="snitt.dim.floor3">3. ET</span>+6,0 m<span class="lvl" data-i18n="snitt.dim.floor3.sub">Boenheter 2-4 rom</span></div>
+    <div class="dim-label" id="dim1"><span class="h" data-i18n-html="snitt.dim.floor1">1. ET</span>±0,00<span class="lvl" data-i18n="snitt.dim.floor1.sub">Sokkel</span></div>
+    <div class="snitt-marker" id="snittA1">A</div>
+    <div class="snitt-marker" id="snittA2">A</div>
+  </div>
+
+  <!-- Plan-phase overlays: innkjørsel + contour labels -->
+  <div class="plan-label dw" id="dwLabel">
+    <span class="lead" data-i18n="dw.lead">Innkjørsel P</span>
+    <span class="info" data-i18n="dw.info">Fra Strandveien</span>
+  </div>
+  <!-- Terrain contour labels -->
+  <div class="contour-label" id="ctr1">+205,5</div>
+  <div class="contour-label" id="ctr2">+204,5</div>
+  <div class="contour-label" id="ctr3">+203,5</div>
+
+  <div class="snitt-info" id="snittInfo">
+    <div class="lead" data-i18n="snitt.title">Snitt A–A · 1:200</div>
+    <div class="row"><span data-i18n="snitt.maxHeight">Mønehøyde</span><span class="v">18,0 m</span></div>
+    <div class="row"><span data-i18n="snitt.floorHeight">Etasjehøyde</span><span class="v">3,0 m</span></div>
+    <div class="row"><span data-i18n="snitt.floors">Etasjer</span><span class="v" data-i18n="snitt.floorsValue">6 + sokkel</span></div>
+    <div class="row"><span data-i18n="snitt.code">Bygningskode</span><span class="v">TEK17</span></div>
+  </div>
+
+  <div class="hud-bottom">
+    <div class="l">
+      <div class="demo-tag" id="demoTagEl" data-i18n-html="demo.full"><span class="lt">demo</span><span class="dot">·</span>utvalg av modulens funksjoner<span class="dot">·</span>full versjon: volum i reelle omgivelser, utsikt og fjernpåvirkning, AI-tomteanalyse, prosjekteringseksport</div>
+      <div class="title" data-i18n-html="title.full">Fra tomt til <span class="accent-text">volumstudie</span>.</div>
+      <div class="subtitle" id="subtitleEl" data-i18n-html="bolig.subtitle">
+        Parsell, regulering og terreng fra Geodata.<br/>
+        <em>AI-plassering</em> med <span class="acc">solanalyse, sikt og BRA-optimering</span>.<br/>
+        TEK17-validert. Eksport til IFC og DWG.
+      </div>
+    </div>
+    <div class="r" id="statsContainer">
+      <!-- BOLIG MODE STATS (default visible) -->
+      <div class="stat-group" id="statsBolig">
+        <div class="stat s1">
+          <div class="k"><span data-i18n="stats.tomt">Tomt</span> <span class="intl">· Site</span></div>
+          <div class="v">7 200<small>&nbsp;m²</small></div>
+        </div>
+        <div class="stat s2">
+          <div class="k"><span data-i18n="stats.bya">BYA</span> <span class="intl">· Footprint</span></div>
+          <div class="v">1 570<small>&nbsp;m²</small><span class="sub">22 %</span></div>
+        </div>
+        <div class="stat s3">
+          <div class="k"><span data-i18n="stats.bra">BRA</span> <span class="intl">· GFA</span></div>
+          <div class="v"><span class="num" data-target="12240">12 240</span><small>&nbsp;m²</small></div>
+        </div>
+        <div class="stat s4">
+          <div class="k"><span data-i18n="stats.brai">BRA-i</span> <span class="intl">· NIA</span></div>
+          <div class="v"><span class="num" data-target="10200">10 200</span><small>&nbsp;m²</small><span class="sub" data-i18n="stats.salgbart">Salgbart</span></div>
+        </div>
+        <div class="stat s5">
+          <div class="k"><span data-i18n="stats.units">Boenheter</span> <span class="intl">· Units</span></div>
+          <div class="v"><span class="num" data-target="145">145</span><span class="sub" data-i18n="stats.unitsSub">2–4 rom</span></div>
+        </div>
+      </div>
+      <!-- HOTELL MODE STATS (hidden by default) -->
+      <div class="stat-group" id="statsHotell" style="display:none">
+        <div class="stat s1">
+          <div class="k"><span data-i18n="stats.tomt">Tomt</span> <span class="intl">· Site</span></div>
+          <div class="v">7 200<small>&nbsp;m²</small></div>
+        </div>
+        <div class="stat s2">
+          <div class="k"><span data-i18n="stats.bya">BYA</span> <span class="intl">· Footprint</span></div>
+          <div class="v">1 570<small>&nbsp;m²</small><span class="sub">22 %</span></div>
+        </div>
+        <div class="stat s3">
+          <div class="k"><span data-i18n="stats.bta">BTA</span> <span class="intl">· GFA</span></div>
+          <div class="v">12 240<small>&nbsp;m²</small></div>
+        </div>
+        <div class="stat s4">
+          <div class="k"><span data-i18n="stats.lettable">Utleibart</span> <span class="intl">· GLA</span></div>
+          <div class="v">9 180<small>&nbsp;m²</small><span class="sub">75 %</span></div>
+        </div>
+        <div class="stat s5">
+          <div class="k"><span data-i18n="stats.rooms">Hotellrom</span> <span class="intl">· Keys</span></div>
+          <div class="v">360<span class="sub">3-4 ★</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mode toggle: Bolig / Hotell -->
+  <div class="mode-toggle" role="tablist" aria-label="Bygningstype" data-i18n-attr-aria-label="mode.aria">
+    <button data-mode="bolig" class="active" role="tab" aria-selected="true">
+      <span data-i18n="mode.bolig">Bolig</span><span class="ti" data-i18n="mode.bolig.intl">Residential</span>
+    </button>
+    <span class="sep"></span>
+    <button data-mode="hotell" role="tab" aria-selected="false">
+      <span data-i18n="mode.hotell">Hotell</span><span class="ti" data-i18n="mode.hotell.intl">Hotel</span>
+    </button>
+  </div>
+
+  <!-- Language picker -->
+  <div class="lang-wrap">
+    <button class="lang-picker" id="langPicker" aria-haspopup="true" aria-expanded="false" aria-label="Velg språk" data-i18n-attr-aria-label="lang.selectLabel">
+      <svg class="lang-globe" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13"/></svg>
+      <span class="lang-code" id="langCode">NO</span>
+      <svg class="lang-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="lang-menu" id="langMenu" role="menu" hidden>
+      <button class="lang-option active" data-lang="no" role="menuitem"><span data-i18n="lang.no">Norsk</span><span class="native">Norsk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="lang-option" data-lang="en" role="menuitem"><span data-i18n="lang.en">English</span><span class="native">English</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="lang-option" data-lang="da" role="menuitem"><span data-i18n="lang.da">Dansk</span><span class="native">Dansk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="lang-option" data-lang="sv" role="menuitem"><span data-i18n="lang.sv">Svenska</span><span class="native">Svenska</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="lang-option" data-lang="fi" role="menuitem"><span data-i18n="lang.fi">Suomi</span><span class="native">Suomi</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="lang-option" data-lang="de" role="menuitem"><span data-i18n="lang.de">Deutsch</span><span class="native">Deutsch</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+
+  <div class="phase-veil" id="phaseVeil"></div>
+  <div class="boot-veil" id="veil"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+
+// ============================================================================
+// ====== I18N: 6 LANGUAGES (no, en, da, fi, sv, de) ==========================
+// ============================================================================
+// Aligned with builtly.ai /i18n.js production pattern:
+//   - localStorage key: 'builtly-lang' (matches main site)
+//   - Browser-language detection with BCP47 mapping
+//   - data-i18n / data-i18n-html / data-i18n-attr-* attribute support
+//   - Falls back through chain: chosen → 'en' fallback → original DOM text
+//
+// Adding new strings: add key to ALL 6 language sub-objects in TRANSLATIONS.
+// Missing keys silently return the input key (so source text remains readable
+// during development).
+
+const TRANSLATIONS = {
+  no: {
+    // Lang picker
+    'lang.selectLabel':       'Velg språk',
+    'lang.no':                'Norsk',
+    'lang.en':                'Engelsk',
+    'lang.da':                'Dansk',
+    'lang.fi':                'Finsk',
+    'lang.sv':                'Svensk',
+    'lang.de':                'Tysk',
+    // Mode toggle
+    'mode.aria':              'Bygningstype',
+    'mode.bolig':             'Bolig',
+    'mode.bolig.intl':        'Residential',
+    'mode.hotell':            'Hotell',
+    'mode.hotell.intl':       'Hotel',
+    // Brand
+    'brand.sub':              'Mulighetsstudie',
+    // Hero title + subtitle + demo tag
+    'title.full':             'Fra tomt til <span class="accent-text">volumstudie</span>.',
+    'bolig.subtitle':         'Parsell, regulering og terreng fra Geodata.<br/><em>AI-plassering</em> med <span class="acc">solanalyse, sikt og BRA-optimering</span>.<br/>TEK17-validert. Eksport til IFC og DWG.',
+    'hotell.subtitle':        'Parsell, regulering og terreng fra Geodata.<br/><em>AI-plassering</em> med <span class="acc">solanalyse, key-ratio og GLA-optimering</span>.<br/>RevPAR-prognose · F&amp;B-areal · IFC/DWG-eksport.',
+    'demo.full':              '<span class="lt">demo</span><span class="dot">·</span>utvalg av modulens funksjoner<span class="dot">·</span>full versjon: volum i reelle omgivelser, utsikt og fjernpåvirkning, AI-tomteanalyse, prosjekteringseksport',
+    // Phases (used by JS via t() calls)
+    'phase.1.name':           'Volumstudie',
+    'phase.1.sub.volum':      'Tomtebenyttelse · BRA-i · BYA',
+    'phase.1.sub.volum.hotell': 'Tomtebenyttelse · Keys · GLA · BYA',
+    'phase.1.sub.orbit':      '360° orbit · alle fasader',
+    'phase.2.name':           'Solanalyse',
+    'phase.2.name.natt':      'Natt',
+    'phase.2.sub.morgen':     'Morgen · sol- og skyggekast',
+    'phase.2.sub.dag':        '21. juni · sol- og skyggekast',
+    'phase.2.sub.kveld':      'Kveld · langskygger',
+    'phase.2.sub.natt':       'Lys i vinduer · gateliv',
+    'phase.3.name':           'Sikt',
+    'phase.3.sub':            'Utsikt- og siktanalyse',
+    'phase.4.name':           'Plan',
+    'phase.4.sub':            '2D-grunnriss · sitplan',
+    'phase.5.name':           'Snitt',
+    'phase.5.sub':            'A–A · 1:200 · etasjehøyder',
+    // AI ticker (live volume study panel)
+    'ticker.title':           'AI · Live volumstudie',
+    'ticker.bra':             'BRA',
+    'ticker.brai':            'BRA-i',
+    'ticker.ugrad':           'U-grad',
+    'ticker.usage':           'Tomtebenytt.',
+    'ticker.units':           'Boenheter',
+    'ticker.angle':           'Vinkel',
+    // AI checklist (8 items)
+    'ai.title':               'AI · Analyser',
+    'ai.item.1':              'Tomtebenyttelse',
+    'ai.item.2':              'Volumoptimering',
+    'ai.item.3':              'BRA-i &amp; salgbart',
+    'ai.item.4':              'Solanalyse 21.06',
+    'ai.item.5':              'Sikt &amp; utsiktskorridorer',
+    'ai.item.6':              'TEK17 § 8-4 uteareal',
+    'ai.item.7':              'P-anlegg · 180 plasser',
+    'ai.item.8':              'IFC &amp; DWG eksport',
+    // Stats (bolig + hotell labels)
+    'stats.tomt':             'Tomt',
+    'stats.bya':              'BYA',
+    'stats.bra':              'BRA',
+    'stats.brai':             'BRA-i',
+    'stats.salgbart':         'Salgbart',
+    'stats.units':            'Boenheter',
+    'stats.unitsSub':         '2–4 rom',
+    'stats.bta':              'BTA',
+    'stats.lettable':         'Utleibart',
+    'stats.rooms':            'Hotellrom',
+    // Court (felles uteareal / hotell-plaza)
+    'bolig.court':            '<span class="lead">Felles uteareal</span><br/>3 040 m² · TEK17 § 8-4',
+    'hotell.court':           '<span class="lead">Hotell-plaza</span><br/>3 040 m² · gjestearena · F&amp;B-uteservering',
+    // Parking
+    'parking.full':           '<span class="lead">P-anlegg · U1+U2</span><br/>5 980 m² · 180 plasser · 48 EL',
+    // Driveway
+    'dw.lead':                'Innkjørsel P',
+    'dw.info':                'Fra Strandveien',
+    // Heat legend (sol)
+    'heat.title':             'Soltimer · 21. juni',
+    'heat.0':                 '0 t',
+    'heat.4':                 '4 t',
+    'heat.8':                 '8 t+',
+    // Snitt info card
+    'snitt.title':            'Snitt A–A · 1:200',
+    'snitt.maxHeight':        'Mønehøyde',
+    'snitt.floorHeight':      'Etasjehøyde',
+    'snitt.floors':           'Etasjer',
+    'snitt.floorsValue':      '6 + sokkel',
+    'snitt.code':             'Bygningskode',
+    // Snitt dim labels
+    'snitt.dim.roof':         'Tak',
+    'snitt.dim.floor5':       '5. ET',
+    'snitt.dim.floor5.sub':   'Etasjehøyde 3,0 m',
+    'snitt.dim.floor3':       '3. ET',
+    'snitt.dim.floor3.sub':   'Boenheter 2-4 rom',
+    'snitt.dim.floor1':       '1. ET',
+    'snitt.dim.floor1.sub':   'Sokkel',
+    // Sikt sight-line endpoints
+    'sikt.morgen.o':          'Utsikt morgenlys ø',
+    'sikt.by.no':             'Sikt by NØ',
+    'sikt.fjord':             'Utsikt fjord NV',
+    // Compass
+    'compass.n':              'N',
+    'compass.s':              'S',
+    'compass.e':              'Ø',
+    'compass.w':              'V',
+    // Building tag fragments (used by JS to build per-bygg labels)
+    'bld.et':                 'et',
+    'bld.brai':               'BRA-i',
+    'bld.keys':               'keys',
+    'bld.gla':                'GLA',
+    // Reference annotations (4 et · 13.0 m on context buildings)
+    'ctx.et':                 'et',
+    // Module header
+    'mod.label':              '§ 04 · Modul',
+    'mod.flow':               'Auto · Reviewed · Attested',
+    // Header stuff
+    'sec.head.line1':         'AI'
+  },
+  en: {
+    'lang.selectLabel':       'Select language',
+    'lang.no':                'Norwegian',
+    'lang.en':                'English',
+    'lang.da':                'Danish',
+    'lang.fi':                'Finnish',
+    'lang.sv':                'Swedish',
+    'lang.de':                'German',
+    'mode.aria':              'Building type',
+    'mode.bolig':             'Residential',
+    'mode.bolig.intl':        'Housing',
+    'mode.hotell':            'Hotel',
+    'mode.hotell.intl':       'Hospitality',
+    'brand.sub':              'Feasibility study',
+    'title.full':             'From site to <span class="accent-text">volume study</span>.',
+    'bolig.subtitle':         'Parcel, zoning and terrain from public geodata.<br/><em>AI placement</em> with <span class="acc">sun, sightlines and GIA optimisation</span>.<br/>TEK17-validated. Export to IFC and DWG.',
+    'hotell.subtitle':        'Parcel, zoning and terrain from public geodata.<br/><em>AI placement</em> with <span class="acc">sun, key-ratio and GLA optimisation</span>.<br/>RevPAR forecast · F&amp;B area · IFC/DWG export.',
+    'demo.full':              '<span class="lt">demo</span><span class="dot">·</span>selection of module features<span class="dot">·</span>full version: volume in real context, views and distant impact, AI site analysis, design-stage export',
+    'phase.1.name':           'Volume study',
+    'phase.1.sub.volum':      'Site utilisation · GIA · footprint',
+    'phase.1.sub.volum.hotell': 'Site utilisation · Keys · GLA · footprint',
+    'phase.1.sub.orbit':      '360° orbit · all façades',
+    'phase.2.name':           'Sun study',
+    'phase.2.name.natt':      'Night',
+    'phase.2.sub.morgen':     'Morning · sun and shadows',
+    'phase.2.sub.dag':        '21 June · sun and shadows',
+    'phase.2.sub.kveld':      'Evening · long shadows',
+    'phase.2.sub.natt':       'Lights in windows · street life',
+    'phase.3.name':           'Sightlines',
+    'phase.3.sub':            'Views and sightline analysis',
+    'phase.4.name':           'Plan',
+    'phase.4.sub':            '2D plan · site layout',
+    'phase.5.name':           'Section',
+    'phase.5.sub':            'A–A · 1:200 · floor heights',
+    'ticker.title':           'AI · Live volume study',
+    'ticker.bra':             'GFA',
+    'ticker.brai':            'GIA',
+    'ticker.ugrad':           'FAR',
+    'ticker.usage':           'Site util.',
+    'ticker.units':           'Units',
+    'ticker.angle':           'Angle',
+    'ai.title':               'AI · Analyses',
+    'ai.item.1':              'Site utilisation',
+    'ai.item.2':              'Volume optimisation',
+    'ai.item.3':              'GIA &amp; sellable area',
+    'ai.item.4':              'Sun study 21 June',
+    'ai.item.5':              'Sightlines &amp; view corridors',
+    'ai.item.6':              'TEK17 § 8-4 outdoor area',
+    'ai.item.7':              'Parking · 180 spaces',
+    'ai.item.8':              'IFC &amp; DWG export',
+    'stats.tomt':             'Site',
+    'stats.bya':              'Footprint',
+    'stats.bra':              'GFA',
+    'stats.brai':             'GIA',
+    'stats.salgbart':         'Sellable',
+    'stats.units':            'Units',
+    'stats.unitsSub':         '2–4 rooms',
+    'stats.bta':              'GBA',
+    'stats.lettable':         'Lettable',
+    'stats.rooms':            'Hotel rooms',
+    'bolig.court':            '<span class="lead">Shared courtyard</span><br/>3 040 m² · TEK17 § 8-4',
+    'hotell.court':           '<span class="lead">Hotel plaza</span><br/>3 040 m² · guest area · F&amp;B terrace',
+    'parking.full':           '<span class="lead">Parking · U1+U2</span><br/>5 980 m² · 180 spaces · 48 EV',
+    'dw.lead':                'Parking entry',
+    'dw.info':                'From Strandveien',
+    'heat.title':             'Sun hours · 21 June',
+    'heat.0':                 '0 h',
+    'heat.4':                 '4 h',
+    'heat.8':                 '8 h+',
+    'snitt.title':            'Section A–A · 1:200',
+    'snitt.maxHeight':        'Ridge height',
+    'snitt.floorHeight':      'Floor height',
+    'snitt.floors':           'Storeys',
+    'snitt.floorsValue':      '6 + plinth',
+    'snitt.code':             'Building code',
+    'snitt.dim.roof':         'Roof',
+    'snitt.dim.floor5':       'L 5',
+    'snitt.dim.floor5.sub':   'Floor height 3.0 m',
+    'snitt.dim.floor3':       'L 3',
+    'snitt.dim.floor3.sub':   'Units 2-4 rooms',
+    'snitt.dim.floor1':       'L 1',
+    'snitt.dim.floor1.sub':   'Plinth',
+    'sikt.morgen.o':          'Morning view E',
+    'sikt.by.no':             'City view NE',
+    'sikt.fjord':             'Fjord view NW',
+    'compass.n':              'N',
+    'compass.s':              'S',
+    'compass.e':              'E',
+    'compass.w':              'W',
+    'bld.et':                 'flrs',
+    'bld.brai':               'GIA',
+    'bld.keys':               'keys',
+    'bld.gla':                'GLA',
+    'ctx.et':                 'flrs',
+    'mod.label':              '§ 04 · Module',
+    'mod.flow':               'Auto · Reviewed · Attested',
+    'sec.head.line1':         'AI'
+  },
+  da: {
+    'lang.selectLabel':       'Vælg sprog',
+    'lang.no':                'Norsk',
+    'lang.en':                'Engelsk',
+    'lang.da':                'Dansk',
+    'lang.fi':                'Finsk',
+    'lang.sv':                'Svensk',
+    'lang.de':                'Tysk',
+    'mode.aria':              'Bygningstype',
+    'mode.bolig':             'Bolig',
+    'mode.bolig.intl':        'Residential',
+    'mode.hotell':            'Hotel',
+    'mode.hotell.intl':       'Hotel',
+    'brand.sub':              'Mulighedsstudie',
+    'title.full':             'Fra grund til <span class="accent-text">volumenstudie</span>.',
+    'bolig.subtitle':         'Parcel, regulering og terræn fra Geodata.<br/><em>AI-placering</em> med <span class="acc">solanalyse, sigt og arealoptimering</span>.<br/>BR-valideret. Eksport til IFC og DWG.',
+    'hotell.subtitle':        'Parcel, regulering og terræn fra Geodata.<br/><em>AI-placering</em> med <span class="acc">solanalyse, key-ratio og GLA-optimering</span>.<br/>RevPAR-prognose · F&amp;B-areal · IFC/DWG-eksport.',
+    'demo.full':              '<span class="lt">demo</span><span class="dot">·</span>udvalg af modulets funktioner<span class="dot">·</span>fuld version: volumen i reelle omgivelser, udsigt og fjernpåvirkning, AI-grundanalyse, projekteringseksport',
+    'phase.1.name':           'Volumenstudie',
+    'phase.1.sub.volum':      'Grundudnyttelse · etageareal · grundflade',
+    'phase.1.sub.volum.hotell': 'Grundudnyttelse · Keys · GLA · grundflade',
+    'phase.1.sub.orbit':      '360° orbit · alle facader',
+    'phase.2.name':           'Solanalyse',
+    'phase.2.name.natt':      'Nat',
+    'phase.2.sub.morgen':     'Morgen · sol og skygger',
+    'phase.2.sub.dag':        '21. juni · sol og skygger',
+    'phase.2.sub.kveld':      'Aften · lange skygger',
+    'phase.2.sub.natt':       'Lys i vinduer · gadeliv',
+    'phase.3.name':           'Sigt',
+    'phase.3.sub':            'Udsigts- og sigteanalyse',
+    'phase.4.name':           'Plan',
+    'phase.4.sub':            '2D-grundplan · situationsplan',
+    'phase.5.name':           'Snit',
+    'phase.5.sub':            'A–A · 1:200 · etagehøjder',
+    'ticker.title':           'AI · Live volumenstudie',
+    'ticker.bra':             'Etage',
+    'ticker.brai':            'Nettoareal',
+    'ticker.ugrad':           'Bebyg.%',
+    'ticker.usage':           'Udnyttelse',
+    'ticker.units':           'Boliger',
+    'ticker.angle':           'Vinkel',
+    'ai.title':               'AI · Analyser',
+    'ai.item.1':              'Grundudnyttelse',
+    'ai.item.2':              'Volumenoptimering',
+    'ai.item.3':              'Etageareal &amp; salgbart',
+    'ai.item.4':              'Solanalyse 21.06',
+    'ai.item.5':              'Sigt &amp; udsigtskorridorer',
+    'ai.item.6':              'BR § 8-4 udeareal',
+    'ai.item.7':              'P-anlæg · 180 pladser',
+    'ai.item.8':              'IFC &amp; DWG-eksport',
+    'stats.tomt':             'Grund',
+    'stats.bya':              'Grundflade',
+    'stats.bra':              'Etageareal',
+    'stats.brai':             'Nettoareal',
+    'stats.salgbart':         'Salgbart',
+    'stats.units':            'Boliger',
+    'stats.unitsSub':         '2–4 rum',
+    'stats.bta':              'Bruttoareal',
+    'stats.lettable':         'Udlejeligt',
+    'stats.rooms':            'Hotelværelser',
+    'bolig.court':            '<span class="lead">Fælles udeareal</span><br/>3 040 m² · BR § 8-4',
+    'hotell.court':           '<span class="lead">Hotelplads</span><br/>3 040 m² · gæstearena · F&amp;B-udeservering',
+    'parking.full':           '<span class="lead">P-anlæg · U1+U2</span><br/>5 980 m² · 180 pladser · 48 EL',
+    'dw.lead':                'Indkørsel P',
+    'dw.info':                'Fra Strandveien',
+    'heat.title':             'Soltimer · 21. juni',
+    'heat.0':                 '0 t',
+    'heat.4':                 '4 t',
+    'heat.8':                 '8 t+',
+    'snitt.title':            'Snit A–A · 1:200',
+    'snitt.maxHeight':        'Tagrygshøjde',
+    'snitt.floorHeight':      'Etagehøjde',
+    'snitt.floors':           'Etager',
+    'snitt.floorsValue':      '6 + sokkel',
+    'snitt.code':             'Bygningskode',
+    'snitt.dim.roof':         'Tag',
+    'snitt.dim.floor5':       '5. ET',
+    'snitt.dim.floor5.sub':   'Etagehøjde 3,0 m',
+    'snitt.dim.floor3':       '3. ET',
+    'snitt.dim.floor3.sub':   'Boliger 2-4 rum',
+    'snitt.dim.floor1':       '1. ET',
+    'snitt.dim.floor1.sub':   'Sokkel',
+    'sikt.morgen.o':          'Udsigt morgenlys Ø',
+    'sikt.by.no':             'Sigt by NØ',
+    'sikt.fjord':             'Udsigt fjord NV',
+    'compass.n':              'N',
+    'compass.s':              'S',
+    'compass.e':              'Ø',
+    'compass.w':              'V',
+    'bld.et':                 'et',
+    'bld.brai':               'Nettoareal',
+    'bld.keys':               'keys',
+    'bld.gla':                'GLA',
+    'ctx.et':                 'et',
+    'mod.label':              '§ 04 · Modul',
+    'mod.flow':               'Auto · Reviewed · Attested',
+    'sec.head.line1':         'AI'
+  },
+  fi: {
+    'lang.selectLabel':       'Valitse kieli',
+    'lang.no':                'Norja',
+    'lang.en':                'Englanti',
+    'lang.da':                'Tanska',
+    'lang.fi':                'Suomi',
+    'lang.sv':                'Ruotsi',
+    'lang.de':                'Saksa',
+    'mode.aria':              'Rakennustyyppi',
+    'mode.bolig':             'Asunto',
+    'mode.bolig.intl':        'Asuminen',
+    'mode.hotell':            'Hotelli',
+    'mode.hotell.intl':       'Majoitus',
+    'brand.sub':              'Mahdollisuustutkimus',
+    'title.full':             'Tontista <span class="accent-text">tilavuustutkimukseksi</span>.',
+    'bolig.subtitle':         'Tontti, kaavoitus ja maasto julkisesta paikkatiedosta.<br/><em>Tekoälysijoittelu</em> käyttäen <span class="acc">aurinkoanalyysiä, näkymiä ja kerrosalaoptimointia</span>.<br/>TEK17-tarkistettu. Vienti IFC- ja DWG-muotoon.',
+    'hotell.subtitle':        'Tontti, kaavoitus ja maasto julkisesta paikkatiedosta.<br/><em>Tekoälysijoittelu</em> käyttäen <span class="acc">aurinkoanalyysiä, huone-suhdetta ja GLA-optimointia</span>.<br/>RevPAR-ennuste · F&amp;B-tila · IFC/DWG-vienti.',
+    'demo.full':              '<span class="lt">demo</span><span class="dot">·</span>valikoima moduulin toimintoja<span class="dot">·</span>täysi versio: tilavuus todellisessa ympäristössä, näkymät ja kaukovaikutus, tekoälypohjainen tonttianalyysi, suunnitteluvienti',
+    'phase.1.name':           'Tilavuustutkimus',
+    'phase.1.sub.volum':      'Tontin käyttö · kerrosala · pohjapinta',
+    'phase.1.sub.volum.hotell': 'Tontin käyttö · huoneet · GLA · pohjapinta',
+    'phase.1.sub.orbit':      '360° kierros · kaikki julkisivut',
+    'phase.2.name':           'Aurinkoanalyysi',
+    'phase.2.name.natt':      'Yö',
+    'phase.2.sub.morgen':     'Aamu · aurinko ja varjot',
+    'phase.2.sub.dag':        '21. kesäkuuta · aurinko ja varjot',
+    'phase.2.sub.kveld':      'Ilta · pitkät varjot',
+    'phase.2.sub.natt':       'Valot ikkunoissa · katuelämä',
+    'phase.3.name':           'Näkymät',
+    'phase.3.sub':            'Näkymä- ja näkyvyysanalyysi',
+    'phase.4.name':           'Pohja',
+    'phase.4.sub':            '2D-pohjapiirros · asemapiirros',
+    'phase.5.name':           'Leikkaus',
+    'phase.5.sub':            'A–A · 1:200 · kerroskorkeudet',
+    'ticker.title':           'AI · Tilavuustutkimus live',
+    'ticker.bra':             'Krs.ala',
+    'ticker.brai':            'Hyötyala',
+    'ticker.ugrad':           'Teh.',
+    'ticker.usage':           'Käyttö',
+    'ticker.units':           'Asunnot',
+    'ticker.angle':           'Kulma',
+    'ai.title':               'AI · Analyysit',
+    'ai.item.1':              'Tontin käyttö',
+    'ai.item.2':              'Tilavuusoptimointi',
+    'ai.item.3':              'Hyötyala &amp; myytävä',
+    'ai.item.4':              'Aurinkoanalyysi 21.06',
+    'ai.item.5':              'Näkymät &amp; näköalakäytävät',
+    'ai.item.6':              'TEK17 § 8-4 ulkotila',
+    'ai.item.7':              'Pysäköinti · 180 paikkaa',
+    'ai.item.8':              'IFC- &amp; DWG-vienti',
+    'stats.tomt':             'Tontti',
+    'stats.bya':              'Pohjapinta',
+    'stats.bra':              'Kerrosala',
+    'stats.brai':             'Hyötyala',
+    'stats.salgbart':         'Myytävä',
+    'stats.units':            'Asunnot',
+    'stats.unitsSub':         '2–4 h',
+    'stats.bta':              'Bruttoala',
+    'stats.lettable':         'Vuokrattava',
+    'stats.rooms':            'Hotellihuoneet',
+    'bolig.court':            '<span class="lead">Yhteispiha</span><br/>3 040 m² · TEK17 § 8-4',
+    'hotell.court':           '<span class="lead">Hotellin aukio</span><br/>3 040 m² · vieraalueet · F&amp;B-terassi',
+    'parking.full':           '<span class="lead">Pysäköinti · K1+K2</span><br/>5 980 m² · 180 paikkaa · 48 SL',
+    'dw.lead':                'P-sisäänajo',
+    'dw.info':                'Strandveieniltä',
+    'heat.title':             'Aurinkotunnit · 21. kesäkuuta',
+    'heat.0':                 '0 h',
+    'heat.4':                 '4 h',
+    'heat.8':                 '8 h+',
+    'snitt.title':            'Leikkaus A–A · 1:200',
+    'snitt.maxHeight':        'Harjakorkeus',
+    'snitt.floorHeight':      'Kerroskorkeus',
+    'snitt.floors':           'Kerrokset',
+    'snitt.floorsValue':      '6 + kellari',
+    'snitt.code':             'Rakennuskoodi',
+    'snitt.dim.roof':         'Katto',
+    'snitt.dim.floor5':       '5. krs',
+    'snitt.dim.floor5.sub':   'Kerroskork. 3,0 m',
+    'snitt.dim.floor3':       '3. krs',
+    'snitt.dim.floor3.sub':   'Asunnot 2-4 h',
+    'snitt.dim.floor1':       '1. krs',
+    'snitt.dim.floor1.sub':   'Kellari',
+    'sikt.morgen.o':          'Aamunäkymä I',
+    'sikt.by.no':             'Kaupunkinäkymä KO',
+    'sikt.fjord':             'Vuononäkymä LP',
+    'compass.n':              'P',
+    'compass.s':              'E',
+    'compass.e':              'I',
+    'compass.w':              'L',
+    'bld.et':                 'krs',
+    'bld.brai':               'Hyötyala',
+    'bld.keys':               'huon',
+    'bld.gla':                'GLA',
+    'ctx.et':                 'krs',
+    'mod.label':              '§ 04 · Moduuli',
+    'mod.flow':               'Auto · Tarkastettu · Vahvistettu',
+    'sec.head.line1':         'AI'
+  },
+  sv: {
+    'lang.selectLabel':       'Välj språk',
+    'lang.no':                'Norska',
+    'lang.en':                'Engelska',
+    'lang.da':                'Danska',
+    'lang.fi':                'Finska',
+    'lang.sv':                'Svenska',
+    'lang.de':                'Tyska',
+    'mode.aria':              'Byggnadstyp',
+    'mode.bolig':             'Bostad',
+    'mode.bolig.intl':        'Boende',
+    'mode.hotell':            'Hotell',
+    'mode.hotell.intl':       'Hotell',
+    'brand.sub':              'Möjlighetsstudie',
+    'title.full':             'Från tomt till <span class="accent-text">volymstudie</span>.',
+    'bolig.subtitle':         'Tomt, planbestämmelser och terräng från offentlig geodata.<br/><em>AI-placering</em> med <span class="acc">solanalys, sikt och BTA-optimering</span>.<br/>BBR-validerat. Export till IFC och DWG.',
+    'hotell.subtitle':        'Tomt, planbestämmelser och terräng från offentlig geodata.<br/><em>AI-placering</em> med <span class="acc">solanalys, key-ratio och GLA-optimering</span>.<br/>RevPAR-prognos · F&amp;B-area · IFC/DWG-export.',
+    'demo.full':              '<span class="lt">demo</span><span class="dot">·</span>urval av modulens funktioner<span class="dot">·</span>fullständig version: volym i verklig omgivning, utsikt och fjärrpåverkan, AI-tomtanalys, projekteringsexport',
+    'phase.1.name':           'Volymstudie',
+    'phase.1.sub.volum':      'Markanvändning · BTA · byggnadsarea',
+    'phase.1.sub.volum.hotell': 'Markanvändning · Keys · GLA · byggnadsarea',
+    'phase.1.sub.orbit':      '360° omloppsbana · alla fasader',
+    'phase.2.name':           'Solanalys',
+    'phase.2.name.natt':      'Natt',
+    'phase.2.sub.morgen':     'Morgon · sol och skuggor',
+    'phase.2.sub.dag':        '21 juni · sol och skuggor',
+    'phase.2.sub.kveld':      'Kväll · långa skuggor',
+    'phase.2.sub.natt':       'Ljus i fönster · gatuliv',
+    'phase.3.name':           'Sikt',
+    'phase.3.sub':            'Utsikts- och siktanalys',
+    'phase.4.name':           'Plan',
+    'phase.4.sub':            '2D-plan · situationsplan',
+    'phase.5.name':           'Sektion',
+    'phase.5.sub':            'A–A · 1:200 · våningshöjder',
+    'ticker.title':           'AI · Live volymstudie',
+    'ticker.bra':             'BTA',
+    'ticker.brai':            'BOA',
+    'ticker.ugrad':           'Exploat.',
+    'ticker.usage':           'Användn.',
+    'ticker.units':           'Lägenheter',
+    'ticker.angle':           'Vinkel',
+    'ai.title':               'AI · Analyser',
+    'ai.item.1':              'Markanvändning',
+    'ai.item.2':              'Volymoptimering',
+    'ai.item.3':              'BTA &amp; säljbart',
+    'ai.item.4':              'Solanalys 21.06',
+    'ai.item.5':              'Sikt &amp; utsiktskorridorer',
+    'ai.item.6':              'BBR § 8-4 friyta',
+    'ai.item.7':              'P-anläggning · 180 platser',
+    'ai.item.8':              'IFC &amp; DWG-export',
+    'stats.tomt':             'Tomt',
+    'stats.bya':              'Byggn.area',
+    'stats.bra':              'BTA',
+    'stats.brai':             'BOA',
+    'stats.salgbart':         'Säljbart',
+    'stats.units':            'Lägenheter',
+    'stats.unitsSub':         '2–4 rok',
+    'stats.bta':              'BTA',
+    'stats.lettable':         'Uthyrbart',
+    'stats.rooms':            'Hotellrum',
+    'bolig.court':            '<span class="lead">Gemensam gård</span><br/>3 040 m² · BBR § 8-4',
+    'hotell.court':           '<span class="lead">Hotelltorg</span><br/>3 040 m² · gästyta · F&amp;B-uteservering',
+    'parking.full':           '<span class="lead">P-anläggning · U1+U2</span><br/>5 980 m² · 180 platser · 48 EL',
+    'dw.lead':                'Infart P',
+    'dw.info':                'Från Strandveien',
+    'heat.title':             'Soltimmar · 21 juni',
+    'heat.0':                 '0 h',
+    'heat.4':                 '4 h',
+    'heat.8':                 '8 h+',
+    'snitt.title':            'Sektion A–A · 1:200',
+    'snitt.maxHeight':        'Nockhöjd',
+    'snitt.floorHeight':      'Våningshöjd',
+    'snitt.floors':           'Våningar',
+    'snitt.floorsValue':      '6 + sockel',
+    'snitt.code':             'Byggnadskod',
+    'snitt.dim.roof':         'Tak',
+    'snitt.dim.floor5':       'VÅN 5',
+    'snitt.dim.floor5.sub':   'Våningshöjd 3,0 m',
+    'snitt.dim.floor3':       'VÅN 3',
+    'snitt.dim.floor3.sub':   'Lägenh. 2-4 rok',
+    'snitt.dim.floor1':       'VÅN 1',
+    'snitt.dim.floor1.sub':   'Sockel',
+    'sikt.morgen.o':          'Utsikt morgonljus Ö',
+    'sikt.by.no':             'Sikt stad NÖ',
+    'sikt.fjord':             'Utsikt fjord NV',
+    'compass.n':              'N',
+    'compass.s':              'S',
+    'compass.e':              'Ö',
+    'compass.w':              'V',
+    'bld.et':                 'vån',
+    'bld.brai':               'BOA',
+    'bld.keys':               'keys',
+    'bld.gla':                'GLA',
+    'ctx.et':                 'vån',
+    'mod.label':              '§ 04 · Modul',
+    'mod.flow':               'Auto · Reviewed · Attested',
+    'sec.head.line1':         'AI'
+  },
+  de: {
+    'lang.selectLabel':       'Sprache wählen',
+    'lang.no':                'Norwegisch',
+    'lang.en':                'Englisch',
+    'lang.da':                'Dänisch',
+    'lang.fi':                'Finnisch',
+    'lang.sv':                'Schwedisch',
+    'lang.de':                'Deutsch',
+    'mode.aria':              'Gebäudetyp',
+    'mode.bolig':             'Wohnen',
+    'mode.bolig.intl':        'Residential',
+    'mode.hotell':            'Hotel',
+    'mode.hotell.intl':       'Hotellerie',
+    'brand.sub':              'Machbarkeitsstudie',
+    'title.full':             'Vom Grundstück zur <span class="accent-text">Volumenstudie</span>.',
+    'bolig.subtitle':         'Parzelle, Bauleitplanung und Gelände aus öffentlichen Geodaten.<br/><em>KI-Setzung</em> mit <span class="acc">Sonnenanalyse, Sicht und BGF-Optimierung</span>.<br/>TEK17-validiert. Export nach IFC und DWG.',
+    'hotell.subtitle':        'Parzelle, Bauleitplanung und Gelände aus öffentlichen Geodaten.<br/><em>KI-Setzung</em> mit <span class="acc">Sonnenanalyse, Key-Ratio und GLA-Optimierung</span>.<br/>RevPAR-Prognose · F&amp;B-Fläche · IFC/DWG-Export.',
+    'demo.full':              '<span class="lt">Demo</span><span class="dot">·</span>Auswahl der Modulfunktionen<span class="dot">·</span>Vollversion: Volumen im realen Kontext, Aussicht und Fernwirkung, KI-Grundstücksanalyse, Planungsexport',
+    'phase.1.name':           'Volumenstudie',
+    'phase.1.sub.volum':      'Grundstücksnutzung · BGF · Grundfläche',
+    'phase.1.sub.volum.hotell': 'Grundstücksnutzung · Keys · GLA · Grundfläche',
+    'phase.1.sub.orbit':      '360° Orbit · alle Fassaden',
+    'phase.2.name':           'Sonnenanalyse',
+    'phase.2.name.natt':      'Nacht',
+    'phase.2.sub.morgen':     'Morgen · Sonne und Schatten',
+    'phase.2.sub.dag':        '21. Juni · Sonne und Schatten',
+    'phase.2.sub.kveld':      'Abend · lange Schatten',
+    'phase.2.sub.natt':       'Licht in Fenstern · Stadtleben',
+    'phase.3.name':           'Sicht',
+    'phase.3.sub':            'Aussichts- und Sichtanalyse',
+    'phase.4.name':           'Grundriss',
+    'phase.4.sub':            '2D-Grundriss · Lageplan',
+    'phase.5.name':           'Schnitt',
+    'phase.5.sub':            'A–A · 1:200 · Geschosshöhen',
+    'ticker.title':           'KI · Live-Volumenstudie',
+    'ticker.bra':             'BGF',
+    'ticker.brai':            'NGF',
+    'ticker.ugrad':           'GFZ',
+    'ticker.usage':           'Nutzung',
+    'ticker.units':           'Wohnein.',
+    'ticker.angle':           'Winkel',
+    'ai.title':               'KI · Analysen',
+    'ai.item.1':              'Grundstücksnutzung',
+    'ai.item.2':              'Volumenoptimierung',
+    'ai.item.3':              'BGF &amp; verkäuflich',
+    'ai.item.4':              'Sonnenanalyse 21.06.',
+    'ai.item.5':              'Sicht &amp; Sichtkorridore',
+    'ai.item.6':              'TEK17 § 8-4 Außenraum',
+    'ai.item.7':              'Parken · 180 Plätze',
+    'ai.item.8':              'IFC- &amp; DWG-Export',
+    'stats.tomt':             'Grundst.',
+    'stats.bya':              'Grundfl.',
+    'stats.bra':              'BGF',
+    'stats.brai':             'NGF',
+    'stats.salgbart':         'Verkäufl.',
+    'stats.units':            'Wohneinh.',
+    'stats.unitsSub':         '2–4 Zi.',
+    'stats.bta':              'BGF',
+    'stats.lettable':         'Vermietbar',
+    'stats.rooms':            'Hotelzimmer',
+    'bolig.court':            '<span class="lead">Gemeinschaftshof</span><br/>3 040 m² · TEK17 § 8-4',
+    'hotell.court':           '<span class="lead">Hotel-Plaza</span><br/>3 040 m² · Gästebereich · F&amp;B-Terrasse',
+    'parking.full':           '<span class="lead">Parken · U1+U2</span><br/>5 980 m² · 180 Plätze · 48 EL',
+    'dw.lead':                'Einfahrt P',
+    'dw.info':                'Von Strandveien',
+    'heat.title':             'Sonnenstunden · 21. Juni',
+    'heat.0':                 '0 h',
+    'heat.4':                 '4 h',
+    'heat.8':                 '8 h+',
+    'snitt.title':            'Schnitt A–A · 1:200',
+    'snitt.maxHeight':        'Firsthöhe',
+    'snitt.floorHeight':      'Geschosshöhe',
+    'snitt.floors':           'Geschosse',
+    'snitt.floorsValue':      '6 + Sockel',
+    'snitt.code':             'Bauordnung',
+    'snitt.dim.roof':         'Dach',
+    'snitt.dim.floor5':       '5. OG',
+    'snitt.dim.floor5.sub':   'Geschosshöhe 3,0 m',
+    'snitt.dim.floor3':       '3. OG',
+    'snitt.dim.floor3.sub':   'Wohneinh. 2-4 Zi.',
+    'snitt.dim.floor1':       '1. OG',
+    'snitt.dim.floor1.sub':   'Sockel',
+    'sikt.morgen.o':          'Aussicht Morgenlicht O',
+    'sikt.by.no':             'Sicht Stadt NO',
+    'sikt.fjord':             'Aussicht Fjord NW',
+    'compass.n':              'N',
+    'compass.s':              'S',
+    'compass.e':              'O',
+    'compass.w':              'W',
+    'bld.et':                 'OG',
+    'bld.brai':               'NGF',
+    'bld.keys':               'Keys',
+    'bld.gla':                'GLA',
+    'ctx.et':                 'OG',
+    'mod.label':              '§ 04 · Modul',
+    'mod.flow':               'Auto · Reviewed · Attested',
+    'sec.head.line1':         'KI'
+  }
+};
+
+const SUPPORTED_LANGS = ['no', 'en', 'da', 'fi', 'sv', 'de'];
+
+function detectInitialLanguage(){
+  // 1. localStorage override (matches main site key)
+  try {
+    const saved = localStorage.getItem('builtly-lang');
+    if(saved && SUPPORTED_LANGS.indexOf(saved) >= 0) return saved;
+  } catch(_){}
+  // 2. URL ?lang= override (for embedding/testing)
+  const qp = new URLSearchParams(location.search).get('lang');
+  if(qp && SUPPORTED_LANGS.indexOf(qp) >= 0) return qp;
+  // 3. Browser language preferences (BCP47-aware)
+  const browserLangs = navigator.languages || [navigator.language || 'no'];
+  for(const raw of browserLangs){
+    const tag = String(raw).toLowerCase();
+    if(tag.startsWith('nb') || tag.startsWith('nn') || tag.startsWith('no')) return 'no';
+    if(tag.startsWith('sv')) return 'sv';
+    if(tag.startsWith('da')) return 'da';
+    if(tag.startsWith('fi')) return 'fi';
+    if(tag.startsWith('de')) return 'de';
+    if(tag.startsWith('en')) return 'en';
+  }
+  return 'no';  // Default Norwegian since this module is Norwegian real-estate
+}
+let currentLang = detectInitialLanguage();
+
+// Translation lookup. Falls back English, then key itself.
+function t(key){
+  const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.no;
+  if(dict[key] != null) return dict[key];
+  if(TRANSLATIONS.en[key] != null) return TRANSLATIONS.en[key];
+  if(TRANSLATIONS.no[key] != null) return TRANSLATIONS.no[key];
+  return key;
+}
+
+// Apply translations to all marked DOM elements.
+function applyTranslations(){
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    el.innerHTML = t(el.getAttribute('data-i18n-html'));
+  });
+  document.querySelectorAll('*').forEach(el => {
+    for(const attr of Array.from(el.attributes)){
+      if(attr.name.startsWith('data-i18n-attr-')){
+        const targetAttr = attr.name.replace('data-i18n-attr-', '');
+        el.setAttribute(targetAttr, t(attr.value));
+      }
+    }
+  });
+  // Sync lang code in picker
+  const codeEl = document.getElementById('langCode');
+  if(codeEl) codeEl.textContent = currentLang.toUpperCase();
+  // Mark active option
+  document.querySelectorAll('.lang-option').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === currentLang);
+  });
+  document.documentElement.lang = currentLang;
+}
+
+function setLanguage(lang){
+  if(!TRANSLATIONS[lang]) return;
+  currentLang = lang;
+  try { localStorage.setItem('builtly-lang', lang); } catch(_){}
+  applyTranslations();
+  // Reapply mode so subtitle/court/phaseSubs/building tags refresh.
+  // applyMode is defined later — guard against init-time call.
+  if(typeof applyMode === 'function' && typeof currentMode !== 'undefined'){
+    applyMode(currentMode);
+  }
+}
+// Expose for debugging / external triggers
+window.BUILTLY_I18N = { t, applyTranslations, setLanguage,
+                        getLang: () => currentLang, TRANSLATIONS };
+
+// Listen for language-change messages from a parent window (when this page is
+// embedded in an iframe inside builtly.ai's index.html). The parent forwards
+// BUILTLY_I18N.onLangChange events via postMessage so the embed updates live.
+window.addEventListener('message', function(ev){
+  if(ev && ev.data && ev.data.type === 'builtly:setLang' && typeof ev.data.lang === 'string'){
+    setLanguage(ev.data.lang);
+  }
+});
+// ====== END I18N MODULE =====================================================
+
+
+// ====== DESIGN TOKENS ======
+const COL = {
+  bg:       0xFAFAF7,
+  groundSoft: 0xE8E2D5,
+  groundWarm: 0xEDE7D8,
+  sidewalk: 0xC8C2B3,
+  sidewalkLine: 0x9B958A,
+  street:   0x8A8478,
+  streetLine: 0xEAE5D6,
+  curb:     0x6E6A60,
+  ink:      0x0A0F18,
+  inkSoft:  0x1C232E,
+  mid:      0x5A5F68,
+  accent:   0x0F9E91,
+  gold:     0xC99B3A,
+  // Building palette — coordinated tones
+  bld1:     0x2E3540,  // primary dark
+  bld2:     0x3A4250,  // medium
+  bld3:     0x434B59,  // lighter
+  bld4:     0x363E4A,  // medium-cool
+  bld5:     0x3F4753,  // medium-warm
+  buildingEdge: 0x0A0F18,
+  baseDark: 0x1F242E,
+  roof:     0x4A5260,
+  windowsGlow: 0xE8D9A6,
+  windowsGlowDim: 0x655A47,
+  // Trees
+  treeCrown: 0x5E7C5A,
+  treeCrownLight: 0x84A07E,
+  treeTrunk: 0x3D3429,
+  green:    0xA8C39F,
+  greenLine:0x4F7A4E,
+  context:  0xC8BFAE,
+  contextEdge: 0x8A8273,
+};
+
+// ====== SITE GEOMETRY ======
+const PARCEL_W = 90;
+const PARCEL_D = 80;
+
+const PARCEL = [
+  [-PARCEL_W/2, -PARCEL_D/2],
+  [ PARCEL_W/2, -PARCEL_D/2],
+  [ PARCEL_W/2,  PARCEL_D/2],
+  [-PARCEL_W/2,  PARCEL_D/2],
+];
+
+const SETBACK = [
+  [-PARCEL_W/2 + 4, -PARCEL_D/2 + 4],
+  [ PARCEL_W/2 - 4, -PARCEL_D/2 + 4],
+  [ PARCEL_W/2 - 4,  PARCEL_D/2 - 4],
+  [-PARCEL_W/2 + 4,  PARCEL_D/2 - 4],
+];
+
+const STREET = {
+  zNear: -PARCEL_D/2 - 4,
+  zFar:  -PARCEL_D/2 - 16,
+  xMin:  -100,
+  xMax:   100,
+};
+
+const SIDEWALK = {
+  zNear: -PARCEL_D/2,
+  zFar:  -PARCEL_D/2 - 4,
+  xMin:  -100,
+  xMax:   100,
+};
+
+// ====== BUILDINGS — U-shaped karré with varied tones ======
+// bra/brai: residential (boligbygg) — BRA-i is salgbart
+// keys/gla: hotel — GLA is utleibart areal (gross lettable area)
+// Hotel ratio: GLA ≈ 75% of BRA (corridors, lobby, BOH excluded). Avg key ≈ 30 m² GLA inkl korridorandel.
+const BUILDINGS = [
+  {label:'A', cx:-32, cz:  0, w:10, d:50, h:18.0, stories:6, tone:COL.bld1,
+   bra:3390, brai:2830, gla:2540, keys:100, kind:'lamell'},
+  {label:'B', cx: 32, cz:  0, w:10, d:50, h:18.0, stories:6, tone:COL.bld2,
+   bra:3390, brai:2830, gla:2540, keys:100, kind:'lamell'},
+  {label:'C', cx:  0, cz: 28, w:46, d:10, h:15.0, stories:5, tone:COL.bld3,
+   bra:2600, brai:2160, gla:1960, keys: 74, kind:'lamell'},
+  {label:'D', cx:-22, cz:-28, w:18, d:10, h:21.0, stories:7, tone:COL.bld4,
+   bra:1430, brai:1190, gla:1070, keys: 43, kind:'punkthus'},
+  {label:'E', cx: 22, cz:-28, w:18, d:10, h:21.0, stories:7, tone:COL.bld5,
+   bra:1430, brai:1190, gla:1070, keys: 43, kind:'punkthus'},
+];
+
+const COURTYARD = [
+  [-22, -20],
+  [ 22, -20],
+  [ 22,  20],
+  [-22,  20],
+];
+
+// Pedestrian paths (lines on ground)
+const PATHS = [
+  // Main entry from street into courtyard (between D and E)
+  [[0, -PARCEL_D/2 - 4], [0, 0]],
+  // East-west connector
+  [[-PARCEL_W/2 + 4, -10], [PARCEL_W/2 - 4, -10]],
+];
+
+// Trees in courtyard (positions)
+const TREES = [
+  {x: -10, z: -8, r: 2.4, h: 6},
+  {x:   8, z: -10, r: 2.2, h: 5.5},
+  {x:  12, z:  8, r: 2.8, h: 7},
+  {x: -12, z:  10, r: 2.0, h: 5},
+  {x:   0, z:  4, r: 3.0, h: 7.5},
+];
+
+// Context buildings (faded neighbors around parcel)
+// All heights in 12–15m range so they read as established city fabric
+// stories computed from height assuming ~3m floor-to-floor
+const CONTEXT = [
+  // North side
+  {x:-46, z: 64, w:30, d:18, h:13.5, stories:4},
+  {x: 14, z: 70, w:34, d:14, h:15.0, stories:5},
+  // East
+  {x: 78, z:-10, w:16, d:36, h:12.0, stories:4},
+  {x: 70, z: 36, w:20, d:18, h:13.0, stories:4},
+  // West
+  {x:-78, z: -18, w:14, d:34, h:14.5, stories:5},
+  {x:-72, z: 30, w:22, d:16, h:12.5, stories:4},
+  // South across the street
+  {x:-46, z:-58, w:34, d:14, h:13.0, stories:4},
+  {x:  2, z:-62, w:26, d:14, h:14.0, stories:5},
+  {x: 52, z:-58, w:32, d:14, h:12.0, stories:4},
+];
+
+// Sight-line points (where buildings "look toward" for view analysis)
+const SIGHT_LINES = [
+  {from:'A', fromOffset:[-5, 22], to:[-90, 80], label:'Utsikt fjord NV',     i18nKey:'sikt.fjord'},
+  {from:'C', fromOffset:[12,  5], to:[ 90, 80], label:'Utsikt by NØ',         i18nKey:'sikt.by.no'},
+  {from:'B', fromOffset:[ 5, 22], to:[ 90, 50], label:'Utsikt morgenlys Ø',   i18nKey:'sikt.morgen.o'},
+];
+
+// Terreng-koter (height contours on parcel) — slight slope N→S
+const CONTOURS = [
+  {z: 18,  label:'+205,5', y: 0.082},
+  {z:  4,  label:'+204,5', y: 0.080},
+  {z: -10, label:'+203,5', y: 0.078},
+];
+
+// ====== SCENE BOOT ======
+const canvas = document.getElementById('scene');
+const scene = new THREE.Scene();
+
+let W = window.innerWidth;
+let H = window.innerHeight;
+let IS_MOBILE = W < 760;
+let IS_PORTRAIT = H > W * 1.1;
+
+const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(W, H, false);
+renderer.setClearColor(0x000000, 0);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+// Orthographic camera
+const camera = new THREE.OrthographicCamera();
+
+// Base viewSize per viewport tier (no zoom applied)
+let viewSizeBase = 270;
+let zoomFactor = 1.0;  // animated during orbit for cinematic effect
+
+function updateCamera(){
+  W = window.innerWidth;
+  H = window.innerHeight;
+  IS_MOBILE = W < 760;
+  IS_PORTRAIT = H > W * 1.1;
+  renderer.setSize(W, H, false);
+
+  // Compute base viewSize based on viewport
+  if(IS_PORTRAIT && IS_MOBILE){
+    viewSizeBase = 270;  // generous overview — full site context visible
+  } else if(IS_MOBILE){
+    viewSizeBase = 240;
+  } else if(W < 1100){
+    viewSizeBase = 210;
+  } else {
+    viewSizeBase = 185;
+  }
+  applyViewSize();
+}
+
+function applyViewSize(){
+  const viewSize = viewSizeBase * zoomFactor;
+  const aspect = W / H;
+  camera.left   = -viewSize * aspect / 2;
+  camera.right  =  viewSize * aspect / 2;
+  camera.top    =  viewSize / 2;
+  camera.bottom = -viewSize / 2;
+  camera.near   = -500;
+  camera.far    =  500;
+  camera.updateProjectionMatrix();
+}
+
+const CAM_AZ_DEFAULT = Math.PI * 0.27;
+const CAM_EL_DEFAULT = Math.PI * 0.20;
+const CAM_EL_PLAN = Math.PI * 0.485; // near top-down
+const CAM_AZ_SNITT = Math.PI * 0.50;  // east-facing for section
+const CAM_EL_SNITT = Math.PI * 0.045; // very low, near elevation
+let camAz = CAM_AZ_DEFAULT;
+let camEl = CAM_EL_DEFAULT;
+
+function setCameraOrbit(az, el, targetY){
+  const r = 120;
+  camera.position.set(
+    Math.cos(el) * Math.sin(az) * r,
+    Math.sin(el) * r,
+    Math.cos(el) * Math.cos(az) * r
+  );
+  // Center camera on the karré itself — lookAt at the geometric centre of the
+  // 5-building footprint, slightly elevated to anchor at building mid-height.
+  const defaultY = (IS_PORTRAIT && IS_MOBILE) ? 8 : 4;
+  camera.lookAt(0, targetY != null ? targetY : defaultY, 0);
+}
+setCameraOrbit(camAz, camEl);
+updateCamera();
+
+window.addEventListener('resize', updateCamera);
+
+// ====== LIGHTS ======
+scene.add(new THREE.AmbientLight(0xFFFCF2, 0.34));
+
+const sun = new THREE.DirectionalLight(0xFFEDC2, 1.35);
+sun.position.set(35, 80, 30);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.left   = -130;
+sun.shadow.camera.right  =  130;
+sun.shadow.camera.top    =  130;
+sun.shadow.camera.bottom = -130;
+sun.shadow.camera.near   = 0.5;
+sun.shadow.camera.far    = 450;
+sun.shadow.bias = -0.0004;
+sun.shadow.normalBias = 0.025;
+sun.shadow.radius = 1.8;
+scene.add(sun);
+scene.add(sun.target);
+
+const fill = new THREE.DirectionalLight(0xB8D0E8, 0.14);
+fill.position.set(-40, 30, -25);
+scene.add(fill);
+
+scene.add(new THREE.HemisphereLight(0xF4ECD6, 0xD8D1C0, 0.18));
+
+// ====== HELPERS ======
+function polygonShape(points){
+  const shape = new THREE.Shape();
+  shape.moveTo(points[0][0], points[0][1]);
+  for(let i=1; i<points.length; i++) shape.lineTo(points[i][0], points[i][1]);
+  shape.closePath();
+  return shape;
+}
+
+function rectShape(x1, z1, x2, z2){
+  const shape = new THREE.Shape();
+  shape.moveTo(x1, z1);
+  shape.lineTo(x2, z1);
+  shape.lineTo(x2, z2);
+  shape.lineTo(x1, z2);
+  shape.closePath();
+  return shape;
+}
+
+function makePolyBorder(points, y, color, opacity){
+  const pts = [];
+  for(let i=0; i<points.length; i++){
+    const [x,z] = points[i];
+    const [nx,nz] = points[(i+1)%points.length];
+    pts.push(x, y, z,  nx, y, nz);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color, transparent:true, opacity});
+  return new THREE.LineSegments(geo, mat);
+}
+
+function makeDashedBorder(points, y, color, opacity, dashLen, gapLen){
+  dashLen = dashLen || 2.4;
+  gapLen = gapLen || 1.6;
+  const pts = [];
+  for(let i=0; i<points.length; i++){
+    const [x1,z1] = points[i];
+    const [x2,z2] = points[(i+1)%points.length];
+    const dx = x2-x1, dz = z2-z1;
+    const len = Math.hypot(dx, dz);
+    if(len < 0.1) continue;
+    const ux = dx/len, uz = dz/len;
+    let t = 0;
+    while(t + dashLen <= len){
+      pts.push(x1 + ux*t, y, z1 + uz*t,
+               x1 + ux*(t+dashLen), y, z1 + uz*(t+dashLen));
+      t += dashLen + gapLen;
+    }
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color, transparent:true, opacity});
+  return new THREE.LineSegments(geo, mat);
+}
+
+// ====== Sun-hours heatmap texture ======
+// Procedurally generates a color map representing daily sun-hour exposure
+// across the courtyard, accounting for building shadow casting.
+// Cool blue = shaded most of the day, warm yellow = full sun exposure.
+function makeSunHoursTexture(){
+  const cw = 256, ch = 256;
+  const canvas = document.createElement('canvas');
+  canvas.width = cw; canvas.height = ch;
+  const ctx = canvas.getContext('2d');
+
+  // Texture pixels map to world-space rectangle covering the courtyard area
+  // Court extent: -25..25 in x, -22..22 in z (slightly larger than COURTYARD)
+  const wMin = -25, wMax = 25;
+  const dMin = -22, dMax = 22;
+  const wRange = wMax - wMin, dRange = dMax - dMin;
+
+  const imgData = ctx.createImageData(cw, ch);
+  const data = imgData.data;
+
+  for(let py = 0; py < ch; py++){
+    for(let px = 0; px < cw; px++){
+      // Pixel → world coords (note: Z flipped so top of canvas = -Z = north)
+      const wx = wMin + (px / cw) * wRange;
+      const wz = dMin + ((ch - py) / ch) * dRange;
+
+      // Compute approximate daily sun-hour score based on:
+      //  - Proximity to buildings (closer = more shade)
+      //  - Building heights (taller = longer shadows)
+      //  - South-facing positions get more sun (positive Z direction has fewer obstructions)
+      let score = 1.05;
+      for(const b of BUILDINGS){
+        const dx = wx - b.cx;
+        const dz = wz - b.cz;
+        const dist = Math.hypot(dx, dz);
+
+        // Falloff: only nearby buildings affect this pixel meaningfully
+        const proximity = Math.max(0, (28 - dist) / 28);
+        if(proximity <= 0) continue;
+
+        // Taller buildings cast more shade
+        const heightFactor = b.h / 21;
+
+        // Direction matters: shade is cast NORTH (into +Z) of buildings
+        // since sun travels east → south → west in Norway.
+        // So points just NORTH of a building get less sun.
+        // dz > 0 means pixel is NORTH of building (more shade)
+        const northBias = dz > 0 ? 1.3 : 0.7;
+
+        score -= proximity * heightFactor * 0.42 * northBias;
+      }
+      score = Math.max(0, Math.min(1, score));
+
+      // Smooth slight noise so it doesn't look too clinical (atmosphere)
+      const noise = (((px * 31 + py * 17) % 13) - 6) / 220;
+      score = Math.max(0, Math.min(1, score + noise));
+
+      // Color ramp: 0 (shade) → 1 (full sun)
+      // 0.0: deep blue-grey (#384B6A)
+      // 0.3: muted teal (#5A8493)
+      // 0.55: soft green (#A5C098)
+      // 0.75: warm yellow (#E0CC68)
+      // 1.0: hot orange (#E89A3E)
+      let r, g, b;
+      if(score < 0.30){
+        const t = score / 0.30;
+        r = Math.floor(56 + t * 34);
+        g = Math.floor(75 + t * 57);
+        b = Math.floor(106 + t * 41);
+      } else if(score < 0.55){
+        const t = (score - 0.30) / 0.25;
+        r = Math.floor(90 + t * 75);
+        g = Math.floor(132 + t * 60);
+        b = Math.floor(147 - t * 5);
+      } else if(score < 0.78){
+        const t = (score - 0.55) / 0.23;
+        r = Math.floor(165 + t * 60);
+        g = Math.floor(192 + t * 12);
+        b = Math.floor(142 - t * 38);
+      } else {
+        const t = (score - 0.78) / 0.22;
+        r = Math.floor(225 + t * 15);
+        g = Math.floor(204 - t * 50);
+        b = Math.floor(104 - t * 36);
+      }
+
+      const idx = (py * cw + px) * 4;
+      data[idx] = r;
+      data[idx+1] = g;
+      data[idx+2] = b;
+      data[idx+3] = 235;
+    }
+  }
+  ctx.putImageData(imgData, 0, 0);
+
+  // Add subtle contour lines at score thresholds (50%, 75%)
+  // This makes it feel more like a real engineering output.
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.strokeStyle = 'rgba(20,30,40,0.18)';
+  ctx.lineWidth = 1;
+  // Just draw a few isolines manually — outer ring + inner area
+  // This is decorative, not exact
+  ctx.beginPath();
+  ctx.ellipse(cw/2, ch/2 + 18, cw*0.30, ch*0.26, 0, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.ellipse(cw/2 + 6, ch/2 + 28, cw*0.18, ch*0.16, 0, 0, Math.PI * 2);
+  ctx.stroke();
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  return tex;
+}
+// Returns texture with bright window pixels on transparent background.
+// Random ~80% windows lit. Used as additive overlay during dusk/night.
+function makeGlowTexture(width, height, opts){
+  opts = opts || {};
+  const px = 28;
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(64, Math.ceil(width * px));
+  canvas.height = Math.max(64, Math.ceil(height * px));
+  const ctx = canvas.getContext('2d');
+  const cw = canvas.width, ch = canvas.height;
+
+  // Fully transparent background
+  ctx.clearRect(0, 0, cw, ch);
+
+  const stories = opts.stories || Math.max(2, Math.round(height / 3));
+  const storyH = ch / stories;
+  const winCol = opts.winCol || Math.max(2, Math.round(width / 2.6));
+  const winW = (cw / winCol) * 0.62;
+  const winH = storyH * 0.55;
+
+  // Seeded pseudo-random for "which windows are lit" pattern (reproducible)
+  let seed = opts.seed || 1;
+  function pr(){
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  }
+
+  for(let s = 0; s < stories; s++){
+    const y = ch - (s + 1) * storyH + (storyH - winH) / 2;
+    for(let c = 0; c < winCol; c++){
+      const lit = pr() > 0.22;
+      if(!lit) continue;
+
+      const x = (c + 0.5) * (cw / winCol) - winW / 2;
+      // Slight brightness variation
+      const brightness = 0.78 + pr() * 0.22;
+      // Warm cream interior light, with a softer glow halo
+      const haloR = winW * 0.85;
+      const grad = ctx.createRadialGradient(
+        x + winW/2, y + winH/2, 0,
+        x + winW/2, y + winH/2, haloR
+      );
+      grad.addColorStop(0,   `rgba(255, 232, 156, ${brightness})`);
+      grad.addColorStop(0.45, `rgba(244, 208, 130, ${brightness * 0.85})`);
+      grad.addColorStop(0.8, `rgba(232, 188, 118, ${brightness * 0.35})`);
+      grad.addColorStop(1,   'rgba(220, 170, 100, 0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(x - haloR/2, y - haloR/2, winW + haloR, winH + haloR);
+
+      // Window core (brighter rectangle)
+      ctx.fillStyle = `rgba(255, 244, 196, ${brightness * 0.95})`;
+      ctx.fillRect(x + 1, y + 1, winW - 2, winH - 2);
+      // Subtle mullion shadow
+      ctx.fillStyle = `rgba(80, 60, 30, 0.45)`;
+      ctx.fillRect(x + winW/2 - 0.5, y, 1, winH);
+      ctx.fillRect(x, y + winH/2 - 0.5, winW, 1);
+    }
+  }
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  tex.anisotropy = 4;
+  return tex;
+}
+
+// ====== Procedural facade texture with windows ======
+function makeFacadeTexture(width, height, tone, opts){
+  opts = opts || {};
+  const canvas = document.createElement('canvas');
+  // Scale to ~1px per 0.25m for crisp details
+  const px = 32;
+  canvas.width = Math.max(64, Math.ceil(width * px));
+  canvas.height = Math.max(64, Math.ceil(height * px));
+  const ctx = canvas.getContext('2d');
+  const cw = canvas.width, ch = canvas.height;
+
+  // Background — base building tone
+  const toneHex = '#' + tone.toString(16).padStart(6,'0');
+  ctx.fillStyle = toneHex;
+  ctx.fillRect(0, 0, cw, ch);
+
+  // Subtle vertical gradient (top slightly lighter, bottom slightly darker)
+  const grad = ctx.createLinearGradient(0, 0, 0, ch);
+  grad.addColorStop(0, 'rgba(255,255,255,0.06)');
+  grad.addColorStop(0.6, 'rgba(0,0,0,0.0)');
+  grad.addColorStop(1, 'rgba(0,0,0,0.12)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, cw, ch);
+
+  // Window grid
+  const stories = opts.stories || Math.max(2, Math.round(height / 3));
+  const storyH = ch / stories;
+  const winCol = opts.winCol || Math.max(2, Math.round(width / 2.6));
+  const winW = (cw / winCol) * 0.62;
+  const winH = storyH * 0.55;
+
+  for(let s = 0; s < stories; s++){
+    const isGround = (s === 0);
+    // Storefront windows are wider and taller than apartment windows
+    const sWinW = isGround ? winW * 1.35 : winW;
+    const sWinH = isGround ? winH * 1.50 : winH;
+    const y = isGround
+      ? ch - (s + 1) * storyH + (storyH - sWinH) / 2 + storyH * 0.04
+      : ch - (s + 1) * storyH + (storyH - sWinH) / 2;
+    for(let c = 0; c < winCol; c++){
+      const x = (c + 0.5) * (cw / winCol) - sWinW / 2;
+
+      // Window frame
+      ctx.fillStyle = isGround ? 'rgba(20,28,40,0.72)' : 'rgba(10,15,20,0.55)';
+      ctx.fillRect(x - 1, y - 1, sWinW + 2, sWinH + 2);
+
+      // Glass — storefront is brighter, more reflective; residential is warmer cream
+      if(isGround){
+        // Vertical gradient suggests glass-reflection of sky
+        const grad = ctx.createLinearGradient(x, y, x, y + sWinH);
+        grad.addColorStop(0,   'rgba(230, 240, 248, 0.72)');
+        grad.addColorStop(0.45,'rgba(200, 220, 235, 0.60)');
+        grad.addColorStop(1,   'rgba(160, 188, 210, 0.50)');
+        ctx.fillStyle = grad;
+      } else {
+        ctx.fillStyle = 'rgba(232,217,166,0.30)';
+      }
+      ctx.fillRect(x, y, sWinW, sWinH);
+
+      // Highlight at top
+      ctx.fillStyle = isGround ? 'rgba(255,255,255,0.42)' : 'rgba(255,250,235,0.20)';
+      ctx.fillRect(x, y, sWinW, sWinH * 0.14);
+
+      if(isGround){
+        // Storefront: only a slim center mullion (cleaner glass)
+        ctx.fillStyle = 'rgba(15,22,32,0.55)';
+        ctx.fillRect(x + sWinW/2 - 0.5, y, 1, sWinH);
+        // Reflective vertical highlight stripe (suggests glass)
+        ctx.fillStyle = 'rgba(255,255,255,0.18)';
+        ctx.fillRect(x + sWinW * 0.18, y + sWinH * 0.05, 1.5, sWinH * 0.55);
+      } else {
+        // Apartment: cross-mullion
+        ctx.fillStyle = 'rgba(10,15,20,0.55)';
+        ctx.fillRect(x + sWinW/2 - 0.5, y, 1, sWinH);
+        ctx.fillRect(x, y + sWinH/2 - 0.5, sWinW, 1);
+      }
+    }
+  }
+
+  // Floor dividers (faint horizontal lines between stories)
+  ctx.strokeStyle = 'rgba(10,15,20,0.18)';
+  ctx.lineWidth = 1;
+  for(let s = 1; s < stories; s++){
+    const y = ch - s * storyH;
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(cw, y);
+    ctx.stroke();
+  }
+
+  // Storefront band line: solid accent line at top of ground floor
+  // (replaces the previous dark overlay)
+  const groundLineY = ch - storyH;
+  ctx.fillStyle = 'rgba(30,40,55,0.55)';
+  ctx.fillRect(0, groundLineY - 0.8, cw, 1.8);
+  // Subtle storefront-base accent (light stripe just above ground)
+  ctx.fillStyle = 'rgba(160,180,200,0.18)';
+  ctx.fillRect(0, ch - storyH * 0.08, cw, storyH * 0.06);
+
+  // Roof parapet hint
+  ctx.fillStyle = 'rgba(0,0,0,0.16)';
+  ctx.fillRect(0, 0, cw, ch * 0.018);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  tex.anisotropy = 4;
+  return tex;
+}
+
+// Top/bottom texture (roof and base) — simpler tone
+function makeRoofTexture(tone){
+  const canvas = document.createElement('canvas');
+  canvas.width = 256; canvas.height = 256;
+  const ctx = canvas.getContext('2d');
+  const toneHex = '#' + tone.toString(16).padStart(6,'0');
+  ctx.fillStyle = toneHex;
+  ctx.fillRect(0,0,256,256);
+  // Subtle technical details — vents, edge band
+  ctx.strokeStyle = 'rgba(10,15,20,0.22)';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(8, 8, 240, 240);
+  // Small rooftop equipment hints
+  ctx.fillStyle = 'rgba(10,15,20,0.18)';
+  ctx.fillRect(60, 90, 20, 20);
+  ctx.fillRect(100, 130, 30, 14);
+  ctx.fillRect(160, 70, 18, 30);
+  const tex = new THREE.CanvasTexture(canvas);
+  return tex;
+}
+
+// ====== GROUND PLANE — large shadow receiver ======
+const groundGeo = new THREE.PlaneGeometry(600, 600);
+groundGeo.rotateX(-Math.PI/2);
+const groundMat = new THREE.MeshLambertMaterial({color: COL.groundSoft, transparent:true, opacity:0.0});
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.position.y = -0.05;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// Background warm tint plane (no shadow)
+const bgGeo = new THREE.PlaneGeometry(900, 900);
+bgGeo.rotateX(-Math.PI/2);
+const bgMat = new THREE.MeshBasicMaterial({color: COL.groundWarm, transparent:true, opacity:0.0});
+const bgGround = new THREE.Mesh(bgGeo, bgMat);
+bgGround.position.y = -0.10;
+scene.add(bgGround);
+
+// ====== STREET + SIDEWALK ======
+const streetShape = rectShape(STREET.xMin, STREET.zNear, STREET.xMax, STREET.zFar);
+const streetGeo = new THREE.ShapeGeometry(streetShape);
+streetGeo.rotateX(-Math.PI/2);
+const streetMat = new THREE.MeshLambertMaterial({color: COL.street, transparent:true, opacity:0.0});
+const streetMesh = new THREE.Mesh(streetGeo, streetMat);
+streetMesh.position.y = 0.005;
+streetMesh.receiveShadow = true;
+scene.add(streetMesh);
+
+// Street center dashed line
+function makeStreetCenter(){
+  const z = (STREET.zNear + STREET.zFar) / 2;
+  const pts = [];
+  const dash = 3, gap = 4;
+  let x = STREET.xMin + 4;
+  while(x < STREET.xMax - 4){
+    pts.push(x, 0.02, z,  Math.min(x + dash, STREET.xMax - 4), 0.02, z);
+    x += dash + gap;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color: COL.streetLine, transparent:true, opacity:0.0});
+  return new THREE.LineSegments(geo, mat);
+}
+const streetCenter = makeStreetCenter();
+scene.add(streetCenter);
+
+// Sidewalk (fortau)
+const sidewalkShape = rectShape(SIDEWALK.xMin, SIDEWALK.zNear, SIDEWALK.xMax, SIDEWALK.zFar);
+const sidewalkGeo = new THREE.ShapeGeometry(sidewalkShape);
+sidewalkGeo.rotateX(-Math.PI/2);
+const sidewalkMat = new THREE.MeshLambertMaterial({color: COL.sidewalk, transparent:true, opacity:0.0});
+const sidewalkMesh = new THREE.Mesh(sidewalkGeo, sidewalkMat);
+sidewalkMesh.position.y = 0.008;
+sidewalkMesh.receiveShadow = true;
+scene.add(sidewalkMesh);
+
+// Curb edge between sidewalk and street (small step)
+function makeCurb(){
+  const pts = [
+    STREET.xMin, 0.01, STREET.zNear,
+    STREET.xMax, 0.01, STREET.zNear,
+  ];
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color: COL.curb, transparent:true, opacity:0.0});
+  return new THREE.LineSegments(geo, mat);
+}
+const curb = makeCurb();
+scene.add(curb);
+
+// Sidewalk pattern — diagonal lines suggesting paving
+function makeSidewalkPattern(){
+  const pts = [];
+  for(let x = SIDEWALK.xMin; x <= SIDEWALK.xMax; x += 2){
+    pts.push(x, 0.02, SIDEWALK.zNear,  x, 0.02, SIDEWALK.zFar);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color: COL.sidewalkLine, transparent:true, opacity:0.0});
+  return new THREE.LineSegments(geo, mat);
+}
+const sidewalkPattern = makeSidewalkPattern();
+scene.add(sidewalkPattern);
+
+// ====== PARCEL ======
+const parcelShape = polygonShape(PARCEL);
+const parcelGeo = new THREE.ShapeGeometry(parcelShape);
+parcelGeo.rotateX(-Math.PI/2);
+const parcelMat = new THREE.MeshLambertMaterial({color: 0xFCFAF1, transparent:true, opacity:0.0});
+const parcelMesh = new THREE.Mesh(parcelGeo, parcelMat);
+parcelMesh.position.y = 0.015;
+parcelMesh.receiveShadow = true;
+scene.add(parcelMesh);
+
+const parcelBorder = makePolyBorder(PARCEL, 0.08, COL.ink, 0.0);
+scene.add(parcelBorder);
+
+// Setback envelope (byggegrense)
+const setbackBorder = makeDashedBorder(SETBACK, 0.10, COL.accent, 0.0, 2.4, 1.6);
+scene.add(setbackBorder);
+
+// ====== COURTYARD (felles uteareal) ======
+const courtShape = polygonShape(COURTYARD);
+const courtGeo = new THREE.ShapeGeometry(courtShape);
+courtGeo.rotateX(-Math.PI/2);
+const courtMat = new THREE.MeshLambertMaterial({color: 0x9DB58E, transparent:true, opacity:0.0});
+const courtMesh = new THREE.Mesh(courtGeo, courtMat);
+courtMesh.position.y = 0.055;
+courtMesh.receiveShadow = true;
+scene.add(courtMesh);
+
+const courtBorder = makeDashedBorder(COURTYARD, 0.09, COL.greenLine, 0.0, 1.8, 1.4);
+scene.add(courtBorder);
+
+// ====== SUN-HOURS HEATMAP (Solanalyse overlay) ======
+const heatTexture = makeSunHoursTexture();
+const heatGeo = new THREE.PlaneGeometry(50, 44);
+heatGeo.rotateX(-Math.PI/2);
+const heatMat = new THREE.MeshBasicMaterial({
+  map: heatTexture, transparent: true, opacity: 0,
+  depthWrite: false,
+});
+const heatMesh = new THREE.Mesh(heatGeo, heatMat);
+heatMesh.position.set(0, 0.075, 0);
+heatMesh.renderOrder = 5;
+scene.add(heatMesh);
+
+// ====== SECTION LINE on parcel (for Snitt phase) ======
+// Bold red dashed line east-west across the parcel at z=0 (where section A-A is cut)
+function makeSectionLine(){
+  const pts = [];
+  const x1 = -PARCEL_W/2 - 8, x2 = PARCEL_W/2 + 8;
+  const dash = 2.6, gap = 1.4;
+  let x = x1;
+  while(x < x2){
+    pts.push(x, 0.15, 0, Math.min(x + dash, x2), 0.15, 0);
+    x += dash + gap;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color: 0xC13C2D, transparent: true, opacity: 0});
+  const line = new THREE.LineSegments(geo, mat);
+  line.renderOrder = 8;
+  return {line, mat, x1, x2};
+}
+const section = makeSectionLine();
+scene.add(section.line);
+
+// ====== TERRENG-KOTER (contour lines) ======
+// 3 wavy lines on the parcel representing slight slope, with elevation labels
+function makeContourLines(){
+  const lines = [];
+  for(const c of CONTOURS){
+    const pts = [];
+    const xStart = -PARCEL_W/2 - 4;
+    const xEnd = PARCEL_W/2 + 4;
+    const steps = 40;
+    let prev = null;
+    for(let s = 0; s <= steps; s++){
+      const x = xStart + (xEnd - xStart) * (s/steps);
+      // Wavy organic curve - frequency varies between contours
+      const z = c.z
+        + Math.sin((x + c.z) * 0.05) * 1.6
+        + Math.cos(x * 0.075 + c.z) * 0.9;
+      if(prev){
+        pts.push(prev[0], c.y, prev[1], x, c.y, z);
+      }
+      prev = [x, z];
+    }
+    lines.push(pts);
+  }
+  // Concat & build dashed pattern by splitting each segment into dashes
+  const dashedPts = [];
+  for(const linePts of lines){
+    for(let i = 0; i < linePts.length; i += 6){
+      const x1 = linePts[i], y1 = linePts[i+1], z1 = linePts[i+2];
+      const x2 = linePts[i+3], y2 = linePts[i+4], z2 = linePts[i+5];
+      const len = Math.hypot(x2-x1, z2-z1);
+      if(len < 0.4) continue;
+      const dx = (x2-x1)/len, dz = (z2-z1)/len;
+      // Single dash per segment for performance
+      const dash = Math.min(1.4, len * 0.7);
+      dashedPts.push(x1 + dx * 0.2, y1, z1 + dz * 0.2,
+                     x1 + dx * (0.2 + dash), y1, z1 + dz * (0.2 + dash));
+    }
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(dashedPts, 3));
+  const mat = new THREE.LineBasicMaterial({color: 0xB39C7E, transparent:true, opacity:0});
+  return {mesh: new THREE.LineSegments(geo, mat), mat};
+}
+const contourLines = makeContourLines();
+scene.add(contourLines.mesh);
+
+// ====== PEDESTRIAN PATHS ======
+const pathLines = [];
+PATHS.forEach(path => {
+  const [a, b] = path;
+  const pts = [];
+  const len = Math.hypot(b[0]-a[0], b[1]-a[1]);
+  const dx = (b[0]-a[0])/len, dz = (b[1]-a[1])/len;
+  const dash = 1.4, gap = 1.0;
+  let t = 0;
+  while(t + dash <= len){
+    pts.push(a[0] + dx*t, 0.06, a[1] + dz*t,
+             a[0] + dx*(t+dash), 0.06, a[1] + dz*(t+dash));
+    t += dash + gap;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color: 0x7A7367, transparent:true, opacity:0.0});
+  const line = new THREE.LineSegments(geo, mat);
+  scene.add(line);
+  pathLines.push(line);
+});
+
+// ====== UNDERGROUND PARKING (P-anlegg) ======
+// Dashed outline + diagonal hatching pattern suggesting subsurface element.
+// Driveway arrow shows vehicle entry path from street.
+const PARKING_RECT = [
+  [-38, -32], [38, -32], [38, 32], [-38, 32]
+];
+
+// Outer dashed border
+const parkingBorder = makeDashedBorder(PARKING_RECT, 0.115, 0x4A6280, 0.0, 2.2, 1.5);
+scene.add(parkingBorder);
+
+// Hatched diagonal stripes (architectural convention for underground/hidden)
+const parkingHatchGroup = new THREE.Group();
+{
+  const pts = [];
+  for(let i = -76; i <= 76; i += 4){
+    const x1 = i, z1 = -32;
+    const x2 = i + 64, z2 = 32;
+    const cx1 = Math.max(-38, x1), cz1 = z1 + (cx1 - x1);
+    const cx2 = Math.min( 38, x2), cz2 = z2 - (x2 - cx2);
+    if(cx1 < cx2){
+      pts.push(cx1, 0.110, cz1, cx2, 0.110, cz2);
+    }
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color: 0x6B7E94, transparent: true, opacity: 0.0});
+  parkingHatchGroup.add(new THREE.LineSegments(geo, mat));
+}
+scene.add(parkingHatchGroup);
+const parkingHatchMats = [];
+parkingHatchGroup.traverse(o => { if(o.material) parkingHatchMats.push(o.material); });
+
+// Driveway corridor + arrow (south-to-north into parcel)
+const drivewayGroup = new THREE.Group();
+{
+  // Corridor strip
+  const dwShape = rectShape(-3, -PARCEL_D/2, 3, -32);
+  const dwGeo = new THREE.ShapeGeometry(dwShape);
+  dwGeo.rotateX(-Math.PI/2);
+  const dwMat = new THREE.MeshLambertMaterial({color: 0xE6D078, transparent: true, opacity: 0.0});
+  const dwMesh = new THREE.Mesh(dwGeo, dwMat);
+  dwMesh.position.y = 0.04;
+  dwMesh.receiveShadow = true;
+  drivewayGroup.add(dwMesh);
+
+  // Border dashed (gold-yellow)
+  const dwBorder = makeDashedBorder([
+    [-3, -PARCEL_D/2], [3, -PARCEL_D/2],
+    [3, -32], [-3, -32]
+  ], 0.105, 0xB59945, 0.0, 1.4, 1.0);
+  drivewayGroup.add(dwBorder);
+
+  // Arrow shape pointing north (+Z)
+  const arrowShape = new THREE.Shape();
+  arrowShape.moveTo(0, 0);
+  arrowShape.lineTo(2.2, 3.5);
+  arrowShape.lineTo(0.8, 3.5);
+  arrowShape.lineTo(0.8, 7);
+  arrowShape.lineTo(-0.8, 7);
+  arrowShape.lineTo(-0.8, 3.5);
+  arrowShape.lineTo(-2.2, 3.5);
+  arrowShape.closePath();
+  const arrowGeo = new THREE.ShapeGeometry(arrowShape);
+  arrowGeo.rotateX(-Math.PI/2);
+  const arrowMat = new THREE.MeshLambertMaterial({color: 0xC99B3A, transparent: true, opacity: 0.0});
+  const arrow = new THREE.Mesh(arrowGeo, arrowMat);
+  arrow.position.set(0, 0.13, -34);
+  drivewayGroup.add(arrow);
+}
+scene.add(drivewayGroup);
+const drivewayMats = [];
+drivewayGroup.traverse(o => { if(o.material) drivewayMats.push(o.material); });
+
+// ====== TREES ======
+const treeGroup = new THREE.Group();
+scene.add(treeGroup);
+const treeMeshes = [];
+
+TREES.forEach((t, i) => {
+  const grp = new THREE.Group();
+
+  // Trunk
+  const trunkH = t.h * 0.45;
+  const trunkGeo = new THREE.CylinderGeometry(0.25, 0.32, trunkH, 8);
+  const trunkMat = new THREE.MeshLambertMaterial({color: COL.treeTrunk});
+  const trunk = new THREE.Mesh(trunkGeo, trunkMat);
+  trunk.position.y = trunkH/2;
+  trunk.castShadow = true;
+  grp.add(trunk);
+
+  // Crown — sphere geometry
+  const crownGeo = new THREE.SphereGeometry(t.r, 12, 10);
+  // Flatten slightly
+  crownGeo.scale(1.0, 0.85, 1.0);
+  const crownTone = (i % 2 === 0) ? COL.treeCrown : COL.treeCrownLight;
+  const crownMat = new THREE.MeshLambertMaterial({color: crownTone});
+  const crown = new THREE.Mesh(crownGeo, crownMat);
+  crown.position.y = trunkH + t.r * 0.85;
+  crown.castShadow = true;
+  crown.receiveShadow = true;
+  grp.add(crown);
+
+  grp.position.set(t.x, 0, t.z);
+  grp.visible = false;
+  grp.userData = {revealAt: 5.5 + i * 0.12};
+  treeGroup.add(grp);
+  treeMeshes.push(grp);
+});
+
+// ====== CONTEXT BUILDINGS (faded neighbors) ======
+const contextGroup = new THREE.Group();
+scene.add(contextGroup);
+
+CONTEXT.forEach((c, i) => {
+  const grp = new THREE.Group();
+  const geo = new THREE.BoxGeometry(c.w, c.h, c.d);
+  const mat = new THREE.MeshLambertMaterial({color: COL.context, transparent:true, opacity:0.0});
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.position.y = c.h/2;
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+  grp.add(mesh);
+
+  const edges = new THREE.EdgesGeometry(geo);
+  const eMat = new THREE.LineBasicMaterial({color: COL.contextEdge, transparent:true, opacity:0.0});
+  const eMesh = new THREE.LineSegments(edges, eMat);
+  eMesh.position.y = c.h/2;
+  grp.add(eMesh);
+
+  grp.position.set(c.x, 0, c.z);
+  grp.userData = {
+    revealAt: 1.2 + i * 0.08,
+    mainMat: mat,
+    edgeMat: eMat,
+    targetOpacity: 0.32,
+    edgeTargetOpacity: 0.18,
+  };
+  contextGroup.add(grp);
+});
+
+// ====== MAIN BUILDINGS — with facade textures ======
+const buildingGroup = new THREE.Group();
+scene.add(buildingGroup);
+const buildingMeshes = [];
+const glowLayers = [];   // For day/night cycle
+
+BUILDINGS.forEach((b, i) => {
+  const grp = new THREE.Group();
+
+  // Procedural textures: one per main facade (front/back, left/right share textures since they're different sizes)
+  const texFB = makeFacadeTexture(b.w, b.h, b.tone, {stories: b.stories});
+  const texLR = makeFacadeTexture(b.d, b.h, b.tone, {stories: b.stories});
+  const texRoof = makeRoofTexture(COL.roof);
+  const texBase = makeRoofTexture(COL.baseDark);
+
+  const materials = [
+    new THREE.MeshLambertMaterial({map: texLR}),  // right (+X)
+    new THREE.MeshLambertMaterial({map: texLR}),  // left (-X)
+    new THREE.MeshLambertMaterial({map: texRoof}),// top
+    new THREE.MeshLambertMaterial({map: texBase}),// bottom
+    new THREE.MeshLambertMaterial({map: texFB}),  // front (+Z)
+    new THREE.MeshLambertMaterial({map: texFB}),  // back (-Z)
+  ];
+
+  const mainGeo = new THREE.BoxGeometry(b.w, b.h, b.d);
+  const main = new THREE.Mesh(mainGeo, materials);
+  main.position.y = b.h/2;
+  main.castShadow = true;
+  main.receiveShadow = true;
+  grp.add(main);
+
+  // Edge wireframe for crisp silhouette
+  const edges = new THREE.EdgesGeometry(mainGeo);
+  const edgeMat = new THREE.LineBasicMaterial({color: COL.buildingEdge, transparent:true, opacity:0.85});
+  const edgeMesh = new THREE.LineSegments(edges, edgeMat);
+  edgeMesh.position.y = b.h/2;
+  grp.add(edgeMesh);
+
+  // Roof parapet (slight raised border on top)
+  const parapetGeo = new THREE.BoxGeometry(b.w + 0.4, 0.4, b.d + 0.4);
+  const parapetMat = new THREE.MeshLambertMaterial({color: COL.buildingEdge});
+  const parapet = new THREE.Mesh(parapetGeo, parapetMat);
+  parapet.position.y = b.h + 0.18;
+  parapet.castShadow = true;
+  grp.add(parapet);
+
+  // Foundation sokkel — slim base below storefront (exposes glass facade above)
+  const baseGeo = new THREE.BoxGeometry(b.w + 0.32, 0.65, b.d + 0.32);
+  const baseMat = new THREE.MeshLambertMaterial({
+    color: 0x1B2832,
+    emissive: 0x0A1A24,
+    emissiveIntensity: 0.18,
+  });
+  const baseMesh = new THREE.Mesh(baseGeo, baseMat);
+  baseMesh.position.y = 0.325;
+  baseMesh.castShadow = true;
+  baseMesh.receiveShadow = true;
+  grp.add(baseMesh);
+
+  // Accent strip at top of ground floor (glass meets wall)
+  const accentGeo = new THREE.BoxGeometry(b.w + 0.34, 0.10, b.d + 0.34);
+  const accentMat = new THREE.MeshBasicMaterial({
+    color: COL.accent,
+    transparent: true,
+    opacity: 0.72,
+  });
+  const accentStrip = new THREE.Mesh(accentGeo, accentMat);
+  accentStrip.position.y = 2.62;
+  grp.add(accentStrip);
+
+  // Accent strip at bottom (storefront sill)
+  const sillGeo = new THREE.BoxGeometry(b.w + 0.34, 0.06, b.d + 0.34);
+  const sillMat = new THREE.MeshBasicMaterial({
+    color: COL.accent,
+    transparent: true,
+    opacity: 0.35,
+  });
+  const sill = new THREE.Mesh(sillGeo, sillMat);
+  sill.position.y = 0.08;
+  grp.add(sill);
+
+  // Entry marker on the courtyard side (small notch at ground floor)
+  const entryWidth = 1.6;
+  const entryHeight = 2.4;
+  const entryGeo = new THREE.BoxGeometry(entryWidth, entryHeight, 0.15);
+  const entryMat = new THREE.MeshLambertMaterial({color: COL.accent});
+  const entry = new THREE.Mesh(entryGeo, entryMat);
+  let entryPos = [0, entryHeight/2, 0];
+  if(b.label === 'A'){
+    entryPos = [b.w/2 + 0.08, entryHeight/2, 0];
+    entry.rotation.y = Math.PI/2;
+  } else if(b.label === 'B'){
+    entryPos = [-b.w/2 - 0.08, entryHeight/2, 0];
+    entry.rotation.y = Math.PI/2;
+  } else if(b.label === 'C'){
+    entryPos = [0, entryHeight/2, -b.d/2 - 0.08];
+  } else if(b.label === 'D' || b.label === 'E'){
+    entryPos = [0, entryHeight/2, b.d/2 + 0.08];
+  }
+  entry.position.set(entryPos[0], entryPos[1], entryPos[2]);
+  grp.add(entry);
+
+  // ====== GLOW LAYER (for dusk/night with lit windows) ======
+  const glowFB = makeGlowTexture(b.w, b.h, {stories: b.stories, seed: (i+1) * 41 + 1});
+  const glowLR = makeGlowTexture(b.d, b.h, {stories: b.stories, seed: (i+1) * 41 + 17});
+  // 6 materials for the BoxGeometry faces — top/bottom transparent (no glow)
+  const glowMats = [
+    new THREE.MeshBasicMaterial({map: glowLR, transparent: true, opacity: 0,
+      blending: THREE.AdditiveBlending, depthWrite: false}),
+    new THREE.MeshBasicMaterial({map: glowLR, transparent: true, opacity: 0,
+      blending: THREE.AdditiveBlending, depthWrite: false}),
+    new THREE.MeshBasicMaterial({transparent: true, opacity: 0,
+      depthWrite: false}),  // top — no glow
+    new THREE.MeshBasicMaterial({transparent: true, opacity: 0,
+      depthWrite: false}),  // bottom — no glow
+    new THREE.MeshBasicMaterial({map: glowFB, transparent: true, opacity: 0,
+      blending: THREE.AdditiveBlending, depthWrite: false}),
+    new THREE.MeshBasicMaterial({map: glowFB, transparent: true, opacity: 0,
+      blending: THREE.AdditiveBlending, depthWrite: false}),
+  ];
+  // Slightly larger than building to avoid z-fighting with main facades
+  const glowGeo = new THREE.BoxGeometry(b.w + 0.06, b.h + 0.04, b.d + 0.06);
+  const glow = new THREE.Mesh(glowGeo, glowMats);
+  glow.position.y = b.h/2 + 0.02;
+  glow.renderOrder = 10;
+  grp.add(glow);
+  glowLayers.push({mats: glowMats, mesh: glow});
+
+  // ====== BALCONIES on courtyard-facing facade ======
+  // Each floor (except ground + top) gets a slab + railing extruding from the courtyard side.
+  // Gives the karré a true residential read once you zoom in.
+  const balconyMat = new THREE.MeshLambertMaterial({color: 0xB5AFA0});
+  const railingMat = new THREE.MeshLambertMaterial({color: 0x3A4250});
+  const balcDepth = 1.4;
+  const balcHeight = 1.05;
+  const floorH = b.h / b.stories;
+
+  // Determine which facade faces the courtyard (toward origin)
+  // A/B = lamell with long side parallel to z, courtyard on inner x face
+  // C = lamell with long side parallel to x, courtyard on -z face (south)
+  // D/E = punkthus, courtyard on +z face (north toward courtyard center)
+  let faceAxis, faceSign, faceLength;
+  if(b.label === 'A'){ faceAxis = 'x'; faceSign = +1; faceLength = b.d * 0.86; }
+  else if(b.label === 'B'){ faceAxis = 'x'; faceSign = -1; faceLength = b.d * 0.86; }
+  else if(b.label === 'C'){ faceAxis = 'z'; faceSign = -1; faceLength = b.w * 0.86; }
+  else if(b.label === 'D' || b.label === 'E'){ faceAxis = 'z'; faceSign = +1; faceLength = b.w * 0.86; }
+
+  for(let f = 1; f < b.stories; f++){       // floors 1 through N-1 (skip ground)
+    const y = floorH * f;
+    // Slab (the floor of the balcony)
+    const slabGeo = faceAxis === 'x'
+      ? new THREE.BoxGeometry(balcDepth, 0.16, faceLength)
+      : new THREE.BoxGeometry(faceLength, 0.16, balcDepth);
+    const slab = new THREE.Mesh(slabGeo, balconyMat);
+    if(faceAxis === 'x'){
+      slab.position.set(faceSign * (b.w/2 + balcDepth/2), y, 0);
+    } else {
+      slab.position.set(0, y, faceSign * (b.d/2 + balcDepth/2));
+    }
+    slab.castShadow = true;
+    slab.receiveShadow = true;
+    grp.add(slab);
+
+    // Front railing (line at the outer edge of balcony)
+    const railGeo = faceAxis === 'x'
+      ? new THREE.BoxGeometry(0.06, balcHeight, faceLength)
+      : new THREE.BoxGeometry(faceLength, balcHeight, 0.06);
+    const rail = new THREE.Mesh(railGeo, railingMat);
+    if(faceAxis === 'x'){
+      rail.position.set(faceSign * (b.w/2 + balcDepth - 0.05), y + balcHeight/2, 0);
+    } else {
+      rail.position.set(0, y + balcHeight/2, faceSign * (b.d/2 + balcDepth - 0.05));
+    }
+    rail.castShadow = true;
+    grp.add(rail);
+
+    // Horizontal handrail cap (thin highlight at top of railing)
+    const capGeo = faceAxis === 'x'
+      ? new THREE.BoxGeometry(0.12, 0.04, faceLength)
+      : new THREE.BoxGeometry(faceLength, 0.04, 0.12);
+    const capMat = new THREE.MeshLambertMaterial({color: 0x5C6878});
+    const cap = new THREE.Mesh(capGeo, capMat);
+    if(faceAxis === 'x'){
+      cap.position.set(faceSign * (b.w/2 + balcDepth - 0.05), y + balcHeight + 0.02, 0);
+    } else {
+      cap.position.set(0, y + balcHeight + 0.02, faceSign * (b.d/2 + balcDepth - 0.05));
+    }
+    grp.add(cap);
+  }
+
+  grp.position.set(b.cx, 0, b.cz);
+  grp.visible = false;
+  grp.scale.y = 0.001;
+  grp.userData = {revealAt: 4.0};   // ALL buildings start rising at cycleT=4.0 simultaneously
+  buildingGroup.add(grp);
+  buildingMeshes.push(grp);
+});
+
+// ====== SETBACK DIMENSIONS (Phase: Plan) ======
+// Architectural-style dimension chains around karré showing setback distances
+// to property boundary. Each chain: 2 extension lines + 1 dimension line + label.
+const dimGroup = new THREE.Group();
+scene.add(dimGroup);
+
+const SETBACKS = [
+  // Each: from building-edge to parcel-edge, perpendicular to building face
+  // {side: 'N'|'S'|'E'|'W', a:[x,z] start, b:[x,z] end, label, labelPos:[x,z]}
+  {side:'N', a:[ 0,  33], b:[ 0,  40], label:'7,0 m', labelPos:[ 0,  36.5]},
+  {side:'S', a:[ 0, -33], b:[ 0, -40], label:'7,0 m', labelPos:[ 0, -36.5]},
+  {side:'E', a:[ 37,  0], b:[ 45,  0], label:'8,0 m', labelPos:[ 41,  0]},
+  {side:'W', a:[-37,  0], b:[-45,  0], label:'8,0 m', labelPos:[-41,  0]},
+];
+
+const dimSegments = [];
+SETBACKS.forEach((s) => {
+  const grp = new THREE.Group();
+  const isVert = (s.side === 'N' || s.side === 'S');
+  const perpLen = 2.5; // extension-line ticks perpendicular to dimension
+
+  const pts = [];
+  // Main dimension line (along the setback)
+  pts.push(s.a[0], 0.16, s.a[1],  s.b[0], 0.16, s.b[1]);
+  // Tick at A end (perpendicular)
+  if(isVert){
+    pts.push(s.a[0] - perpLen, 0.16, s.a[1],  s.a[0] + perpLen, 0.16, s.a[1]);
+  } else {
+    pts.push(s.a[0], 0.16, s.a[1] - perpLen,  s.a[0], 0.16, s.a[1] + perpLen);
+  }
+  // Tick at B end (perpendicular)
+  if(isVert){
+    pts.push(s.b[0] - perpLen, 0.16, s.b[1],  s.b[0] + perpLen, 0.16, s.b[1]);
+  } else {
+    pts.push(s.b[0], 0.16, s.b[1] - perpLen,  s.b[0], 0.16, s.b[1] + perpLen);
+  }
+  // Small arrowheads at line ends (V-shape pointing inward)
+  const arrowSize = 1.4;
+  if(isVert){
+    const dir = s.b[1] > s.a[1] ? 1 : -1;
+    pts.push(s.a[0], 0.16, s.a[1], s.a[0] - 0.8, 0.16, s.a[1] + dir * arrowSize);
+    pts.push(s.a[0], 0.16, s.a[1], s.a[0] + 0.8, 0.16, s.a[1] + dir * arrowSize);
+    pts.push(s.b[0], 0.16, s.b[1], s.b[0] - 0.8, 0.16, s.b[1] - dir * arrowSize);
+    pts.push(s.b[0], 0.16, s.b[1], s.b[0] + 0.8, 0.16, s.b[1] - dir * arrowSize);
+  } else {
+    const dir = s.b[0] > s.a[0] ? 1 : -1;
+    pts.push(s.a[0], 0.16, s.a[1], s.a[0] + dir * arrowSize, 0.16, s.a[1] - 0.8);
+    pts.push(s.a[0], 0.16, s.a[1], s.a[0] + dir * arrowSize, 0.16, s.a[1] + 0.8);
+    pts.push(s.b[0], 0.16, s.b[1], s.b[0] - dir * arrowSize, 0.16, s.b[1] - 0.8);
+    pts.push(s.b[0], 0.16, s.b[1], s.b[0] - dir * arrowSize, 0.16, s.b[1] + 0.8);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color: 0x0F1A24, transparent:true, opacity:0});
+  const lines = new THREE.LineSegments(geo, mat);
+  grp.add(lines);
+  dimGroup.add(grp);
+  dimSegments.push({mat, ...s});
+});
+
+// HTML labels for dimensions
+const dimTagsContainer = document.createElement('div');
+dimTagsContainer.style.cssText = 'position:absolute;inset:0;pointer-events:none;z-index:6';
+document.querySelector('.stage').appendChild(dimTagsContainer);
+const dimTagEls = SETBACKS.map((s) => {
+  const el = document.createElement('div');
+  el.className = 'dim-tag';
+  el.textContent = s.label;
+  dimTagsContainer.appendChild(el);
+  return el;
+});
+
+// ====== SIGHT LINES (Phase: Sikt) ======
+const sightGroup = new THREE.Group();
+scene.add(sightGroup);
+
+const sightLines3D = [];
+SIGHT_LINES.forEach(sl => {
+  const fromBuilding = BUILDINGS.find(b => b.label === sl.from);
+  if(!fromBuilding) return;
+
+  // From point: building top corner offset
+  const fx = fromBuilding.cx + sl.fromOffset[0];
+  const fy = fromBuilding.h + 1.5;
+  const fz = fromBuilding.cz + sl.fromOffset[1];
+  const tx = sl.to[0], ty = 2, tz = sl.to[1];
+
+  // Build dashed line
+  const pts = [];
+  const dx = tx-fx, dy = ty-fy, dz = tz-fz;
+  const len = Math.hypot(dx, dy, dz);
+  const ux = dx/len, uy = dy/len, uz = dz/len;
+  const dash = 1.6, gap = 1.0;
+  let t = 0;
+  while(t + dash <= len){
+    pts.push(fx+ux*t, fy+uy*t, fz+uz*t,
+             fx+ux*(t+dash), fy+uy*(t+dash), fz+uz*(t+dash));
+    t += dash + gap;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const mat = new THREE.LineBasicMaterial({color: COL.gold, transparent:true, opacity:0});
+  const line = new THREE.LineSegments(geo, mat);
+  sightGroup.add(line);
+
+  // Marker at endpoint (small sphere)
+  const markGeo = new THREE.SphereGeometry(1.2, 12, 10);
+  const markMat = new THREE.MeshBasicMaterial({color: COL.gold, transparent:true, opacity:0});
+  const mark = new THREE.Mesh(markGeo, markMat);
+  mark.position.set(tx, ty, tz);
+  sightGroup.add(mark);
+
+  sightLines3D.push({line, mark, lineMat: mat, markMat, sl, fx, fy, fz, tx, ty, tz});
+});
+
+// ====== HTML TAGS ======
+const tagsLayer = document.getElementById('tags');
+
+// Building tag content per mode (Bolig vs Hotell)
+function buildTagHTML(b, mode){
+  if(mode === 'hotell'){
+    return `<span class="a">${b.label}</span>${b.stories} ${t('bld.et')} · ${b.h.toFixed(0)}m<span class="sm">${b.keys} ${t('bld.keys')} · ${t('bld.gla')} ${b.gla.toLocaleString('nb-NO').replace(/,/g,' ')} m²</span>`;
+  }
+  return `<span class="a">${b.label}</span>${b.stories} ${t('bld.et')} · ${b.h.toFixed(0)}m<span class="sm">${t('bld.brai')} ${b.brai.toLocaleString('nb-NO').replace(/,/g,' ')} m²</span>`;
+}
+
+const tagEls = BUILDINGS.map((b) => {
+  const el = document.createElement('div');
+  el.className = 'tag';
+  el.innerHTML = buildTagHTML(b, 'bolig');
+  tagsLayer.appendChild(el);
+  return el;
+});
+
+// Context-building height labels — small discrete annotations on each neighbor
+const ctxTagEls = CONTEXT.map((c) => {
+  const el = document.createElement('div');
+  el.className = 'ctx-tag';
+  el.innerHTML = `<span class="v">${c.stories} ${t('ctx.et')}</span><span class="sep">·</span><span class="v">${c.h.toFixed(1)}m</span>`;
+  tagsLayer.appendChild(el);
+  return el;
+});
+
+const courtTagEl = document.getElementById('courtTag');
+
+// ====== MODE CONTROLLER (Bolig / Hotell) ======
+let currentMode = 'bolig';
+
+const subtitleEl = document.getElementById('subtitleEl');
+const demoTagEl = document.getElementById('demoTagEl');
+const statsBoligEl = document.getElementById('statsBolig');
+const statsHotellEl = document.getElementById('statsHotell');
+
+const MODE_CONTENT = {
+  bolig: {
+    get subtitle(){ return t('bolig.subtitle'); },
+    get court(){    return t('bolig.court'); },
+    get phaseSubs(){
+      return {
+        1: t('phase.1.sub.volum'),
+        2: t('phase.2.sub.dag'),
+        3: t('phase.3.sub'),
+        4: t('phase.4.sub'),
+      };
+    },
+  },
+  hotell: {
+    get subtitle(){ return t('hotell.subtitle'); },
+    get court(){    return t('hotell.court'); },
+    get phaseSubs(){
+      return {
+        1: t('phase.1.sub.volum.hotell'),
+        2: t('phase.2.sub.dag'),
+        3: t('phase.3.sub'),
+        4: t('phase.4.sub'),
+      };
+    },
+  },
+};
+
+function applyMode(mode){
+  currentMode = mode;
+  // Building tags
+  tagEls.forEach((el, i) => {
+    el.innerHTML = buildTagHTML(BUILDINGS[i], mode);
+  });
+  // Context-building tags (each says "X et · Y m" — "et" depends on language)
+  if(typeof ctxTagEls !== 'undefined'){
+    ctxTagEls.forEach((el, i) => {
+      const c = CONTEXT[i];
+      el.innerHTML = `<span class="v">${c.stories} ${t('ctx.et')}</span><span class="sep">·</span><span class="v">${c.h.toFixed(1)}m</span>`;
+    });
+  }
+  // Sight-line endpoint tags — labels per sl.id (resolved via t())
+  if(typeof sightTagEls !== 'undefined'){
+    sightTagEls.forEach((el, i) => {
+      const sl = SIGHT_LINES[i];
+      // sl.id resolves to a translation key like sikt.morgen.o or sikt.by.no.
+      // Fall back to the raw label if no key is set.
+      el.textContent = sl.i18nKey ? t(sl.i18nKey) : sl.label;
+    });
+  }
+  // Court tag
+  courtTagEl.innerHTML = MODE_CONTENT[mode].court;
+  // Subtitle
+  subtitleEl.innerHTML = MODE_CONTENT[mode].subtitle;
+  // Stats group visibility
+  statsBoligEl.style.display = mode === 'bolig' ? 'grid' : 'none';
+  statsHotellEl.style.display = mode === 'hotell' ? 'grid' : 'none';
+  // Force visible stats to opacity 1 (CSS animation only fires on initially visible group)
+  const visibleStatsEl = mode === 'bolig' ? statsBoligEl : statsHotellEl;
+  visibleStatsEl.querySelectorAll('.stat').forEach(s => {
+    s.style.opacity = '1';
+    s.style.transform = 'translateY(0)';
+  });
+  // Toggle button state
+  document.querySelectorAll('.mode-toggle button').forEach(b => {
+    const isActive = b.dataset.mode === mode;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+  });
+}
+
+// Wire up toggle buttons
+document.querySelectorAll('.mode-toggle button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    applyMode(btn.dataset.mode);
+  });
+});
+
+// Wire up language picker
+const langPickerBtn = document.getElementById('langPicker');
+const langMenuEl = document.getElementById('langMenu');
+if(langPickerBtn && langMenuEl){
+  langPickerBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const willOpen = langMenuEl.hasAttribute('hidden');
+    if(willOpen){
+      langMenuEl.removeAttribute('hidden');
+      langPickerBtn.setAttribute('aria-expanded', 'true');
+    } else {
+      langMenuEl.setAttribute('hidden', '');
+      langPickerBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  langMenuEl.querySelectorAll('.lang-option').forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const lang = opt.dataset.lang;
+      setLanguage(lang);
+      langMenuEl.setAttribute('hidden', '');
+      langPickerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  // Close picker on outside click
+  document.addEventListener('click', (e) => {
+    if(!e.target.closest('.lang-wrap')){
+      langMenuEl.setAttribute('hidden', '');
+      langPickerBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+// Sight-line endpoint tags
+const sightTagEls = SIGHT_LINES.map(sl => {
+  const el = document.createElement('div');
+  el.className = 'sikt-tag';
+  el.textContent = sl.label;
+  tagsLayer.appendChild(el);
+  return el;
+});
+
+// Initial translation pass — runs AFTER all dynamic-tag arrays (tagEls,
+// ctxTagEls, sightTagEls) are declared so applyMode can refresh them without
+// hitting a temporal-dead-zone.
+applyTranslations();
+applyMode(currentMode);
+
+// ====== LEADER LINE SVG ======
+const svgLeaders = document.getElementById('leaders');
+function updateLeader(idx, fromX, fromY, toX, toY){
+  let line = svgLeaders.querySelector(`#leader-${idx}`);
+  if(!line){
+    line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('id', `leader-${idx}`);
+    svgLeaders.appendChild(line);
+  }
+  line.setAttribute('x1', fromX);
+  line.setAttribute('y1', fromY);
+  line.setAttribute('x2', toX);
+  line.setAttribute('y2', toY);
+  return line;
+}
+
+// ====== TAG POSITIONING (with leader lines) ======
+const tmpV = new THREE.Vector3();
+function project3D(x, y, z){
+  tmpV.set(x, y, z);
+  tmpV.project(camera);
+  return {
+    x: (tmpV.x * 0.5 + 0.5) * W,
+    y: (-tmpV.y * 0.5 + 0.5) * H,
+  };
+}
+
+// Label positions designed to AVOID collisions:
+// A (west wing) → label upper-far-left
+// B (east wing) → label upper-far-right
+// C (north end) → label very top, slightly right of center to clear A label
+// D (sw bookend) → label far lower-left
+// E (se bookend) → label far lower-right
+function getTagOffsets(){
+  // Larger offsets on mobile relative to base
+  const sx = IS_MOBILE ? 0.62 : 1.0;
+  const sy = IS_MOBILE ? 0.70 : 1.0;
+  return {
+    'A': {anchor:[-5, 19, 5],  off:[-220 * sx, -120 * sy]},
+    'B': {anchor:[ 5, 19, 5],  off:[ 220 * sx, -120 * sy]},
+    'C': {anchor:[ 0, 16, 0],  off:[  40 * sx, -230 * sy]},  // shifted right + higher to clear A
+    'D': {anchor:[-9, 22, 0],  off:[-200 * sx,  130 * sy]},
+    'E': {anchor:[ 9, 22, 0],  off:[ 200 * sx,  130 * sy]},
+  };
+}
+
+function positionTags(){
+  const offsets = getTagOffsets();
+  BUILDINGS.forEach((b, i) => {
+    const cfg = offsets[b.label];
+    const anchor3D = {
+      x: b.cx + cfg.anchor[0],
+      y: cfg.anchor[1],
+      z: b.cz + cfg.anchor[2],
+    };
+    const pAnchor = project3D(anchor3D.x, anchor3D.y, anchor3D.z);
+    const labelX = pAnchor.x + cfg.off[0];
+    const labelY = pAnchor.y + cfg.off[1];
+    // Clamp to viewport with margin
+    const clampedX = Math.max(60, Math.min(W - 60, labelX));
+    const clampedY = Math.max(80, Math.min(H - 140, labelY));
+    tagEls[i].style.left = clampedX + 'px';
+    tagEls[i].style.top  = clampedY + 'px';
+    // Leader line — from anchor to label edge
+    const dx = clampedX - pAnchor.x;
+    const dy = clampedY - pAnchor.y;
+    const dist = Math.hypot(dx, dy) || 1;
+    const trim = Math.min(30, dist * 0.32);
+    const tx = clampedX - (dx/dist) * trim;
+    const ty = clampedY - (dy/dist) * trim;
+    const visible = tagEls[i].classList.contains('show');
+    const line = updateLeader(i, pAnchor.x, pAnchor.y, tx, ty);
+    // Use inline style so attribute-set opacity isn't overridden by CSS rule.
+    line.style.strokeOpacity = visible ? '0.42' : '0';
+  });
+
+  // Court tag — anchor shifted NORTH so it doesn't cover SE bookend (building E)
+  const courtCenter = project3D(-2, 4.5, 8);
+  courtTagEl.style.left = courtCenter.x + 'px';
+  courtTagEl.style.top  = courtCenter.y + 'px';
+
+  // Context-building labels — float at the rooftop center of each neighbor.
+  // After positioning, run collision detection against main building labels
+  // so ctx labels are auto-hidden when they overlap a main label.
+  // First gather main-label screen rects (approximate widths).
+  const mainRects = [];
+  tagEls.forEach((el, i) => {
+    if(el.classList.contains('show')){
+      const r = el.getBoundingClientRect();
+      const stage = el.parentElement.parentElement.getBoundingClientRect();
+      mainRects.push({
+        x1: r.left - stage.left, y1: r.top - stage.top,
+        x2: r.right - stage.left, y2: r.bottom - stage.top,
+      });
+    }
+  });
+  // Also include felles uteareal and parking tag as obstacles
+  [courtTagEl, parkingTagEl].forEach(el => {
+    if(el.classList.contains('show')){
+      const r = el.getBoundingClientRect();
+      const stage = el.parentElement.parentElement.getBoundingClientRect();
+      mainRects.push({
+        x1: r.left - stage.left, y1: r.top - stage.top,
+        x2: r.right - stage.left, y2: r.bottom - stage.top,
+      });
+    }
+  });
+  CONTEXT.forEach((c, i) => {
+    const p = project3D(c.x, c.h + 1.2, c.z);
+    ctxTagEls[i].style.left = p.x + 'px';
+    ctxTagEls[i].style.top  = p.y + 'px';
+    // Approximate ctx label bbox: 60×16 around anchor (translate -50%, -50%)
+    const PAD = 6;
+    const cx1 = p.x - 32 - PAD, cy1 = p.y - 9 - PAD;
+    const cx2 = p.x + 32 + PAD, cy2 = p.y + 9 + PAD;
+    let collides = false;
+    for(const m of mainRects){
+      if(!(cx2 < m.x1 || cx1 > m.x2 || cy2 < m.y1 || cy1 > m.y2)){
+        collides = true; break;
+      }
+    }
+    // Apply collision via inline style (overrides any .show class for this frame)
+    ctxTagEls[i].style.visibility = collides ? 'hidden' : '';
+  });
+
+  // Parking tag — at center of P-anlegg footprint (visible only during Plan/Snitt phases
+  // where camera is top-down or low-angle, so anchor at ground level reads naturally)
+  const parkingCenter = project3D(0, 0.5, 0);
+  parkingTagEl.style.left = parkingCenter.x + 'px';
+  parkingTagEl.style.top  = parkingCenter.y + 'px';
+
+  // Sight-line endpoint tags
+  sightLines3D.forEach((sl, i) => {
+    const p = project3D(sl.tx, sl.ty + 5, sl.tz);
+    sightTagEls[i].style.left = p.x + 'px';
+    sightTagEls[i].style.top  = p.y + 'px';
+  });
+}
+
+// ====== ANIMATION TIMELINE ======
+const t0 = performance.now();
+const phaseEl = document.getElementById('phase');
+const phNumEl = document.getElementById('phNum');
+const phNameEl = document.getElementById('phName');
+const phSubEl = document.getElementById('phSub');
+const sunDotEl = document.getElementById('sunDot');
+const sunTimeEl = document.getElementById('sunTime');
+const heatLegendEl = document.getElementById('heatLegend');
+const parkingTagEl = document.getElementById('parkingTag');
+const scaleBarEl = document.getElementById('scaleBar');
+const dataTickerEl = document.getElementById('dataTicker');
+const orbitDegEl = document.getElementById('orbitDeg');
+const cycleProgressEl = document.getElementById('cycleProgress');
+const aiChecklistEl = document.getElementById('aiChecklist');
+const aiChecklistItems = aiChecklistEl ? Array.from(aiChecklistEl.querySelectorAll('.item')) : [];
+const dwLabelEl = document.getElementById('dwLabel');
+const contourLabelEls = [document.getElementById('ctr1'), document.getElementById('ctr2'), document.getElementById('ctr3')];
+const snittDimsEl = document.getElementById('snittDims');
+const phaseVeilEl = document.getElementById('phaseVeil');
+
+// Track phase boundaries for transition fade
+const PHASE_BOUNDARIES = [12, 26, 34, 42];  // Volum→Sol, Sol→Sikt, Sikt→Plan, Plan→Snitt
+let lastVeilTime = -100;
+const snittInfoEl = document.getElementById('snittInfo');
+const dimEls = ['dim7','dim5','dim3','dim1'].map(id => document.getElementById(id));
+const snittMarkerEls = [document.getElementById('snittA1'), document.getElementById('snittA2')];
+
+function ease(t){ return 1 - Math.pow(1 - t, 3); }
+function easeInOut(t){ return t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t+2, 2)/2; }
+function clamp01(x){ return Math.max(0, Math.min(1, x)); }
+
+// Sun position (Norwegian summer arc)
+function setSunForHour(hour){
+  const hourClamped = Math.max(5, Math.min(21, hour));
+  const tt = (hourClamped - 5) / 16;  // 0 at 05, 1 at 21
+  const noonT = (12 - 5) / 16;
+  // Azimuth: east → south → west
+  // Elevation: low at edges, peaks at noon (Norwegian summer ~60°)
+  const elDeg = Math.sin(tt * Math.PI) * 58 + 6;
+  const elRad = elDeg * Math.PI / 180;
+  // Sun travels from +X (east) at morning, through -Z (south, since negative Z is south here) at noon, to -X (west)
+  // Az = π/2 at sunrise, 0 (south, -Z) at noon, -π/2 at sunset
+  const az = (0.5 - tt) * Math.PI;  // at tt=0: π/2 (east), at tt=0.5: 0, at tt=1: -π/2 (west)
+  const r = 130;
+  const x = Math.cos(elRad) * Math.sin(az) * r;
+  const z = -Math.cos(elRad) * Math.cos(az) * r;
+  const y = Math.sin(elRad) * r;
+  sun.position.set(x, y, z);
+  sun.target.position.set(0, 0, 0);
+  sun.target.updateMatrixWorld();
+  return { hour: hourClamped };
+}
+
+function updateSunCompass(hour){
+  const hourClamped = Math.max(5, Math.min(21, hour));
+  const tt = (hourClamped - 5) / 16;
+  // Dot position: east(+X) at right, south(-Z) at bottom, west(-X) at left
+  // Compass angle: 0=N (top), 90=E (right), 180=S (bottom), 270=W (left)
+  // At sunrise dot at 90° (right), at noon 180° (bottom), at sunset 270° (left)
+  const compassDeg = 90 + tt * 180;
+  const compassRad = compassDeg * Math.PI / 180;
+  const radius = IS_MOBILE ? 19 : 24;
+  const cx = Math.sin(compassRad) * radius;
+  const cy = -Math.cos(compassRad) * radius;
+  sunDotEl.style.transform = `translate(${cx}px, ${cy}px)`;
+
+  const hh = Math.floor(hourClamped);
+  const mm = Math.round((hourClamped - hh) * 60);
+  sunTimeEl.textContent = String(hh).padStart(2,'0') + ':' + String(mm).padStart(2,'0');
+}
+
+// Set phase content
+function setPhase(num, name, sub){
+  phNumEl.textContent = String(num);
+  phNameEl.textContent = name;
+  phSubEl.textContent = '· ' + sub;
+}
+
+let currentSightOpacity = 0;
+
+function animate(){
+  const tNow = (performance.now() - t0) / 1000;
+  const cycleT = tNow % 56;   // 56s — volumstudie extended to 18s for full 360° orbit
+
+  // ===== Phase 0: BOOT (0-1s) =====
+  // ===== Phase 1: VOLUMSTUDIE (1-18s) — last 12s is full 360° orbit =====
+  // ===== Phase 2: SOLANALYSE + NATT (18-32s) =====
+  // ===== Phase 3: SIKT (32-40s) =====
+  // ===== Phase 4: PLAN (40-48s) =====
+  // ===== Phase 5: SNITT (48-56s) =====
+
+  const inVolum = cycleT < 18;
+  const inSol = cycleT >= 18 && cycleT < 32;
+  const inSikt = cycleT >= 32 && cycleT < 40;
+  const inPlan = cycleT >= 40 && cycleT < 48;
+  const inSnitt = cycleT >= 48;
+
+  // Show phase indicator after boot
+  if(tNow > 1.0){
+    phaseEl.classList.add('show');
+  }
+
+  // Demo-tag stays visible throughout all phases — its "this is a demo, full
+  // version includes additional features" message is the most important framing
+  // for viewers, especially during phases like sikt/snitt where the 3D action
+  // gets dense. Keep opacity locked at 1 (overrides rise animation end-keyframe).
+  if(demoTagEl){
+    demoTagEl.style.setProperty('opacity', '1', 'important');
+  }
+  if(inVolum){
+    if(cycleT < 6){
+      setPhase('1', t('phase.1.name'), MODE_CONTENT[currentMode].phaseSubs[1]);
+    } else {
+      setPhase('1', t('phase.1.name'), t('phase.1.sub.orbit'));
+    }
+  } else if(inSol){
+    // Sub-label changes based on time of day for richer storytelling
+    const solLocalForLabel = (cycleT - 18) / 14;
+    const hourForLabel = 5 + solLocalForLabel * 18;
+    let sub;
+    if(hourForLabel < 11) sub = t('phase.2.sub.morgen');
+    else if(hourForLabel < 16) sub = t('phase.2.sub.dag');
+    else if(hourForLabel < 19) sub = t('phase.2.sub.kveld');
+    else if(hourForLabel < 21) sub = t('phase.2.sub.kveld');
+    else sub = t('phase.2.sub.natt');
+    setPhase('2', hourForLabel >= 20 ? t('phase.2.name.natt') : t('phase.2.name'), sub);
+  } else if(inSikt){
+    setPhase('3', t('phase.3.name'), t('phase.3.sub'));
+  } else if(inPlan){
+    setPhase('4', t('phase.4.name'), t('phase.4.sub'));
+  } else {
+    setPhase('5', t('phase.5.name'), t('phase.5.sub'));
+  }
+
+  // ===== BG ground =====
+  bgMat.opacity = ease(clamp01((cycleT - 0.3) / 0.8)) * 0.85;
+  groundMat.opacity = ease(clamp01((cycleT - 0.6) / 0.8)) * 0.55;
+
+  // ===== Context buildings — fade in early =====
+  contextGroup.children.forEach((c) => {
+    const ud = c.userData;
+    const o = ease(clamp01((cycleT - ud.revealAt) / 1.0));
+    ud.mainMat.opacity = o * ud.targetOpacity;
+    ud.edgeMat.opacity = o * ud.edgeTargetOpacity;
+  });
+
+  // ===== Street + sidewalk =====
+  streetMat.opacity = ease(clamp01((cycleT - 1.8) / 0.9)) * 0.95;
+  streetCenter.material.opacity = ease(clamp01((cycleT - 2.4) / 0.6)) * 0.75;
+  sidewalkMat.opacity = ease(clamp01((cycleT - 2.0) / 0.9)) * 0.92;
+  sidewalkPattern.material.opacity = ease(clamp01((cycleT - 2.4) / 0.7)) * 0.18;
+  curb.material.opacity = ease(clamp01((cycleT - 2.5) / 0.5)) * 0.55;
+
+  // ===== Parcel =====
+  parcelMat.opacity = ease(clamp01((cycleT - 2.6) / 0.8)) * 0.95;
+  parcelBorder.material.opacity = ease(clamp01((cycleT - 2.8) / 0.6)) * 0.85;
+
+  // ===== Setback envelope =====
+  setbackBorder.material.opacity = ease(clamp01((cycleT - 3.4) / 0.7)) * 0.85;
+
+  // ===== Courtyard =====
+  courtMat.opacity = ease(clamp01((cycleT - 4.0) / 0.7)) * 0.65;
+  courtBorder.material.opacity = ease(clamp01((cycleT - 4.0) / 0.7)) * 0.75;
+
+  // ===== Paths =====
+  pathLines.forEach(l => {
+    l.material.opacity = ease(clamp01((cycleT - 5.0) / 0.8)) * 0.35;
+  });
+
+  // ===== Buildings rise =====
+  // All 5 buildings rise simultaneously over 2 seconds — synchronized reveal
+  // so the user sees the full karré emerge clearly, no missed buildings.
+  buildingMeshes.forEach((bm) => {
+    const data = bm.userData;
+    const liftT = clamp01((cycleT - data.revealAt) / 2.0);
+    if(liftT > 0){
+      bm.visible = true;
+      bm.scale.y = Math.max(0.001, ease(liftT));
+    }
+  });
+
+  // ===== Trees =====
+  treeMeshes.forEach((tm) => {
+    const data = tm.userData;
+    const liftT = clamp01((cycleT - data.revealAt) / 0.7);
+    if(liftT > 0){
+      tm.visible = true;
+      tm.scale.set(ease(liftT), ease(liftT), ease(liftT));
+    }
+  });
+
+  // ===== Building tags =====
+  // Hide labels during the 360° orbit (cycleT 6→18) since label offsets
+  // are calibrated for the NE iso view and become unreadable at other angles.
+  const tagT = clamp01((cycleT - 7.5) / 0.8);
+  const inOrbit = inVolum && cycleT >= 6 && cycleT < 18;
+  tagEls.forEach((el, i) => {
+    if(inSikt || inPlan || inSnitt || inOrbit){
+      el.classList.remove('show');
+    } else if(tagT > i * 0.07 && (inVolum || inSol)){
+      el.classList.add('show');
+    } else if(cycleT < 7.5){
+      el.classList.remove('show');
+    }
+  });
+
+  // ===== Court tag =====
+  // Hidden during orbit because the label is anchored to a world point
+  // (-2, 4.5, 8) and would rotate with the camera, "flying around" the screen.
+  // Hidden during Sol because building tags (A-E) are showing and collide with it.
+  // Shows: brief post-reveal moment, wide-hold popup during orbit, and Sikt.
+  const inWideHoldCourt = inVolum && cycleT >= 13.8 && cycleT < 15.4;
+  const inPostReveal = cycleT > 5.5 && cycleT < 6.0;
+  if(inPostReveal || inWideHoldCourt || inSikt){
+    courtTagEl.classList.add('show');
+  } else {
+    courtTagEl.classList.remove('show');
+  }
+
+  // ===== Setback dimensions (Plan phase only) =====
+  // Fade in during plan-camera transition and out at end of plan
+  let dimOp = 0;
+  if(inPlan){
+    const planLocal = clamp01((cycleT - 42) / 1.5);
+    const planExit = clamp01((cycleT - 46.5) / 1.0);
+    dimOp = planLocal * (1 - planExit);
+  }
+  dimSegments.forEach((d, i) => {
+    d.mat.opacity = dimOp * 0.85;
+    // Position label via 3D projection
+    const p = project3D(d.labelPos[0], 0.3, d.labelPos[1]);
+    dimTagEls[i].style.left = p.x + 'px';
+    dimTagEls[i].style.top  = p.y + 'px';
+    if(dimOp > 0.4){
+      dimTagEls[i].classList.add('show');
+    } else {
+      dimTagEls[i].classList.remove('show');
+    }
+  });
+
+  // ===== Context-building labels =====
+  // Pop up only when camera is held at the WIDE overview (peak zoom-out)
+  // — the moment the user sees the full urban context. Also kept visible
+  // during Sol phase where shadow context matters.
+  // Wide-hold = cycleT 6 + 0.65*12 to 6 + 0.88*12 = 13.8 to 16.56
+  const inWideHold = inVolum && cycleT >= 13.8 && cycleT < 16.5;
+  const showCtx = inWideHold || inSol;
+  ctxTagEls.forEach((el, i) => {
+    if(showCtx){
+      el.classList.add('show');
+    } else {
+      el.classList.remove('show');
+    }
+  });
+
+  // ===== Scale bar =====
+  // Shown during phases where measurement context matters most
+  if((inVolum && !inOrbit && cycleT > 3.5) || inSol || inPlan || inSnitt){
+    scaleBarEl.classList.add('show');
+  } else {
+    scaleBarEl.classList.remove('show');
+  }
+
+  // ===== Cycle progress bar =====
+  // Updates every frame to show playback position through 56s cycle
+  const cycleProgress = (cycleT / 56) * 100;
+  cycleProgressEl.style.width = cycleProgress + '%';
+
+  // ===== Animated stat counters =====
+  // BRA, BRA-i, Boenheter count up from 0 → target during build reveal (cycleT 3 → 7).
+  // After that they hold at target. Creates "AI is calculating" feel.
+  const counterT = clamp01((cycleT - 3) / 4);
+  const counterEased = counterT < 0.5 ? 2*counterT*counterT : 1 - Math.pow(-2*counterT + 2, 2)/2;
+  document.querySelectorAll('.stat .num').forEach(el => {
+    const target = parseInt(el.dataset.target, 10);
+    const current = Math.round(target * counterEased);
+    // Format with thin space thousands separator for NB norm
+    el.textContent = current >= 1000
+      ? current.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+      : current.toString();
+  });
+
+  // ===== Live data ticker =====
+  // Shown during 360° orbit (cycleT 6–18) and briefly afterward to reinforce that
+  // metrics persist across the camera move. Updates orbit-angle value.
+  if(inOrbit){
+    dataTickerEl.classList.add('show');
+    // Compute current orbit angle in degrees relative to default
+    const orbitT = (cycleT - 6) / 12;
+    // Cap at 359° to avoid the brief 360°→000° flash on the final frame
+    // before the ticker fades out at orbit end (cycleT=18).
+    const deg = Math.min(Math.round(orbitT * 360), 359);
+    const padded = deg.toString().padStart(3, '0');
+    orbitDegEl.textContent = padded + '°';
+
+    // ===== AI checklist =====
+    // Items get checked off progressively as orbit advances — each item has
+    // a data-at threshold corresponding to a fraction of orbit progress.
+    aiChecklistEl.classList.add('show');
+    aiChecklistItems.forEach(item => {
+      const threshold = parseFloat(item.dataset.at);
+      if(orbitT >= threshold){
+        item.classList.add('done');
+      } else {
+        item.classList.remove('done');
+      }
+    });
+  } else {
+    dataTickerEl.classList.remove('show');
+    aiChecklistEl.classList.remove('show');
+    // Reset checks for next loop
+    aiChecklistItems.forEach(item => item.classList.remove('done'));
+  }
+
+  // ===== Sight lines (Phase 3) =====
+  let sightOp = 0;
+  if(inSikt){
+    const sLocal = (cycleT - 32) / 7;
+    sightOp = clamp01(sLocal * 3) * (1 - clamp01((sLocal - 0.85) * 6));
+  }
+  sightLines3D.forEach((sl, i) => {
+    const stagger = i * 0.15;
+    const localOp = sightOp * clamp01((cycleT - 32 - stagger) / 0.6);
+    sl.lineMat.opacity = localOp * 0.85;
+    sl.markMat.opacity = localOp;
+    if(localOp > 0.2){
+      sightTagEls[i].classList.add('show');
+    } else {
+      sightTagEls[i].classList.remove('show');
+    }
+  });
+
+  // ===== Position all tags =====
+  positionTags();
+
+  // ===== Sun & shadows + DAY/NIGHT cycle =====
+  let currentHour = 13;
+  if(inVolum){
+    currentHour = 13;
+  } else if(inSol){
+    // Extended sweep: 05 → 23 over the sol phase duration (18-32s = 14s)
+    const solLocal = (cycleT - 18) / 14;
+    currentHour = 5 + solLocal * 18;       // covers 05 → 23
+  } else if(inSikt){
+    currentHour = 13;
+  } else {
+    currentHour = 13;
+  }
+  setSunForHour(currentHour);
+  updateSunCompass(currentHour);
+
+  // Compute "night strength": 0 = full day, 1 = full night
+  // Lit windows ramp up from 18:30 → 21:00, peak 21:00-23:00, then ramp down
+  let nightAmt = 0;
+  if(currentHour < 5 || currentHour > 23){
+    nightAmt = 1;
+  } else if(currentHour < 6){
+    nightAmt = 1 - (currentHour - 5);
+  } else if(currentHour > 18.5 && currentHour < 21){
+    nightAmt = (currentHour - 18.5) / 2.5;
+  } else if(currentHour >= 21){
+    nightAmt = 1;
+  }
+
+  // ===== Window glow opacity =====
+  glowLayers.forEach((g, gi) => {
+    // Slight per-building variation so they don't all light at once
+    const lag = gi * 0.12;
+    const effectiveHour = currentHour - lag;
+    let localNight = 0;
+    if(effectiveHour > 18.5 && effectiveHour < 21){
+      localNight = (effectiveHour - 18.5) / 2.5;
+    } else if(effectiveHour >= 21 || effectiveHour < 5){
+      localNight = 1;
+    } else if(effectiveHour < 6){
+      localNight = 1 - (effectiveHour - 5);
+    }
+    // Boost glow during peak night
+    const glowOp = Math.min(1, localNight * 1.15);
+    g.mats.forEach(m => {
+      if(m.blending === THREE.AdditiveBlending){
+        m.opacity = glowOp * 0.95;
+      }
+    });
+  });
+
+  // ===== Sun-hours heatmap on courtyard =====
+  // Show during day-part of solanalyse only (when sun-shadow data is meaningful)
+  // Fade in 13:00s when middag analysis begins, fade out before dusk
+  let heatOp = 0;
+  if(inSol){
+    if(currentHour > 7 && currentHour < 18){
+      // Smooth ramp: full opacity 10-16, fade at edges
+      if(currentHour < 9.5) heatOp = (currentHour - 7) / 2.5;
+      else if(currentHour > 16) heatOp = 1 - ((currentHour - 16) / 2);
+      else heatOp = 1;
+    }
+  }
+  heatMat.opacity = Math.max(0, Math.min(1, heatOp)) * 0.92;
+  if(heatOp > 0.15 && inSol){
+    heatLegendEl.classList.add('show');
+  } else {
+    heatLegendEl.classList.remove('show');
+  }
+
+  // ===== P-anlegg (underground parking) — reveals from cycleT=4 then visible across all phases =====
+  // Always on during Volumstudie + Plan + Snitt, dimmed in Sol (heatmap takes focus), hidden in Sikt
+  let parkOp = 0;
+  if(cycleT > 4.0){
+    if(inVolum) parkOp = ease(clamp01((cycleT - 4.0) / 1.0));
+    else if(inSol) parkOp = 0.45;
+    else if(inSikt) parkOp = 0;
+    else if(inPlan) parkOp = 1.0;
+    else if(inSnitt) parkOp = 0.65;
+  }
+  parkingBorder.material.opacity = parkOp * 0.85;
+  parkingHatchMats.forEach(m => { m.opacity = parkOp * 0.40; });
+  drivewayMats.forEach((m) => {
+    const c = m.color ? m.color.getHex() : 0;
+    if(c === 0xe6d078) m.opacity = parkOp * 0.45;            // corridor strip
+    else if(c === 0xc99b3a) m.opacity = parkOp * 0.95;       // arrow
+    else m.opacity = parkOp * 0.75;                          // dashed border
+  });
+  // P-tag visibility — show only during Plan phase.
+  // (Was shown in Snitt too but anchored at world (0,0.5,0) it projects exactly
+  //  onto the section view of building A and collides with the dim labels.)
+  if(inPlan){
+    parkingTagEl.classList.add('show');
+  } else {
+    parkingTagEl.classList.remove('show');
+  }
+
+  // ===== Scene-wide tonal shift for night (background, ambient sky tint) =====
+  // Adjust HemisphereLight and AmbientLight intensities
+  // Find them in scene children — we kept references but can also search
+  // Simpler: store refs at boot. Already done above (ambient, fill, sun, hemisphere)
+  if(nightAmt > 0){
+    // During night: cooler/dimmer ambient, dimmer sun
+    sun.intensity = 1.35 * (1 - nightAmt * 0.85);
+    sun.color.setHex(nightAmt > 0.5 ? 0x6E80A8 : 0xFFEDC2);
+  } else {
+    sun.intensity = 1.35;
+    sun.color.setHex(0xFFEDC2);
+  }
+  // Dim the cream gradient background by tweaking bgMat color toward dark blue
+  // Smooth blend: bg goes from cream to night-blue
+  const nightHex = 0x14223A;
+  const dayHex = COL.groundWarm;
+  function blendHex(a, b, t){
+    const ar = (a >> 16) & 0xFF, ag = (a >> 8) & 0xFF, ab = a & 0xFF;
+    const br = (b >> 16) & 0xFF, bg = (b >> 8) & 0xFF, bb = b & 0xFF;
+    return ((ar + (br - ar) * t) << 16) | ((ag + (bg - ag) * t) << 8) | (ab + (bb - ab) * t);
+  }
+  bgMat.color.setHex(blendHex(dayHex, nightHex, nightAmt));
+  const groundDayHex = COL.groundSoft;
+  const groundNightHex = 0x1F2A40;
+  groundMat.color.setHex(blendHex(groundDayHex, groundNightHex, nightAmt));
+
+  // ===== Camera mode =====
+  let targetAz = CAM_AZ_DEFAULT;
+  let targetEl = CAM_EL_DEFAULT;
+  // Default lookAt-Y is device-aware: portrait mobile centers higher on karré
+  // mid-height so all 5 buildings frame symmetrically; desktop uses standard.
+  // 10.5 = midpoint of karré bounding-box vertical extent (h_max=21 → mid=10.5)
+  let targetY = (IS_PORTRAIT && IS_MOBILE) ? 10.5 : 4;
+  let snapCamera = false;  // If true, set directly without smoothing
+
+  if(inVolum){
+    if(cycleT < 6){
+      // During reveal — focus TIGHT on the karré so each building is clearly visible
+      // rising. No south-shift, no aerial lift — clean iso view centered on karré.
+      targetAz = CAM_AZ_DEFAULT + Math.sin(cycleT * 0.10) * 0.04;
+      targetEl = CAM_EL_DEFAULT;
+      // Tight zoom 0.78× ensures karré occupies ~45-55% of viewport on mobile,
+      // pushing nabobygg to the periphery where they belong during the reveal.
+      zoomFactor = 0.78;
+    } else {
+      // Cinematic orbit: start TIGHT zoom, expand to WIDE overview, settle to default.
+      // Synced with 360° rotation over 12s so the reveal feels like a drone shot.
+      const orbitT = (cycleT - 6) / 12;       // 0 → 1
+
+      // Rotation curve
+      const easedT = orbitT < 0.08 ? (orbitT / 0.08) * 0.08 * easeInOut(orbitT / 0.08)
+                  : orbitT > 0.92 ? 0.92 + (1 - easeInOut((1 - orbitT) / 0.08)) * 0.08
+                  : orbitT;
+      targetAz = CAM_AZ_DEFAULT + easedT * Math.PI * 2;
+
+      // Cinematic zoom curve, starting from the tight 0.78× reveal state:
+      //   0.00 → 0.06 : settle to 0.72 (gentle close-up, karré still fully visible)
+      //   0.06 → 0.65 : drone pulls back 0.72 → 1.65
+      //   0.65 → 0.78 : HOLD at 1.65 (short wide overview)
+      //   0.78 → 0.88 : DRONE DIVE — zoom in tight, drop elevation, lookAt rises to building mid
+      //   0.88 → 0.96 : DRONE FLY — circles at low altitude close to karré, az keeps rotating
+      //   0.96 → 1.00 : pull back — restore zoom/el/lookAt for Sol phase
+      let zf;
+      let droneElDelta = 0;
+      let droneTargetY = null;
+      if(orbitT < 0.06){
+        zf = 0.78 - (0.78 - 0.72) * easeInOut(orbitT / 0.06);
+      } else if(orbitT < 0.65){
+        const t = (orbitT - 0.06) / 0.59;
+        zf = 0.72 + (1.65 - 0.72) * easeInOut(t);
+      } else if(orbitT < 0.78){
+        zf = 1.65;
+      } else if(orbitT < 0.88){
+        // Drone dive: pulls in tight, elevation drops sharply, lookAt rises to mid-building
+        const t = (orbitT - 0.78) / 0.10;
+        const e = easeInOut(t);
+        zf = 1.65 + (0.55 - 1.65) * e;
+        droneElDelta = -CAM_EL_DEFAULT * 0.62 * e;
+        droneTargetY = 4 + (11 - 4) * e;
+      } else if(orbitT < 0.96){
+        // Drone fly: circles at low altitude close to karré
+        zf = 0.55;
+        droneElDelta = -CAM_EL_DEFAULT * 0.62;
+        droneTargetY = 11;
+      } else {
+        // Pull back to default for Sol phase
+        const t = (orbitT - 0.96) / 0.04;
+        const e = easeInOut(t);
+        zf = 0.55 + (1.0 - 0.55) * e;
+        droneElDelta = -CAM_EL_DEFAULT * 0.62 * (1 - e);
+        droneTargetY = 11 + (4 - 11) * e;
+      }
+      zoomFactor = zf;
+
+      // Camera elevation: subtle rise during wide-hold + drone dive override
+      targetEl = CAM_EL_DEFAULT + Math.sin(orbitT * Math.PI) * 0.05 + droneElDelta;
+      // Drone phase overrides device-aware targetY for the cinematic fly-through
+      if(droneTargetY != null){
+        targetY = droneTargetY;
+      }
+      snapCamera = true;
+    }
+  } else if(inSol){
+    // Subtle orbit ±0.08 rad ≈ ±5° during sun analysis (sun direction kept readable)
+    const orbitT = (cycleT - 18) / 14;
+    targetAz = CAM_AZ_DEFAULT + Math.sin(orbitT * Math.PI * 2) * 0.08;
+    targetEl = CAM_EL_DEFAULT;
+    zoomFactor = 1.0;
+    // Snap during first 0.6s of Sol so camera lands cleanly (else smoothing would
+    // try to unwind the accumulated +2π from the orbit which takes many seconds)
+    if(cycleT < 18.6){
+      snapCamera = true;
+    }
+  } else if(inSikt){
+    targetEl = CAM_EL_DEFAULT + 0.06;
+    targetAz = CAM_AZ_DEFAULT - 0.05;
+    zoomFactor = 1.0;
+    snapCamera = true;
+  } else if(inPlan){
+    const planLocal = clamp01((cycleT - 40) / 2.0);
+    targetEl = CAM_EL_DEFAULT + (CAM_EL_PLAN - CAM_EL_DEFAULT) * easeInOut(planLocal);
+    targetAz = CAM_AZ_DEFAULT;
+    zoomFactor = 1.0;
+    const planEndLocal = clamp01((cycleT - 46) / 1.8);
+    if(planEndLocal > 0){
+      targetEl = CAM_EL_PLAN + (CAM_EL_DEFAULT - CAM_EL_PLAN) * easeInOut(planEndLocal);
+    }
+    snapCamera = true;
+  } else if(inSnitt){
+    const snittLocal = clamp01((cycleT - 48) / 2.2);
+    targetAz = CAM_AZ_DEFAULT + (CAM_AZ_SNITT - CAM_AZ_DEFAULT) * easeInOut(snittLocal);
+    targetEl = CAM_EL_DEFAULT + (CAM_EL_SNITT - CAM_EL_DEFAULT) * easeInOut(snittLocal);
+    targetY = 4 + 6 * easeInOut(snittLocal);
+    zoomFactor = 1.0;
+    const snittEndLocal = clamp01((cycleT - 54) / 1.8);
+    if(snittEndLocal > 0){
+      targetAz = CAM_AZ_SNITT + (CAM_AZ_DEFAULT - CAM_AZ_SNITT) * easeInOut(snittEndLocal);
+      targetEl = CAM_EL_SNITT + (CAM_EL_DEFAULT - CAM_EL_SNITT) * easeInOut(snittEndLocal);
+      targetY = 10 - 6 * easeInOut(snittEndLocal);
+    }
+    snapCamera = true;
+  }
+  // Apply the dynamic zoom factor to the camera frustum
+  applyViewSize();
+  if(snapCamera){
+    // Direct set so phase transitions reliably reach target even at low fps
+    camAz = targetAz;
+    camEl = targetEl;
+  } else {
+    // Stronger smoothing factor so the orbit motion is visible (was 0.06, too lazy)
+    camAz += (targetAz - camAz) * 0.14;
+    camEl += (targetEl - camEl) * 0.14;
+  }
+  setCameraOrbit(camAz, camEl, targetY);
+
+  // ===== Snitt-phase overlays: section line, dimension labels, info panel =====
+  // Section line on ground (visible only in plan + snitt as anticipation)
+  let sectionOp = 0;
+  if(inPlan){
+    const planLocal = clamp01((cycleT - 42) / 2.0);
+    sectionOp = planLocal * 0.4;
+  } else if(inSnitt){
+    sectionOp = clamp01((cycleT - 48.3) / 1.0);
+  }
+  section.mat.opacity = sectionOp * 0.85;
+
+  // Dimension labels — visible during snitt
+  // Project building A side-edge top corner per floor to screen
+  if(inSnitt){
+    const a = BUILDINGS[0];  // A
+    // Anchor x: west side of A (cx - w/2)
+    const ax = a.cx - a.w/2 - 0.5;
+    // Same Z plane
+    const az = a.cz + 0;
+    // Floor heights — ideal kote positions in 3D
+    const floors = [
+      {el: dimEls[0], y: a.h},        // Tak
+      {el: dimEls[1], y: a.h * (4/6)},// 5. ET (12m for h=18)
+      {el: dimEls[2], y: a.h * (2/6)},// 3. ET (6m)
+      {el: dimEls[3], y: 0.3},        // 1. ET ground
+    ];
+    // Project each kote to screen and remember ideal vs final positions
+    const kotes = floors.map(f => {
+      const p = project3D(ax, f.y, az);
+      return {
+        el: f.el,
+        idealX: p.x - 18,    // tag right-edge anchor (tag has transform:translate(-100%, -50%))
+        idealY: p.y,         // true kote y on the snitt
+        finalY: p.y,         // adjusted y to avoid overlap (computed below)
+      };
+    });
+    // Enforce min vertical gap between stacked tags. Iterate top-to-bottom:
+    // if a tag would land within minGap of the one above, push it down.
+    // Tag dim approx: 44px tall on mobile (2 lines, 4px padding). Add 4px breath.
+    const isMobile = window.innerWidth < 700;
+    const minGap = isMobile ? 46 : 56;
+    for(let j = 1; j < kotes.length; j++){
+      const above = kotes[j-1];
+      const here  = kotes[j];
+      if(here.finalY - above.finalY < minGap){
+        here.finalY = above.finalY + minGap;
+      }
+    }
+    const snittInLocal = clamp01((cycleT - 49.0) / 1.0);
+    kotes.forEach((k, fi) => {
+      k.el.style.left = k.idealX + 'px';
+      k.el.style.top  = k.finalY + 'px';
+      if(snittInLocal > fi * 0.10){
+        k.el.classList.add('show');
+      } else {
+        k.el.classList.remove('show');
+      }
+      // Leader line from tag's right edge to the actual kote on the snitt.
+      // Tag right-center is at (idealX, finalY). Kote on snitt is at
+      // (idealX + 18, idealY). The line is only useful when finalY ≠ idealY.
+      const leaderId = 200 + fi;
+      const visible = k.el.classList.contains('show');
+      const offset = Math.abs(k.finalY - k.idealY);
+      if(visible && offset > 1){
+        const line = updateLeader(leaderId, k.idealX + 1, k.finalY, k.idealX + 18, k.idealY);
+        line.style.strokeOpacity = '0.55';
+      } else {
+        const line = svgLeaders.querySelector(`#leader-${leaderId}`);
+        if(line) line.style.strokeOpacity = '0';
+      }
+    });
+
+    // Section line markers (A markers at both ends of section line)
+    const m1 = project3D(section.x1, 0.3, 0);
+    const m2 = project3D(section.x2, 0.3, 0);
+    snittMarkerEls[0].style.left = m1.x + 'px';
+    snittMarkerEls[0].style.top  = m1.y + 'px';
+    snittMarkerEls[1].style.left = m2.x + 'px';
+    snittMarkerEls[1].style.top  = m2.y + 'px';
+    snittMarkerEls.forEach(m => m.classList.add('show'));
+
+    // Snitt info panel
+    snittInfoEl.classList.add('show');
+  } else {
+    dimEls.forEach(d => d.classList.remove('show'));
+    snittMarkerEls.forEach(m => m.classList.remove('show'));
+    snittInfoEl.classList.remove('show');
+    // Hide dim-leader lines when leaving snitt phase
+    for(let fi = 0; fi < 4; fi++){
+      const line = svgLeaders.querySelector(`#leader-${200 + fi}`);
+      if(line) line.style.strokeOpacity = '0';
+    }
+  }
+
+  // ===== Terrain contours (visible during Plan phase, faint during Volumstudie) =====
+  let contourOp = 0;
+  if(inVolum && cycleT > 3.4){
+    contourOp = ease(clamp01((cycleT - 3.4) / 1.0)) * 0.35;
+  } else if(inPlan){
+    contourOp = clamp01((cycleT - 35) / 0.8) * 0.85;
+  } else if(inSnitt){
+    contourOp = 0.15;
+  }
+  contourLines.mat.opacity = contourOp;
+  // Position and show contour labels (positioned at left end of each contour)
+  if(contourOp > 0.5 && inPlan){
+    CONTOURS.forEach((c, i) => {
+      const labelX = -PARCEL_W/2 + 2;  // left edge of parcel
+      const p = project3D(labelX, c.y, c.z);
+      contourLabelEls[i].style.left = p.x + 'px';
+      contourLabelEls[i].style.top  = p.y + 'px';
+      contourLabelEls[i].classList.add('show');
+    });
+  } else {
+    contourLabelEls.forEach(el => el.classList.remove('show'));
+  }
+
+  // ===== Driveway label (Plan phase only) =====
+  if(inPlan && cycleT > 35.5){
+    // Anchor south of parcel; in plan view with az≈49°, this projects to upper-right
+    // of canvas. Pushed -12 instead of -6 to clear the 7,0 m east setback label.
+    const p = project3D(-4, 2, -PARCEL_D/2 - 12);
+    dwLabelEl.style.left = p.x + 'px';
+    dwLabelEl.style.top  = p.y + 'px';
+    dwLabelEl.classList.add('show');
+  } else {
+    dwLabelEl.classList.remove('show');
+  }
+
+  // ===== Brief phase-transition veil =====
+  // Each phase change fades a dark overlay for 0.45s to soften the cut
+  for(const b of PHASE_BOUNDARIES){
+    if(cycleT >= b && cycleT < b + 0.25 && lastVeilTime < b){
+      phaseVeilEl.classList.add('show');
+      lastVeilTime = b;
+      setTimeout(()=> phaseVeilEl.classList.remove('show'), 380);
+      break;
+    }
+  }
+  // Reset lastVeilTime when cycle loops
+  if(cycleT < 5 && lastVeilTime > 30){
+    lastVeilTime = -100;
+  }
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+}
+
+requestAnimationFrame(()=>{
+  document.getElementById('veil').classList.add('gone');
+  window.__cam = camera;
+  window.__getState = () => ({
+    camAz: camAz, camEl: camEl,
+    pos: [camera.position.x.toFixed(1), camera.position.y.toFixed(1), camera.position.z.toFixed(1)]
+  });
+  animate();
+});
+
+})();
+</script>
+</body>
+</html>

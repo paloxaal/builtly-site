@@ -315,6 +315,67 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .footer-bot{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid)}
 .footer-legal{flex-basis:100%;margin-top:8px;text-transform:none;letter-spacing:0.04em;opacity:0.7;font-size:11px}
 
+/* MULIGHETSSTUDIE EMBED — live demo of the feasibility-study module */
+.mulighet-section{
+  position:relative;
+  padding:clamp(56px,8vh,84px) 0;
+  background:var(--bg-soft);
+  overflow:hidden;
+}
+.mulighet-section .smark{margin-bottom:clamp(28px,3.5vh,42px)}
+.mulighet-section h2{
+  margin-bottom:20px;
+  font-size:clamp(28px,3.2vw,40px);
+  max-width:22ch;
+}
+.mulighet-section .lead{
+  max-width:58ch;
+  margin-bottom:clamp(36px,4.5vh,56px);
+}
+.mulighet-frame{
+  position:relative;
+  width:100%;
+  height:clamp(720px, 96vh, 1080px);
+  border:1px solid var(--line-strong);
+  background:var(--bg);
+  overflow:hidden;
+  box-shadow:0 1px 0 rgba(19,24,32,0.04), 0 24px 56px -32px rgba(19,24,32,0.18);
+}
+.mulighet-frame iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+  background:var(--bg);
+}
+/* "Open in new tab" affordance — subtle, top-right */
+.mulighet-frame .frame-open{
+  position:absolute;
+  top:10px;right:10px;
+  z-index:5;
+  font-family:var(--font-mono);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mid);
+  background:rgba(250,250,247,0.92);
+  border:1px solid var(--line);
+  padding:6px 10px;
+  text-decoration:none;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:all 0.16s ease;
+  opacity:0;
+  pointer-events:none;
+}
+.mulighet-frame:hover .frame-open{opacity:1;pointer-events:auto}
+.mulighet-frame .frame-open:hover{color:var(--ink);border-color:var(--ink)}
+@media (max-width:760px){
+  .mulighet-frame{height:calc(100vh - 96px);min-height:640px;max-height:880px}
+  .mulighet-frame .frame-open{opacity:1;pointer-events:auto;font-size:9px;padding:5px 8px}
+}
+
 /* BIM SHOWCASE SECTION — compact, refined, architectural */
 .bim-section{position:relative;padding:clamp(56px,8vh,84px) 0;background:var(--bg);overflow:hidden}
 .bim-section .smark{margin-bottom:clamp(28px,3.5vh,42px)}
@@ -1249,6 +1310,26 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="pillar">AI</span>
 </div>
 <div class="scroll-hint"><span data-i18n="hero.scroll">Scroll</span> · §&nbsp;01 ↓</div>
+</div>
+</div>
+</section>
+
+<!-- ============================================================
+     MULIGHETSSTUDIE — live demo of the feasibility-study module
+     iframe embeds /mulighetsstudie.html which renders Three.js
+     animation. Language syncs via shared localStorage 'builtly-lang'
+     + postMessage listener (see script tag near end of body).
+============================================================ -->
+<section class="mulighet-section" id="mulighet">
+<div class="wrap">
+<div class="smark rv">
+<span class="num" data-i18n="sec.mulighet.live.num">Live</span><span data-i18n="sec.mulighet.live.label">Mulighetsstudie · interactive module preview</span><span class="dash"></span><span data-i18n="sec.mulighet.tag">From parcel to volume study — every phase, in one cycle</span>
+</div>
+<h2 class="dpy-2 rv" data-i18n-html="index.mulighet.h2">From site data to volume study,<br/>generated end-to-end.</h2>
+<p class="lead rv" data-i18n-html="index.mulighet.lede">A live preview of the mulighetsstudie module: parcel and zoning from public geodata, AI-driven volume placement, sun analysis on 21 June, sightline corridors, top-down plan and a section A–A — all from one project source. Switch building type to see residential and hotel programs side by side.</p>
+<div class="mulighet-frame rv" id="mulighetFrame">
+<a class="frame-open" href="/mulighetsstudie.html" target="_blank" rel="noopener" data-i18n="sec.mulighet.openFull" aria-label="Open in full window">Open full →</a>
+<iframe src="/mulighetsstudie.html" loading="lazy" title="Builtly Mulighetsstudie — live volume study demo" data-i18n-attr-title="sec.mulighet.iframeTitle" id="mulighetIframe"></iframe>
 </div>
 </div>
 </section>
@@ -5373,5 +5454,41 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
 })();
 </script>
 <script src="/i18n.js" defer></script>
+<script defer>
+// ============================================================================
+// Mulighetsstudie iframe — language sync bridge
+// ============================================================================
+// The iframe (mulighetsstudie.html) reads `builtly-lang` from localStorage on
+// load, so language is correct on first paint. When the user picks a new
+// language from the picker in the parent page, BUILTLY_I18N.onLangChange fires
+// — we forward the new code to the iframe via postMessage so it updates live
+// without a reload.
+(function(){
+  function getIframe(){
+    return document.getElementById('mulighetIframe');
+  }
+  function sendLang(lang){
+    const f = getIframe();
+    if(f && f.contentWindow){
+      try { f.contentWindow.postMessage({type:'builtly:setLang', lang:lang}, '*'); }
+      catch(e){ /* cross-origin or iframe gone */ }
+    }
+  }
+  // Hook into BUILTLY_I18N once it has loaded (defer ordering puts i18n.js first)
+  function hook(){
+    if(window.BUILTLY_I18N && typeof window.BUILTLY_I18N.onLangChange === 'function'){
+      window.BUILTLY_I18N.onLangChange(sendLang);
+    } else {
+      // i18n.js not yet ready — retry briefly
+      setTimeout(hook, 60);
+    }
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', hook);
+  } else {
+    hook();
+  }
+})();
+</script>
 </body>
 </html>
