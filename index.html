@@ -348,32 +348,30 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   display:block;
   background:var(--bg);
 }
-/* "Open in new tab" affordance — subtle, top-right */
-.mulighet-frame .frame-open{
-  position:absolute;
-  top:10px;right:10px;
-  z-index:5;
+/* Open-full link — sits in the parent section between lede and frame, not as
+   an overlay (overlays collided with the iframe's compass on mobile). */
+.mulighet-actions{
+  margin:-12px 0 clamp(28px,3.5vh,40px) 0;
   font-family:var(--font-mono);
-  font-size:10px;
-  font-weight:600;
+  font-size:11px;
   letter-spacing:0.14em;
   text-transform:uppercase;
-  color:var(--mid);
-  background:rgba(250,250,247,0.92);
-  border:1px solid var(--line);
-  padding:6px 10px;
-  text-decoration:none;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  transition:all 0.16s ease;
-  opacity:0;
-  pointer-events:none;
 }
-.mulighet-frame:hover .frame-open{opacity:1;pointer-events:auto}
-.mulighet-frame .frame-open:hover{color:var(--ink);border-color:var(--ink)}
+.mulighet-open-link{
+  color:var(--mid);
+  text-decoration:none;
+  font-weight:600;
+  border-bottom:1px solid transparent;
+  transition:all 0.16s ease;
+  padding-bottom:1px;
+}
+.mulighet-open-link:hover{
+  color:var(--ink);
+  border-bottom-color:var(--ink);
+}
 @media (max-width:760px){
   .mulighet-frame{height:calc(100vh - 96px);min-height:640px;max-height:880px}
-  .mulighet-frame .frame-open{opacity:1;pointer-events:auto;font-size:9px;padding:5px 8px}
+  .mulighet-actions{font-size:10px}
 }
 
 /* BIM SHOWCASE SECTION — compact, refined, architectural */
@@ -1314,26 +1312,6 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </section>
 
-<!-- ============================================================
-     MULIGHETSSTUDIE — live demo of the feasibility-study module
-     iframe embeds /mulighetsstudie.html which renders Three.js
-     animation. Language syncs via shared localStorage 'builtly-lang'
-     + postMessage listener (see script tag near end of body).
-============================================================ -->
-<section class="mulighet-section" id="mulighet">
-<div class="wrap">
-<div class="smark rv">
-<span class="num" data-i18n="sec.mulighet.live.num">Live</span><span data-i18n="sec.mulighet.live.label">Mulighetsstudie · interactive module preview</span><span class="dash"></span><span data-i18n="sec.mulighet.tag">From parcel to volume study — every phase, in one cycle</span>
-</div>
-<h2 class="dpy-2 rv" data-i18n-html="index.mulighet.h2">From site data to volume study,<br/>generated end-to-end.</h2>
-<p class="lead rv" data-i18n-html="index.mulighet.lede">A live preview of the mulighetsstudie module: parcel and zoning from public geodata, AI-driven volume placement, sun analysis on 21 June, sightline corridors, top-down plan and a section A–A — all from one project source. Switch building type to see residential and hotel programs side by side.</p>
-<div class="mulighet-frame rv" id="mulighetFrame">
-<a class="frame-open" href="/mulighetsstudie.html" target="_blank" rel="noopener" data-i18n="sec.mulighet.openFull" aria-label="Open in full window">Open full →</a>
-<iframe src="/mulighetsstudie.html" loading="lazy" title="Builtly Mulighetsstudie — live volume study demo" data-i18n-attr-title="sec.mulighet.iframeTitle" id="mulighetIframe"></iframe>
-</div>
-</div>
-</section>
-
 <section class="bim-section" id="bim-showcase">
 <div class="wrap">
 <div class="smark rv">
@@ -1415,6 +1393,27 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="bim-canvas-coord"><span>X 71.2</span><span>Y 109.8</span><span>Z 21.9</span></div>
 <div class="bim-canvas-corner">Builtly · IFC4 · <b id="bim-progress">0%</b></div>
 </div>
+</div>
+</div>
+</section>
+
+<!-- ============================================================
+     MULIGHETSSTUDIE — live demo of the feasibility-study module.
+     Placed after the BIM showcase so the technical-input section
+     leads naturally into the end-deliverable section. Language
+     syncs via shared localStorage 'builtly-lang' + postMessage
+     listener (see script tag near end of body).
+============================================================ -->
+<section class="mulighet-section" id="mulighet">
+<div class="wrap">
+<div class="smark rv">
+<span class="num" data-i18n="sec.mulighet.live.num">Live</span><span data-i18n="sec.mulighet.live.label">Mulighetsstudie · interactive module preview</span><span class="dash"></span><span data-i18n="sec.mulighet.tag">From parcel to volume study — every phase, in one cycle</span>
+</div>
+<h2 class="dpy-2 rv" data-i18n-html="index.mulighet.h2">From site data to volume study,<br/>generated end-to-end.</h2>
+<p class="lead rv" data-i18n-html="index.mulighet.lede">A live preview of the mulighetsstudie module: parcel and zoning from public geodata, AI-driven volume placement, sun analysis on 21 June, sightline corridors, top-down plan and a section A–A — all from one project source. Switch building type to see residential and hotel programs side by side.</p>
+<p class="mulighet-actions rv"><a class="mulighet-open-link" href="/mulighetsstudie.html" target="_blank" rel="noopener" data-i18n="sec.mulighet.openFull">Open in full window →</a></p>
+<div class="mulighet-frame rv" id="mulighetFrame">
+<iframe src="/mulighetsstudie.html" loading="lazy" title="Builtly Mulighetsstudie — live volume study demo" data-i18n-attr-title="sec.mulighet.iframeTitle" id="mulighetIframe"></iframe>
 </div>
 </div>
 </section>
