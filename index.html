@@ -150,7 +150,7 @@ a{color:inherit;text-decoration:none}
 
 /* CAPABILITIES */
 .cap-section{background:var(--bg)}
-.cap-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(56px,8vh,80px)}
+.cap-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:start;margin-bottom:clamp(56px,8vh,80px)}
 @media (max-width:900px){.cap-intro{grid-template-columns:1fr}}
 
 .discipline-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
@@ -256,7 +256,7 @@ a{color:inherit;text-decoration:none}
 
 /* GLOBAL */
 .gl-section{background:var(--bg)}
-.gl-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,80px);align-items:end;margin-bottom:clamp(48px,7vh,72px)}
+.gl-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,80px);align-items:start;margin-bottom:clamp(48px,7vh,72px)}
 @media (max-width:900px){.gl-intro{grid-template-columns:1fr}}
 .gl-list{border-top:1px solid var(--ink)}
 .gl-row{display:grid;grid-template-columns:clamp(48px,5vw,60px) 1fr clamp(100px,12vw,140px) 1.4fr;gap:clamp(16px,2.2vw,36px);padding:clamp(22px,2.8vh,28px) 0;border-bottom:1px solid var(--line);align-items:center}
@@ -1321,8 +1321,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="row"><span class="k" data-i18n="hero.side.status.k">Status</span><span class="v"><span class="accent-text">●</span> &nbsp; <span data-i18n="hero.side.status.v">Portal live</span></span></div>
 <div class="row"><span class="k" data-i18n="hero.side.modules.k">Modules</span><span class="v">15<span style="color:var(--mid);font-weight:400" data-i18n="hero.side.modules.suffix">+ in operation</span></span></div>
 <div class="row"><span class="k" data-i18n="hero.side.juris.k">Jurisdictions</span><span class="v">7 <span style="color:var(--mid);font-weight:400" data-i18n="hero.side.juris.suffix">regulatory packs</span></span></div>
-<div class="row"><span class="k" data-i18n="hero.side.arch.k">Architecture</span><span class="v" data-i18n="hero.side.arch.v">Hybrid AI</span></div>
-<div class="row"><span class="k" data-i18n="hero.side.founded.k">Founded</span><span class="v">2025</span></div>
+<div class="row"><span class="k" data-i18n="hero.side.arch.k">Engine</span><span class="v" data-i18n="hero.side.arch.v">Rule-driven + AI hybrid</span></div>
+<div class="row"><span class="k" data-i18n="hero.side.founded.k">Quality</span><span class="v" data-i18n="hero.side.founded.v">QA + sign-off</span></div>
 </div>
 </div>
 
@@ -1344,8 +1344,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="num">Live</span><span data-i18n="sec.bim.live.label">From BIM, in real time</span><span class="dash"></span><span data-i18n="sec.bim.tag">Project North · IFC4 · multi-block residential</span>
 </div>
 <div class="bim-head rv">
-<h2 class="dpy-2" data-i18n-html="index.bim.h2">The platform reads<br/>BIM as a first-class input.</h2>
-<p class="lead" data-i18n-html="index.bim.lede">A real IFC4 file from a multi-block residential project — parsed, classified, and replayed in construction sequence. From basement through curtain wall to roof. <span class="serif"><span data-i18n="sec.bim.tagline">The same parser runs in production every day.</span></span></p>
+<h2 class="dpy-2" data-i18n-html="index.bim.h2">The platform reads<br/>BIM as design input.</h2>
+<p class="lead" data-i18n-html="index.bim.lede">Builtly reads an actual BIM model and turns it into structured engineering input. The platform classifies the elements, proposes the load-bearing system and works out the building's structural principles — from basement to roof. <span class="serif"><span data-i18n="sec.bim.tagline">What was once a model now becomes a basis for decisions.</span></span></p>
 </div>
 <div class="bim-grid">
 <div class="bim-info rv">
@@ -1882,7 +1882,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div>
 <h2 class="dpy-2" data-i18n-html="sec.challenge.h2">Engineering is locked in<br/>manual workflows.</h2>
 </div>
-<p data-i18n="index.p.thesis" class="lead">Consulting engineering is built on professional accountability, regulation and quality assurance — all correct. Beneath that lies a working pattern that has barely changed in twenty years: parallel tools, manual documentation, and an incentive structure that rewards hours over outcomes.</p>
+<p data-i18n="index.p.thesis" class="lead">Consulting engineering is built on professional accountability, regulation and quality assurance — all correct. Beneath that lies repetitive cognitive work that consumes senior capacity. Builtly automates this layer; the engineer retains the signature.</p>
 </div>
 
 <div class="discipline-grid rvs">
