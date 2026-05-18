@@ -47,6 +47,9 @@
       "footer.company.contact":  "Contact",
       "footer.company.trust":    "Trust",
       "footer.company.ethics": "Code of ethics",
+      "trust.title": "Trust · Builtly Engineering",
+      "trust.desc": "Trust at Builtly Engineering — security architecture, data handling, audit and regulatory compliance for engineering deliverables.",
+      "trust.btn.all_routes": "All contact routes",
       // === Ethics page ===
       "ethics.title": "Code of ethics · Builtly Engineering",
       "ethics.desc": "Code of ethics for Builtly Engineering AS — integrity, anti-corruption, human rights, environment, whistleblowing and professional accountability.",
@@ -1695,6 +1698,9 @@
       "footer.company.contact":  "Kontakt",
       "footer.company.trust":    "Tillit",
       "footer.company.ethics": "Etiske retningslinjer",
+      "trust.title": "Tillit · Builtly Engineering",
+      "trust.desc": "Tillit hos Builtly Engineering — sikkerhetsarkitektur, databehandling, revisjon og regulatorisk etterlevelse for ingeniørleveranser.",
+      "trust.btn.all_routes": "Alle kontaktveier",
       // === Ethics page ===
       "ethics.title": "Etiske retningslinjer · Builtly Engineering",
       "ethics.desc": "Etiske retningslinjer for Builtly Engineering AS — integritet, antikorrupsjon, menneskerettigheter, miljø, varsling og profesjonelt ansvar.",
@@ -3345,6 +3351,9 @@
       "footer.company.contact":  "Kontakt",
       "footer.company.trust":    "Förtroende",
       "footer.company.ethics": "Etiska riktlinjer",
+      "trust.title": "Förtroende · Builtly Engineering",
+      "trust.desc": "Förtroende hos Builtly Engineering — säkerhetsarkitektur, datahantering, revision och regelefterlevnad för ingenjörsleveranser.",
+      "trust.btn.all_routes": "Alla kontaktvägar",
       // === Ethics page ===
       "ethics.title": "Etiska riktlinjer · Builtly Engineering",
       "ethics.desc": "Etiska riktlinjer för Builtly Engineering AS — integritet, antikorruption, mänskliga rättigheter, miljö, visselblåsning och yrkesmässigt ansvar.",
@@ -4991,6 +5000,9 @@
       "footer.company.contact":  "Kontakt",
       "footer.company.trust":    "Tillid",
       "footer.company.ethics": "Etiske retningslinjer",
+      "trust.title": "Tillid · Builtly Engineering",
+      "trust.desc": "Tillid hos Builtly Engineering — sikkerhedsarkitektur, datahåndtering, revision og regulatorisk overholdelse for ingeniørleverancer.",
+      "trust.btn.all_routes": "Alle kontaktveje",
       // === Ethics page ===
       "ethics.title": "Etiske retningslinjer · Builtly Engineering",
       "ethics.desc": "Etiske retningslinjer for Builtly Engineering AS — integritet, antikorruption, menneskerettigheder, miljø, whistleblowing og professionelt ansvar.",
@@ -6639,6 +6651,9 @@
       "footer.company.contact":  "Yhteystiedot",
       "footer.company.trust":    "Luottamus",
       "footer.company.ethics": "Eettiset ohjeet",
+      "trust.title": "Luottamus · Builtly Engineering",
+      "trust.desc": "Luottamus Builtly Engineering -alustaan — turvallisuusarkkitehtuuri, tietojen käsittely, auditointi ja sääntelyn noudattaminen insinööritoimituksissa.",
+      "trust.btn.all_routes": "Kaikki yhteydenottokanavat",
       // === Ethics page ===
       "ethics.title": "Eettiset ohjeet · Builtly Engineering",
       "ethics.desc": "Builtly Engineering AS:n eettiset ohjeet — integriteetti, korruption torjunta, ihmisoikeudet, ympäristö, väärinkäytöksistä ilmoittaminen ja ammatillinen vastuu.",
@@ -8287,6 +8302,9 @@
       "footer.company.contact":  "Kontakt",
       "footer.company.trust":    "Vertrauen",
       "footer.company.ethics": "Ethikrichtlinien",
+      "trust.title": "Vertrauen · Builtly Engineering",
+      "trust.desc": "Vertrauen bei Builtly Engineering — Sicherheitsarchitektur, Datenverarbeitung, Audit und regulatorische Konformität für Ingenieurleistungen.",
+      "trust.btn.all_routes": "Alle Kontaktwege",
       // === Ethics page ===
       "ethics.title": "Ethikrichtlinien · Builtly Engineering",
       "ethics.desc": "Ethikrichtlinien für die Builtly Engineering AS — Integrität, Antikorruption, Menschenrechte, Umwelt, Whistleblowing und berufliche Verantwortung.",
