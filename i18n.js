@@ -11505,7 +11505,8 @@
         "industries.cta.row.direct.k": "Direct purchase",
         "industries.cta.row.partner.k": "Partner integration",
         "industries.cta.row.response.k": "Response",
-        "industries.cta.row.response.v": "Within 2 business days"
+        "industries.cta.row.response.v": "Within 2 business days",
+        "industries.uc3.delivery.v": "Automated · API"
     },
     "no": {
         "nav.platform": "Plattform",
@@ -11560,7 +11561,7 @@
         "industries.s01.body1.bold": "Seniorkapasitet bør brukes på faglige vurderinger, avvik og signering — ikke på å bygge opp den samme rapportstrukturen fra prosjekt til prosjekt.",
         "industries.s01.body1.outro": "Builtly standardiserer det gjentakbare laget, beholder sporbarheten og gir ingeniøren et tydeligere grunnlag for kontroll.",
         "industries.s01.body2": "For firmaet betyr det kortere leveringstid, jevnere kvalitet og bedre bruk av knapp seniorkapasitet. For ingeniøren betyr det mindre produksjonsarbeid og mer tid til beslutningene som faktisk betyr noe.",
-        "industries.s01.meta.segment.k": "Kategori",
+        "industries.s01.meta.segment.k": "Målgruppe",
         "industries.s01.meta.segment.v": "Primær",
         "industries.s01.meta.modules.k": "Moduler brukt",
         "industries.s01.meta.modules.v": "Alle 15",
@@ -11687,7 +11688,8 @@
         "industries.cta.row.direct.k": "Direkte kjøp",
         "industries.cta.row.partner.k": "Partnerintegrasjon",
         "industries.cta.row.response.k": "Svar",
-        "industries.cta.row.response.v": "Innen 2 virkedager"
+        "industries.cta.row.response.v": "Innen 2 virkedager",
+        "industries.uc3.delivery.v": "Automatisert · API"
     },
     "sv": {
         "nav.platform": "Plattform",
@@ -11742,7 +11744,7 @@
         "industries.s01.body1.bold": "Senior ingenjörskapacitet ska användas till bedömningar, avvikelser och signering — inte till att bygga samma rapportstruktur från projekt till projekt.",
         "industries.s01.body1.outro": "Builtly standardiserar det repeterbara lagret, behåller revisionsspåret och ger ingenjören ett tydligare underlag för granskning.",
         "industries.s01.body2": "För bolaget betyder det kortare ledtider, jämnare kvalitet och bättre användning av knapp senior kapacitet. För ingenjören betyder det mindre produktionsarbete och mer tid till de beslut som faktiskt betyder något.",
-        "industries.s01.meta.segment.k": "Kategori",
+        "industries.s01.meta.segment.k": "Målgrupp",
         "industries.s01.meta.segment.v": "Primärt",
         "industries.s01.meta.modules.k": "Moduler som används",
         "industries.s01.meta.modules.v": "Alla 15",
@@ -11841,7 +11843,7 @@
         "industries.r1.pricing.v": "Säte + leverans",
         "industries.r1.onboarding.k": "Uppstart",
         "industries.r1.onboarding.v": "Samma vecka",
-        "industries.r1.minimum.k": "Minimikrav",
+        "industries.r1.minimum.k": "Miniminivå",
         "industries.r1.minimum.v": "3 säten · 6 månader",
         "industries.r2.name": "Direktköp",
         "industries.r2.desc": "För projektägare och köpare",
@@ -11869,7 +11871,8 @@
         "industries.cta.row.direct.k": "Direktköp",
         "industries.cta.row.partner.k": "Partnerintegration",
         "industries.cta.row.response.k": "Svar",
-        "industries.cta.row.response.v": "Inom 2 arbetsdagar"
+        "industries.cta.row.response.v": "Inom 2 arbetsdagar",
+        "industries.uc3.delivery.v": "Automatiserad · API"
     },
     "da": {
         "nav.platform": "Platformen",
@@ -11913,7 +11916,7 @@
         "industries.meta.r4.v": "<span class=\"accent-text\">●</span> &nbsp; Syv jurisdiktioner",
         "industries.jump.i1": "Rådgivere",
         "industries.jump.i2": "Tilstødende brugere",
-        "industries.jump.i3": "Brugsscenarier",
+        "industries.jump.i3": "Anvendelser",
         "industries.jump.i4": "Adgangsmodeller",
         "industries.s01.label": "Primær kunde",
         "industries.s01.tag": "Hvor det faglige ansvar ligger",
@@ -11924,7 +11927,7 @@
         "industries.s01.body1.bold": "Senior ingeniørkapacitet bør bruges på faglige vurderinger, afvigelser og sign-off — ikke på at genopbygge den samme rapportstruktur fra projekt til projekt.",
         "industries.s01.body1.outro": "Builtly standardiserer det gentagelige lag, bevarer revisionssporet og giver ingeniøren et tydeligere grundlag for kontrol.",
         "industries.s01.body2": "For virksomheden betyder det kortere leveringstid, mere ensartet kvalitet og bedre brug af knap seniorkapacitet. For ingeniøren betyder det mindre produktionsarbejde og mere tid til de beslutninger, der faktisk betyder noget.",
-        "industries.s01.meta.segment.k": "Kategori",
+        "industries.s01.meta.segment.k": "Målgruppe",
         "industries.s01.meta.segment.v": "Primært",
         "industries.s01.meta.modules.k": "Moduler brugt",
         "industries.s01.meta.modules.v": "Alle 15",
@@ -11980,7 +11983,7 @@
         "industries.aud04.body2": "Mange leverancer går via en rådgiverpartner, der har den offentlige kontrakt, mens Builtly leverer produktionslaget. Direkte indkøb kan understøttes, hvor reglerne tillader det.",
         "industries.aud04.engagement.k": "Adgang",
         "industries.aud04.engagement.v": "Rådgiverpartner · direkte",
-        "industries.s03.label": "Brugsscenarier",
+        "industries.s03.label": "Anvendelser",
         "industries.s03.tag": "Når gentageligt arbejde bliver struktureret output",
         "industries.s03.h2": "I praksis.",
         "industries.uc.lede": "Brugsscenarierne nedenfor viser, hvor Builtly fjerner ventetid fra de gentagelige dele af teknisk arbejde, samtidig med at vejen til faglig kontrol bevares, når risiko eller regler kræver det.",
@@ -12051,7 +12054,8 @@
         "industries.cta.row.direct.k": "Direkte køb",
         "industries.cta.row.partner.k": "Partnerintegration",
         "industries.cta.row.response.k": "Svar",
-        "industries.cta.row.response.v": "Inden for 2 arbejdsdage"
+        "industries.cta.row.response.v": "Inden for 2 arbejdsdage",
+        "industries.uc3.delivery.v": "Automatiseret · API"
     },
     "fi": {
         "nav.platform": "Alusta",
@@ -12233,7 +12237,8 @@
         "industries.cta.row.direct.k": "Suora osto",
         "industries.cta.row.partner.k": "Kumppani-integraatio",
         "industries.cta.row.response.k": "Vastaus",
-        "industries.cta.row.response.v": "2 arkipäivän kuluessa"
+        "industries.cta.row.response.v": "2 arkipäivän kuluessa",
+        "industries.uc3.delivery.v": "Automatisoitu · API"
     },
     "de": {
         "nav.platform": "Plattform",
@@ -12254,7 +12259,7 @@
         "footer.platform.approach": "Ansatz",
         "footer.company.h": "Unternehmen",
         "footer.company.contact": "Kontakt",
-        "footer.company.trust": "Vertrauen und Sicherheit",
+        "footer.company.trust": "Vertrauen",
         "footer.connect.h": "Kontakt",
         "footer.connect.portal": "Portal öffnen",
         "footer.bot.left": "© 2026 Builtly Engineering",
@@ -12288,7 +12293,7 @@
         "industries.s01.body1.bold": "Senior-Ingenieurskapazität sollte für Beurteilung, Ausnahmen und Sign-off eingesetzt werden — nicht dafür, dieselbe Berichtsstruktur von Projekt zu Projekt neu aufzubauen.",
         "industries.s01.body1.outro": "Builtly standardisiert die wiederholbare Schicht, erhält den Audit-Trail und gibt Ingenieuren eine klarere Grundlage für die Prüfung.",
         "industries.s01.body2": "Für das Unternehmen bedeutet das kürzere Durchlaufzeiten, konsistentere Qualität und eine bessere Nutzung knapper Senior-Kapazität. Für den Ingenieur bedeutet es weniger Produktionslast und mehr Zeit für die Entscheidungen, die wirklich zählen.",
-        "industries.s01.meta.segment.k": "Kategorie",
+        "industries.s01.meta.segment.k": "Zielgruppe",
         "industries.s01.meta.segment.v": "Primär",
         "industries.s01.meta.modules.k": "Genutzte Module",
         "industries.s01.meta.modules.v": "Alle 15",
@@ -12415,12 +12420,161 @@
         "industries.cta.row.direct.k": "Direktkauf",
         "industries.cta.row.partner.k": "Partnerintegration",
         "industries.cta.row.response.k": "Antwort",
-        "industries.cta.row.response.v": "Innerhalb von 2 Werktagen"
+        "industries.cta.row.response.v": "Innerhalb von 2 Werktagen",
+        "industries.uc3.delivery.v": "Automatisiert · API"
     }
 };
   Object.keys(BUILTLY_INDUSTRIES_COPY).forEach(function(lang){
     T[lang] = T[lang] || {};
     Object.assign(T[lang], BUILTLY_INDUSTRIES_COPY[lang]);
+  });
+
+
+  // Industries page refinement: shorter hero message and better native copy.
+  // Applied after the full industries copy so this block wins without editing older objects above.
+  const BUILTLY_INDUSTRIES_HERO_REFINEMENT = {
+    en: {
+      "industries.title": "Industries · Builtly Engineering",
+      "industries.desc": "Builtly helps engineering consultancies deliver faster while keeping professional accountability intact — with controlled access for developers, lenders, owners and the public sector.",
+      "industries.hero.eyebrow": "Industries and users",
+      "industries.hero.h1": "Faster delivery. Accountability stays intact.",
+      "industries.hero.lede": "Builtly standardises the repeatable work behind regulated engineering deliverables — data handling, calculations, drafts, QA trails and documentation. Engineering consultancies keep the client relationship and professional control; developers, lenders, owners and public teams get a clearer technical basis earlier in the process. <span class=\"serif\">One platform. Three access routes.</span>",
+      "industries.meta.r1.k": "Primary customer",
+      "industries.meta.r1.v": "Engineering consultancies",
+      "industries.meta.r2.k": "Adjacent users",
+      "industries.meta.r2.v": "Developers · lenders · owners · public sector",
+      "industries.meta.r3.k": "Access routes",
+      "industries.meta.r3.v": "Licence · direct purchase · partner",
+      "industries.meta.r4.k": "Coverage",
+      "industries.meta.r4.v": "<span class=\"accent-text\">●</span> &nbsp; Seven jurisdictions",
+      "industries.s01.h2": "The workflow for consulting engineers.",
+      "industries.s01.lede": "Builtly is designed around how engineering consultancies actually deliver: calculations, local rules, quality assurance, client revisions and signed documents. The platform does not take over professional responsibility. It removes the repetitive work around it.",
+      "industries.s01.body1.intro": "The shift is practical.",
+      "industries.s01.body1.bold": "Senior engineering capacity should be spent on judgment, exceptions and sign-off — not on rebuilding the same report structure from project to project.",
+      "industries.s01.body1.outro": "Builtly standardises the repeatable layer, keeps the audit trail intact and gives engineers a clearer basis for review.",
+      "industries.s01.body2": "For the firm, that means shorter turnaround, more consistent quality and better use of scarce senior capacity. For the engineer, it means less production drag and more time on the decisions that matter.",
+      "industries.insight.lead": "One workflow. Three access routes.",
+      "industries.insight.accent": "Professional responsibility stays with the professionals."
+    },
+    no: {
+      "industries.title": "Bransjer · Builtly Engineering",
+      "industries.desc": "Builtly hjelper rådgivende ingeniørfirmaer å levere raskere, med fagansvaret intakt — og med kontrollert tilgang for utbyggere, långivere, eiere og offentlig sektor.",
+      "industries.hero.eyebrow": "Bransjer og brukere",
+      "industries.hero.h1": "Raskere leveranser. Fagansvaret står fast.",
+      "industries.hero.lede": "Builtly standardiserer den gjentakende delen av regulerte ingeniørleveranser — datahåndtering, beregninger, rapportutkast, kvalitetssikring og dokumentasjon. Rådgivende ingeniørfirmaer beholder kunderelasjon og faglig kontroll; utbyggere, långivere, eiere og offentlige aktører får tydeligere tekniske beslutningsgrunnlag tidligere i prosessen. <span class=\"serif\">Én plattform. Tre innganger.</span>",
+      "industries.meta.r1.k": "Primærkunde",
+      "industries.meta.r1.v": "Rådgivende ingeniørfirmaer",
+      "industries.meta.r2.k": "Tilgrensende brukere",
+      "industries.meta.r2.v": "Utbyggere · långivere · eiere · offentlig sektor",
+      "industries.meta.r3.k": "Tilgang",
+      "industries.meta.r3.v": "Lisens · direkte kjøp · partner",
+      "industries.meta.r4.k": "Dekning",
+      "industries.meta.r4.v": "<span class=\"accent-text\">●</span> &nbsp; Sju jurisdiksjoner",
+      "industries.s01.h2": "Arbeidsflyten for rådgivende ingeniører.",
+      "industries.s01.lede": "Builtly er bygget rundt hvordan rådgivende ingeniørfirmaer faktisk leverer: beregninger, lokale krav, kvalitetssikring, kunderevisjoner og signerte dokumenter. Plattformen overtar ikke fagansvaret. Den fjerner repeterende arbeid rundt det.",
+      "industries.s01.body1.intro": "Skiftet er praktisk.",
+      "industries.s01.body1.bold": "Seniorkapasitet bør brukes på vurderinger, avvik og signering — ikke på å bygge den samme rapportstrukturen på nytt fra prosjekt til prosjekt.",
+      "industries.s01.body1.outro": "Builtly standardiserer det som kan gjentas, bevarer sporbarheten og gir ingeniøren et bedre grunnlag for gjennomgang.",
+      "industries.s01.body2": "For firmaet betyr det kortere leveringstid, jevnere kvalitet og bedre bruk av knapp seniorkapasitet. For ingeniøren betyr det mindre produksjonsarbeid og mer tid på beslutningene som faktisk krever faglig skjønn.",
+      "industries.insight.lead": "Én arbeidsflyt. Tre innganger.",
+      "industries.insight.accent": "Fagansvaret blir hos fagfolkene."
+    },
+    sv: {
+      "industries.title": "Branscher · Builtly Engineering",
+      "industries.desc": "Builtly hjälper tekniska konsultbolag att leverera snabbare med yrkesansvaret intakt — och med kontrollerad åtkomst för utvecklare, långivare, ägare och offentlig sektor.",
+      "industries.hero.eyebrow": "Branscher och användare",
+      "industries.hero.h1": "Snabbare leveranser. Yrkesansvaret står fast.",
+      "industries.hero.lede": "Builtly standardiserar den återkommande delen av reglerade ingenjörsleveranser — datahantering, beräkningar, rapportutkast, kvalitetssäkring och dokumentation. Tekniska konsultbolag behåller kundrelationen och den professionella kontrollen; fastighetsutvecklare, långivare, ägare och offentliga aktörer får tydligare tekniska beslutsunderlag tidigare i processen. <span class=\"serif\">En plattform. Tre vägar in.</span>",
+      "industries.meta.r1.k": "Primär kund",
+      "industries.meta.r1.v": "Tekniska konsultbolag",
+      "industries.meta.r2.k": "Närliggande användare",
+      "industries.meta.r2.v": "Utvecklare · långivare · ägare · offentlig sektor",
+      "industries.meta.r3.k": "Åtkomst",
+      "industries.meta.r3.v": "Licens · direktköp · partner",
+      "industries.meta.r4.k": "Täckning",
+      "industries.meta.r4.v": "<span class=\"accent-text\">●</span> &nbsp; Sju jurisdiktioner",
+      "industries.s01.h2": "Arbetsflödet för tekniska konsulter.",
+      "industries.s01.lede": "Builtly är byggt kring hur tekniska konsultbolag faktiskt levererar: beräkningar, lokala krav, kvalitetssäkring, kundrevideringar och signerade dokument. Plattformen tar inte över yrkesansvaret. Den tar bort det repetitiva arbetet runt det.",
+      "industries.s01.body1.intro": "Förändringen är praktisk.",
+      "industries.s01.body1.bold": "Seniorkapacitet bör användas till bedömningar, avvikelser och signering — inte till att bygga samma rapportstruktur på nytt från projekt till projekt.",
+      "industries.s01.body1.outro": "Builtly standardiserar det som kan upprepas, behåller spårbarheten och ger ingenjören ett tydligare underlag för granskning.",
+      "industries.s01.body2": "För firman betyder det kortare ledtider, jämnare kvalitet och bättre användning av knapp seniorkapacitet. För ingenjören betyder det mindre produktionsarbete och mer tid på de beslut som faktiskt kräver professionellt omdöme.",
+      "industries.insight.lead": "Ett arbetsflöde. Tre vägar in.",
+      "industries.insight.accent": "Yrkesansvaret stannar hos yrkespersonerna."
+    },
+    da: {
+      "industries.title": "Brancher · Builtly Engineering",
+      "industries.desc": "Builtly hjælper rådgivende ingeniørfirmaer med at levere hurtigere med fagansvaret intakt — og med kontrolleret adgang for udviklere, långivere, ejere og den offentlige sektor.",
+      "industries.hero.eyebrow": "Brancher og brugere",
+      "industries.hero.h1": "Hurtigere leverancer. Fagansvaret står fast.",
+      "industries.hero.lede": "Builtly standardiserer den gentagelige del af regulerede ingeniørleverancer — datahåndtering, beregninger, rapportudkast, kvalitetssikring og dokumentation. Rådgivende ingeniørfirmaer beholder kunderelationen og den faglige kontrol; udviklere, långivere, ejere og offentlige aktører får et klarere teknisk beslutningsgrundlag tidligere i processen. <span class=\"serif\">Én platform. Tre indgange.</span>",
+      "industries.meta.r1.k": "Primær kunde",
+      "industries.meta.r1.v": "Rådgivende ingeniørfirmaer",
+      "industries.meta.r2.k": "Tilstødende brugere",
+      "industries.meta.r2.v": "Udviklere · långivere · ejere · offentlig sektor",
+      "industries.meta.r3.k": "Adgang",
+      "industries.meta.r3.v": "Licens · direkte køb · partner",
+      "industries.meta.r4.k": "Dækning",
+      "industries.meta.r4.v": "<span class=\"accent-text\">●</span> &nbsp; Syv jurisdiktioner",
+      "industries.s01.h2": "Arbejdsgangen for rådgivende ingeniører.",
+      "industries.s01.lede": "Builtly er bygget omkring den måde, rådgivende ingeniørfirmaer faktisk leverer på: beregninger, lokale krav, kvalitetssikring, kunderevisioner og underskrevne dokumenter. Platformen overtager ikke fagansvaret. Den fjerner det gentagelige arbejde omkring det.",
+      "industries.s01.body1.intro": "Skiftet er praktisk.",
+      "industries.s01.body1.bold": "Seniorkapacitet bør bruges på vurderinger, afvigelser og signering — ikke på at genopbygge den samme rapportstruktur fra projekt til projekt.",
+      "industries.s01.body1.outro": "Builtly standardiserer det gentagelige lag, bevarer sporbarheden og giver ingeniøren et klarere grundlag for gennemgang.",
+      "industries.s01.body2": "For firmaet betyder det kortere leveringstid, mere ensartet kvalitet og bedre brug af knap seniorkapacitet. For ingeniøren betyder det mindre produktionsarbejde og mere tid på de beslutninger, der faktisk kræver faglig vurdering.",
+      "industries.insight.lead": "Én arbejdsgang. Tre indgange.",
+      "industries.insight.accent": "Fagansvaret bliver hos fagfolkene."
+    },
+    fi: {
+      "industries.title": "Toimialat · Builtly Engineering",
+      "industries.desc": "Builtly auttaa insinööritoimistoja toimittamaan nopeammin ammatillisen vastuun säilyessä — ja antaa hallitun pääsyn kehittäjille, rahoittajille, omistajille ja julkiselle sektorille.",
+      "industries.hero.eyebrow": "Toimialat ja käyttäjät",
+      "industries.hero.h1": "Nopeammat toimitukset. Vastuu säilyy ammattilaisella.",
+      "industries.hero.lede": "Builtly standardisoi säänneltyjen insinööritoimitusten toistuvan työn — datan käsittelyn, laskelmat, raporttiluonnokset, laadunvarmistuksen ja dokumentaation. Insinööritoimistot säilyttävät asiakassuhteen ja ammatillisen kontrollin; kiinteistökehittäjät, rahoittajat, omistajat ja julkiset toimijat saavat selkeämmän teknisen päätöspohjan aiemmin prosessissa. <span class=\"serif\">Yksi alusta. Kolme käyttötapaa.</span>",
+      "industries.meta.r1.k": "Ensisijainen asiakas",
+      "industries.meta.r1.v": "Insinööritoimistot",
+      "industries.meta.r2.k": "Läheiset käyttäjät",
+      "industries.meta.r2.v": "Kehittäjät · rahoittajat · omistajat · julkinen sektori",
+      "industries.meta.r3.k": "Käyttömallit",
+      "industries.meta.r3.v": "Lisenssi · suora osto · kumppani",
+      "industries.meta.r4.k": "Kattavuus",
+      "industries.meta.r4.v": "<span class=\"accent-text\">●</span> &nbsp; Seitsemän jurisdiktiota",
+      "industries.s01.h2": "Työnkulku insinööritoimistoille.",
+      "industries.s01.lede": "Builtly on rakennettu sen mukaan, miten insinööritoimistot oikeasti toimittavat työnsä: laskelmat, paikalliset vaatimukset, laadunvarmistus, asiakasmuutokset ja allekirjoitetut asiakirjat. Alusta ei ota ammatillista vastuuta itselleen. Se poistaa toistuvan työn sen ympäriltä.",
+      "industries.s01.body1.intro": "Muutos on käytännöllinen.",
+      "industries.s01.body1.bold": "Kokeneiden insinöörien kapasiteetti pitäisi käyttää arviointiin, poikkeuksiin ja allekirjoituksiin — ei saman raporttirakenteen rakentamiseen uudelleen projektista toiseen.",
+      "industries.s01.body1.outro": "Builtly standardoi toistettavan kerroksen, säilyttää jäljitettävyyden ja antaa insinöörille selkeämmän pohjan tarkastukselle.",
+      "industries.s01.body2": "Yritykselle tämä tarkoittaa lyhyempää läpimenoaikaa, tasaisempaa laatua ja niukan seniorikapasiteetin parempaa käyttöä. Insinöörille se tarkoittaa vähemmän tuotantotyötä ja enemmän aikaa päätöksiin, jotka todella vaativat ammatillista harkintaa.",
+      "industries.insight.lead": "Yksi työnkulku. Kolme käyttötapaa.",
+      "industries.insight.accent": "Ammatillinen vastuu säilyy ammattilaisilla."
+    },
+    de: {
+      "industries.title": "Branchen · Builtly Engineering",
+      "industries.desc": "Builtly hilft Ingenieurbüros, schneller zu liefern, während fachliche Verantwortung erhalten bleibt — mit kontrolliertem Zugang für Entwickler, Kreditgeber, Eigentümer und öffentliche Stellen.",
+      "industries.hero.eyebrow": "Branchen und Nutzer",
+      "industries.hero.h1": "Schnellere Lieferungen. Verantwortung bleibt beim Fachteam.",
+      "industries.hero.lede": "Builtly standardisiert den wiederkehrenden Teil regulierter Ingenieurleistungen — Datenaufbereitung, Berechnungen, Berichtsentwürfe, Qualitätssicherung und Dokumentation. Ingenieurbüros behalten Kundenbeziehung und fachliche Kontrolle; Entwickler, Kreditgeber, Eigentümer und öffentliche Stellen erhalten früher eine klarere technische Entscheidungsgrundlage. <span class=\"serif\">Eine Plattform. Drei Zugangswege.</span>",
+      "industries.meta.r1.k": "Primärkunde",
+      "industries.meta.r1.v": "Ingenieurbüros",
+      "industries.meta.r2.k": "Angrenzende Nutzer",
+      "industries.meta.r2.v": "Entwickler · Kreditgeber · Eigentümer · öffentlicher Sektor",
+      "industries.meta.r3.k": "Zugang",
+      "industries.meta.r3.v": "Lizenz · Direktkauf · Partner",
+      "industries.meta.r4.k": "Abdeckung",
+      "industries.meta.r4.v": "<span class=\"accent-text\">●</span> &nbsp; Sieben Jurisdiktionen",
+      "industries.s01.h2": "Der Workflow für beratende Ingenieure.",
+      "industries.s01.lede": "Builtly ist daran ausgerichtet, wie Ingenieurbüros tatsächlich liefern: Berechnungen, lokale Anforderungen, Qualitätssicherung, Kundenrevisionen und signierte Dokumente. Die Plattform übernimmt keine fachliche Verantwortung. Sie entfernt die wiederkehrende Arbeit darum herum.",
+      "industries.s01.body1.intro": "Der Wandel ist praktisch.",
+      "industries.s01.body1.bold": "Senior-Kapazität sollte in Beurteilung, Ausnahmen und Sign-off fließen — nicht in den wiederholten Aufbau derselben Berichtstruktur von Projekt zu Projekt.",
+      "industries.s01.body1.outro": "Builtly standardisiert die wiederholbare Schicht, erhält die Nachvollziehbarkeit und gibt Ingenieuren eine klarere Grundlage für die Prüfung.",
+      "industries.s01.body2": "Für das Büro bedeutet das kürzere Durchlaufzeiten, konsistentere Qualität und bessere Nutzung knapper Senior-Kapazität. Für Ingenieure bedeutet es weniger Produktionsarbeit und mehr Zeit für Entscheidungen, die tatsächlich fachliche Beurteilung erfordern.",
+      "industries.insight.lead": "Ein Workflow. Drei Zugangswege.",
+      "industries.insight.accent": "Fachliche Verantwortung bleibt bei den Fachleuten."
+    }
+  };
+  Object.keys(BUILTLY_INDUSTRIES_HERO_REFINEMENT).forEach(function(lang){
+    T[lang] = T[lang] || {};
+    Object.assign(T[lang], BUILTLY_INDUSTRIES_HERO_REFINEMENT[lang]);
   });
 
   const SUPPORTED = ['en','no','sv','da','fi','de'];
@@ -12438,12 +12592,23 @@
     return '';
   }
 
+  function persistLangChoice(lang) {
+    if (SUPPORTED.indexOf(lang) < 0) return;
+    try { localStorage.setItem('builtly-lang', lang); } catch(e){}
+    try { localStorage.setItem('builtly_lang_manual', lang); } catch(e){}
+    try { localStorage.setItem('builtly_lang', lang); } catch(e){}
+    try { document.cookie = 'builtly_lang_manual=' + encodeURIComponent(lang) + '; Max-Age=31536000; Path=/; SameSite=Lax'; } catch(e){}
+  }
+
   function detectLang() {
     // 1. Explicit URL language wins, including links from the Streamlit/front-page app.
     try {
       const url = new URL(window.location.href);
       const fromUrl = normalizeLang(url.searchParams.get('lang') || url.searchParams.get('lng'));
-      if (fromUrl && SUPPORTED.indexOf(fromUrl) >= 0) return fromUrl;
+      if (fromUrl && SUPPORTED.indexOf(fromUrl) >= 0) {
+        if (String(url.searchParams.get('lang_src') || '').toLowerCase() === 'manual') persistLangChoice(fromUrl);
+        return fromUrl;
+      }
     } catch(e){}
 
     // 2. Saved choice wins. Keep compatibility with both the static site and Streamlit keys.
@@ -12455,7 +12620,14 @@
       }
     } catch(e){}
 
-    // 3. Browser languages (navigator.languages is ordered preference).
+    // 3. Time zone is a location signal. This avoids English Chrome in Norway forcing English.
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      const tzMap = {'Europe/Oslo':'no','Europe/Stockholm':'sv','Europe/Copenhagen':'da','Europe/Helsinki':'fi','Europe/Berlin':'de','Europe/Vienna':'de','Europe/Zurich':'de','Europe/London':'en','Europe/Dublin':'en'};
+      if (tzMap[tz]) return tzMap[tz];
+    } catch(e){}
+
+    // 4. Browser languages as fallback.
     const browserLangs = navigator.languages || [navigator.language || 'en'];
     for (let i = 0; i < browserLangs.length; i++) {
       const lang = normalizeLang(browserLangs[i]);

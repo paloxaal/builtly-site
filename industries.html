@@ -357,6 +357,104 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
     font-size: 12.5px;
   }
 }
+
+
+/* ========================================================================
+   INDUSTRIES HERO REFINEMENT — message, Norwegian line length and whitespace
+   ======================================================================== */
+:root{
+  --max:1520px;
+  --gutter:clamp(24px,4vw,64px);
+}
+.dpy-1{
+  font-size:clamp(46px,4.8vw,76px);
+  line-height:0.99;
+  letter-spacing:-0.045em;
+  font-weight:500;
+}
+.hero{
+  padding:clamp(68px,9vh,108px) 0 clamp(56px,7vh,88px);
+}
+.hero .wrap{
+  max-width:1520px;
+}
+.hero-grid{
+  grid-template-columns:minmax(0,960px) minmax(320px,440px);
+  gap:clamp(30px,3.5vw,64px);
+  justify-content:space-between;
+  align-items:start;
+}
+.hero-grid > div:first-child{
+  min-width:0;
+}
+.hero h1{
+  max-width:980px;
+  margin-top:18px;
+  text-wrap:balance;
+}
+.hero .lead{
+  max-width:78ch;
+  margin-top:28px;
+  font-size:clamp(17px,1.18vw,20px);
+  line-height:1.52;
+}
+.hero-meta{
+  max-width:440px;
+  width:100%;
+  justify-self:end;
+  padding-top:36px;
+}
+.hero-meta .row{
+  padding:15px 0;
+}
+.hero-meta .row .v{
+  max-width:270px;
+  line-height:1.38;
+}
+.hero-bg-canvas{
+  opacity:0.34;
+}
+@media (max-width:1180px){
+  .hero-grid{
+    grid-template-columns:minmax(0,1fr);
+    gap:36px;
+  }
+  .hero h1{
+    max-width:900px;
+  }
+  .hero .lead{
+    max-width:72ch;
+  }
+  .hero-meta{
+    max-width:100%;
+    justify-self:stretch;
+    padding-top:0;
+  }
+  .hero-meta .row .v{
+    max-width:none;
+  }
+}
+@media (max-width:700px){
+  .dpy-1{
+    font-size:clamp(40px,12vw,58px);
+    line-height:1.02;
+  }
+  .hero{
+    padding:56px 0 44px;
+  }
+  .hero .lead{
+    margin-top:22px;
+    font-size:16.5px;
+  }
+  .hero-meta .row{
+    align-items:flex-start;
+  }
+  .hero-meta .row .v{
+    max-width:58%;
+    line-height:1.35;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -394,8 +492,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="hero-grid rv">
 <div>
 <div class="eyebrow"><span class="accent-dot"></span><span data-i18n="industries.hero.eyebrow">Industries and users</span></div>
-<h1 class="dpy-1" data-i18n-html="industries.hero.h1">Built for engineering consultancies.<br/>Useful to the clients around them.</h1>
-<p class="lead" data-i18n-html="industries.hero.lede">Builtly is the production layer for regulated engineering deliverables. Engineering consultancies use it to standardise, accelerate and quality-assure report production; developers, lenders, asset managers and public-sector teams use selected modules when they need a structured technical basis earlier in the decision process. <span class="serif">One platform. Professional accountability preserved.</span></p>
+<h1 class="dpy-1" data-i18n-html="industries.hero.h1">Faster delivery. Accountability stays intact.</h1>
+<p class="lead" data-i18n-html="industries.hero.lede">Builtly standardises the repeatable work behind regulated engineering deliverables — data handling, calculations, drafts, QA trails and documentation. Engineering consultancies keep the client relationship and professional control; developers, lenders, owners and public teams get a clearer technical basis earlier in the process. <span class="serif">One platform. Three access routes.</span></p>
 </div>
 <div class="hero-meta">
 <div class="row"><span class="k" data-i18n="industries.meta.r1.k">Primary customer</span><span class="v" data-i18n="industries.meta.r1.v">Engineering consultancies</span></div>
@@ -960,6 +1058,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
   requestAnimationFrame(frame);
 })();
 </script>
-<script defer="" src="/i18n.js?v=20260519-industries-full"></script>
+<script defer="" src="/i18n.js?v=20260519-industries-message-layout"></script>
 </body>
 </html>
