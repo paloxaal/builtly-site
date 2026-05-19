@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Industries served by Builtly Engineering — engineering consultancies, developers, lenders, asset managers and the public sector." />
-<meta name="theme-color" content="#FAFAF7" />
-<title>Industries · Builtly Engineering</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Builtly is the production layer for regulated engineering deliverables — built for consultancies, available to developers, lenders, asset managers and public-sector teams through controlled access routes." data-i18n-attr-content="industries.desc" name="description"/>
+<meta content="#FAFAF7" name="theme-color"/>
+<title data-i18n="industries.title">Industries · Builtly Engineering</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&amp;family=JetBrains+Mono:wght@400..600&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
   --bg:#FAFAF7;
@@ -359,137 +360,129 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </style>
 </head>
 <body>
-
 <nav class="nav">
 <div class="nav-inner">
-<a href="/" class="logo"><span class="logo-mark"></span>Builtly<span class="sub">Engineering</span></a>
+<a class="logo" href="/"><span class="logo-mark"></span>Builtly<span class="sub">Engineering</span></a>
 <div class="nav-links">
-<a href="/platform.html" data-i18n="nav.platform">Platform</a>
-<a href="/industries.html" class="active" data-i18n="nav.industries">Industries</a>
-<a href="/#pipeline" data-i18n="nav.howItWorks">How it works</a>
-<a href="/about.html" data-i18n="nav.about">About</a>
-<a href="/careers.html" data-i18n="nav.careers">Careers</a>
+<a data-i18n="nav.platform" href="/platform.html">Platform</a>
+<a class="active" data-i18n="nav.industries" href="/industries.html">Industries</a>
+<a data-i18n="nav.howItWorks" href="/#pipeline">How it works</a>
+<a data-i18n="nav.about" href="/about.html">About</a>
+<a data-i18n="nav.careers" href="/careers.html">Careers</a>
 </div>
 <div class="lang-wrap">
-<button class="lang-picker" id="langPicker" aria-haspopup="true" aria-expanded="false" aria-label="Select language" data-i18n-attr-aria-label="lang.selectLabel">
-<svg class="lang-globe" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13"/></svg>
+<button aria-expanded="false" aria-haspopup="true" aria-label="Select language" class="lang-picker" data-i18n-attr-aria-label="lang.selectLabel" id="langPicker">
+<svg aria-hidden="true" class="lang-globe" viewbox="0 0 16 16"><circle cx="8" cy="8" r="6.5"></circle><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13"></path></svg>
 <span class="lang-code">EN</span>
-<svg class="lang-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg aria-hidden="true" class="lang-chev" viewbox="0 0 12 12"><path d="M3 4.5l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 </button>
-<div class="lang-menu" id="langMenu" role="menu" hidden>
-<button class="lang-option active" data-lang="en" role="menuitem">English<span class="native">English</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<button class="lang-option" data-lang="de" role="menuitem">German<span class="native">Deutsch</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<button class="lang-option" data-lang="sv" role="menuitem">Swedish<span class="native">Svenska</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<button class="lang-option" data-lang="no" role="menuitem">Norwegian<span class="native">Norsk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<button class="lang-option" data-lang="fi" role="menuitem">Finnish<span class="native">Suomi</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-<button class="lang-option" data-lang="da" role="menuitem">Danish<span class="native">Dansk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="lang-menu" hidden="" id="langMenu" role="menu">
+<button class="lang-option active" data-lang="en" role="menuitem">English<span class="native">English</span><svg aria-hidden="true" class="check" viewbox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<button class="lang-option" data-lang="de" role="menuitem">German<span class="native">Deutsch</span><svg aria-hidden="true" class="check" viewbox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<button class="lang-option" data-lang="sv" role="menuitem">Swedish<span class="native">Svenska</span><svg aria-hidden="true" class="check" viewbox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<button class="lang-option" data-lang="no" role="menuitem">Norwegian<span class="native">Norsk</span><svg aria-hidden="true" class="check" viewbox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<button class="lang-option" data-lang="fi" role="menuitem">Finnish<span class="native">Suomi</span><svg aria-hidden="true" class="check" viewbox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+<button class="lang-option" data-lang="da" role="menuitem">Danish<span class="native">Dansk</span><svg aria-hidden="true" class="check" viewbox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
 </div>
 </div>
-<a href="https://builtly.ai" class="btn"><span data-i18n="nav.openPortal">Open portal</span> <span class="arr">→</span></a>
+<a class="btn" href="https://builtly.ai"><span data-i18n="nav.openPortal">Open portal</span> <span class="arr">→</span></a>
 </div>
 </nav>
-
 <section class="hero" id="top">
-<canvas class="hero-bg-canvas" id="heroBgCanvas" aria-hidden="true"></canvas>
+<canvas aria-hidden="true" class="hero-bg-canvas" id="heroBgCanvas"></canvas>
 <div class="wrap">
 <div class="hero-grid rv">
 <div>
-<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="industries.hero.eyebrow">Industries we serve</span></div>
-<h1 class="dpy-1" data-i18n-html="industries.hero.h1">Built for the consulting profession.<br/>Used across the industry.</h1>
-<p class="lead" data-i18n-html="industries.hero.lede">Builtly's primary customer is the engineering consultancy — the firms that produce signed, regulated deliverables. The platform's automated tiers are also bought directly by the buyers consultancies serve: real-estate developers, lenders, asset managers and the public sector. <span class="serif">One platform. Multiple routes to market.</span></p>
+<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="industries.hero.eyebrow">Industries and users</span></div>
+<h1 class="dpy-1" data-i18n-html="industries.hero.h1">Built for engineering consultancies.<br/>Useful to the clients around them.</h1>
+<p class="lead" data-i18n-html="industries.hero.lede">Builtly is the production layer for regulated engineering deliverables. Engineering consultancies use it to standardise, accelerate and quality-assure report production; developers, lenders, asset managers and public-sector teams use selected modules when they need a structured technical basis earlier in the decision process. <span class="serif">One platform. Professional accountability preserved.</span></p>
 </div>
 <div class="hero-meta">
-<div class="row"><span class="k" data-i18n="industries.meta.r1.k">Primary buyer</span><span class="v" data-i18n="industries.meta.r1.v">Engineering consultancies</span></div>
-<div class="row"><span class="k" data-i18n="industries.meta.r2.k">Adjacent buyers</span><span class="v" data-i18n="industries.meta.r2.v">4 distinct segments</span></div>
-<div class="row"><span class="k" data-i18n="industries.meta.r3.k">Routes</span><span class="v" data-i18n="industries.meta.r3.v">Licensed · direct · partner</span></div>
-<div class="row"><span class="k" data-i18n="industries.meta.r4.k">Coverage</span><span class="v" data-i18n-html="industries.meta.r4.v"><span class="accent-text">●</span> &nbsp; Seven jurisdictions</span></div>
+<div class="row"><span class="k" data-i18n="industries.meta.r1.k">Primary customer</span><span class="v" data-i18n="industries.meta.r1.v">Engineering consultancies</span></div>
+<div class="row"><span class="k" data-i18n="industries.meta.r2.k">Adjacent users</span><span class="v" data-i18n="industries.meta.r2.v">Developers · lenders · owners · public sector</span></div>
+<div class="row"><span class="k" data-i18n="industries.meta.r3.k">Access routes</span><span class="v" data-i18n="industries.meta.r3.v">Licence · direct · partner</span></div>
+<div class="row"><span class="k" data-i18n="industries.meta.r4.k">Coverage</span><span class="v" data-i18n-html="industries.meta.r4.v"><span class="accent-text">●</span>   Seven jurisdictions</span></div>
 </div>
 </div>
 </div>
 </section>
-
 <section class="jump-strip">
 <div class="jump-inner">
 <span class="lbl" data-i18n="jump.lbl">Jump to</span>
-<a href="#consultancies" data-i18n="industries.jump.i1">Consultancies</a>
+<a data-i18n="industries.jump.i1" href="#consultancies">Consultancies</a>
 <span class="sep">·</span>
-<a href="#adjacent" data-i18n="industries.jump.i2">Adjacent buyers</a>
+<a data-i18n="industries.jump.i2" href="#adjacent">Adjacent users</a>
 <span class="sep">·</span>
-<a href="#use-cases" data-i18n="industries.jump.i3">Use cases</a>
+<a data-i18n="industries.jump.i3" href="#use-cases">Use cases</a>
 <span class="sep">·</span>
-<a href="#routes" data-i18n="industries.jump.i4">Routes to market</a>
+<a data-i18n="industries.jump.i4" href="#routes">Access routes</a>
 </div>
 </section>
-
 <!-- ============== PRIMARY: ENGINEERING CONSULTANCIES ============== -->
 <section class="section primary-section" id="consultancies">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 01</span><span data-i18n="industries.s01.label">Primary</span><span class="dash"></span><span data-i18n="industries.s01.tag">The customer everything is built for</span></div>
-
+<div class="smark rv"><span class="num">§ 01</span><span data-i18n="industries.s01.label">Primary customer</span><span class="dash"></span><span data-i18n="industries.s01.tag">Where professional accountability sits</span></div>
 <div class="primary-grid rv">
 <div>
-<div class="primary-tag">Engineering consultancies</div>
-<h2 class="dpy-2" style="color:var(--dark-paper)" data-i18n="industries.s01.h2">Built for the consulting profession.</h2>
+<div class="primary-tag" data-i18n="industries.s01.primary_tag">Engineering consultancies</div>
+<h2 class="dpy-2" data-i18n="industries.s01.h2" style="color:var(--dark-paper)">The production layer for consulting engineers.</h2>
 <div style="margin-top:32px">
-<p>Engineering consultancies are the primary customer for everything Builtly does. The platform was designed from the inside of the profession — by people with regulatory authority across six engineering disciplines — not by software founders looking at the industry from outside.</p>
-<p>The proposition is straightforward. <strong>Consulting engineers are the most expensive professional capacity in the building industry, and the largest share of their time goes to manual report production rather than engineering analysis.</strong> Builtly inverts that ratio. AI handles the routine production; the engineer's time goes to the work that justifies the fee.</p>
-<p>The result for the consultancy: faster deliveries, more projects per senior, better margin per delivery, and senior capacity finally deployed against work that actually requires it. The result for the engineer: less paperwork, more judgment.</p>
+<p data-i18n="industries.s01.lede">Builtly is designed around how engineering firms actually deliver: calculations, local rules, QA, client revisions and signed documents. The platform does not replace professional responsibility; it removes repetitive drafting, data handling and formatting around it.</p>
+<p><span data-i18n="industries.s01.body1.intro">The shift is practical.</span> <strong data-i18n="industries.s01.body1.bold">Senior engineering capacity should be spent on judgment, exceptions and sign-off — not on rebuilding the same report structure from project to project.</strong> <span data-i18n="industries.s01.body1.outro">Builtly standardises the repeatable layer, keeps the audit trail intact and gives engineers a clearer basis for review.</span></p>
+<p data-i18n="industries.s01.body2">For the firm, that means shorter turnaround, more consistent quality and better use of scarce senior capacity. For the engineer, it means less production drag and more time on the decisions that matter.</p>
 </div>
 </div>
 <div class="primary-side">
-<div class="row"><span class="k">Segment</span><span class="v">Primary</span></div>
-<div class="row"><span class="k">Modules used</span><span class="v">All 15</span></div>
-<div class="row"><span class="k">Delivery levels</span><span class="v">Auto · Reviewed · Attested</span></div>
-<div class="row"><span class="k">Engagement</span><span class="v">Platform licence</span></div>
-<div class="row"><span class="k">Pricing</span><span class="v">Per-deliverable + seat</span></div>
+<div class="row"><span class="k" data-i18n="industries.s01.meta.segment.k">Segment</span><span class="v" data-i18n="industries.s01.meta.segment.v">Primary</span></div>
+<div class="row"><span class="k" data-i18n="industries.s01.meta.modules.k">Modules used</span><span class="v" data-i18n="industries.s01.meta.modules.v">All 15</span></div>
+<div class="row"><span class="k" data-i18n="industries.s01.meta.delivery.k">Delivery levels</span><span class="v" data-i18n="industries.s01.meta.delivery.v">Automated · Reviewed · Attested</span></div>
+<div class="row"><span class="k" data-i18n="industries.s01.meta.engagement.k">Engagement</span><span class="v" data-i18n="industries.s01.meta.engagement.v">Platform licence</span></div>
+<div class="row"><span class="k" data-i18n="industries.s01.meta.pricing.k">Pricing</span><span class="v" data-i18n="industries.s01.meta.pricing.v">Seat + deliverable</span></div>
 </div>
 </div>
-
 <div class="primary-modules">
 <div class="primary-modules-head">
-<h4>Modules used by consultancies</h4>
-<div class="desc">All fifteen, across three commercial tiers</div>
+<h4 data-i18n="industries.s01.pm.h4">Modules available to consultancies</h4>
+<div class="desc" data-i18n="industries.s01.pm.desc">Fifteen modules across three delivery tiers</div>
 </div>
 <div class="primary-modules-grid">
-<div class="pm-cell"><div class="code">GEO</div><div class="nm">Geotechnics</div></div>
-<div class="pm-cell"><div class="code">STR</div><div class="nm">Structural</div></div>
-<div class="pm-cell"><div class="code">FIR</div><div class="nm">Fire safety</div></div>
-<div class="pm-cell"><div class="code">ACO</div><div class="nm">Acoustics</div></div>
-<div class="pm-cell"><div class="code">ENV</div><div class="nm">Environmental</div></div>
-<div class="pm-cell"><div class="code">ARK</div><div class="nm">Feasibility</div></div>
-<div class="pm-cell"><div class="code">TDD</div><div class="nm">Technical DD</div></div>
-<div class="pm-cell"><div class="code">BID</div><div class="nm">Bid control</div></div>
-<div class="pm-cell"><div class="code">QTY</div><div class="nm">Quantities</div></div>
-<div class="pm-cell"><div class="code">HSE</div><div class="nm">HSE plan</div></div>
-<div class="pm-cell"><div class="code">CLI</div><div class="nm">Climate risk</div></div>
-<div class="pm-cell"><div class="code">SUS</div><div class="nm">Sustainability</div></div>
-<div class="pm-cell"><div class="code">TRA</div><div class="nm">Traffic</div></div>
-<div class="pm-cell"><div class="code">CRE</div><div class="nm">Bank &amp; lending</div></div>
-<div class="pm-cell"><div class="code">PKG</div><div class="nm">Country packs</div></div>
+<div class="pm-cell"><div class="code">GEO</div><div class="nm" data-i18n="industries.mod.geo">Geotechnics</div></div>
+<div class="pm-cell"><div class="code">STR</div><div class="nm" data-i18n="industries.mod.str">Structural</div></div>
+<div class="pm-cell"><div class="code">FIR</div><div class="nm" data-i18n="industries.mod.fir">Fire safety</div></div>
+<div class="pm-cell"><div class="code">ACO</div><div class="nm" data-i18n="industries.mod.aco">Acoustics</div></div>
+<div class="pm-cell"><div class="code">ENV</div><div class="nm" data-i18n="industries.mod.env">Environmental</div></div>
+<div class="pm-cell"><div class="code">ARK</div><div class="nm" data-i18n="industries.mod.ark">Feasibility</div></div>
+<div class="pm-cell"><div class="code">TDD</div><div class="nm" data-i18n="industries.mod.tdd">Technical DD</div></div>
+<div class="pm-cell"><div class="code">BID</div><div class="nm" data-i18n="industries.mod.bid">Bid review</div></div>
+<div class="pm-cell"><div class="code">QTY</div><div class="nm" data-i18n="industries.mod.qty">Quantities</div></div>
+<div class="pm-cell"><div class="code">HSE</div><div class="nm" data-i18n="industries.mod.hse">HSE plan</div></div>
+<div class="pm-cell"><div class="code">CLI</div><div class="nm" data-i18n="industries.mod.cli">Climate risk</div></div>
+<div class="pm-cell"><div class="code">SUS</div><div class="nm" data-i18n="industries.mod.sus">Sustainability</div></div>
+<div class="pm-cell"><div class="code">TRA</div><div class="nm" data-i18n="industries.mod.tra">Traffic</div></div>
+<div class="pm-cell"><div class="code">CRE</div><div class="nm" data-i18n="industries.mod.cre">Bank &amp; lending</div></div>
+<div class="pm-cell"><div class="code">PKG</div><div class="nm" data-i18n="industries.mod.pkg">Country packs</div></div>
 </div>
 </div>
 </div>
 </section>
-
 <!-- ============== ADJACENT BUYERS ============== -->
 <section class="section aud-section" id="adjacent">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 02</span><span data-i18n="industries.s02.label">Adjacent buyers</span><span class="dash"></span><span data-i18n="industries.s02.tag">Direct customers of automated modules</span></div>
+<div class="smark rv"><span class="num">§ 02</span><span data-i18n="industries.s02.label">Adjacent users</span><span class="dash"></span><span data-i18n="industries.s02.tag">Controlled access to selected modules</span></div>
 <div class="aud-top rv">
 <div>
-<h2 class="dpy-2" data-i18n="industries.s02.h2">Adjacent segments.</h2>
+<h2 class="dpy-2" data-i18n="industries.s02.h2">For the clients and partners around the consultancy.</h2>
 </div>
-<p class="lead">Some Builtly modules — particularly the fully automated tier — are bought directly by the parties consultancies traditionally serve. These customers want the underlying analysis without the consulting markup, and the modules are designed to deliver it under regulatory rigour.</p>
+<p class="lead" data-i18n="industries.s02.lede">Some modules can be used directly by the organisations that need an early technical basis: developers testing a site, lenders screening risk, asset managers reviewing a portfolio and public agencies preparing procurement. When the risk or regulatory use requires it, the workflow moves into engineer review or consultancy-led delivery.</p>
 </div>
-
 <div class="aud-grid rvs">
 <article class="aud">
-<div class="head"><span>Real-estate developers</span><span class="ix">01</span></div>
-<h3>Faster feasibility. Faster diligence.</h3>
-<p>Developers buy automated feasibility studies, technical due diligence and climate-risk reports directly. The use case is decision speed: site acquisition runs on tight timelines, and waiting weeks for a consultancy DD often loses the deal.</p>
-<p>Builtly turns multi-week reports into same-day deliverables. For complex sites the developer still engages a consultancy — Builtly accelerates the front end of that engagement.</p>
+<div class="head"><span data-i18n="industries.aud01.head">Real-estate developers</span><span class="ix">01</span></div>
+<h3 data-i18n="industries.aud01.h3">Earlier feasibility. Better-prepared projects.</h3>
+<p data-i18n="industries.aud01.body">Developers use Builtly to turn early site data into a structured view of volume potential, constraints, climate exposure and technical due-diligence needs.</p>
+<p data-i18n="industries.aud01.body2">The aim is not to bypass the engineering team. It is to enter the next decision or consultancy engagement with better evidence and a clearer brief.</p>
 <div class="modules">
-<div class="ml">Typical modules</div>
+<div class="ml" data-i18n="industries.aud01.ml">Typical modules</div>
 <div class="tags">
 <span class="tag accent">ARK</span>
 <span class="tag accent">TDD</span>
@@ -498,16 +491,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="tag">TRA</span>
 </div>
 </div>
-<div class="route"><span class="k">Engagement</span><span class="v">Direct · per deliverable</span></div>
+<div class="route"><span class="k" data-i18n="industries.aud01.engagement.k">Engagement</span><span class="v" data-i18n="industries.aud01.engagement.v">Direct · per deliverable</span></div>
 </article>
-
 <article class="aud">
-<div class="head"><span>Banks &amp; lenders</span><span class="ix">02</span></div>
-<h3>Technical underwriting at portfolio scale.</h3>
-<p>Lenders use Builtly for the technical-credit basis behind construction loans, for ongoing construction-loan monitoring, and for portfolio-level climate risk against disclosure requirements. The volume of decisions makes manual consultancy review prohibitive.</p>
-<p>The platform produces structured outputs that integrate into credit-decisioning systems and portfolio-monitoring dashboards. White-label and API options available for high-volume buyers.</p>
+<div class="head"><span data-i18n="industries.aud02.head">Banks &amp; lenders</span><span class="ix">02</span></div>
+<h3 data-i18n="industries.aud02.h3">Technical risk signals for lending.</h3>
+<p data-i18n="industries.aud02.body1">Banks and construction lenders use Builtly to standardise the technical basis behind construction loans, monitoring and portfolio-level climate risk.</p>
+<p data-i18n="industries.aud02.body2">The platform helps surface exceptions earlier and makes the review basis easier to compare across projects. Outputs can feed credit processes, portfolio dashboards and API workflows.</p>
 <div class="modules">
-<div class="ml">Typical modules</div>
+<div class="ml" data-i18n="industries.aud01.ml">Typical modules</div>
 <div class="tags">
 <span class="tag accent">CRE</span>
 <span class="tag accent">CLI</span>
@@ -515,16 +507,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="tag">ENV</span>
 </div>
 </div>
-<div class="route"><span class="k">Engagement</span><span class="v">Direct · API · white-label</span></div>
+<div class="route"><span class="k" data-i18n="industries.aud02.engagement.k">Engagement</span><span class="v" data-i18n="industries.aud02.engagement.v">Direct · API · white-label</span></div>
 </article>
-
 <article class="aud">
-<div class="head"><span>Asset managers &amp; investors</span><span class="ix">03</span></div>
-<h3>Portfolio screening, disclosure compliance.</h3>
-<p>Asset managers and institutional investors use Builtly for portfolio-level technical and climate-risk screening, sustainability-certification pre-assessments, and the structured disclosure outputs required under financial-sector climate-risk regulation.</p>
-<p>The platform scales across thousands of assets without scaling expert capacity. Results are auditable and structured for downstream reporting systems.</p>
+<div class="head"><span data-i18n="industries.aud03.head">Asset managers &amp; investors</span><span class="ix">03</span></div>
+<h3 data-i18n="industries.aud03.h3">Portfolio screening and disclosure support.</h3>
+<p data-i18n="industries.aud03.body1">Asset managers and institutional investors use Builtly to screen technical condition, climate exposure and sustainability documentation across property portfolios.</p>
+<p data-i18n="industries.aud03.body2">The platform creates repeatable, auditable outputs that can feed reporting systems and help teams decide where expert review is needed.</p>
 <div class="modules">
-<div class="ml">Typical modules</div>
+<div class="ml" data-i18n="industries.aud01.ml">Typical modules</div>
 <div class="tags">
 <span class="tag accent">CLI</span>
 <span class="tag accent">TDD</span>
@@ -532,16 +523,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="tag">ENV</span>
 </div>
 </div>
-<div class="route"><span class="k">Engagement</span><span class="v">Direct · API integration</span></div>
+<div class="route"><span class="k" data-i18n="industries.aud03.engagement.k">Engagement</span><span class="v" data-i18n="industries.aud03.engagement.v">Direct · API integration</span></div>
 </article>
-
 <article class="aud">
-<div class="head"><span>Public sector</span><span class="ix">04</span></div>
-<h3>Procurement review, planning capacity.</h3>
-<p>Public agencies use Builtly for automated tender-document review and for capacity-augmentation on planning applications. Public-sector engineering capacity is constrained globally, and Builtly closes part of the gap without requiring net new hiring.</p>
-<p>Typical engagement runs through a consultancy partner that holds the public-sector contract, with Builtly as the underlying production layer. Direct procurement supported in jurisdictions where allowed.</p>
+<div class="head"><span data-i18n="industries.aud04.head">Public sector</span><span class="ix">04</span></div>
+<h3 data-i18n="industries.aud04.h3">Procurement review and planning support.</h3>
+<p data-i18n="industries.aud04.body1">Public-sector teams use Builtly to standardise tender-document review, compare submissions and prepare planning or infrastructure documentation under capacity pressure.</p>
+<p data-i18n="industries.aud04.body2">Many engagements run through a consultancy partner that holds the public-sector contract, with Builtly providing the production layer. Direct procurement can be supported where the rules allow.</p>
 <div class="modules">
-<div class="ml">Typical modules</div>
+<div class="ml" data-i18n="industries.aud01.ml">Typical modules</div>
 <div class="tags">
 <span class="tag accent">BID</span>
 <span class="tag accent">HSE</span>
@@ -549,190 +539,177 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="tag">TRA</span>
 </div>
 </div>
-<div class="route"><span class="k">Engagement</span><span class="v">Consultancy partner · direct</span></div>
+<div class="route"><span class="k" data-i18n="industries.aud04.engagement.k">Engagement</span><span class="v" data-i18n="industries.aud04.engagement.v">Consultancy partner · direct</span></div>
 </article>
 </div>
 </div>
 </section>
-
 <!-- ============== USE CASES ============== -->
 <section class="section uc-section" id="use-cases">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 03</span><span data-i18n="industries.s03.label">Use cases</span><span class="dash"></span><span data-i18n="industries.s03.tag">Concrete scenarios across segments</span></div>
+<div class="smark rv"><span class="num">§ 03</span><span data-i18n="industries.s03.label">Use cases</span><span class="dash"></span><span data-i18n="industries.s03.tag">Where repeatable work becomes structured output</span></div>
 <div class="uc-top rv">
 <div>
 <h2 class="dpy-2" data-i18n="industries.s03.h2">In practice.</h2>
 </div>
-<p class="lead">Specific scenarios where the platform replaces or compresses work that currently takes a consultancy weeks. The pattern is consistent across segments: a decision that needs technical underpinning, a timeline that does not allow for traditional consulting, and a regulatory standard that the output must satisfy regardless.</p>
+<p class="lead" data-i18n="industries.uc.lede">The use cases below show where Builtly removes waiting time from the repeatable parts of technical work while preserving the route to professional review when the risk or regulation requires it.</p>
 </div>
-
 <ol class="uc-list rvs">
 <li class="uc-row">
 <div class="uc-num">01</div>
 <div>
-<h4>Site acquisition under timeline pressure.</h4>
-<div class="uc-buyer">Real-estate developer</div>
-<p>A developer is bidding on a site with a one-week exclusivity window. The traditional path requires a two-week consultancy feasibility study. Builtly returns the indicative volume, regulatory envelope and climate-risk overlay the same day, with engineer-reviewed depth available within 48 hours if the deal advances.</p>
+<h4 data-i18n="industries.uc1.h4">Site acquisition before exclusivity expires.</h4>
+<div class="uc-buyer" data-i18n="industries.uc1.buyer">Real-estate developer</div>
+<p data-i18n="industries.uc1.body">A developer has a short exclusivity window and needs a defensible first view of what the site can carry. Builtly turns available site data, planning constraints and climate-risk signals into a structured screening package, with reviewed depth available if the deal advances.</p>
 </div>
 <div>
-<p style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">From weeks to same-day. Decision moves from inference to evidence before exclusivity expires.</p>
+<p data-i18n="industries.uc1.outcome" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">The go/no-go decision is grounded in evidence before exclusivity expires, and the next engineering engagement starts with a clearer brief.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">ARK · TDD · CLI</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Auto + Reviewed</span>
+<span class="label" data-i18n="lbl.modules">Modules</span><span class="val">ARK · TDD · CLI</span>
+<span class="label" data-i18n="lbl.delivery" style="margin-top:8px">Delivery</span><span class="val accent" data-i18n="industries.uc1.delivery.v">Automated · Review-ready</span>
 </div>
 </li>
-
 <li class="uc-row">
 <div class="uc-num">02</div>
 <div>
-<h4>Construction-loan underwriting at portfolio scale.</h4>
-<div class="uc-buyer">Bank / construction lender</div>
-<p>A lender originates hundreds of construction loans per year. Manual technical review per loan is prohibitive, but skipping it surfaces problems too late. Builtly produces the technical-credit basis and ongoing-monitoring framework automatically per loan, with engineer escalation flagged where complexity warrants.</p>
+<h4 data-i18n="industries.uc2.h4">Construction-loan review across many projects.</h4>
+<div class="uc-buyer" data-i18n="industries.uc2.buyer">Bank / construction lender</div>
+<p data-i18n="industries.uc2.body">A lender originates many construction loans and needs a consistent technical view across projects. Builtly structures the technical-credit basis, monitoring inputs and exception flags so human review can focus on the projects that need it most.</p>
 </div>
 <div>
-<p style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Volume that was uneconomic to review manually becomes routine. Risk surfaces earlier in the lending cycle.</p>
+<p data-i18n="industries.uc2.outcome" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Technical risk is surfaced earlier and compared more consistently across the lending cycle.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">CRE · CLI · TDD</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Auto · API</span>
+<span class="label" data-i18n="lbl.modules">Modules</span><span class="val">CRE · CLI · TDD</span>
+<span class="label" data-i18n="lbl.delivery" style="margin-top:8px">Delivery</span><span class="val accent" data-i18n="industries.uc2.delivery.v">Automated · API</span>
 </div>
 </li>
-
 <li class="uc-row">
 <div class="uc-num">03</div>
 <div>
-<h4>Portfolio climate-risk disclosure.</h4>
-<div class="uc-buyer">Asset manager / institutional investor</div>
-<p>A real-estate fund manager is required to disclose climate-risk exposure across portfolio assets under financial-sector climate-disclosure rules. Builtly produces structured per-asset climate-risk outputs for the entire portfolio, with audit trail and methodology suitable for regulatory submission.</p>
+<h4 data-i18n="industries.uc3.h4">Portfolio climate-risk disclosure.</h4>
+<div class="uc-buyer" data-i18n="industries.uc3.buyer">Asset manager / institutional investor</div>
+<p data-i18n="industries.uc3.body">A real-estate fund manager needs climate-risk and technical screening across a portfolio. Builtly produces structured per-asset outputs with methodology, source references and audit trail suitable for downstream reporting.</p>
 </div>
 <div>
-<p style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Portfolio-scale compliance without portfolio-scale consultancy fees. Audit trail intact for regulatory examination.</p>
+<p data-i18n="industries.uc3.outcome" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">The team gets a portfolio-wide first pass without commissioning every asset individually, while still knowing where expert review is required.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">CLI · TDD · SUS</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Auto · API</span>
+<span class="label" data-i18n="lbl.modules">Modules</span><span class="val">CLI · TDD · SUS</span>
+<span class="label" data-i18n="lbl.delivery" style="margin-top:8px">Delivery</span><span class="val accent" data-i18n="industries.uc2.delivery.v">Automated · API</span>
 </div>
 </li>
-
 <li class="uc-row">
 <div class="uc-num">04</div>
 <div>
-<h4>Consultancy delivery velocity.</h4>
-<div class="uc-buyer">Engineering consultancy</div>
-<p>A consultancy's geotechnical team has 15 small-to-medium projects in queue, all requiring a similar baseline assessment plus project-specific judgment. Builtly produces the baseline assessment for each within hours, and the engineer-reviewer attests the final output. Throughput multiplies; senior attention concentrates on the judgment, not the production.</p>
+<h4 data-i18n="industries.uc4.h4">Consultancy delivery velocity.</h4>
+<div class="uc-buyer" data-i18n="industries.uc4.buyer">Engineering consultancy</div>
+<p data-i18n="industries.uc4.body">A consultancy has a queue of similar projects that all require a baseline assessment plus project-specific judgment. Builtly produces the structured baseline and supporting documentation; the engineer reviews, adjusts and attests the final output where required.</p>
 </div>
 <div>
-<p style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Senior engineer time spent on engineering judgment, not on report formatting. Throughput increases without staffing expansion.</p>
+<p data-i18n="industries.uc4.outcome" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Turnaround improves, review quality becomes more consistent and senior attention moves from formatting to engineering judgment.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">GEO · STR · FIR · ACO</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Attested</span>
+<span class="label" data-i18n="lbl.modules">Modules</span><span class="val">GEO · STR · FIR · ACO</span>
+<span class="label" data-i18n="lbl.delivery" style="margin-top:8px">Delivery</span><span class="val accent" data-i18n="industries.uc4.delivery.v">Attested</span>
 </div>
 </li>
-
 <li class="uc-row">
 <div class="uc-num">05</div>
 <div>
-<h4>Public tender preparation under capacity constraint.</h4>
-<div class="uc-buyer">Public agency · consultancy partner</div>
-<p>A public infrastructure agency has more tender packages to review than internal engineering capacity allows. Builtly produces the structured tender-review documentation per submission, runs the consistency checks across packages, and surfaces deviations for human judgment. The partner consultancy handles attestation.</p>
+<h4 data-i18n="industries.uc5.h4">Public tender preparation under capacity constraint.</h4>
+<div class="uc-buyer" data-i18n="industries.uc5.buyer">Public agency · consultancy partner</div>
+<p data-i18n="industries.uc5.body">A public infrastructure agency has more tender packages to review than internal capacity allows. Builtly prepares structured review documentation, checks consistency across packages and surfaces deviations for the responsible team and consultancy partner.</p>
 </div>
 <div>
-<p style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Engineering bottleneck inside the agency is unlocked. Procurement cadence accelerates without compromising review quality.</p>
+<p data-i18n="industries.uc5.outcome" style="font-size:14px;color:var(--mid);margin:0;line-height:1.55">Procurement teams get a clearer review basis; consultants focus on deviations, judgment and attestation.</p>
 </div>
 <div class="uc-tail">
-<span class="label">Modules</span><span class="val">BID · HSE · QTY</span>
-<span class="label" style="margin-top:8px">Delivery</span><span class="val accent">Reviewed</span>
+<span class="label" data-i18n="lbl.modules">Modules</span><span class="val">BID · HSE · QTY</span>
+<span class="label" data-i18n="lbl.delivery" style="margin-top:8px">Delivery</span><span class="val accent" data-i18n="industries.uc5.delivery.v">Reviewed</span>
 </div>
 </li>
 </ol>
 </div>
 </section>
-
 <!-- ============== ROUTES TO MARKET ============== -->
 <section class="section routes-section" id="routes">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 04</span><span data-i18n="industries.s04.label">Routes</span><span class="dash"></span><span data-i18n="industries.s04.tag">How to engage</span></div>
+<div class="smark rv"><span class="num">§ 04</span><span data-i18n="industries.s04.label">Access routes</span><span class="dash"></span><span data-i18n="industries.s04.tag">How to engage</span></div>
 <div class="routes-top rv">
 <div>
-<h2 class="dpy-2" data-i18n="industries.s04.h2">Three routes.</h2>
+<h2 class="dpy-2" data-i18n="industries.s04.h2">Three access routes.</h2>
 </div>
-<p class="lead">Builtly is engaged through three commercial routes depending on the segment, the deal size and the regulatory context. The underlying platform is the same; the wrapping varies.</p>
+<p class="lead" data-i18n="industries.s04.lede">The commercial route depends on who owns the workflow and whether outputs are used internally, reviewed by an engineer or formally signed. The platform is the same; the access model changes.</p>
 </div>
-
 <div class="routes-grid rvs">
 <div class="route-cell">
-<div class="ix">§ Route 01</div>
-<div class="name">Platform licence</div>
-<div class="desc">For consultancies</div>
-<p>The primary engagement model. A consultancy licenses the full platform for use across its engineering teams, with seat-based access for engineers and per-deliverable pricing on outputs. Implementation, jurisdictional configuration and team onboarding included.</p>
-<p>Suitable for consultancies with regular deliverable volume across multiple disciplines. The most economic route at scale.</p>
+<div class="ix" data-i18n="industries.route.01">§ Route 01</div>
+<div class="name" data-i18n="industries.r1.name">Platform licence</div>
+<div class="desc" data-i18n="industries.r1.desc">For consultancies</div>
+<p data-i18n="industries.r1.body1">Best for engineering consultancies that want Builtly inside their production process. Seats for technical teams, per-deliverable output pricing and configuration for local rules and templates are included.</p>
+<p data-i18n="industries.r1.body2">Use this when the firm wants repeatable volume across disciplines while keeping the client relationship, review process and sign-off under its own control.</p>
 <div class="terms">
-<div class="r"><span class="k">Pricing</span><span class="v">Seat + deliverable</span></div>
-<div class="r"><span class="k">Onboarding</span><span class="v">Same week</span></div>
-<div class="r"><span class="k">Minimum</span><span class="v">3 seats · 6 months</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.pricing.k">Pricing</span><span class="v" data-i18n="industries.r1.pricing.v">Seat + deliverable</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.onboarding.k">Onboarding</span><span class="v" data-i18n="industries.r1.onboarding.v">Same week</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.minimum.k">Minimum</span><span class="v" data-i18n="industries.r1.minimum.v">3 seats · 6 months</span></div>
 </div>
 </div>
-
 <div class="route-cell">
-<div class="ix">§ Route 02</div>
-<div class="name">Direct purchase</div>
-<div class="desc">For end buyers</div>
-<p>Per-deliverable purchase directly from the portal. The buyer uploads project inputs, selects the module and delivery tier, and receives the output in their preferred format. No licence, no implementation overhead.</p>
-<p>Suitable for developers, lenders and asset managers buying automated-tier deliverables on demand. Engineer-reviewed and attested tiers also available where required.</p>
+<div class="ix" data-i18n="industries.route.02">§ Route 02</div>
+<div class="name" data-i18n="industries.r2.name">Direct purchase</div>
+<div class="desc" data-i18n="industries.r2.desc">For project owners and buyers</div>
+<p data-i18n="industries.r2.body1">For individual projects and early technical decisions. The buyer uploads inputs, chooses a module and delivery level, and receives a structured output in the selected format.</p>
+<p data-i18n="industries.r2.body2">Best for developers, lenders and asset managers who need first-pass evidence quickly. Reviewed and attested routes are available when the use case requires it.</p>
 <div class="terms">
-<div class="r"><span class="k">Pricing</span><span class="v">Per deliverable</span></div>
-<div class="r"><span class="k">Onboarding</span><span class="v">Same day</span></div>
-<div class="r"><span class="k">Minimum</span><span class="v">One deliverable</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.pricing.k">Pricing</span><span class="v" data-i18n="industries.r2.pricing.v">Per deliverable</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.onboarding.k">Onboarding</span><span class="v" data-i18n="industries.r2.onboarding.v">Same day</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.minimum.k">Minimum</span><span class="v" data-i18n="industries.r2.minimum.v">One deliverable</span></div>
 </div>
 </div>
-
 <div class="route-cell">
-<div class="ix">§ Route 03</div>
-<div class="name">Partner integration</div>
-<div class="desc">For platforms &amp; consortia</div>
-<p>API integration or white-label arrangement for partners that embed Builtly capabilities in their own offering — proptech platforms, lender portals, consultancy networks, public-sector consortia. The partner controls the customer experience; Builtly provides the production layer.</p>
-<p>Suitable for high-volume integrations and where the platform's outputs are inputs to a broader workflow.</p>
+<div class="ix" data-i18n="industries.route.03">§ Route 03</div>
+<div class="name" data-i18n="industries.r3.name">Partner integration</div>
+<div class="desc" data-i18n="industries.r3.desc">For platforms &amp; consortia</div>
+<p data-i18n="industries.r3.body1">API integration or white-label arrangement for partners that embed Builtly capabilities in their own workflow — lender portals, proptech platforms, consultancy networks or public-sector consortia.</p>
+<p data-i18n="industries.r3.body2">Best for high-volume integrations where Builtly outputs become part of a broader customer or decision workflow.</p>
 <div class="terms">
-<div class="r"><span class="k">Pricing</span><span class="v">Negotiated · volume</span></div>
-<div class="r"><span class="k">Onboarding</span><span class="v">6–12 weeks</span></div>
-<div class="r"><span class="k">Minimum</span><span class="v">Annual commitment</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.pricing.k">Pricing</span><span class="v" data-i18n="industries.r3.pricing.v">Negotiated · volume</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.onboarding.k">Onboarding</span><span class="v" data-i18n="industries.r3.onboarding.v">6–12 weeks</span></div>
+<div class="r"><span class="k" data-i18n="industries.r1.minimum.k">Minimum</span><span class="v" data-i18n="industries.r3.minimum.v">Annual commitment</span></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-
 <section class="insight-section">
 <div class="insight-inner rv">
-<div class="insight-quote">"One platform, three commercial routes. <span class="accent">The same engineering rigour, regardless of who is buying.</span>"</div>
-<div class="insight-attr">— The commercial principle</div>
+<div class="insight-quote">"<span data-i18n="industries.insight.lead">One production layer. Three access routes.</span> <span class="accent" data-i18n="industries.insight.accent">Professional accountability stays intact.</span>"</div>
+<div class="insight-attr" data-i18n="industries.insight.attr">— The commercial principle</div>
 </div>
 </section>
-
 <section class="cta-section" id="contact">
 <div class="wrap">
-<div class="smark rv"><span class="num">§ 05</span><span data-i18n="industries.s05.label">Engage</span><span class="dash"></span><span data-i18n="industries.s05.tag">Get the right route</span></div>
+<div class="smark rv"><span class="num">§ 05</span><span data-i18n="industries.s05.label">Engage</span><span class="dash"></span><span data-i18n="industries.s05.tag">Choose the right route</span></div>
 <div class="cta-grid">
 <div class="rv">
-<h2 class="dpy-1" style="font-size:clamp(36px,5vw,68px)" data-i18n="industries.s05.h2">Find the right route.</h2>
-<p class="lead" style="margin-top:32px;max-width:48ch">Engineering consultancies talk to us about platform licences. End buyers can use the portal directly today. Partners and integrators engage via the contact route — typical conversations start with a 30-minute call.</p>
+<h2 class="dpy-1" data-i18n="industries.s05.h2" style="font-size:clamp(36px,5vw,68px)">Find the right route.</h2>
+<p class="lead" data-i18n="industries.cta.lede" style="margin-top:32px;max-width:48ch">Tell us which route fits your workflow. Consultancies usually start with a platform-licence conversation. Developers, lenders and asset managers can test selected modules directly. Partners and integrators should contact us with the workflow they want to embed.</p>
 <div class="cta-actions">
-<a href="https://builtly.ai" class="btn">Open the portal <span class="arr">→</span></a>
-<a href="mailto:contact@builtly.ai" class="btn btn-ghost">contact@builtly.ai</a>
+<a class="btn" href="https://builtly.ai"><span data-i18n="industries.cta.btn.open_portal">Open the portal</span> <span class="arr">→</span></a>
+<a class="btn btn-ghost" href="mailto:contact@builtly.ai">contact@builtly.ai</a>
 </div>
 </div>
 <div class="cta-side rv">
-<div class="row"><span class="k">Platform licence</span><span class="v">contact@builtly.ai</span></div>
-<div class="row"><span class="k">Direct purchase</span><span class="v">builtly.ai</span></div>
-<div class="row"><span class="k">Partner integration</span><span class="v">contact@builtly.ai</span></div>
-<div class="row"><span class="k">Response</span><span class="v">Within 2 days</span></div>
+<div class="row"><span class="k" data-i18n="industries.cta.row.licence.k">Platform licence</span><span class="v">contact@builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="industries.cta.row.direct.k">Direct purchase</span><span class="v">builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="industries.cta.row.partner.k">Partner integration</span><span class="v">contact@builtly.ai</span></div>
+<div class="row"><span class="k" data-i18n="industries.cta.row.response.k">Response</span><span class="v" data-i18n="industries.cta.row.response.v">Within 2 business days</span></div>
 </div>
 </div>
 </div>
 </section>
-
 <footer>
 <div class="wrap">
 <div class="footer-top">
@@ -743,21 +720,21 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="f-col">
 <h5 data-i18n="footer.platform.h">Platform</h5>
 <ul>
-<li><a href="https://builtly.ai" data-i18n="footer.platform.portal">Portal</a></li>
-<li><a href="/platform.html" data-i18n="footer.platform.caps">Capabilities</a></li>
-<li><a href="/industries.html" data-i18n="nav.industries">Industries</a></li>
-<li><a href="/#delivery">Delivery models</a></li>
-<li><a href="/#pipeline" data-i18n="nav.howItWorks">How it works</a></li>
-<li><a href="/#approach">Approach</a></li>
+<li><a data-i18n="footer.platform.portal" href="https://builtly.ai">Portal</a></li>
+<li><a data-i18n="footer.platform.caps" href="/platform.html">Capabilities</a></li>
+<li><a data-i18n="nav.industries" href="/industries.html">Industries</a></li>
+<li><a data-i18n="footer.platform.delivery" href="/#delivery">Delivery models</a></li>
+<li><a data-i18n="nav.howItWorks" href="/#pipeline">How it works</a></li>
+<li><a data-i18n="footer.platform.approach" href="/#approach">Approach</a></li>
 </ul>
 </div>
 <div class="f-col">
 <h5 data-i18n="footer.company.h">Company</h5>
 <ul>
-<li><a href="/about.html" data-i18n="nav.about">About</a></li>
-<li><a href="/careers.html" data-i18n="nav.careers">Careers</a></li>
-<li><a href="/contact.html" data-i18n="footer.company.contact">Contact</a></li>
-<li><a href="/trust.html" data-i18n="footer.company.trust">Trust</a></li>
+<li><a data-i18n="nav.about" href="/about.html">About</a></li>
+<li><a data-i18n="nav.careers" href="/careers.html">Careers</a></li>
+<li><a data-i18n="footer.company.contact" href="/contact.html">Contact</a></li>
+<li><a data-i18n="footer.company.trust" href="/trust.html">Trust</a></li>
 </ul>
 </div>
 <div class="f-col">
@@ -765,7 +742,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <ul>
 <li>contact@builtly.ai</li>
 <li>builtly.ai</li>
-<li><a href="https://builtly.ai" data-i18n="footer.connect.portal">Open portal</a></li>
+<li><a data-i18n="footer.connect.portal" href="https://builtly.ai">Open portal</a></li>
 </ul>
 </div>
 </div>
@@ -775,7 +752,6 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </div>
 </footer>
-
 <script>
 (function(){
   if(!('IntersectionObserver' in window)){
@@ -984,7 +960,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
   requestAnimationFrame(frame);
 })();
 </script>
-
-<script src="/i18n.js" defer></script>
+<script defer="" src="/i18n.js"></script>
 </body>
 </html>
