@@ -19,7 +19,7 @@
       "nav.openPortal":          "Open portal",
       "lang.selectLabel":        "Select language",
       "hero.eyebrow":            "A technology-driven engineering company",
-      "hero.h1":                 "From project data to quality-assured delivery.",
+      "hero.h1":                 "From project data to quality‑assured delivery.",
       "hero.lede.body": "Builtly Engineering combines experienced engineering teams with proprietary software, regulatory logic and hybrid AI in one platform for construction, infrastructure and real estate. The platform automates large parts of standardized engineering deliverables — from project data and computation to documentation and sign-off where required.",
       "hero.lede.tagline": "Local engineering teams. Global software. Scalable engineering delivery.",
       "hero.cta.primary":        "Open the portal",

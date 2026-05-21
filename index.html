@@ -112,9 +112,9 @@ a{color:inherit;text-decoration:none}
 .hero{padding:clamp(40px,7vh,80px) 0 clamp(56px,9vh,112px);position:relative;overflow:hidden}
 .hero-bg-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.55}
 .hero > .wrap{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.52fr) minmax(320px,0.96fr);gap:clamp(40px,5vw,96px);align-items:end}
 @media (max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:48px}}
-.hero h1{margin-top:20px;text-wrap:balance;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:10 5 4;font-size:clamp(38px,5.4vw,76px)}
+.hero h1{margin-top:20px;text-wrap:balance;hyphens:none;-webkit-hyphens:none;font-size:clamp(38px,5.48vw,76px)}
 .hero .lead{margin-top:36px;max-width:48ch}
 .hero .lead.lead-tag{margin-top:16px;font-weight:500;color:var(--ink);font-size:clamp(15px,1.2vw,18px)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:48px}
@@ -1309,7 +1309,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="hero-grid rv">
 <div>
 <div class="eyebrow"><span class="accent-dot"></span><span data-i18n="hero.eyebrow">A technology-driven engineering company</span></div>
-<h1 class="dpy-1"><span data-i18n="hero.h1">From project data to quality-assured delivery.</span></h1>
+<h1 class="dpy-1"><span data-i18n="hero.h1">From project data to quality‑assured delivery.</span></h1>
 <p class="lead"><span data-i18n="hero.lede.body">Builtly Engineering combines experienced engineering teams with proprietary software, regulatory logic and hybrid AI in one platform for construction, infrastructure and real estate. The platform automates large parts of standardized engineering deliverables — from project data and computation to documentation and sign-off where required.</span></p>
 <p class="lead lead-tag"><span data-i18n="hero.lede.tagline">Local engineering teams. Global software. Scalable engineering delivery.</span></p>
 <div class="hero-actions">
