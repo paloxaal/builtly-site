@@ -149,6 +149,13 @@ a{color:inherit;text-decoration:none}
 .trust-foot{margin-top:clamp(20px,3vh,32px);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);text-align:center}
 .trust-foot .num{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
 
+/* OWNERS WALL — industrial ownership, monochrome on cream */
+.owners-block{margin-top:clamp(44px,6vh,76px)}
+.owners-wall{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(28px,4.5vw,60px);margin-top:clamp(22px,3vh,34px)}
+.owners-wall img{height:clamp(22px,2.4vw,30px);width:auto;max-width:190px;object-fit:contain;filter:grayscale(1);opacity:0.5;transition:opacity 0.22s ease,filter 0.22s ease}
+.owners-wall img:hover{filter:grayscale(0);opacity:1}
+@media (max-width:560px){.owners-wall{gap:24px 34px}.owners-wall img{height:20px}}
+
 .team-secondary{margin-top:clamp(56px,8vh,88px);padding-top:clamp(40px,5.5vh,56px);border-top:1px solid var(--line)}
 .team-secondary h4{font-size:clamp(20px,2.2vw,28px);margin-bottom:32px;font-weight:600;letter-spacing:-0.018em}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 48px}
@@ -916,7 +923,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="lead-block lead-block-advisory">
 <div class="lead-subhead">
 <span class="lead-suplabel" data-i18n="about.lead.sub1.label">Board</span>
-<span class="lead-supcount" data-i18n="about.lead.sub1.count">02 members · governance</span>
+<span class="lead-supcount" data-i18n="about.lead.sub1.count">04 members · governance</span>
 </div>
 <div class="seats-stack rvs">
 
@@ -944,9 +951,50 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </article>
 
+<article class="seat">
+<div class="seat-id">
+<div class="seat-photo"><img src="photos/roar-munkhaugen.png" alt="Roar Munkhaugen" loading="lazy"/></div>
+<div class="seat-num">06</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.advisor">Board Member</div>
+<h3 class="seat-name" data-i18n="about.board.s6.name">Roar Munkhaugen</h3>
+<p class="seat-bio" data-i18n="about.board.s6.bio">Roar Munkhaugen owns and leads Heimdal Bolig, one of Central Norway's largest residential developers, which he took over from the Heimdal Group. The Heimdal Group historically also held the contractor HENT — today part of Sentia ASA, a Nordic construction group listed on Oslo Børs and one of the region's largest contractors. Roar contributes decades of operational experience from large-scale residential development and construction.</p>
+</div>
+</article>
+
+<article class="seat">
+<div class="seat-id">
+<div class="seat-photo"><img src="photos/tollef-svenkerud.png" alt="Tollef Svenkerud" loading="lazy"/></div>
+<div class="seat-num">07</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.advisor">Board Member</div>
+<h3 class="seat-name" data-i18n="about.board.s7.name">Tollef Svenkerud</h3>
+<p class="seat-bio" data-i18n="about.board.s7.bio">Tollef Svenkerud is the co-founder and co-owner of Fredensborg Bolig, which he owns together with Ivar Tollefsen's Fredensborg AS. With more than 20 years in real estate, he has built and sold over 1,500 homes with a combined sales value exceeding NOK 5 billion, and has founded and owned several companies along the way. He is particularly active in acquisition, transactions and financing. Fredensborg Bolig is a nationwide developer with thousands of homes under development.</p>
+</div>
+</article>
+
 </div>
 </div>
 END STYRET-BLOKK -->
+
+<div class="lead-block owners-block rv">
+<div class="lead-subhead">
+<span class="lead-suplabel" data-i18n="about.owners.label">Owners and industrial partners</span>
+<span class="lead-supcount" data-i18n="about.owners.foot">Industrial ownership behind the platform</span>
+</div>
+<div class="owners-wall rvs">
+<img src="logos/balder.png" alt="Balder" loading="lazy"/>
+<img src="logos/byggteknikk.png" alt="Byggteknikk" loading="lazy"/>
+<img src="logos/bolig-norge.png" alt="Bolig Norge" loading="lazy"/>
+<img src="logos/heimdal.png" alt="Heimdal Bolig" loading="lazy"/>
+<!-- Last opp offisielle logoer som logos/fredensborg.png og logos/furuholmen.png, og fjern kommentaren under:
+<img src="logos/fredensborg.png" alt="Fredensborg Bolig" loading="lazy"/>
+<img src="logos/furuholmen.png" alt="Furuholmen Eiendom" loading="lazy"/>
+-->
+</div>
+</div>
 
 </div>
 </section>
