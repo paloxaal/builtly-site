@@ -2306,6 +2306,28 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </section>
 
+<!-- Founding companies — discreet, uniform-tone logo strip (no labels) -->
+<style>
+.founders-strip{border-top:1px solid var(--line);padding:clamp(30px,4.6vh,50px) 24px;background:var(--bg)}
+.founders-wrap{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(22px,3vw,44px)}
+.founders-strip .fl{display:inline-block;height:24px;background:var(--ink);opacity:0.26;
+  -webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat;
+  transition:opacity .25s ease}
+.founders-strip .fl:hover{opacity:0.5}
+@media (max-width:640px){.founders-wrap{gap:24px 34px}.founders-strip .fl{height:19px}}
+</style>
+<section class="founders-strip" aria-label="Companies involved from the start">
+<div class="founders-wrap">
+<span class="fl" style="--m:url(/logos/balder.png);width:48px"></span>
+<span class="fl" style="--m:url(/logos/byggteknikk.png);width:208px"></span>
+<span class="fl" style="--m:url(/logos/bolig-norge.png);width:57px"></span>
+<span class="fl" style="--m:url(/logos/heimdal.png);width:60px"></span>
+<span class="fl" style="--m:url(/logos/fredensborg.svg);width:141px"></span>
+<span class="fl" style="--m:url(/logos/furuholmen.svg);width:118px"></span>
+<span class="fl" style="--m:url(/logos/spennarmering.svg);width:79px"></span>
+</div>
+</section>
+
 <footer>
 <div class="wrap">
 <div class="footer-top">
