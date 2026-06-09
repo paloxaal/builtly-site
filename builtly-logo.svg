@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 30" width="208" height="30" role="img" aria-label="Builtly Engineering">
+  <style><![CDATA[
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600&family=JetBrains+Mono:wght@500&display=swap');
+    .wm{font-family:'Manrope','Helvetica Neue',system-ui,sans-serif;font-size:18px;font-weight:600;letter-spacing:-0.3px;fill:#131820}
+    .sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:500;letter-spacing:1.8px;fill:#6A6E76}
+  ]]></style>
+  <rect x="1.75" y="2" width="26" height="26" rx="5" fill="none" stroke="#131820" stroke-width="1.5"/>
+  <circle cx="19.75" cy="10" r="3" fill="#14B8A6"/>
+  <text class="wm" x="39.5" y="21">Builtly</text>
+  <text class="sub" x="118" y="18.7">ENGINEERING</text>
+</svg>
