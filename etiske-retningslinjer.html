@@ -48,6 +48,7 @@ a{color:inherit;text-decoration:none}
 .nav-links a:hover{color:var(--accent)}
 @media (max-width:980px){.nav-links{display:none}}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:var(--ink);color:var(--bg);font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-0.005em;border:0;cursor:pointer;white-space:nowrap;transition:background 0.18s ease}
+.nav-cta{display:flex;align-items:center;gap:12px}.nav .btn{padding:8px 15px;font-size:12px}.nav .btn-ghost{padding:7px 14px}@media (max-width:640px){.nav .btn-ghost{display:none}}
 .btn:hover{background:var(--accent)}
 .btn .arr{transition:transform 0.18s ease}
 .btn:hover .arr{transform:translateX(3px)}
@@ -131,11 +132,11 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 <div class="nav-links">
 <a href="/platform.html" data-i18n="nav.platform">Platform</a>
 <a href="/industries.html" data-i18n="nav.industries">Industries</a>
-<a href="https://maps.builtly.ai/" data-i18n="nav.maps">Maps</a>
 <a href="/#pipeline" data-i18n="nav.howItWorks">How it works</a>
 <a href="/about.html" data-i18n="nav.about">About</a>
 <a href="/careers.html" data-i18n="nav.careers">Careers</a>
 </div>
+<div class="nav-cta">
 <div class="lang-wrap">
 <button class="lang-picker" id="langPicker" aria-haspopup="true" aria-expanded="false" aria-label="Select language" data-i18n-attr-aria-label="lang.selectLabel">
 <svg class="lang-globe" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13"/></svg>
@@ -151,7 +152,9 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 <button class="lang-option" data-lang="da" role="menuitem">Danish<span class="native">Dansk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
 </div>
+<a href="https://maps.builtly.ai/" class="btn btn-ghost"><span data-i18n="nav.maps">Maps</span></a>
 <a href="https://app.builtly.ai" class="btn"><span data-i18n="nav.openPortal">Open portal</span> <span class="arr">→</span></a>
+</div>
 </div>
 </nav>
 
