@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Careers at Builtly Engineering — build the platform engineering needs." />
+<meta name="description" content="Builtly Maps — live property intelligence for any address, owner or company in Norway. Matrikkel, ownership, regulation, risk, area reports, tenant and plot radar — connected to the Builtly engineering modules." />
 <meta name="theme-color" content="#FAFAF7" />
-<title>Careers · Builtly Engineering</title>
+<title>Builtly Maps · Property intelligence for real estate</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
@@ -83,11 +83,11 @@ a{color:inherit;text-decoration:none}
 @media (max-width:520px){.nav-inner{gap:14px;padding:14px var(--gutter)}.logo .sub{display:none}.btn{padding:9px 14px;font-size:12px}}
 
 /* HERO */
-.hero{padding:clamp(80px,12vh,140px) 0 clamp(64px,10vh,112px)}
+.hero{padding:clamp(80px,12vh,140px) 0 clamp(56px,9vh,96px)}
 .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
 @media (max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:40px}}
 .hero h1{margin-top:20px}
-.hero .lead{margin-top:32px;max-width:48ch}
+.hero .lead{margin-top:32px;max-width:50ch}
 .hero-meta{display:flex;flex-direction:column;align-self:end;padding-bottom:8px}
 .hero-meta .row{padding:16px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:baseline}
 .hero-meta .row:first-child{border-top:1px solid var(--ink)}
@@ -95,66 +95,93 @@ a{color:inherit;text-decoration:none}
 .hero-meta .row .v{font-family:var(--font-display);font-size:14px;font-weight:500;color:var(--ink);letter-spacing:-0.005em;text-align:right}
 .hero-meta .row .v .accent-text{color:var(--accent)}
 
-/* PROPOSITION STRIP */
-.prop-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
-.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);max-width:var(--max);margin:0 auto}
-@media (max-width:900px){.prop-grid{grid-template-columns:1fr}}
-.prop-cell{padding:clamp(40px,5.5vh,56px) clamp(22px,2.4vw,36px);border-right:1px solid var(--line)}
-.prop-cell:last-child{border-right:0}
-@media (max-width:900px){.prop-cell{border-right:0;border-bottom:1px solid var(--line)}.prop-cell:last-child{border-bottom:0}}
-.prop-cell .ix{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:14px}
-.prop-cell h4{font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-0.018em;color:var(--ink);margin-bottom:14px;line-height:1.15}
-.prop-cell p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+/* JUMP NAV */
+.jump-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg);padding:0}
+.jump-inner{max-width:var(--max);margin:0 auto;padding:18px var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,2.4vw,32px);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid)}
+.jump-inner .lbl{color:var(--ink-soft);font-weight:600}
+.jump-inner a{padding:6px 0;transition:color 0.18s;border-bottom:1px solid transparent}
+.jump-inner a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.jump-inner .sep{opacity:0.4}
 
-/* HOW WE WORK */
-.how-section{background:var(--bg-soft)}
-.how-top{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(56px,8vh,80px)}
-@media (max-width:900px){.how-top{grid-template-columns:1fr}}
-.how-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
-.how-item{display:grid;grid-template-columns:clamp(60px,7vw,100px) 1.4fr 1fr;gap:clamp(24px,3.5vw,56px);padding:clamp(28px,4vh,44px) 0;border-bottom:1px solid var(--ink);align-items:start}
-@media (max-width:900px){.how-item{grid-template-columns:1fr;gap:14px}}
-.how-item .pnum{font-family:var(--font-display);font-size:clamp(28px,3vw,48px);font-weight:300;letter-spacing:-0.02em;color:var(--accent);line-height:1;font-feature-settings:"tnum"}
-.how-item h3{font-size:clamp(20px,2.2vw,28px);line-height:1.15;letter-spacing:-0.018em;font-weight:600;color:var(--ink)}
-.how-item p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6;max-width:46ch}
+/* ARCHITECTURE */
+.arch-section{background:var(--bg-soft)}
+.arch-top{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(56px,8vh,80px)}
+@media (max-width:900px){.arch-top{grid-template-columns:1fr}}
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+@media (max-width:900px){.arch-grid{grid-template-columns:1fr}}
+.arch-cell{background:var(--bg-soft);padding:clamp(28px,3.6vw,40px);display:flex;flex-direction:column;min-height:240px;position:relative}
+.arch-cell .ix{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:18px}
+.arch-cell h4{font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-0.018em;color:var(--ink);margin-bottom:14px;line-height:1.15}
+.arch-cell p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6;flex-grow:1}
+.arch-cell .tail{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid)}
+.arch-cell .tail strong{color:var(--ink);font-weight:600;display:block;margin-bottom:4px}
 
-/* OPEN POSITIONS */
-.pos-section{background:var(--bg)}
-.pos-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(48px,7vh,72px)}
-@media (max-width:900px){.pos-intro{grid-template-columns:1fr}}
-.pos-group{margin-bottom:clamp(48px,7vh,72px)}
-.pos-group:last-child{margin-bottom:0}
-.pos-head{display:flex;align-items:baseline;gap:18px;padding:14px 0;border-top:1px solid var(--ink);flex-wrap:wrap}
-.pos-head .tag{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;padding:4px 9px;color:var(--bg);background:var(--ink)}
-.pos-head .tag.accent{background:var(--accent)}
-.pos-head .tag.mid{background:var(--mid)}
-.pos-head h3{font-family:var(--font-display);font-size:clamp(19px,2vw,26px);letter-spacing:-0.015em;font-weight:600;color:var(--ink)}
-.pos-head .count{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);margin-left:auto}
-@media (max-width:760px){.pos-head .count{margin-left:0;width:100%}}
-.pos-list{border-top:1px solid var(--line)}
-.pos-row{display:grid;grid-template-columns:1.6fr 0.9fr 0.8fr 0.4fr;gap:clamp(16px,2.5vw,40px);padding:clamp(24px,3.2vh,32px) 0;border-bottom:1px solid var(--line);align-items:center;transition:padding 0.2s ease;text-decoration:none}
-.pos-row:hover{padding-left:8px}
-@media (max-width:800px){.pos-row{grid-template-columns:1fr;gap:8px;padding:24px 0}.pos-row:hover{padding-left:0}}
-.pos-row .pos-title{display:flex;flex-direction:column;gap:6px}
-.pos-row .pos-name{font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-0.018em;color:var(--ink);line-height:1.1}
-.pos-row .pos-desc{font-size:14px;color:var(--ink-soft);line-height:1.5;max-width:50ch;margin-top:4px}
-.pos-row .pos-meta{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.12em}
-.pos-row .pos-type{font-family:var(--font-mono);font-size:11px;color:var(--mid);text-transform:uppercase;letter-spacing:0.14em}
-.pos-row .pos-arr{font-family:var(--font-display);font-size:22px;color:var(--accent);text-align:right;transition:transform 0.2s ease;font-weight:400}
-.pos-row:hover .pos-arr{transform:translateX(4px)}
-@media (max-width:800px){.pos-row .pos-arr{display:none}}
+/* MODULE TIER */
+.tier-section{background:var(--bg)}
+.tier-section.alt{background:var(--bg-soft)}
+.tier-section.dark{background:var(--dark);color:var(--dark-paper)}
+.tier-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(48px,7vh,72px)}
+@media (max-width:900px){.tier-intro{grid-template-columns:1fr}}
+.tier-section.dark .tier-intro p{color:rgba(247,244,237,0.86)}
 
-/* HIRING PROCESS */
-.proc-section{background:var(--dark);color:var(--dark-paper)}
-.proc-top{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(56px,8vh,80px)}
-@media (max-width:900px){.proc-top{grid-template-columns:1fr}}
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark-strong);border:1px solid var(--line-dark-strong)}
-@media (max-width:900px){.proc-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.proc-grid{grid-template-columns:1fr}}
-.proc-step{background:var(--dark);padding:clamp(28px,3.4vw,40px);display:flex;flex-direction:column;min-height:240px}
-.proc-step .ix{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent-bright);font-weight:600;margin-bottom:24px}
-.proc-step .num{font-family:var(--font-display);font-size:clamp(40px,4.4vw,64px);font-weight:300;letter-spacing:-0.03em;color:var(--dark-paper);line-height:1;margin-bottom:16px;font-feature-settings:"tnum"}
-.proc-step h4{font-family:var(--font-display);font-size:clamp(17px,1.8vw,22px);font-weight:600;letter-spacing:-0.015em;color:var(--dark-paper);margin-bottom:12px;line-height:1.2}
-.proc-step p{margin:0;color:rgba(247,244,237,0.78);font-size:14px;line-height:1.55;flex-grow:1}
+.tier-meta{display:flex;align-items:baseline;gap:18px;padding:14px 0;border-top:1px solid var(--ink);flex-wrap:wrap;margin-bottom:clamp(40px,6vh,56px)}
+.tier-section.dark .tier-meta{border-top:1px solid var(--line-dark-strong)}
+.tier-meta .tag{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;padding:4px 9px;color:var(--bg);background:var(--ink)}
+.tier-section.dark .tier-meta .tag{background:var(--dark-paper);color:var(--dark)}
+.tier-meta .tag.accent{background:var(--accent);color:var(--bg)}
+.tier-meta .tag.mid{background:var(--mid)}
+.tier-meta h3{font-family:var(--font-display);font-size:clamp(19px,2vw,26px);letter-spacing:-0.015em;font-weight:600;color:inherit}
+.tier-meta .desc{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);margin-left:auto}
+.tier-section.dark .tier-meta .desc{color:rgba(247,244,237,0.55)}
+@media (max-width:760px){.tier-meta .desc{margin-left:0;width:100%}}
+
+/* MODULE DETAIL CARDS */
+.mods{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+.tier-section.dark .mods{background:var(--line-dark-strong);border:1px solid var(--line-dark-strong)}
+.mod{background:var(--bg);padding:clamp(28px,3.4vw,44px);display:grid;grid-template-columns:0.7fr 2fr 1.2fr;gap:clamp(24px,3.5vw,56px);align-items:start;transition:background 0.2s ease}
+.tier-section.alt .mod{background:var(--bg-soft)}
+.tier-section.dark .mod{background:var(--dark)}
+.mod:hover{background:var(--bg-warm)}
+.tier-section.alt .mod:hover{background:var(--bg-warm)}
+.tier-section.dark .mod:hover{background:var(--dark-soft)}
+@media (max-width:900px){.mod{grid-template-columns:1fr;gap:20px}}
+
+.mod-id .code{font-family:var(--font-display);font-size:clamp(36px,4.4vw,64px);font-weight:500;letter-spacing:-0.03em;color:var(--ink);line-height:1;margin-bottom:8px}
+.tier-section.dark .mod-id .code{color:var(--dark-paper)}
+.mod-id .nm{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;color:var(--accent);line-height:1.5}
+.tier-section.dark .mod-id .nm{color:var(--accent-bright)}
+.mod-id .ix{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.tier-section.dark .mod-id .ix{color:rgba(247,244,237,0.55);border-top-color:var(--line-dark)}
+
+.mod-body h4{font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-0.018em;color:var(--ink);margin-bottom:14px;line-height:1.18}
+.tier-section.dark .mod-body h4{color:var(--dark-paper)}
+.mod-body p{margin:0 0 14px 0;color:var(--ink-soft);font-size:14.5px;line-height:1.6;max-width:58ch}
+.tier-section.dark .mod-body p{color:rgba(247,244,237,0.78)}
+.mod-body p:last-child{margin-bottom:0}
+
+.mod-meta{display:flex;flex-direction:column;gap:0}
+.mod-meta .row{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:10px 0;border-top:1px solid var(--line);align-items:baseline;font-family:var(--font-mono);font-size:12px;line-height:1.55}
+.tier-section.dark .mod-meta .row{border-top-color:var(--line-dark)}
+.mod-meta .row:first-child{border-top:0;padding-top:0}
+.mod-meta .row .k{color:var(--mid);text-transform:uppercase;letter-spacing:0.14em;font-size:10.5px;white-space:nowrap}
+.tier-section.dark .mod-meta .row .k{color:rgba(247,244,237,0.55)}
+.mod-meta .row .v{color:var(--ink);font-weight:500;letter-spacing:-0.005em}
+.tier-section.dark .mod-meta .row .v{color:var(--dark-paper)}
+.mod-meta .level{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);font-weight:600}
+.tier-section.dark .mod-meta .level{border-top-color:var(--line-dark);color:var(--accent-bright)}
+
+/* TECH FOUNDATIONS */
+.foundations-section{background:var(--dark);color:var(--dark-paper)}
+.foundations-top{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(48px,7vh,72px)}
+@media (max-width:900px){.foundations-top{grid-template-columns:1fr}}
+.foundations-top p{color:rgba(247,244,237,0.86)}
+.foundations-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-dark-strong);border:1px solid var(--line-dark-strong)}
+@media (max-width:760px){.foundations-grid{grid-template-columns:1fr}}
+.foundation{background:var(--dark);padding:clamp(28px,3.4vw,40px);display:flex;flex-direction:column}
+.foundation .ix{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent-bright);font-weight:600;margin-bottom:18px}
+.foundation h4{font-size:clamp(20px,2.2vw,26px);font-weight:600;letter-spacing:-0.018em;color:var(--dark-paper);margin-bottom:14px;line-height:1.2}
+.foundation p{margin:0;color:rgba(247,244,237,0.82);font-size:14.5px;line-height:1.6}
+.foundation .stack{margin-top:18px;padding-top:14px;border-top:1px solid var(--line-dark);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:rgba(247,244,237,0.62);line-height:1.7}
 
 /* INSIGHT */
 .insight-section{background:var(--bg);padding:clamp(80px,12vh,140px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -187,20 +214,17 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .f-col li{padding:5px 0;font-size:14px;line-height:1.5}
 .f-col a:hover{color:var(--accent)}
 .footer-bot{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid)}
-.footer-legal{flex-basis:100%;margin-top:8px;text-transform:none;letter-spacing:0.04em;opacity:0.7;font-size:11px}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(0.2,0.7,0.2,1),transform 0.8s cubic-bezier(0.2,0.7,0.2,1)}
 .rv.in{opacity:1;transform:translateY(0)}
 .rvs > *{opacity:0;transform:translateY(18px);transition:opacity 0.65s cubic-bezier(0.2,0.7,0.2,1),transform 0.65s cubic-bezier(0.2,0.7,0.2,1)}
 .rvs.in > *:nth-child(1){opacity:1;transform:translateY(0);transition-delay:0.04s}
-.rvs.in > *:nth-child(2){opacity:1;transform:translateY(0);transition-delay:0.09s}
-.rvs.in > *:nth-child(3){opacity:1;transform:translateY(0);transition-delay:0.14s}
-.rvs.in > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:0.19s}
-.rvs.in > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:0.24s}
-.rvs.in > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:0.29s}
-.rvs.in > *:nth-child(7){opacity:1;transform:translateY(0);transition-delay:0.34s}
-.rvs.in > *:nth-child(8){opacity:1;transform:translateY(0);transition-delay:0.39s}
+.rvs.in > *:nth-child(2){opacity:1;transform:translateY(0);transition-delay:0.08s}
+.rvs.in > *:nth-child(3){opacity:1;transform:translateY(0);transition-delay:0.12s}
+.rvs.in > *:nth-child(4){opacity:1;transform:translateY(0);transition-delay:0.16s}
+.rvs.in > *:nth-child(5){opacity:1;transform:translateY(0);transition-delay:0.20s}
+.rvs.in > *:nth-child(6){opacity:1;transform:translateY(0);transition-delay:0.24s}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}.rv,.rvs > *{opacity:1 !important;transform:none !important}html{scroll-behavior:auto}}
 
 /* HERO AMBIENT FLOCKING SUPPORT */
@@ -333,6 +357,39 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
   }
 }
 </style>
+<style>
+/* Builtly Maps page */
+.mp-hero{padding:clamp(40px,7vh,84px) 0 clamp(20px,3vh,32px)}
+.mp-hero-grid{display:grid;grid-template-columns:1.02fr 0.98fr;gap:clamp(32px,5vw,64px);align-items:center}
+@media(max-width:920px){.mp-hero-grid{grid-template-columns:1fr;gap:34px}}
+.mp-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(26px,3.5vh,38px)}
+.mp-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-top:clamp(36px,5vh,56px)}
+@media(max-width:860px){.mp-feat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.mp-feat-grid{grid-template-columns:1fr}}
+.mp-feat{background:var(--bg);padding:clamp(22px,2.5vw,30px)}
+.mp-feat .ic{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent-soft);font-weight:600}
+.mp-feat h3{font-family:var(--font-display);font-size:clamp(17px,1.5vw,20px);font-weight:600;letter-spacing:-0.015em;margin:9px 0 7px;color:var(--ink)}
+.mp-feat p{font-size:13.5px;line-height:1.6;color:var(--ink-soft);margin:0}
+.mp-diff{background:var(--ink);color:var(--dark-paper);border-radius:16px;padding:clamp(28px,4vw,52px);margin-top:clamp(40px,5vh,64px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,48px);align-items:center}
+@media(max-width:820px){.mp-diff{grid-template-columns:1fr;gap:22px}}
+.mp-diff h2{color:var(--dark-paper);font-family:var(--font-display);font-size:clamp(24px,2.6vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;margin:0}
+.mp-diff p{color:rgba(247,244,237,0.72);font-size:15px;line-height:1.6;margin:14px 0 0}
+.mp-diff .echip{font-family:var(--font-mono);font-size:11px;font-weight:600;color:#5EEAD4;background:rgba(94,234,212,0.10);border:1px solid rgba(94,234,212,0.30);border-radius:999px;padding:5px 12px;display:inline-block;margin:5px 5px 0 0}
+/* property-card mockup */
+.maps-mock{border:1px solid var(--line-strong);border-radius:14px;background:var(--bg);padding:clamp(16px,2.2vw,24px)}
+.maps-mock-head{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.maps-mock-head .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.maps-mock-head .ttl{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:-0.01em;color:var(--ink)}
+.maps-mock-head .addr{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--mid);letter-spacing:0.03em}
+.maps-mock-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:560px){.maps-mock-grid{grid-template-columns:repeat(2,1fr)}.maps-mock-head .addr{display:none}}
+.mchip{border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid);background:var(--bg-soft)}
+.mchip b{display:block;font-family:var(--font-display);font-size:13px;color:var(--ink);font-weight:600;letter-spacing:-0.01em;margin-top:3px;text-transform:none}
+.maps-mock-eng{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-strong)}
+.maps-mock-eng .lbl{width:100%;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);margin-bottom:3px}
+.echip{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.02em;color:var(--accent-soft);background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.28);border-radius:999px;padding:5px 12px}
+.maps-mock-badge{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.04em;color:var(--bg);background:var(--ink);border-radius:999px;padding:7px 14px}
+</style>
 </head>
 <body>
 
@@ -344,7 +401,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <a href="/industries.html" data-i18n="nav.industries">Industries</a>
 <a href="/#pipeline" data-i18n="nav.howItWorks">How it works</a>
 <a href="/about.html" data-i18n="nav.about">About</a>
-<a href="/careers.html" class="active" data-i18n="nav.careers">Careers</a>
+<a href="/careers.html" data-i18n="nav.careers">Careers</a>
 </div>
 <div class="nav-cta">
 <div class="lang-wrap">
@@ -368,276 +425,40 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </nav>
 
-<section class="hero" id="top">
-<canvas class="hero-bg-canvas" id="heroBgCanvas" aria-hidden="true"></canvas>
+<section class="section mp-hero" id="top">
 <div class="wrap">
-<div class="hero-grid rv">
-<div>
-<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="careers.hero.eyebrow">Careers at Builtly Engineering</span></div>
-<h1 class="dpy-1" data-i18n-html="careers.hero.h1">Build the platform<br/>engineering needs.</h1>
-<p class="lead" data-i18n-html="careers.hero.lede">Builtly is a small, deliberate team rebuilding the production layer of consulting engineering. The work is technically demanding, professionally accountable, and unusually consequential. <span class="serif" data-i18n="careers.lede">We hire for judgment, depth and the long horizon.</span></p>
-</div>
-<div class="hero-meta">
-<div class="row"><span class="k" data-i18n="careers.meta.r1.k">Open roles</span><span class="v" data-i18n-html="careers.meta.r1.v"><span class="accent-text">●</span> &nbsp; 8 positions</span></div>
-<div class="row"><span class="k" data-i18n="careers.meta.r2.k">Team</span><span class="v" data-i18n="careers.meta.r2.v">Small, senior, growing</span></div>
-<div class="row"><span class="k" data-i18n="careers.meta.r3.k">Locations</span><span class="v" data-i18n="careers.meta.r3.v">Remote · hybrid</span></div>
-<div class="row"><span class="k" data-i18n="careers.meta.r4.k">Apply</span><span class="v" data-i18n="careers.meta.r4.v">careers@builtly.ai</span></div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="prop-strip">
-<div class="prop-grid rvs">
-<div class="prop-cell">
-<div class="ix"><span class="num">§ 01</span> / <span data-i18n="careers.smark.work">The work</span></div>
-<h4 data-i18n="careers.why.p1.h4">Build something that ships.</h4>
-<p data-i18n="careers.why.p1.body">The platform is in production. Real engineers use it under regulatory authority. What you ship is reviewed by professional engineers and used to produce signed deliverables. No vapor, no PowerPoint roadmaps — code that becomes engineering.</p>
-</div>
-<div class="prop-cell">
-<div class="ix"><span class="num">§ 02</span> / <span data-i18n="careers.smark.domain">The domain</span></div>
-<h4 data-i18n="careers.why.p2.h4">Engineering, end to end.</h4>
-<p data-i18n="careers.why.p2.body">Mathematics. Physics. Geometry. AI. Regulatory frameworks across multiple jurisdictions. Every engineering discipline meets every modern technology at Builtly. The intersection is where the interesting problems live.</p>
-</div>
-<div class="prop-cell">
-<div class="ix"><span class="num">§ 03</span> / <span data-i18n="careers.smark.horizon">The horizon</span></div>
-<h4 data-i18n="careers.why.p3.h4">A long, deliberate build.</h4>
-<p data-i18n="careers.why.p3.body">This is not a sprint to an exit. It is a multi-year platform rebuild of a regulated profession. We hire people who want to be here in seven years, doing better work than they were doing in year one. Compensation, ownership and growth match the horizon.</p>
-</div>
-</div>
-</section>
-
-<section class="section how-section">
-<div class="wrap">
-<div class="smark rv"><span class="num">§ 01</span><span data-i18n="careers.s01.label">How we work</span><span class="dash"></span><span data-i18n="careers.s01.tag">What does not change</span></div>
-<div class="how-top rv">
-<div>
-<h2 class="dpy-2" data-i18n="careers.s01.h2">Working principles.</h2>
-</div>
-<p class="lead" data-i18n-html="careers.s01.lede">Builtly is run as the kind of company an engineer would want to work in. The principles below are not aspirational — they govern how decisions get made.</p>
-</div>
-
-<ol class="how-list rvs">
-<li class="how-item">
-<div class="pnum">01</div>
-<div>
-<h3 data-i18n="careers.princ.p1.h3">Engineering judgment first.</h3>
-</div>
-<p data-i18n="careers.princ.p1.body">The discipline that owns the work owns the decision. Engineers run engineering. Software runs software. Neither overrides the other on the other's domain. Disagreements are resolved by talking to the person with the regulatory authority.</p>
-</li>
-<li class="how-item">
-<div class="pnum">02</div>
-<div>
-<h3 data-i18n="careers.princ.p2.h3">Quality over velocity.</h3>
-</div>
-<p data-i18n="careers.princ.p2.body">The platform produces work that humans sign and clients pay for. We move at the speed of getting it right, not at the speed of demos. Shipped code is reviewed by engineers, not by sprint cadence.</p>
-</li>
-<li class="how-item">
-<div class="pnum">03</div>
-<div>
-<h3 data-i18n="careers.princ.p3.h3">Small, senior, long-running teams.</h3>
-</div>
-<p data-i18n="careers.princ.p3.body">We hire experienced people, give them ownership, and keep teams small enough that everyone can hold the whole system in their head. Permanence over rotation. Depth over breadth of org chart.</p>
-</li>
-<li class="how-item">
-<div class="pnum">04</div>
-<div>
-<h3 data-i18n="careers.princ.p4.h3">Open formats. No proprietary lock.</h3>
-</div>
-<p data-i18n="careers.princ.p4.body">Builtly itself is built on open standards: IFC4, BCF, GeoJSON, Eurocode logic. The same applies internally — documents, infrastructure, communication. Nothing locked behind one vendor or one person.</p>
-</li>
-<li class="how-item">
-<div class="pnum">05</div>
-<div>
-<h3 data-i18n="careers.princ.p5.h3">Remote first. Deliberate in-person.</h3>
-</div>
-<p data-i18n="careers.princ.p5.body">The work is digital. The team is distributed. We meet in person several times per year for the kind of work that benefits from a whiteboard and a long table. The rest of the time, we work where we work best.</p>
-</li>
-</ol>
-</div>
-</section>
-
-<section class="section pos-section" id="open-roles">
-<div class="wrap">
-<div class="smark rv"><span class="num">§ 02</span><span data-i18n="careers.s02.label">Open positions</span><span class="dash"></span><span data-i18n="careers.s02.tag">8 roles · across platform &amp; disciplines</span></div>
-<div class="pos-intro rv">
-<div>
-<h2 class="dpy-2" data-i18n="careers.s02.h2">Open roles.</h2>
-</div>
-<p class="lead" data-i18n-html="careers.s02.lede">We hire across the platform and across engineering disciplines. Every role is permanent, with a real ownership stake. If a role describes someone close to you but not exactly you — apply anyway. We hire for trajectory.</p>
-</div>
-
-<!-- Platform & Engineering -->
-<div class="pos-group rv">
-<div class="pos-head">
-<span class="tag accent" data-i18n="careers.cat.platform">Platform &amp; Engineering</span>
-<h3 data-i18n="careers.role.s1.h3">Software, AI and algorithmic engineering</h3>
-<span class="count">3 <span data-i18n="careers.open_n">open</span></span>
-</div>
-<div class="pos-list rvs">
-<a href="mailto:careers@builtly.ai?subject=Senior%20Platform%20Engineer" class="pos-row">
-<div class="pos-title">
-<span class="pos-name" data-i18n="careers.pos.1.name">Senior Platform Engineer</span>
-<span class="pos-desc" data-i18n="careers.pos.1.desc">Build the underlying platform that the engineering modules run on. Backend architecture, distributed systems, data pipelines and integration with regulatory data sources. Strong systems engineering background.</span>
-</div>
-<span class="pos-meta" data-i18n="careers.pos.1.meta">Engineering</span>
-<span class="pos-type" data-i18n="careers.pos.1.type">Full-time · Remote</span>
-<span class="pos-arr">→</span>
-</a>
-<a href="mailto:careers@builtly.ai?subject=AI%20Engineer" class="pos-row">
-<div class="pos-title">
-<span class="pos-name" data-i18n="careers.pos.2.name">AI Engineer · Hybrid architecture</span>
-<span class="pos-desc" data-i18n="careers.pos.2.desc">Build and tune the hybrid AI architecture behind Builtly. Multi-engine orchestration of proprietary, Anthropic and OpenAI models, regulation-constrained inference, vision-based parsing of engineering documents. Senior ML or research engineering background.</span>
-</div>
-<span class="pos-meta" data-i18n="careers.pos.2.meta">AI / ML</span>
-<span class="pos-type" data-i18n="careers.pos.2.type">Full-time · Remote</span>
-<span class="pos-arr">→</span>
-</a>
-<a href="mailto:careers@builtly.ai?subject=Algorithmic%20Engineer" class="pos-row">
-<div class="pos-title">
-<span class="pos-name" data-i18n="careers.pos.3.name">Algorithmic Engineer · Mathematics</span>
-<span class="pos-desc" data-i18n="careers.pos.3.desc">Implement the deterministic numerical algorithms behind structural, geotechnical and acoustic calculations. Finite element methods, computational geometry, numerical optimisation. Strong mathematics and engineering computation background.</span>
-</div>
-<span class="pos-meta" data-i18n="careers.pos.3.meta">Engineering</span>
-<span class="pos-type" data-i18n="careers.pos.3.type">Full-time · Remote</span>
-<span class="pos-arr">→</span>
-</a>
-</div>
-</div>
-
-<!-- Engineering Disciplines -->
-<div class="pos-group rv">
-<div class="pos-head">
-<span class="tag mid" data-i18n="careers.cat.engineering">Engineering disciplines</span>
-<h3 data-i18n="careers.role.s2.h3">Professional engineers with regulatory authority</h3>
-<span class="count">4 <span data-i18n="careers.open_n">open</span></span>
-</div>
-<div class="pos-list rvs">
-<a href="mailto:careers@builtly.ai?subject=Senior%20Engineer%20Geotechnics" class="pos-row">
-<div class="pos-title">
-<span class="pos-name" data-i18n="careers.pos.4.name">Senior Engineer · Geotechnics</span>
-<span class="pos-desc" data-i18n="careers.pos.4.desc">Senior geotechnical engineer with regulatory authority to attest deliverables. Work on the platform's geotechnical module, contribute to rule-pack development, and sign off on Eurocode-7 deliverables. Deep practical experience required.</span>
-</div>
-<span class="pos-meta" data-i18n="careers.pos.4.meta">Discipline · Geotechnics</span>
-<span class="pos-type" data-i18n="careers.pos.4.type">Senior · Hybrid</span>
-<span class="pos-arr">→</span>
-</a>
-<a href="mailto:careers@builtly.ai?subject=Senior%20Engineer%20Structural" class="pos-row">
-<div class="pos-title">
-<span class="pos-name" data-i18n="careers.pos.5.name">Senior Engineer · Structural</span>
-<span class="pos-desc" data-i18n="careers.pos.5.desc">Senior structural engineer with regulatory authority to attest deliverables. Lead the development of the structural module — Eurocode-1 through Eurocode-9, BIM integration, IFC4 model handling. Deep BIM-native practical experience required.</span>
-</div>
-<span class="pos-meta" data-i18n="careers.pos.5.meta">Discipline · Structural</span>
-<span class="pos-type" data-i18n="careers.pos.5.type">Senior · Hybrid</span>
-<span class="pos-arr">→</span>
-</a>
-<a href="mailto:careers@builtly.ai?subject=Senior%20Engineer%20Fire%20Safety" class="pos-row">
-<div class="pos-title">
-<span class="pos-name" data-i18n="careers.pos.6.name">Senior Engineer · Fire Safety</span>
-<span class="pos-desc" data-i18n="careers.pos.6.desc">Senior fire engineer with regulatory authority to attest deliverables. Lead the fire-safety module's regulatory engine, compartmentation and egress calculations, jurisdiction-specific rule expression. Practising fire engineer with broad case experience.</span>
-</div>
-<span class="pos-meta" data-i18n="careers.pos.6.meta">Discipline · Fire</span>
-<span class="pos-type" data-i18n="careers.pos.6.type">Senior · Hybrid</span>
-<span class="pos-arr">→</span>
-</a>
-<a href="mailto:careers@builtly.ai?subject=Senior%20Engineer%20Acoustics" class="pos-row">
-<div class="pos-title">
-<span class="pos-name" data-i18n="careers.pos.7.name">Senior Engineer · Acoustics</span>
-<span class="pos-desc" data-i18n="careers.pos.7.desc">Senior acoustic consultant with regulatory authority to attest deliverables. Develop the acoustic module's calculation engine, room-acoustics and sound-class verification. Strong portfolio of regulatory acoustic deliverables required.</span>
-</div>
-<span class="pos-meta" data-i18n="careers.pos.7.meta">Discipline · Acoustics</span>
-<span class="pos-type" data-i18n="careers.pos.7.type">Senior · Hybrid</span>
-<span class="pos-arr">→</span>
-</a>
-</div>
-</div>
-
-<!-- Operations & Commercial -->
-<div class="pos-group rv">
-<div class="pos-head">
-<span class="tag" data-i18n="careers.cat.operations">Operations &amp; Commercial</span>
-<h3 data-i18n="careers.role.s3.h3">Building the operating backbone</h3>
-<span class="count">1 <span data-i18n="careers.open_n">open</span></span>
-</div>
-<div class="pos-list rvs">
-<a href="mailto:careers@builtly.ai?subject=Head%20of%20Operations" class="pos-row">
-<div class="pos-title">
-<span class="pos-name" data-i18n="careers.pos.8.name">Head of Operations</span>
-<span class="pos-desc" data-i18n="careers.pos.8.desc">Run commercial operations across customer relationships, partner integrations and onboarding. Build the operational rhythm that lets engineering focus on engineering. Senior business operations background with platform experience.</span>
-</div>
-<span class="pos-meta" data-i18n="careers.pos.8.meta">Operations</span>
-<span class="pos-type" data-i18n="careers.pos.8.type">Senior · Hybrid</span>
-<span class="pos-arr">→</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-
-<section class="section proc-section">
-<div class="wrap">
-<div class="smark rv"><span class="num">§ 03</span><span data-i18n="careers.s03.label">The process</span><span class="dash"></span><span data-i18n="careers.s03.tag">How we hire</span></div>
-<div class="proc-top rv">
-<div>
-<h2 class="dpy-2" style="color:var(--dark-paper)" data-i18n="careers.s03.h2">The process.</h2>
-</div>
-<p class="lead" style="color:rgba(247,244,237,0.86)" data-i18n-html="careers.s03.lede">Four conversations. No technical hazing. No multi-week take-homes. We know your time is expensive, and so is ours. The process is built to give both sides enough signal to decide well — and nothing more.</p>
-</div>
-
-<div class="proc-grid rvs">
-<div class="proc-step">
-<div class="ix">§ <span data-i18n="careers.smark.step">Step</span> 01</div>
-<div class="num">01</div>
-<h4 data-i18n="careers.proc.p1.h4">Application</h4>
-<p data-i18n="careers.proc.p1.body">Send a CV and a paragraph on why this role and why now. No cover letter. We read everything that comes in within five business days and respond either way.</p>
-</div>
-<div class="proc-step">
-<div class="ix">§ <span data-i18n="careers.smark.step">Step</span> 02</div>
-<div class="num">02</div>
-<h4 data-i18n="careers.proc.p2.h4">Conversation</h4>
-<p data-i18n="careers.proc.p2.body">A 45-minute call with one of the principals — about your background, what you want from the next five years, and what Builtly actually is. No surprise interviews.</p>
-</div>
-<div class="proc-step">
-<div class="ix">§ <span data-i18n="careers.smark.step">Step</span> 03</div>
-<div class="num">03</div>
-<h4 data-i18n="careers.proc.p3.h4">Technical depth</h4>
-<p data-i18n="careers.proc.p3.body">A working session with someone who would be your colleague — on a real Builtly problem. Two hours, paid, no homework. For engineering roles, this includes regulatory discussion.</p>
-</div>
-<div class="proc-step">
-<div class="ix">§ <span data-i18n="careers.smark.step">Step</span> 04</div>
-<div class="num">04</div>
-<h4 data-i18n="careers.proc.p4.h4">Offer</h4>
-<p data-i18n="careers.proc.p4.body">Compensation, ownership and scope, in writing, within five business days of the technical session. References checked in parallel. Start date negotiated to your reality.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section class="insight-section">
-<div class="insight-inner rv">
-<div class="insight-quote" data-i18n-html="careers.insight.quote">"We hire people who want to be here in <span class="accent">seven years</span> — doing better work than they were doing in year one."</div>
-<div class="insight-attr" data-i18n="cta.hiring_principle">— The hiring principle</div>
-</div>
-</section>
-
-<section class="cta-section" id="contact">
-<div class="wrap">
-<div class="smark rv"><span class="num">§ 04</span><span data-i18n="careers.s04.label">Apply</span><span class="dash"></span><span data-i18n="careers.s04.tag">Or stay in touch</span></div>
-<div class="cta-grid">
+<div class="smark rv"><span data-i18n="maps.smark.label">Builtly Maps</span><span class="dash"></span><span data-i18n="maps.smark.tag">Property intelligence</span></div>
+<div class="mp-hero-grid">
 <div class="rv">
-<h2 class="dpy-1" style="font-size:clamp(36px,5vw,68px)" data-i18n="careers.s04.h2">Don't see your role?</h2>
-<p class="lead" style="margin-top:32px;max-width:48ch" data-i18n-html="careers.s04.lede">If you are senior, technical, and the principles above describe how you already work — send a note. We hire ahead of need when the right person appears, and we'd rather meet you early than perfectly on time.</p>
-<div class="cta-actions">
-<a href="mailto:careers@builtly.ai" class="btn"><span data-i18n="careers.s04.btn_note">Send a note</span> <span class="arr">→</span></a>
-<a href="#open-roles" class="btn btn-ghost"><span data-i18n="careers.s04.btn_roles">See open roles</span> <span class="arr">↑</span></a>
+<h1 class="dpy-2" data-i18n-html="maps.h2">Every property —<br/>from map to engineering.</h1>
+<p class="lead" data-i18n="maps.lede">Builtly Maps brings live property data — matrikkel, ownership, regulation, risk and area — together for any address, owner or company in Norway. Built for architects, developers and real-estate teams. And because it runs on the Builtly platform, you can plug in the engineering modules and take a property straight from a map lookup to a quality-assured deliverable.</p>
+<div class="mp-actions">
+<a href="https://maps.builtly.ai/" class="btn"><span data-i18n="maps.cta.open">Open Builtly Maps</span> <span class="arr">&#8594;</span></a>
+<a href="/contact.html" class="btn btn-ghost"><span data-i18n="maps.cta.demo">Book a demo</span></a>
 </div>
 </div>
-<div class="cta-side rv">
-<div class="row"><span class="k" data-i18n="careers.contact.k.apply">Apply</span><span class="v">careers@builtly.ai</span></div>
-<div class="row"><span class="k" data-i18n="careers.contact.k.general">General</span><span class="v">contact@builtly.ai</span></div>
-<div class="row"><span class="k" data-i18n="careers.contact.k.response">Response</span><span class="v" data-i18n="careers.contact.v.within5days">Within 5 days</span></div>
-<div class="row"><span class="k" data-i18n="careers.contact.k.confidential">Confidential</span><span class="v" data-i18n="careers.contact.v.always">Always</span></div>
+<div class="maps-mock rv" aria-hidden="true">
+<div class="maps-mock-head"><span class="dot"></span><span class="ttl">Builtly Maps</span><span class="addr">gnr 47 / bnr 12 · example address</span></div>
+<div class="maps-mock-grid">
+<span class="mchip">Owner<b>Example AS</b></span><span class="mchip">Plot<b>890 m²</b></span><span class="mchip">BYA<b>32 %</b></span><span class="mchip">Zoning<b>Residential</b></span>
+<span class="mchip">Flood<b>High</b></span><span class="mchip">Value<b>51 900 kr/m²</b></span><span class="mchip">EPC<b>C</b></span><span class="mchip">Yield<b>4.8 %</b></span>
 </div>
+<div class="maps-mock-eng"><span class="lbl">+ Engineering modules</span><span class="echip">Structural</span><span class="echip">Geotechnical</span><span class="echip">Fire</span><span class="echip">Acoustics</span><span class="echip">Valuation</span></div>
+<div class="maps-mock-badge">✓ Ready to engineer</div>
+</div>
+</div>
+<div class="mp-feat-grid">
+<article class="mp-feat"><div class="ic" data-i18n="maps.feat.search.label">Search &amp; ownership</div><h3 data-i18n="maps.feat.search.h">Any property, any owner.</h3><p data-i18n="maps.feat.search.p">Search by address, property, owner or company. Live matrikkel, areas, BYA/BRA, title holders and full corporate ownership trees from Kartverket and Brønnøysund — with an open-data owner-risk indicator.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.deepdive.label">Property deep-dive</div><h3 data-i18n="maps.feat.deepdive.h">Everything on one property.</h3><p data-i18n="maps.feat.deepdive.p">Open any property to its plot, market value estimate from comparable neighbourhood sales, transaction history, owners, tenants, surrounding area and registered building cases.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.mapanalysis.label">Map analysis</div><h3 data-i18n="maps.feat.mapanalysis.h">Draw, measure, analyse.</h3><p data-i18n="maps.feat.mapanalysis.p">Toggle map layers, draw and analyse any area, and measure distances. Risk layers for flood, quick clay, storm surge and ground conditions, plus zoning — in 2D, 3D, map or aerial.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.area.label">Area reports</div><h3 data-i18n="maps.feat.area.h">Know the market.</h3><p data-i18n="maps.feat.area.p">Instant area profiles — population, demographics, housing prices versus build cost, and new-build supply with median kr/m², units and room mix. Exportable to PDF.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.tenant.label">Tenant radar</div><h3 data-i18n="maps.feat.tenant.h">Find tenants first.</h3><p data-i18n="maps.feat.tenant.p">Find companies that will soon need new premises — before competitors. Ranked on growth, industry and stage, with the reasoning behind every signal and a route to contact.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.plot.label">Plot radar</div><h3 data-i18n="maps.feat.plot.h">Find buildable land.</h3><p data-i18n="maps.feat.plot.p">Find undeveloped, buildable plots in any municipality by area, with calculated development potential (BYA) and zoning — clustered on the map and in an exportable table.</p></article>
+</div>
+<div class="mp-diff rv">
+<div>
+<h2 data-i18n="maps.diff.h">Not just the data — the engineering.</h2>
+<div style="margin-top:16px"><span class="echip">Structural</span><span class="echip">Geotechnical</span><span class="echip">Fire</span><span class="echip">Acoustics</span><span class="echip">Climate risk</span><span class="echip">Valuation</span></div>
+</div>
+<p data-i18n="maps.diff.p">Other platforms stop at the data. Because Builtly Maps runs on the Builtly engineering platform, you can take a property straight from a map lookup to structural, geotechnical, fire, acoustic, climate-risk and valuation deliverables — calculated, documented and signed. Plus a portfolio dashboard, deal pipeline, explainable leads and your own data room.</p>
+</div>
+<div class="mp-actions rv" style="justify-content:center;margin-top:clamp(36px,5vh,56px)">
+<a href="https://maps.builtly.ai/" class="btn"><span data-i18n="maps.cta.open">Open Builtly Maps</span> <span class="arr">&#8594;</span></a>
 </div>
 </div>
 </section>
@@ -680,7 +501,6 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="footer-bot">
 <span data-i18n="footer.bot.left">© 2026 Builtly Engineering</span>
 <span data-i18n="footer.bot.right">Built for engineering consultancies</span>
-<span class="footer-legal" data-i18n="footer.legal">Builtly Engineering AS · Reg.no 837 694 892 · Bassengbakken 4, 7042 Trondheim, Norway</span>
 </div>
 </div>
 </footer>
