@@ -391,7 +391,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .maps-mock-badge{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.04em;color:var(--bg);background:var(--ink);border-radius:999px;padding:7px 14px}
 /* ===== Animated live property-scan stage (hero) ===== */
 .maps-stage{position:relative;display:block;width:100%;min-width:0;border-radius:16px;overflow:hidden;background:radial-gradient(125% 95% at 72% 12%,#16202B 0%,#0E1218 62%);border:1px solid rgba(247,244,237,0.12);aspect-ratio:4/3.1;min-height:340px;box-shadow:0 26px 64px -30px rgba(8,11,16,0.7);isolation:isolate;cursor:pointer}
-@media(max-width:920px){.maps-stage{aspect-ratio:16/11;min-height:300px}}
+@media(max-width:920px){.maps-stage{aspect-ratio:auto;min-height:470px}}
 .maps-stage-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
 .maps-stage-ui{position:absolute;inset:0;z-index:1;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(13px,1.7vw,18px)}
 .ms-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -468,19 +468,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="mp-hero-grid">
 <div class="rv">
 <h1 class="dpy-2" data-i18n-html="maps.h2">Every property —<br/>from map to engineering.</h1>
-<p class="lead" data-i18n="maps.lede">Builtly Maps brings live property data — matrikkel, ownership, regulation, risk and area — together for any address, owner or company. Built for architects, developers and real-estate teams. Live in Norway today, expanding across Sweden, Denmark, Finland and the UK. And because it runs on the Builtly platform, you can plug in the engineering modules and take a property straight from a map lookup to a quality-assured deliverable.</p>
+<p class="lead" data-i18n="maps.lede">Builtly Maps brings live property data — matrikkel, ownership, regulation, risk and area — together for any address, owner or company. Built for architects, developers and real-estate teams. And because it runs on the Builtly platform, you can plug in the engineering modules and take a property straight from a map lookup to a quality-assured deliverable.</p>
 <div class="mp-actions">
 <a href="https://maps.builtly.ai/" class="btn"><span data-i18n="maps.cta.open">Open Builtly Maps</span> <span class="arr">&#8594;</span></a>
 <a href="/contact.html" class="btn btn-ghost"><span data-i18n="maps.cta.demo">Book a demo</span></a>
-</div>
-<div class="mp-coverage rv">
-<span class="cov-lbl" data-i18n="maps.coverage.label">Coverage</span>
-<span class="cov-pill live"><span class="cd"></span><span data-i18n="maps.country.no">Norway</span></span>
-<span class="cov-soon-lbl" data-i18n="maps.coverage.soon">Rolling out</span>
-<span class="cov-pill soon"><span class="cd"></span><span data-i18n="maps.country.se">Sweden</span></span>
-<span class="cov-pill soon"><span class="cd"></span><span data-i18n="maps.country.dk">Denmark</span></span>
-<span class="cov-pill soon"><span class="cd"></span><span data-i18n="maps.country.fi">Finland</span></span>
-<span class="cov-pill soon"><span class="cd"></span><span data-i18n="maps.country.uk">United Kingdom</span></span>
 </div>
 </div>
 <a class="maps-stage rv" href="https://maps.builtly.ai/" aria-label="Open Builtly Maps">
@@ -491,7 +482,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <span class="ms-count"><b data-ms-count>128</b> <span data-i18n="maps.stage.scanned">scanned</span></span>
 </div>
 <div class="ms-card">
-<div class="ms-card-head"><span class="ms-addr" data-ms-addr>gnr 47 / bnr 12</span><span class="ms-match" data-i18n="maps.stage.match">match</span></div>
+<div class="ms-card-head"><span class="ms-addr" data-ms-addr>gnr 47 / bnr 12</span><span class="ms-match" data-i18n="maps.stage.analyzed">✓ Analyzed</span></div>
 <div class="ms-grid">
 <span class="ms-chip"><i data-i18n="maps.chip.owner">Owner</i><b data-i18n="maps.val.owner">Example AS</b></span>
 <span class="ms-chip"><i data-i18n="maps.chip.area">Area</i><b>890 m²</b></span>
@@ -584,8 +575,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
   });
 });
 </script>
-<script src="/maps-scan.js?v=20260622-mapsanim" defer></script>
+<script src="/maps-scan.js?v=20260622-engine" defer></script>
 
-<script src="/i18n.js?v=20260622-mapsanim" defer></script>
+<script src="/i18n.js?v=20260622-engine" defer></script>
 </body>
 </html>
