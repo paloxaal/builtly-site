@@ -1765,6 +1765,39 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 <p class="lead" data-i18n="maps.lede">Builtly Maps brings live property data — matrikkel, ownership, regulation, risk and area — together for any address, owner or company in Norway. Built for architects, developers and real-estate teams. And because it runs on the Builtly platform, you can plug in the engineering modules and take a property straight from a map lookup to a quality-assured deliverable.</p>
 </div>
+<style>
+.maps-mock{max-width:780px;margin:clamp(38px,5vh,56px) auto 0;border:1px solid var(--line-strong);border-radius:14px;background:var(--bg);padding:clamp(16px,2.2vw,24px)}
+.maps-mock-head{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.maps-mock-head .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.maps-mock-head .ttl{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:-0.01em;color:var(--ink)}
+.maps-mock-head .addr{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--mid);letter-spacing:0.03em}
+.maps-mock-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:640px){.maps-mock-grid{grid-template-columns:repeat(2,1fr)}.maps-mock-head .addr{display:none}}
+.mchip{border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid);background:var(--bg-soft)}
+.mchip b{display:block;font-family:var(--font-display);font-size:13px;color:var(--ink);font-weight:600;letter-spacing:-0.01em;margin-top:3px;text-transform:none}
+.maps-mock-eng{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-strong)}
+.maps-mock-eng .lbl{width:100%;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);margin-bottom:3px}
+.echip{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.02em;color:var(--accent-soft);background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.28);border-radius:999px;padding:5px 12px}
+.maps-mock-badge{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.04em;color:var(--bg);background:var(--ink);border-radius:999px;padding:7px 14px}
+</style>
+<div class="maps-mock rv" aria-hidden="true">
+<div class="maps-mock-head"><span class="dot"></span><span class="ttl">Builtly Maps</span><span class="addr">gnr 47 / bnr 12 · Storgata 1</span></div>
+<div class="maps-mock-grid">
+<span class="mchip">Owner<b>Bergström AS</b></span>
+<span class="mchip">Plot<b>890 m²</b></span>
+<span class="mchip">BYA<b>32 %</b></span>
+<span class="mchip">Zoning<b>Residential</b></span>
+<span class="mchip">Flood<b>High</b></span>
+<span class="mchip">Ground<b>Clay</b></span>
+<span class="mchip">EPC<b>C</b></span>
+<span class="mchip">Yield<b>4.8 %</b></span>
+</div>
+<div class="maps-mock-eng">
+<span class="lbl">+ Engineering modules</span>
+<span class="echip">Structural</span><span class="echip">Geotechnical</span><span class="echip">Fire</span><span class="echip">Acoustics</span><span class="echip">Valuation</span>
+</div>
+<div class="maps-mock-badge">✓ Ready to engineer</div>
+</div>
 <div class="discipline-grid rvs" style="margin-top:clamp(40px,5vh,64px)">
 <article class="discipline">
 <div class="head"><span data-i18n="maps.f1.label">The data layer</span><span class="topic">A</span></div>
@@ -5222,7 +5255,7 @@ import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/exampl
   obs.observe(section);
 })();
 </script>
-<script src="/i18n.js?v=20260616-neutral" defer></script>
+<script src="/i18n.js?v=20260616-maps" defer></script>
 <script defer>
 // ============================================================================
 // Mulighetsstudie iframe — language sync bridge
