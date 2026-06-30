@@ -1,0 +1,84 @@
+<!doctype html><html lang="no"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><meta name="theme-color" content="#06111a">
+<meta http-equiv="refresh" content="60">
+<title>Builtly — modul oppgraderes</title>
+<style>
+:root{--t:#2DD4BF;--t2:#14B8A6;--cy:#38bdf8;--ink:#F1F5F9;--bd:#C8D3DF;--mu:#7C8794;--cl:rgba(255,255,255,.07);--f:'Manrope','Helvetica Neue',system-ui,-apple-system,sans-serif;--m:ui-monospace,'JetBrains Mono',monospace}
+*{box-sizing:border-box}html,body{height:100%}html{background:#06111a;overflow-x:hidden}
+body{margin:0;font-family:var(--f);color:var(--bd);min-height:100%;display:flex;flex-direction:column;background:radial-gradient(1100px 620px at 50% -8%,rgba(45,212,191,.10),transparent 60%),linear-gradient(165deg,#06111a,#071018 48%,#041018);-webkit-font-smoothing:antialiased}
+.wrap{flex:1 0 auto;width:100%;max-width:620px;margin:0 auto;padding:clamp(28px,6vw,60px) 22px 30px;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px 16px;flex-wrap:wrap;margin-bottom:clamp(30px,8vw,58px)}
+.logo svg{display:block;height:26px;width:auto}
+.langs{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}
+.langs button{appearance:none;border:1px solid var(--cl);background:rgba(255,255,255,.02);color:var(--mu);font-family:var(--m);font-size:11px;font-weight:500;letter-spacing:.06em;padding:5px 8px;border-radius:7px;cursor:pointer;line-height:1}
+.langs button:hover{color:var(--bd);border-color:rgba(45,212,191,.4)}
+.langs button[aria-pressed=true]{color:#04201d;background:var(--t);border-color:var(--t);font-weight:700}
+main{display:flex;flex-direction:column;align-items:flex-start;width:100%;max-width:100%}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid rgba(45,212,191,.28);background:rgba(20,184,166,.07);font-family:var(--m);font-size:12px;letter-spacing:.04em;color:var(--t);margin-bottom:24px}
+.pill .dot{width:9px;height:9px;border-radius:50%;background:var(--t);position:relative;flex:0 0 auto}
+.pill .dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--t);animation:pg 1.9s cubic-bezier(0,0,.2,1) infinite}
+@keyframes pg{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(3.2);opacity:0}}
+body.bk .pill{border-color:rgba(56,189,248,.5);background:rgba(56,189,248,.12);color:#bce7ff}
+body.bk .pill .dot,body.bk .pill .dot::after{background:var(--cy)}
+h1{font-weight:800;font-size:clamp(28px,7vw,42px);line-height:1.08;letter-spacing:-.02em;color:var(--ink);margin:0 0 16px;max-width:100%;overflow-wrap:break-word}
+.lead{font-size:clamp(16px,3.6vw,19px);line-height:1.55;color:var(--bd);margin:0 0 26px;max-width:min(40ch,100%)}
+.scan{width:100%;position:relative;height:4px;border-radius:99px;background:rgba(148,163,184,.12);overflow:hidden;margin-bottom:26px}
+.scan::before{content:"";position:absolute;top:0;bottom:0;left:0;width:42%;border-radius:99px;background:linear-gradient(90deg,transparent,var(--t2),var(--cy),transparent);animation:sc 2.4s ease-in-out infinite}
+@keyframes sc{0%{left:-45%}100%{left:103%}}
+.row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sl{display:inline-flex;align-items:center;gap:9px;font-size:14px;color:var(--mu)}
+.sl i{width:7px;height:7px;border-radius:50%;background:var(--t);box-shadow:0 0 0 0 rgba(45,212,191,.5);animation:sf 2s ease-in-out infinite}
+@keyframes sf{0%,100%{box-shadow:0 0 0 0 rgba(45,212,191,.45)}50%{box-shadow:0 0 0 6px rgba(45,212,191,0)}}
+body.bk .sl{color:#bce7ff}body.bk .sl i{background:var(--cy)}
+button.r{appearance:none;cursor:pointer;font-family:var(--f);font-weight:700;font-size:14px;color:#04201d;background:linear-gradient(180deg,var(--t),var(--t2));border:1px solid rgba(45,212,191,.5);padding:11px 20px;border-radius:11px;box-shadow:0 6px 20px -8px rgba(20,184,166,.6)}
+button.r:active{transform:translateY(1px)}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:8px}
+footer{flex:0 0 auto;text-align:center;padding:22px;font-size:12.5px;color:var(--mu);border-top:1px solid rgba(148,163,184,.14)}
+@media (prefers-reduced-motion:reduce){.pill .dot::after,.scan::before,.sl i{animation:none!important}.scan::before{left:0;width:100%;opacity:.5}}
+</style></head>
+<body>
+<div class="wrap">
+<div class="top">
+<span class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 30" width="190" height="27" role="img" aria-label="Builtly Engineering"><rect x="1.75" y="2" width="26" height="26" rx="5" fill="none" stroke="#E8EEF5" stroke-width="1.5"/><circle cx="19.75" cy="10" r="3" fill="#2DD4BF"/><text x="39.5" y="21" font-family="'Manrope',system-ui,sans-serif" font-size="18" font-weight="600" fill="#F1F5F9">Builtly</text><text x="118" y="18.7" font-family="ui-monospace,monospace" font-size="10" font-weight="500" letter-spacing="1.8" fill="#7C8794">ENGINEERING</text></svg></span>
+<nav class="langs" id="L" aria-label="Language"></nav>
+</div>
+<main>
+<div class="pill" role="status"><span class="dot" aria-hidden="true"></span><span id="P">Sjekker forbindelse…</span></div>
+<h1 id="T">En modul oppgraderes</h1>
+<p class="lead" id="LD">Vi gjør en kort oppdatering. Appen er tilbake av seg selv om få minutter.</p>
+<div class="scan" aria-hidden="true"></div>
+<div class="row">
+<button type="button" class="r" id="R">Prøv igjen nå</button>
+<span class="sl" aria-live="polite"><i aria-hidden="true"></i><span id="S">Sjekker forbindelsen…</span></span>
+</div>
+</main>
+</div>
+<footer><span id="F">Builtly Engineering · Planlagt vedlikehold</span></footer>
+<script>
+(function(){"use strict";
+var D={
+no:["NO","En modul oppgraderes","Vi gjør en kort oppdatering. Appen er tilbake av seg selv om få minutter.","Sjekker forbindelse…","Tilbake! Laster inn…","Prøv igjen nå","Builtly Engineering · Planlagt vedlikehold"],
+sv:["SV","En modul uppgraderas","Vi gör en kort uppdatering. Appen är tillbaka av sig själv om några minuter.","Kontrollerar anslutning…","Tillbaka! Laddar in…","Försök igen nu","Builtly Engineering · Planerat underhåll"],
+da:["DA","Et modul opgraderes","Vi laver en kort opdatering. Appen er tilbage af sig selv om få minutter.","Tjekker forbindelse…","Tilbage! Indlæser…","Prøv igen nu","Builtly Engineering · Planlagt vedligeholdelse"],
+fi:["FI","Moduulia päivitetään","Teemme lyhyen päivityksen. Sovellus palautuu itsestään muutamassa minuutissa.","Tarkistetaan yhteyttä…","Takaisin! Ladataan…","Yritä uudelleen nyt","Builtly Engineering · Suunniteltu huolto"],
+de:["DE","Ein Modul wird aktualisiert","Wir spielen ein kurzes Update ein. Die App kommt in wenigen Minuten von selbst zurück.","Verbindung wird geprüft…","Zurück! Wird geladen…","Erneut versuchen","Builtly Engineering · Geplante Wartung"],
+"en-GB":["EN","A module is being upgraded","We're rolling out a short update. The app comes back on its own within a few minutes.","Checking connection…","Back! Loading…","Try again now","Builtly Engineering · Scheduled maintenance"],
+"en-US":["US","A module is being upgraded","We're rolling out a short update. The app comes back on its own within a few minutes.","Checking connection…","Back! Loading…","Try again now","Builtly Engineering · Scheduled maintenance"]
+};
+var O=["no","sv","da","fi","de","en-GB","en-US"];
+function pick(){var a;try{a=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||""]}catch(e){a=[""]}for(var i=0;i<a.length;i++){var l=(a[i]||"").toLowerCase();if(!l)continue;if(l=="en-gb")return"en-GB";if(l=="en-us")return"en-US";if(l=="no"||l=="nb"||l=="nn"||l.indexOf("no-")==0||l.indexOf("nb-")==0||l.indexOf("nn-")==0)return"no";if(l=="sv"||l.indexOf("sv-")==0)return"sv";if(l=="da"||l.indexOf("da-")==0)return"da";if(l=="fi"||l.indexOf("fi-")==0)return"fi";if(l=="de"||l.indexOf("de-")==0)return"de";if(l.indexOf("en-")==0||l=="en")return"en-GB"}return"no"}
+var cur=pick(),bk=false,pr=false;
+function $(i){return document.getElementById(i)}
+function ap(loc){cur=loc;var t=D[loc]||D.no;document.documentElement.lang=loc;document.title=t[1]+" — Builtly";$("T").textContent=t[1];$("LD").textContent=t[2];$("R").textContent=t[5];$("F").textContent=t[6];$("P").textContent=bk?t[4]:t[3];$("S").textContent=bk?t[4]:t[3];var b=document.querySelectorAll("#L button");for(var i=0;i<b.length;i++)b[i].setAttribute("aria-pressed",b[i].getAttribute("data-l")==loc?"true":"false")}
+(function(){var n=$("L");O.forEach(function(loc){var b=document.createElement("button");b.type="button";b.setAttribute("data-l",loc);b.title=loc;b.textContent=D[loc][0];b.onclick=function(){ap(loc)};n.appendChild(b)})})();
+function gb(){if(bk)return;bk=true;document.body.className="bk";var t=D[cur]||D.no;$("P").textContent=t[4];$("S").textContent=t[4];setTimeout(function(){try{location.reload()}catch(e){location.href="/"}},1100)}
+function pb(){if(bk||pr)return;pr=true;if(!("fetch"in window)){pr=false;return}var sd=false,c=("AbortController"in window)?new AbortController():null;var tm=setTimeout(function(){if(sd)return;sd=true;if(c){try{c.abort()}catch(e){}}pr=false},8e3);var o={method:"GET",cache:"no-store",redirect:"follow"};if(c)o.signal=c.signal;fetch("/?_cf_probe="+Date.now(),o).then(function(r){if(sd)return;sd=true;clearTimeout(tm);pr=false;if(r&&(r.ok||(typeof r.status=="number"&&r.status<500)))gb()}).catch(function(){if(sd)return;sd=true;clearTimeout(tm);pr=false})}
+setTimeout(pb,2500);setInterval(pb,13e3);
+$("R").onclick=function(){try{location.reload()}catch(e){location.href="/"}};
+document.addEventListener("visibilitychange",function(){if(document.visibilityState=="visible")pb()});
+window.addEventListener("online",pb);
+ap(cur);
+})();
+</script>
+</body></html>
