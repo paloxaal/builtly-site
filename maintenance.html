@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#06111a">
+<meta http-equiv="refresh" content="120">
+<title>Builtly — modul oppgraderes</title>
+<style>
+  :root{
+    --bg0:#06111a; --bg1:#071018; --bg2:#041018;
+    --teal:#14B8A6; --teal2:#2DD4BF;
+    --cyan:#38bdf8; --cyan2:#22d3ee;
+    --amber:#f4bf4f;
+    --ink:#F1F5F9; --body:#C8D3DF; --muted:#7C8794;
+    --line:rgba(148,163,184,.14);
+    --bp-line:rgba(56,189,248,.10); --bp-line2:rgba(45,212,191,.16);
+    --card:rgba(255,255,255,.025);
+    --card-line:rgba(255,255,255,.07);
+    --font:'Manrope','Helvetica Neue',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    --mono:ui-monospace,'JetBrains Mono','SFMono-Regular',Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  html{background-color:var(--bg0); overflow-x:hidden}
+  body{
+    margin:0;
+    font-family:var(--font);
+    color:var(--body);
+    background:
+      radial-gradient(1100px 620px at 50% -8%, rgba(45,212,191,.10), transparent 60%),
+      radial-gradient(900px 600px at 88% 12%, rgba(56,189,248,.07), transparent 55%),
+      linear-gradient(165deg, var(--bg0) 0%, var(--bg1) 48%, var(--bg2) 100%);
+    background-attachment:fixed;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    overflow-x:hidden;
+  }
+  a{color:inherit}
+  ::selection{background:rgba(45,212,191,.3);color:#fff}
+
+  /* ---- Blueprint / BIM motif background (grafted from Blueprint variant) ---- */
+  .motif{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
+  .motif .grid{
+    position:absolute; inset:-2px;
+    background-image:
+      linear-gradient(var(--bp-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bp-line) 1px, transparent 1px),
+      linear-gradient(var(--bp-line2) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bp-line2) 1px, transparent 1px);
+    background-size:38px 38px, 38px 38px, 190px 190px, 190px 190px;
+    background-position:center center;
+    -webkit-mask-image:radial-gradient(120% 100% at 50% 32%, #000 28%, transparent 86%);
+            mask-image:radial-gradient(120% 100% at 50% 32%, #000 28%, transparent 86%);
+    opacity:.7;
+  }
+  .motif .iso{
+    position:absolute; left:50%; top:36%; width:760px; height:540px;
+    transform:translate(-50%,-46%);
+    opacity:.45; max-width:130vw;
+  }
+  .motif .iso path,.motif .iso line,.motif .iso polygon,.motif .iso rect{
+    stroke:rgba(45,212,191,.30); stroke-width:1; fill:none; vector-effect:non-scaling-stroke;
+  }
+  .motif .iso .dim{stroke:rgba(56,189,248,.22)}
+  .motif .iso .node{fill:rgba(45,212,191,.55); stroke:none}
+  .motif .sweep{
+    position:absolute; top:0; bottom:0; width:34vw; min-width:240px; left:-40vw;
+    background:linear-gradient(90deg, transparent, rgba(20,184,166,.05) 30%, rgba(45,212,191,.13) 50%, rgba(56,189,248,.05) 70%, transparent);
+    box-shadow:0 0 60px 10px rgba(20,184,166,.05);
+    animation:bpsweep 9s linear infinite; will-change:transform;
+  }
+  .motif .sweep::after{
+    content:""; position:absolute; right:48%; top:0; bottom:0; width:1.5px;
+    background:linear-gradient(180deg, transparent, rgba(45,212,191,.7) 18%, rgba(45,212,191,.7) 82%, transparent);
+  }
+  @keyframes bpsweep{from{transform:translateX(0)} to{transform:translateX(150vw)}}
+
+  .wrap{
+    position:relative; z-index:1;
+    flex:1 0 auto;
+    width:100%; max-width:680px;
+    margin:0 auto;
+    padding:clamp(28px,6vw,64px) 22px 30px;
+    display:flex; flex-direction:column;
+  }
+
+  /* top bar */
+  .top{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:14px 16px; flex-wrap:wrap; margin-bottom:clamp(34px,8vw,70px);
+  }
+  .logo svg{display:block; height:26px; width:auto}
+
+  /* language switcher */
+  .langs{display:flex; gap:3px; flex-wrap:wrap; justify-content:flex-end}
+  .langs button{
+    appearance:none; border:1px solid var(--card-line);
+    background:rgba(255,255,255,.02);
+    color:var(--muted);
+    font-family:var(--mono); font-size:11px; font-weight:500;
+    letter-spacing:.06em;
+    padding:5px 8px; border-radius:7px; cursor:pointer;
+    transition:color .18s ease, border-color .18s ease, background .18s ease;
+    line-height:1;
+  }
+  .langs button:hover{color:var(--body); border-color:rgba(45,212,191,.4)}
+  .langs button[aria-pressed="true"]{
+    color:#04201d; background:var(--teal2); border-color:var(--teal2); font-weight:700;
+  }
+
+  main{display:flex; flex-direction:column; align-items:flex-start; width:100%; max-width:100%}
+
+  /* status pill */
+  .pill{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:7px 14px 7px 12px; border-radius:999px;
+    border:1px solid rgba(45,212,191,.28);
+    background:rgba(20,184,166,.07);
+    font-family:var(--mono); font-size:12px; font-weight:500;
+    letter-spacing:.04em; color:var(--teal2);
+    margin-bottom:26px;
+    transition:border-color .35s ease, background .35s ease, color .35s ease;
+  }
+  .pill .dot{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--teal2); position:relative; flex:0 0 auto;
+  }
+  .pill .dot::after{
+    content:""; position:absolute; inset:0; border-radius:50%;
+    background:var(--teal2);
+    animation:ping 1.9s cubic-bezier(0,0,.2,1) infinite;
+  }
+  @keyframes ping{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(3.2);opacity:0}}
+  .pill .txt{white-space:nowrap}
+  body.is-back .pill{
+    border-color:rgba(56,189,248,.5);
+    background:rgba(56,189,248,.12);
+    color:#bce7ff;
+  }
+  body.is-back .pill .dot{background:var(--cyan)}
+  body.is-back .pill .dot::after{background:var(--cyan)}
+
+  h1{
+    font-family:var(--font); font-weight:800;
+    font-size:clamp(28px,7vw,44px); line-height:1.08;
+    letter-spacing:-.02em; color:var(--ink);
+    margin:0 0 18px; max-width:100%; overflow-wrap:break-word;
+  }
+  .lead{
+    font-size:clamp(16px,3.6vw,19px); line-height:1.55;
+    color:var(--body); margin:0 0 12px; max-width:min(36ch,100%);
+  }
+  .detail{
+    font-size:15px; line-height:1.6; color:var(--muted);
+    margin:0 0 30px; max-width:min(44ch,100%);
+  }
+
+  /* reconnect cadence — scan card */
+  .console{
+    width:100%;
+    border:1px solid var(--card-line);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+    border-radius:16px;
+    padding:20px 20px 18px;
+    margin-bottom:26px;
+    overflow:hidden;
+  }
+  .scan{
+    position:relative; height:4px; border-radius:99px;
+    background:rgba(148,163,184,.12);
+    overflow:hidden; margin-bottom:16px;
+  }
+  .scan::before{
+    content:""; position:absolute; top:0; bottom:0; left:0; width:42%;
+    border-radius:99px;
+    background:linear-gradient(90deg, transparent, var(--teal), var(--cyan), transparent);
+    animation:scan 2.4s ease-in-out infinite;
+  }
+  @keyframes scan{0%{left:-45%}100%{left:103%}}
+
+  .crow{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
+  .dots{display:flex; align-items:center; gap:7px}
+  .dots .d{
+    width:7px; height:7px; border-radius:50%;
+    background:rgba(148,163,184,.28);
+    animation:step 1.5s ease-in-out infinite;
+  }
+  .dots .d:nth-child(2){animation-delay:.18s}
+  .dots .d:nth-child(3){animation-delay:.36s}
+  .dots .d:nth-child(4){animation-delay:.54s}
+  .dots .d:nth-child(5){animation-delay:.72s}
+  @keyframes step{0%,100%{background:rgba(148,163,184,.28);transform:translateY(0)}40%{background:var(--teal2);transform:translateY(-2px)}}
+  .dotlabel{
+    font-family:var(--mono); font-size:11px; letter-spacing:.06em;
+    color:var(--muted);
+  }
+
+  .meta{
+    display:flex; gap:26px; flex-wrap:wrap; margin-top:2px;
+  }
+  .meta .item{display:flex; flex-direction:column; gap:3px}
+  .meta .k{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--muted);
+  }
+  .meta .v{
+    font-family:var(--mono); font-size:16px; font-weight:600;
+    color:var(--ink); letter-spacing:.02em; font-variant-numeric:tabular-nums;
+  }
+  .meta .v.eta{color:var(--teal2)}
+
+  /* status line + button row */
+  .row{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:8px}
+  .statusline{
+    display:inline-flex; align-items:center; gap:9px;
+    font-size:14px; color:var(--muted); line-height:1.4;
+  }
+  .statusline .sdot{
+    width:7px; height:7px; border-radius:50%; flex:0 0 auto;
+    background:var(--teal2); box-shadow:0 0 0 0 rgba(45,212,191,.5);
+    animation:soft 2s ease-in-out infinite;
+  }
+  @keyframes soft{0%,100%{box-shadow:0 0 0 0 rgba(45,212,191,.45)}50%{box-shadow:0 0 0 6px rgba(45,212,191,0)}}
+  body.is-back .statusline{color:#bce7ff}
+  body.is-back .statusline .sdot{background:var(--cyan)}
+
+  button.retry{
+    appearance:none; cursor:pointer;
+    font-family:var(--font); font-weight:700; font-size:14px;
+    color:#04201d;
+    background:linear-gradient(180deg, var(--teal2), var(--teal));
+    border:1px solid rgba(45,212,191,.5);
+    padding:11px 20px; border-radius:11px;
+    letter-spacing:.01em;
+    box-shadow:0 6px 20px -8px rgba(20,184,166,.6);
+    transition:transform .12s ease, box-shadow .2s ease, filter .2s ease;
+  }
+  button.retry:hover{filter:brightness(1.06); box-shadow:0 8px 26px -8px rgba(20,184,166,.75)}
+  button.retry:active{transform:translateY(1px)}
+
+  :focus-visible{outline:2px solid var(--cyan); outline-offset:3px; border-radius:8px}
+
+  footer{
+    position:relative; z-index:1;
+    flex:0 0 auto;
+    text-align:center;
+    padding:22px;
+    font-size:12.5px; color:var(--muted);
+    border-top:1px solid var(--line);
+    line-height:1.5;
+  }
+
+  @media (max-width:420px){
+    .meta{gap:18px}
+    .top{margin-bottom:30px}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .pill .dot::after,
+    .scan::before,
+    .dots .d,
+    .statusline .sdot,
+    .motif .sweep{animation:none !important}
+    .scan::before{left:0; width:100%; opacity:.5}
+    .dots .d{background:var(--teal2)}
+    .motif .sweep{left:46vw; opacity:.5}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<!-- ::CLOUDFLARE_ERROR_500S_BOX:: -->
+
+<div class="motif" aria-hidden="true">
+  <div class="grid"></div>
+  <svg class="iso" viewBox="0 0 760 540" preserveAspectRatio="xMidYMid meet" focusable="false">
+    <g>
+      <polygon points="380,360 600,250 380,140 160,250"/>
+      <path d="M160,250 L160,150 L380,40 L380,140"/>
+      <path d="M600,250 L600,150 L380,40 L380,140"/>
+      <path class="dim" d="M200,230 L380,140 L560,230"/>
+      <path class="dim" d="M180,200 L380,90 L580,200"/>
+      <line x1="160" y1="250" x2="160" y2="150"/>
+      <line x1="600" y1="250" x2="600" y2="150"/>
+      <line x1="380" y1="360" x2="380" y2="40" class="dim"/>
+      <line x1="270" y1="305" x2="270" y2="205"/>
+      <line x1="490" y1="305" x2="490" y2="205"/>
+      <circle class="node" cx="380" cy="40" r="3.5"/>
+      <circle class="node" cx="160" cy="250" r="3"/>
+      <circle class="node" cx="600" cy="250" r="3"/>
+      <circle class="node" cx="380" cy="360" r="3"/>
+      <circle class="node" cx="380" cy="140" r="2.6"/>
+    </g>
+  </svg>
+  <div class="sweep"></div>
+</div>
+
+<div class="wrap">
+  <div class="top">
+    <div class="logo" aria-label="Builtly Engineering">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 30" width="200" height="29" role="img" aria-label="Builtly Engineering">
+        <rect x="1.75" y="2" width="26" height="26" rx="5" fill="none" stroke="#E8EEF5" stroke-width="1.5"/>
+        <circle cx="19.75" cy="10" r="3" fill="#2DD4BF"/>
+        <text x="39.5" y="21" font-family="'Manrope','Helvetica Neue',system-ui,sans-serif" font-size="18" font-weight="600" letter-spacing="-0.3" fill="#F1F5F9">Builtly</text>
+        <text x="118" y="18.7" font-family="ui-monospace,'JetBrains Mono',monospace" font-size="10" font-weight="500" letter-spacing="1.8" fill="#7C8794">ENGINEERING</text>
+      </svg>
+    </div>
+    <nav class="langs" id="langs" aria-label="Language"></nav>
+  </div>
+
+  <main>
+    <div class="pill" role="status">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="txt" id="pillTxt">Sjekker forbindelse…</span>
+    </div>
+
+    <h1 id="title">En modul oppgraderes</h1>
+    <p class="lead" id="lead">Vi ruller ut en kort oppdatering. Appen kommer tilbake av seg selv, vanligvis innen få minutter.</p>
+    <p class="detail" id="detail">Ingenting går tapt — prosjektene og dataene dine er trygge. Denne siden laster automatisk på nytt så snart tjenesten er tilbake.</p>
+
+    <section class="console" aria-label="Status">
+      <div class="scan" aria-hidden="true"></div>
+      <div class="crow">
+        <div class="dots" aria-hidden="true">
+          <span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span>
+        </div>
+        <span class="dotlabel" id="reconnectLabel">Forsøker å koble til på nytt</span>
+      </div>
+      <div class="meta" style="margin-top:16px">
+        <div class="item">
+          <span class="k" id="elapsedLabel">Tid som har gått</span>
+          <span class="v" id="elapsed">00:00</span>
+        </div>
+        <div class="item">
+          <span class="k" id="etaLabel">Forventet tilbake</span>
+          <span class="v eta" id="eta">~--:--</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="row">
+      <button type="button" class="retry" id="retry">Prøv igjen nå</button>
+      <span class="statusline" aria-live="polite" id="statusLine">
+        <span class="sdot" aria-hidden="true"></span>
+        <span id="statusTxt">Sjekker forbindelsen…</span>
+      </span>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <span id="footer">Builtly Engineering · Planlagt vedlikehold · Du trenger ikke gjøre noe.</span>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var I18N = {
+    "no":{
+      code:"NO",
+      title:"En modul oppgraderes",
+      lead:"Vi ruller ut en kort oppdatering. Appen kommer tilbake av seg selv, vanligvis innen få minutter.",
+      detail:"Ingenting går tapt — prosjektene og dataene dine er trygge. Denne siden laster automatisk på nytt så snart tjenesten er tilbake.",
+      status_checking:"Sjekker forbindelsen…",
+      status_back:"Tilbake! Laster inn…",
+      retry_btn:"Prøv igjen nå",
+      eta_label:"Forventet tilbake",
+      elapsed_label:"Tid som har gått",
+      reconnect:"Forsøker å koble til på nytt",
+      pill_checking:"Sjekker forbindelse…",
+      pill_back:"Tilbake!",
+      footer:"Builtly Engineering · Planlagt vedlikehold · Du trenger ikke gjøre noe."
+    },
+    "sv":{
+      code:"SV",
+      title:"En modul uppgraderas",
+      lead:"Vi rullar ut en kort uppdatering. Appen kommer tillbaka av sig själv, oftast inom några minuter.",
+      detail:"Inget går förlorat — dina projekt och data är trygga. Den här sidan laddas om automatiskt så snart tjänsten är tillbaka.",
+      status_checking:"Kontrollerar anslutningen…",
+      status_back:"Tillbaka! Laddar in…",
+      retry_btn:"Försök igen nu",
+      eta_label:"Beräknas tillbaka",
+      elapsed_label:"Förfluten tid",
+      reconnect:"Försöker återansluta",
+      pill_checking:"Kontrollerar anslutning…",
+      pill_back:"Tillbaka!",
+      footer:"Builtly Engineering · Planerat underhåll · Du behöver inte göra något."
+    },
+    "da":{
+      code:"DA",
+      title:"Et modul opgraderes",
+      lead:"Vi udruller en kort opdatering. Appen kommer tilbage af sig selv, typisk inden for få minutter.",
+      detail:"Intet går tabt — dine projekter og data er sikre. Denne side genindlæses automatisk, så snart tjenesten er tilbage.",
+      status_checking:"Tjekker forbindelsen…",
+      status_back:"Tilbage! Indlæser…",
+      retry_btn:"Prøv igen nu",
+      eta_label:"Forventet tilbage",
+      elapsed_label:"Forløbet tid",
+      reconnect:"Forsøger at oprette forbindelse igen",
+      pill_checking:"Tjekker forbindelse…",
+      pill_back:"Tilbage!",
+      footer:"Builtly Engineering · Planlagt vedligeholdelse · Du behøver ikke gøre noget."
+    },
+    "fi":{
+      code:"FI",
+      title:"Moduulia päivitetään",
+      lead:"Otamme käyttöön lyhyen päivityksen. Sovellus palautuu itsestään, yleensä muutamassa minuutissa.",
+      detail:"Mitään ei katoa — projektisi ja tietosi ovat turvassa. Tämä sivu latautuu automaattisesti uudelleen heti, kun palvelu on taas käytössä.",
+      status_checking:"Tarkistetaan yhteyttä…",
+      status_back:"Takaisin! Ladataan…",
+      retry_btn:"Yritä uudelleen nyt",
+      eta_label:"Arvioitu paluu",
+      elapsed_label:"Kulunut aika",
+      reconnect:"Yritetään yhdistää uudelleen",
+      pill_checking:"Tarkistetaan yhteyttä…",
+      pill_back:"Takaisin!",
+      footer:"Builtly Engineering · Suunniteltu huolto · Sinun ei tarvitse tehdä mitään."
+    },
+    "de":{
+      code:"DE",
+      title:"Ein Modul wird aktualisiert",
+      lead:"Wir spielen ein kurzes Update ein. Die App kommt von selbst zurück, meist innerhalb weniger Minuten.",
+      detail:"Es geht nichts verloren — Ihre Projekte und Daten sind sicher. Diese Seite lädt automatisch neu, sobald der Dienst wieder verfügbar ist.",
+      status_checking:"Verbindung wird geprüft…",
+      status_back:"Zurück! Wird geladen…",
+      retry_btn:"Jetzt erneut versuchen",
+      eta_label:"Voraussichtlich zurück",
+      elapsed_label:"Verstrichene Zeit",
+      reconnect:"Verbindung wird erneut aufgebaut",
+      pill_checking:"Verbindung wird geprüft…",
+      pill_back:"Zurück!",
+      footer:"Builtly Engineering · Geplante Wartung · Sie müssen nichts tun."
+    },
+    "en-GB":{
+      code:"EN",
+      title:"A module is being upgraded",
+      lead:"We're rolling out a short update. The app will return on its own, usually within a few minutes.",
+      detail:"Nothing is lost — your projects and data are safe. This page reloads automatically as soon as the service is back.",
+      status_checking:"Checking the connection…",
+      status_back:"Back! Loading…",
+      retry_btn:"Try again now",
+      eta_label:"Estimated back",
+      elapsed_label:"Time elapsed",
+      reconnect:"Attempting to reconnect",
+      pill_checking:"Checking connection…",
+      pill_back:"Back!",
+      footer:"Builtly Engineering · Scheduled maintenance · There's nothing you need to do."
+    },
+    "en-US":{
+      code:"US",
+      title:"A module is being upgraded",
+      lead:"We're rolling out a short update. The app will come back on its own, usually within a few minutes.",
+      detail:"Nothing is lost — your projects and data are safe. This page reloads automatically as soon as the service is back.",
+      status_checking:"Checking the connection…",
+      status_back:"Back! Loading…",
+      retry_btn:"Try again now",
+      eta_label:"Estimated back",
+      elapsed_label:"Time elapsed",
+      reconnect:"Attempting to reconnect",
+      pill_checking:"Checking connection…",
+      pill_back:"Back!",
+      footer:"Builtly Engineering · Scheduled maintenance · There's nothing you need to do."
+    }
+  };
+
+  var ORDER = ["no","sv","da","fi","de","en-GB","en-US"];
+
+  function pickLocale(){
+    var langs;
+    try {
+      langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language||""];
+    } catch(e){ langs = [""]; }
+    for (var i=0;i<langs.length;i++){
+      var l=(langs[i]||"").toLowerCase();
+      if(!l) continue;
+      if(l==="en-gb") return "en-GB";
+      if(l==="en-us") return "en-US";
+      if(l==="no"||l==="nb"||l==="nn"||l.indexOf("no-")===0||l.indexOf("nb-")===0||l.indexOf("nn-")===0) return "no";
+      if(l==="sv"||l.indexOf("sv-")===0) return "sv";
+      if(l==="da"||l.indexOf("da-")===0) return "da";
+      if(l==="fi"||l.indexOf("fi-")===0) return "fi";
+      if(l==="de"||l.indexOf("de-")===0) return "de";
+      if(l.indexOf("en-")===0 || l==="en") return "en-GB";
+    }
+    return "no";
+  }
+
+  var current = pickLocale();
+
+  var $ = function(id){ return document.getElementById(id); };
+
+  function pad(n){ return (n<10?"0":"")+n; }
+
+  function applyLocale(loc){
+    current = loc;
+    var t = I18N[loc] || I18N["no"];
+    document.documentElement.setAttribute("lang", loc);
+    document.title = t.title + " — Builtly";
+    $("title").textContent = t.title;
+    $("lead").textContent = t.lead;
+    $("detail").textContent = t.detail;
+    $("retry").textContent = t.retry_btn;
+    $("etaLabel").textContent = t.eta_label;
+    $("elapsedLabel").textContent = t.elapsed_label;
+    $("reconnectLabel").textContent = t.reconnect;
+    $("footer").textContent = t.footer;
+    // status-dependent strings
+    if (isBack){
+      $("pillTxt").textContent = t.pill_back;
+      $("statusTxt").textContent = t.status_back;
+    } else {
+      $("pillTxt").textContent = t.pill_checking;
+      $("statusTxt").textContent = t.status_checking;
+    }
+    // switcher pressed state
+    var btns = document.querySelectorAll("#langs button");
+    for (var i=0;i<btns.length;i++){
+      btns[i].setAttribute("aria-pressed", btns[i].getAttribute("data-loc")===loc ? "true":"false");
+    }
+  }
+
+  // build language switcher
+  (function buildLangs(){
+    var nav = $("langs");
+    ORDER.forEach(function(loc){
+      var t = I18N[loc];
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("data-loc", loc);
+      b.setAttribute("aria-pressed","false");
+      b.setAttribute("title", loc);
+      b.textContent = t.code;
+      b.addEventListener("click", function(){ applyLocale(loc); });
+      nav.appendChild(b);
+    });
+  })();
+
+  // ---- persistent start time (survives the meta-refresh / probe reload) ----
+  // Persisting 'start' keeps "Tid som har gått" and "Forventet tilbake" stable
+  // across the 120s no-JS refresh instead of resetting to 00:00 / now+5min.
+  var start;
+  try {
+    var stored = window.sessionStorage.getItem("builtly_maint_start");
+    var n = stored ? parseInt(stored, 10) : NaN;
+    // Reuse a stored start only if it is sane AND recent (< 30 min). This keeps
+    // the timer stable across the 120s meta-refresh, but discards a stale value
+    // left in this tab by an earlier, already-recovered maintenance window.
+    if (stored && !isNaN(n) && n > 0 && n <= Date.now() && (Date.now() - n) < 30*60*1000){
+      start = n;
+    } else {
+      start = Date.now();
+      window.sessionStorage.setItem("builtly_maint_start", String(start));
+    }
+  } catch(e){
+    start = Date.now();
+  }
+
+  // ETA = start + 5 min, formatted as local HH:MM (stable across reloads)
+  (function setEta(){
+    var d = new Date(start + 5*60*1000);
+    $("eta").textContent = "~" + pad(d.getHours()) + ":" + pad(d.getMinutes());
+  })();
+
+  // elapsed timer (mm:ss, capped at 99:59 so it never overflows the field)
+  function tick(){
+    var s = Math.max(0, Math.floor((Date.now()-start)/1000));
+    var m = Math.floor(s/60);
+    if (m > 99){ m = 99; s = 99*60 + 59; }
+    $("elapsed").textContent = pad(m) + ":" + pad(s%60);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // ---- auto-recovery probe ----
+  var isBack = false;
+  var probing = false;
+
+  function goBack(){
+    if (isBack) return;
+    isBack = true;
+    document.body.classList.add("is-back");
+    var t = I18N[current] || I18N["no"];
+    $("pillTxt").textContent = t.pill_back;
+    $("statusTxt").textContent = t.status_back;
+    // maintenance window is over — clear the persisted start so a future
+    // outage starts a fresh counter, then reload into the live app.
+    try { window.sessionStorage.removeItem("builtly_maint_start"); } catch(e){}
+    setTimeout(function(){
+      try { location.reload(); } catch(e){ location.href = location.pathname || "/"; }
+    }, 1100);
+  }
+
+  function probe(){
+    if (isBack || probing) return;
+    probing = true;
+
+    // No fetch (very old browser): rely on meta-refresh + manual button.
+    if (!("fetch" in window)){
+      probing = false;
+      return;
+    }
+
+    var settled = false;
+    var ctrl = ("AbortController" in window) ? new AbortController() : null;
+
+    // Hard 8s guard. Works WITH AbortController (aborts the request) and
+    // WITHOUT it (manually releases the probing lock so the next interval
+    // can fire even if fetch never settles on a legacy browser).
+    var timer = setTimeout(function(){
+      if (settled) return;
+      settled = true;
+      if (ctrl){ try { ctrl.abort(); } catch(e){} }
+      probing = false; // legacy fallback: free the lock even if fetch hangs
+    }, 8000);
+
+    var opts = {
+      method:"GET",
+      cache:"no-store",
+      redirect:"follow",
+      headers:{ "x-cf-probe":"1" }
+    };
+    if (ctrl) opts.signal = ctrl.signal;
+
+    var url = "/?_cf_probe=" + Date.now();
+
+    fetch(url, opts).then(function(res){
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      probing = false;
+      // Origin is serving again on ANY non-5xx response (200/3xx/4xx).
+      // Cloudflare 5xx/52x (this error page) keeps status >= 500 => still down.
+      if (res && (res.ok || (typeof res.status === "number" && res.status < 500))){
+        goBack();
+      }
+    }).catch(function(){
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      probing = false;
+      // network error / abort / timeout / 5xx => still down; keep waiting silently
+    });
+  }
+
+  // first probe shortly after load, then steady cadence ~13s
+  setTimeout(probe, 2500);
+  setInterval(probe, 13000);
+
+  // manual retry
+  $("retry").addEventListener("click", function(){
+    try { location.reload(); } catch(e){ location.href = location.pathname || "/"; }
+  });
+
+  // re-probe when tab regains focus / connectivity returns
+  document.addEventListener("visibilitychange", function(){
+    if (document.visibilityState === "visible") probe();
+  });
+  window.addEventListener("online", probe);
+
+  // initial render
+  applyLocale(current);
+})();
+</script>
+</body>
+</html>
