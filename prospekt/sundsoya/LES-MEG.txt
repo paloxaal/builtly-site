@@ -1,0 +1,49 @@
+SUNDSØYA – SALGSOPPGAVER SOM FLIPPBOK (les online som oppslag + last ned PDF)
+============================================================================
+
+Hva er dette?
+-------------
+En liten, selvstendig nettside som lar folk lese salgsoppgavene i nettleseren
+som ekte DOBBELTSIDE-OPPSLAG (forside alene, så 2-3, 4-5 …), med en
+"Last ned PDF"-knapp. Funker på PC, nettbrett og mobil (én side på mobil).
+Ingen tredjepart, ingen abonnement – alt ligger på ditt eget domene.
+
+Innhold:
+  index.html            – forside med de tre prospektene
+  les.html              – selve lese-/oppslagsvisningen
+  leil/                 – leiligheter:  sidebilder (p001.jpg …) + book.json + PDF
+  rekkehus/             – rekkehus:     sidebilder + book.json + PDF
+  eneboliger/           – eneboliger:   sidebilder + book.json + PDF
+
+Slik publiserer du
+------------------
+Alt er statiske filer. Legg HELE "web"-mappa på en hvilken som helst
+statisk webhost, f.eks.:
+
+  • Vercel / Netlify : dra-og-slipp mappa i dashbordet (gratis).
+  • Egen webserver   : last opp mappa via FTP/SFTP.
+  • GitHub Pages     : legg mappa i et repo og slå på Pages.
+
+Når den er publisert:
+  https://dittdomene.no/             → forsiden (index.html)
+  https://dittdomene.no/les.html?b=leil        → leiligheter direkte
+  https://dittdomene.no/les.html?b=rekkehus    → rekkehus
+  https://dittdomene.no/les.html?b=eneboliger  → eneboliger
+
+Du kan lenke rett til ett prospekt fra nettsiden din, e-post eller QR-kode.
+
+Viktig: åpne den IKKE som lokal fil (file://…). Nettlesere blokkerer da
+innlasting av bilder/JSON. Den må ligge på en webserver (http/https) – det
+gjør den automatisk hos Vercel/Netlify/din host.
+
+Oppdatere innhold
+-----------------
+Sidebildene er rendret fra prospekt-PDF-ene. Skal du bytte ut en oppgave,
+bytt bildene i den aktuelle undermappa (p001.jpg, p002.jpg …) og PDF-en, og
+oppdater "n"/"pages" i book.json om sidetallet endres.
+
+Farger
+------
+Sidene vises som bilder (ikke via nettleserens PDF-motor), nettopp fordi
+nettleserens innebygde PDF-leser tolket fargeprofilen i bildene feil
+(rosa-skjær). Bildene her har korrekte farger.

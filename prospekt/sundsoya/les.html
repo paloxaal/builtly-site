@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Sundsøya · Salgsoppgave</title>
+<style>
+  :root{ --forest:#3A472F; --forest-d:#2B3623; --brass:#A8884E; --paper:#F4EFE4; --ink:#e9e3d4; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:#11150e;color:var(--ink);font-family:'Helvetica Neue',Arial,sans-serif;overflow:hidden;-webkit-user-select:none;user-select:none}
+  .bar{position:fixed;top:0;left:0;right:0;height:54px;display:flex;align-items:center;justify-content:space-between;
+       padding:0 16px;z-index:20;background:linear-gradient(180deg,rgba(17,21,14,.96),rgba(17,21,14,.5) 70%,rgba(17,21,14,0))}
+  .brand{font-family:Georgia,'Times New Roman',serif;letter-spacing:.22em;text-transform:uppercase;font-size:13px;color:#efe7d4}
+  .brand b{color:var(--brass);font-weight:700}
+  .sub{font-size:10px;letter-spacing:.18em;color:#b7b09c;text-transform:uppercase;margin-left:10px}
+  .actions{display:flex;gap:8px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:7px;background:transparent;color:#efe7d4;border:1px solid rgba(168,136,78,.6);
+       padding:8px 14px;border-radius:30px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+  .btn.solid{background:var(--forest);border-color:var(--brass)}
+  .btn:hover{background:var(--forest-d)}
+  #stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  #book{display:flex;box-shadow:0 24px 70px rgba(0,0,0,.65);transition:opacity .16s ease;max-width:98vw}
+  #book.turning{opacity:.3}
+  .leaf{background:var(--paper);line-height:0}
+  .leaf img{display:block;height:100%;width:auto;max-width:49vw}
+  .leaf.empty{background:transparent;box-shadow:none}
+  .spine{width:2px;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.30),rgba(0,0,0,.04))}
+  .nav{position:fixed;top:0;bottom:0;width:16%;max-width:170px;z-index:15;cursor:pointer;display:flex;align-items:center;border:0;color:#fff;opacity:0;transition:opacity .2s;background:transparent}
+  .nav:hover{opacity:1}
+  .nav.prev{left:0;justify-content:flex-start;padding-left:18px;background:linear-gradient(90deg,rgba(0,0,0,.35),transparent)}
+  .nav.next{right:0;justify-content:flex-end;padding-right:18px;background:linear-gradient(270deg,rgba(0,0,0,.35),transparent)}
+  .nav span{font-size:34px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+  .nav:disabled{opacity:0!important;cursor:default}
+  .foot{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:14px;
+        background:rgba(17,21,14,.7);backdrop-filter:blur(4px);padding:8px 16px;border-radius:30px;font-size:12px;letter-spacing:.12em;color:#cbc4af}
+  .foot button{background:transparent;border:0;color:#cbc4af;font-size:16px;cursor:pointer;padding:2px 6px}
+  .foot button:hover{color:#fff}
+  #counter{min-width:78px;text-align:center;font-variant-numeric:tabular-nums}
+  #loader{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;z-index:30;background:#11150e}
+  .ring{width:42px;height:42px;border:3px solid rgba(168,136,78,.25);border-top-color:var(--brass);border-radius:50%;animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  #loader .t{font-family:Georgia,serif;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:#b7b09c}
+  #err{display:none;max-width:430px;text-align:center;line-height:1.6;color:#d8b8a8;font-size:13px;padding:20px}
+  @media (max-width:760px){ .brand{font-size:11px} .sub{display:none} .nav{width:34%} .leaf img{max-width:96vw} }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div><span class="brand">Sunds<b>ø</b>ya</span><span class="sub" id="subttl">Salgsoppgave</span></div>
+    <div class="actions">
+      <a class="btn" id="home" href="index.html">Alle prospekt</a>
+      <a class="btn solid" id="dl" download>↓ Last ned PDF</a>
+    </div>
+  </div>
+
+  <div id="stage"><div id="book"></div></div>
+  <button class="nav prev" id="prev" aria-label="Forrige"><span>‹</span></button>
+  <button class="nav next" id="next" aria-label="Neste"><span>›</span></button>
+  <div class="foot">
+    <button id="bprev" aria-label="Forrige">‹</button><span id="counter">– / –</span><button id="bnext" aria-label="Neste">›</button>
+  </div>
+  <div id="loader"><div class="ring"></div><div class="t">Laster prospekt …</div><div id="err"></div></div>
+
+<script>
+(function(){
+  "use strict";
+  const qs=new URLSearchParams(location.search);
+  const slug=qs.get('b')||'leil';
+  const base=slug.replace(/[^a-z0-9_-]/gi,'')+'/';
+  const bookEl=document.getElementById('book'), loader=document.getElementById('loader'), errEl=document.getElementById('err'), counter=document.getElementById('counter');
+  let book=null, N=0, view=0, views=[], single=false;
+  const imgCache=new Map();
+
+  function buildViews(){
+    single = window.innerWidth<760 || window.innerWidth<window.innerHeight;
+    views=[];
+    if(single){ for(let p=1;p<=N;p++) views.push([null,p]); }
+    else{ views.push([null,1]); for(let p=2;p<=N;p+=2) views.push([p, p+1<=N?p+1:null]); }
+    if(view>=views.length) view=views.length-1;
+  }
+  function imgFor(n){
+    if(imgCache.has(n)) return imgCache.get(n);
+    const im=new Image(); im.src=base+book.pages[n-1]; imgCache.set(n,im); return im;
+  }
+  function leaf(n){
+    const d=document.createElement('div');
+    if(!n){ d.className='leaf empty'; return d; }
+    d.className='leaf';
+    const src=imgFor(n);
+    const im=document.createElement('img'); im.src=src.src; im.alt='Side '+n;
+    d.appendChild(im); return d;
+  }
+  function show(){
+    bookEl.classList.add('turning');
+    const targetH=Math.min(window.innerHeight-74, 1600);
+    const [L,R]=views[view];
+    bookEl.innerHTML='';
+    if(!single && (L||R)){
+      bookEl.appendChild(leaf(L));
+      const sp=document.createElement('div'); sp.className='spine'; sp.style.height=targetH+'px'; bookEl.appendChild(sp);
+      bookEl.appendChild(leaf(R));
+    } else { bookEl.appendChild(leaf(R||L)); }
+    bookEl.querySelectorAll('img').forEach(i=>i.style.height=targetH+'px');
+    bookEl.querySelectorAll('.leaf.empty').forEach(e=>{ e.style.height=targetH+'px'; e.style.width=(targetH*0.707)+'px'; });
+    requestAnimationFrame(()=>bookEl.classList.remove('turning'));
+    counter.textContent = single ? (R+' / '+N) : (((L&&R)?(L+'–'+R):(''+(L||R)))+' / '+N);
+    document.getElementById('prev').disabled=view<=0;
+    document.getElementById('next').disabled=view>=views.length-1;
+    const nv=views[view+1]; if(nv) nv.forEach(p=>p&&imgFor(p));   // preload neste oppslag
+  }
+  function go(d){ const t=view+d; if(t<0||t>=views.length) return; view=t; show(); }
+
+  document.getElementById('next').onclick=()=>go(1);
+  document.getElementById('prev').onclick=()=>go(-1);
+  document.getElementById('bnext').onclick=()=>go(1);
+  document.getElementById('bprev').onclick=()=>go(-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown') go(1);
+    else if(e.key==='ArrowLeft'||e.key==='PageUp') go(-1);
+    else if(e.key==='Home'){view=0;show();} else if(e.key==='End'){view=views.length-1;show();}
+  });
+  let sx=null;
+  document.getElementById('stage').addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+  document.getElementById('stage').addEventListener('touchend',e=>{ if(sx==null)return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>45) go(dx<0?1:-1); sx=null; });
+  let rt; window.addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(()=>{ buildViews(); show(); },180); });
+
+  fetch(base+'book.json').then(r=>{ if(!r.ok) throw 0; return r.json(); }).then(j=>{
+    book=j; N=j.n;
+    document.getElementById('subttl').textContent=j.title;
+    document.getElementById('dl').href=base+j.pdf;
+    document.title='Sundsøya · '+j.title;
+    buildViews();
+    // forhåndslast forsiden + første oppslag, vis så snart de er klare
+    const first=imgFor(1); first.onload=()=>{ loader.style.display='none'; show(); };
+    first.onerror=()=>fail();
+    if(first.complete){ loader.style.display='none'; show(); }
+  }).catch(fail);
+
+  function fail(){
+    document.querySelector('#loader .ring').style.display='none';
+    document.querySelector('#loader .t').style.display='none';
+    errEl.style.display='block';
+    errEl.innerHTML='Fant ikke prospektet «'+slug+'».<br><br>Sjekk at mappa «'+base+'» med book.json og sidebildene ligger ved siden av denne fila, og at alt serveres over http(s).';
+  }
+})();
+</script>
+</body>
+</html>
