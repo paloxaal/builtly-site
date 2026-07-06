@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sundsøya · Salgsoppgaver</title>
+<style>
+  :root{ --forest:#3A472F; --brass:#A8884E; --paper:#F4EFE4; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#11150e;color:#e9e3d4;font-family:'Helvetica Neue',Arial,sans-serif;min-height:100vh;
+       display:flex;flex-direction:column;align-items:center;padding:7vh 20px 40px}
+  .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--brass)}
+  h1{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:40px;letter-spacing:.04em;margin:10px 0 4px}
+  .lead{color:#b7b09c;font-size:14px;letter-spacing:.04em;margin-bottom:46px}
+  .grid{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;max-width:1100px}
+  .card{width:300px;text-decoration:none;color:inherit;display:block;transition:transform .2s}
+  .card:hover{transform:translateY(-6px)}
+  .thumb{width:100%;aspect-ratio:210/297;background:#222;border-radius:4px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.55);border:1px solid rgba(168,136,78,.25)}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .ct{margin-top:16px;font-family:Georgia,serif;font-size:19px;letter-spacing:.02em}
+  .cs{color:#9c9684;font-size:12px;letter-spacing:.06em;margin-top:3px}
+  .open{margin-top:10px;display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(168,136,78,.5);padding:7px 14px;border-radius:30px}
+  .foot{margin-top:54px;color:#6f6a5b;font-size:11px;letter-spacing:.1em;text-align:center;line-height:1.8}
+</style>
+</head>
+<body>
+  <div class="eyebrow">Inderøy · Trøndelag</div>
+  <h1>Sundsøya</h1>
+  <div class="lead">Den gyldne mulighet — salgsoppgaver</div>
+  <div class="grid" id="grid"></div>
+  <div class="foot">Selger: Sundsøya Eiendom AS · Arkitekt: Eggen Arkitekter · Megler: Heimdal Eiendomsmegling<br>Alle bilder og tegninger er illustrasjoner. Forbehold om endringer og skrive-/trykkfeil.</div>
+<script>
+  const BOOKS=[
+    {slug:'leil', t:'Leiligheter', s:'8 selveierleiligheter · BK1a'},
+    {slug:'rekkehus', t:'Rekkehus', s:'5 rekkehus · B4'},
+    {slug:'eneboliger', t:'Eneboliger', s:'6 eneboliger · B3 & B5'},
+  ];
+  const g=document.getElementById('grid');
+  BOOKS.forEach(b=>{
+    const a=document.createElement('a'); a.className='card'; a.href='les.html?b='+b.slug;
+    a.innerHTML=`<div class="thumb"><img src="${b.slug}/p001.jpg" alt="${b.t}"></div>
+      <div class="ct">${b.t}</div><div class="cs">${b.s}</div><span class="open">Les som oppslag ›</span>`;
+    g.appendChild(a);
+  });
+</script>
+</body>
+</html>
