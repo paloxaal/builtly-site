@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    {
+      "source": "/prospekt/sundsoya/les",
+      "destination": "/prospekt/sundsoya/les.html",
+      "permanent": false
+    },
+    {
+      "source": "/prospekt/sundsoya/les.html\\?b=:book",
+      "destination": "/prospekt/sundsoya/les.html?b=:book",
+      "permanent": false
+    },
+    {
+      "source": "/prospekt/sundsoya/leil",
+      "destination": "/prospekt/sundsoya/les.html?b=leil",
+      "permanent": false
+    },
+    {
+      "source": "/prospekt/sundsoya/rekkehus",
+      "destination": "/prospekt/sundsoya/les.html?b=rekkehus",
+      "permanent": false
+    },
+    {
+      "source": "/prospekt/sundsoya/eneboliger",
+      "destination": "/prospekt/sundsoya/les.html?b=eneboliger",
+      "permanent": false
+    }
+  ]
+}
