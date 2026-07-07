@@ -8,31 +8,42 @@
 <script>
 /* Auto-reparasjon av videresendte lenker. Meldings-/e-postapper ødelegger
    lenker på mange måter: «?» → «%3F», autokorrektur («sundsoya» → «sundsøya»),
+   LATIN-1-kodede nordiske tegn (SMS: ø → %F8 — knekker decodeURIComponent),
    store bokstaver, avkuttet query. Strategi:
    1) %3F → ? og hopp dit.
-   2) Ligner stien på en prospekt-lenke (etter normalisering ø→o osv.):
-      gjenkjenn boknavnet i lenken og hopp RETT til riktig salgsoppgave —
-      ellers til prospekt-oversikten. Målet HEAD-sjekkes først så vi aldri
-      redirecter inn i en ny 404. */
+   2) Ligner stien på en prospekt-lenke (etter FULL normalisering: latin-1-
+      bytes, UTF-8-dekoding, ø→o osv.): gjenkjenn boknavnet og hopp RETT til
+      riktig salgsoppgave — ellers til prospekt-oversikten. Målet HEAD-sjekkes
+      først så vi aldri redirecter inn i en ny 404. */
+function bltRepair(raw) {
+  if (/%3F/i.test(raw)) {
+    return { direct: raw.replace(/%3F/i, "?") };
+  }
+  // Latin-1-kodede nordiske tegn FØR dekoding (%F8/%D8=ø, %E5/%C5=å, %E6/%C6=æ):
+  // ugyldige som UTF-8, så decodeURIComponent ville kastet og slug-en blitt kuttet.
+  var s = raw.replace(/%f8|%d8/gi, "o").replace(/%e5|%c5/gi, "a")
+             .replace(/%e6|%c6/gi, "ae");
+  var p = s;
+  try { p = decodeURIComponent(s); } catch (e) {}
+  var low = p.toLowerCase().replace(/ø/g, "o").replace(/å/g, "a").replace(/æ/g, "ae");
+  var m = low.match(/prospekt[\/-]?([a-z0-9-]+)/);
+  if (!m) return null;
+  var base = "/prospekt/" + m[1] + "/";
+  var bm = low.match(/(leilighet|leil|rekkehus|enebolig)/);
+  var book = bm ? (bm[1].indexOf("leil") === 0 ? "leil"
+                   : bm[1] === "rekkehus" ? "rekkehus" : "eneboliger") : "";
+  return { base: base, target: book ? base + "les.html?b=" + book : base };
+}
 (function () {
   try {
-    var raw = window.location.pathname + window.location.search;
-    if (/%3F/i.test(raw)) {
-      window.location.replace(raw.replace(/%3F/i, "?"));
+    var r = bltRepair(window.location.pathname + window.location.search);
+    if (!r) return;
+    if (r.direct) {
+      window.location.replace(r.direct);
       return;
     }
-    var p = raw;
-    try { p = decodeURIComponent(raw); } catch (e) {}
-    var low = p.toLowerCase().replace(/ø/g, "o").replace(/å/g, "a").replace(/æ/g, "ae");
-    var m = low.match(/prospekt[\/-]?([a-z0-9-]+)/);
-    if (!m) return;
-    var base = "/prospekt/" + m[1] + "/";
-    var bm = low.match(/(leilighet|leil|rekkehus|enebolig)/);
-    var book = bm ? (bm[1].indexOf("leil") === 0 ? "leil"
-                     : bm[1] === "rekkehus" ? "rekkehus" : "eneboliger") : "";
-    var target = book ? base + "les.html?b=" + book : base;
-    fetch(base, { method: "HEAD" }).then(function (r) {
-      if (r.ok) { window.location.replace(target); }
+    fetch(r.base, { method: "HEAD" }).then(function (res) {
+      if (res.ok) { window.location.replace(r.target); }
     }).catch(function () {});
   } catch (e) {}
 })();
@@ -68,17 +79,14 @@
   </div>
 <script>
 /* Kontekst-hjelp (fallback om auto-hoppet ikke tar): på alt som LIGNER en
-   prospekt-sti (samme normalisering som over) vises veien til oversikten. */
+   prospekt-sti (SAMME reparasjonslogikk som over) vises veien til målet. */
 (function () {
   try {
-    var p = window.location.pathname;
-    try { p = decodeURIComponent(p); } catch (e) {}
-    var low = p.toLowerCase().replace(/ø/g, "o").replace(/å/g, "a").replace(/æ/g, "ae");
-    var m = low.match(/prospekt[\/-]?([a-z0-9-]+)/);
-    if (m) {
+    var r = bltRepair(window.location.pathname + window.location.search);
+    if (r && r.base) {
       var a = document.createElement("a");
       a.className = "btn primary";
-      a.href = "/prospekt/" + m[1] + "/";
+      a.href = r.target || r.base;
       a.textContent = "Til prospektene ›";
       var btns = document.querySelector(".btns");
       btns.insertBefore(a, btns.firstChild);
