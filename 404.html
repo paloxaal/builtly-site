@@ -6,14 +6,34 @@
 <meta name="robots" content="noindex">
 <title>Fant ikke siden · Builtly</title>
 <script>
-/* Auto-reparasjon: videresendte lenker får ofte «?» omkodet til «%3F»
-   (Outlook/meldingsapper) — da treffer de 404. Reparer og hopp dit. */
+/* Auto-reparasjon av videresendte lenker. Meldings-/e-postapper ødelegger
+   lenker på mange måter: «?» → «%3F», autokorrektur («sundsoya» → «sundsøya»),
+   store bokstaver, avkuttet query. Strategi:
+   1) %3F → ? og hopp dit.
+   2) Ligner stien på en prospekt-lenke (etter normalisering ø→o osv.):
+      gjenkjenn boknavnet i lenken og hopp RETT til riktig salgsoppgave —
+      ellers til prospekt-oversikten. Målet HEAD-sjekkes først så vi aldri
+      redirecter inn i en ny 404. */
 (function () {
   try {
     var raw = window.location.pathname + window.location.search;
     if (/%3F/i.test(raw)) {
       window.location.replace(raw.replace(/%3F/i, "?"));
+      return;
     }
+    var p = raw;
+    try { p = decodeURIComponent(raw); } catch (e) {}
+    var low = p.toLowerCase().replace(/ø/g, "o").replace(/å/g, "a").replace(/æ/g, "ae");
+    var m = low.match(/prospekt[\/-]?([a-z0-9-]+)/);
+    if (!m) return;
+    var base = "/prospekt/" + m[1] + "/";
+    var bm = low.match(/(leilighet|leil|rekkehus|enebolig)/);
+    var book = bm ? (bm[1].indexOf("leil") === 0 ? "leil"
+                     : bm[1] === "rekkehus" ? "rekkehus" : "eneboliger") : "";
+    var target = book ? base + "les.html?b=" + book : base;
+    fetch(base, { method: "HEAD" }).then(function (r) {
+      if (r.ok) { window.location.replace(target); }
+    }).catch(function () {});
   } catch (e) {}
 })();
 </script>
@@ -47,14 +67,18 @@
     </div>
   </div>
 <script>
-/* Kontekst-hjelp: på prospekt-stier tilbys veien tilbake til oversikten. */
+/* Kontekst-hjelp (fallback om auto-hoppet ikke tar): på alt som LIGNER en
+   prospekt-sti (samme normalisering som over) vises veien til oversikten. */
 (function () {
   try {
-    var m = window.location.pathname.match(/^\/(prospekt\/[a-z0-9-]+)\//i);
+    var p = window.location.pathname;
+    try { p = decodeURIComponent(p); } catch (e) {}
+    var low = p.toLowerCase().replace(/ø/g, "o").replace(/å/g, "a").replace(/æ/g, "ae");
+    var m = low.match(/prospekt[\/-]?([a-z0-9-]+)/);
     if (m) {
       var a = document.createElement("a");
       a.className = "btn primary";
-      a.href = "/" + m[1] + "/";
+      a.href = "/prospekt/" + m[1] + "/";
       a.textContent = "Til prospektene ›";
       var btns = document.querySelector(".btns");
       btns.insertBefore(a, btns.firstChild);
