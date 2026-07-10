@@ -1,4 +1,9 @@
 {
+  "rewrites": [
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/cookies", "destination": "/cookies.html" }
+  ],
   "redirects": [
     {
       "source": "/prospekt/sundsoya/les",
