@@ -108,6 +108,7 @@
       "footer.company.contact":  "Contact",
       "footer.company.trust":    "Trust",
       "footer.company.ethics": "Code of ethics",
+      "footer.company.internal": "Internal portal",
       // === Industries page ===
       "industries.s01.primary_tag": "Engineering consultancies",
       "industries.s01.body1.intro": "The proposition is straightforward.",
@@ -2061,6 +2062,7 @@
       "footer.company.contact":  "Kontakt",
       "footer.company.trust":    "Tillit",
       "footer.company.ethics": "Etiske retningslinjer",
+      "footer.company.internal": "Intern portal",
       // === Industries page ===
       "industries.s01.primary_tag": "Ingeniørrådgivere",
       "industries.s01.body1.intro": "Verdiforslaget er enkelt.",
@@ -4016,6 +4018,7 @@
       "footer.company.contact":  "Kontakt",
       "footer.company.trust":    "Förtroende",
       "footer.company.ethics": "Etiska riktlinjer",
+      "footer.company.internal": "Intern portal",
       // === Industries page ===
       "industries.s01.primary_tag": "Ingenjörskonsultföretag",
       "industries.s01.body1.intro": "Värdeerbjudandet är okomplicerat.",
@@ -5967,6 +5970,7 @@
       "footer.company.contact":  "Kontakt",
       "footer.company.trust":    "Tillid",
       "footer.company.ethics": "Etiske retningslinjer",
+      "footer.company.internal": "Intern portal",
       // === Industries page ===
       "industries.s01.primary_tag": "Ingeniørrådgivningsfirmaer",
       "industries.s01.body1.intro": "Værditilbuddet er enkelt.",
@@ -7920,6 +7924,7 @@
       "footer.company.contact":  "Yhteystiedot",
       "footer.company.trust":    "Luottamus",
       "footer.company.ethics": "Eettiset ohjeet",
+      "footer.company.internal": "Sisäinen portaali",
       // === Industries page ===
       "industries.s01.primary_tag": "Insinöörikonsultit",
       "industries.s01.body1.intro": "Arvolupaus on suoraviivainen.",
@@ -9873,6 +9878,7 @@
       "footer.company.contact":  "Kontakt",
       "footer.company.trust":    "Vertrauen",
       "footer.company.ethics": "Ethikrichtlinien",
+      "footer.company.internal": "Internes Portal",
       // === Industries page ===
       "industries.s01.primary_tag": "Ingenieurberatungsfirmen",
       "industries.s01.body1.intro": "Das Wertversprechen ist einfach.",
