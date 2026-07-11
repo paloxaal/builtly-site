@@ -7,7 +7,7 @@
   "redirects": [
     {
       "source": "/intern",
-      "destination": "https://app.builtly.ai/Styreportal",
+      "destination": "https://styreportal.vercel.app",
       "permanent": false
     },
     {
