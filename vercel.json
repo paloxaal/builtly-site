@@ -1,23 +1,32 @@
 {
   "rewrites": [
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/cookies", "destination": "/cookies.html" }
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/cookies",
+      "destination": "/cookies.html"
+    }
   ],
   "redirects": [
     {
       "source": "/intern",
-      "destination": "https://styreportal.vercel.app",
+      "destination": "https://intern.builtly.ai",
       "permanent": false
     },
     {
       "source": "/styreportal",
-      "destination": "https://styreportal.vercel.app",
+      "destination": "https://intern.builtly.ai",
       "permanent": false
     },
     {
       "source": "/Styreportal",
-      "destination": "https://styreportal.vercel.app",
+      "destination": "https://intern.builtly.ai",
       "permanent": false
     },
     {
