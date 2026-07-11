@@ -6,6 +6,11 @@
   ],
   "redirects": [
     {
+      "source": "/intern",
+      "destination": "https://app.builtly.ai/Styreportal",
+      "permanent": false
+    },
+    {
       "source": "/prospekt/sundsoya/les",
       "destination": "/prospekt/sundsoya/les.html",
       "permanent": false
