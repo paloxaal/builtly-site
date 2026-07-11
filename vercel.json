@@ -11,6 +11,16 @@
       "permanent": false
     },
     {
+      "source": "/styreportal",
+      "destination": "https://styreportal.vercel.app",
+      "permanent": false
+    },
+    {
+      "source": "/Styreportal",
+      "destination": "https://styreportal.vercel.app",
+      "permanent": false
+    },
+    {
       "source": "/prospekt/sundsoya/les",
       "destination": "/prospekt/sundsoya/les.html",
       "permanent": false
