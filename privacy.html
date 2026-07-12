@@ -92,7 +92,7 @@ footer.site nav a{margin-right:16px}
 
 <h2>4. Bruk av kunstig intelligens</h2>
 <p>Deler av Builtly bruker kunstig intelligens (KI) til tekst-, bilde- og dokumentanalyse — for eksempel til å tolke opplastede tegninger og dokumenter, generere og forbedre markedsføringstekst, og oppsummere innhold.</p>
-<p>Til dette bruker vi tjenester fra <strong>OpenAI</strong>, <strong>Anthropic</strong> og <strong>Google (Gemini)</strong>. Disse leverandørene behandler kun data <strong>når du faktisk bruker en KI-funksjon</strong>, og de <strong>trener ikke sine modeller på data som sendes via Builtlys API-integrasjoner</strong>.</p>
+<p>Til dette bruker vi <strong>Claude fra Anthropic</strong> samt egne private modeller. I <strong>Mulighetsstudie-modulen</strong> brukes i tillegg <strong>Google Gemini</strong> til bildegenerering. <strong>OpenAI brukes ikke.</strong> Leverandørene behandler kun data <strong>når du faktisk bruker en KI-funksjon</strong>, og de <strong>trener ikke sine modeller på data som sendes via Builtlys API-integrasjoner</strong>.</p>
 <p>KI-genererte resultater kan inneholde feil. Du bør derfor kontrollere innhold som er generert eller bearbeidet med KI før det brukes til beslutninger. Overføring til disse leverandørene er omtalt i punkt 6.</p>
 
 <h2>5. Databehandlere og mottakere</h2>
@@ -106,7 +106,8 @@ footer.site nav a{margin-right:16px}
 <tr><td><strong>Render</strong></td><td>Drift og hosting</td></tr>
 <tr><td><strong>Vercel</strong></td><td>Frontend-hosting</td></tr>
 <tr><td><strong>Cloudflare</strong></td><td>DNS og innholdslevering (CDN)</td></tr>
-<tr><td><strong>OpenAI</strong>, <strong>Anthropic</strong>, <strong>Google (Gemini)</strong></td><td>KI-basert tekst-, bilde- og dokumentanalyse (behandler kun data ved bruk av KI-funksjoner; trener ikke på Builtlys API-data)</td></tr>
+<tr><td><strong>Anthropic (Claude)</strong></td><td>KI-basert tekst- og dokumentanalyse (behandler kun data ved bruk av KI-funksjoner; trener ikke på Builtlys API-data)</td></tr>
+<tr><td><strong>Google (Gemini)</strong></td><td>Bildegenerering — kun i Mulighetsstudie-modulen (trener ikke på Builtlys API-data)</td></tr>
 <tr><td><strong>Resend</strong></td><td>Utsending av e-post</td></tr>
 <tr><td><strong>Twilio</strong></td><td>Utsending av SMS</td></tr>
 <tr><td><strong>Creditsafe</strong></td><td>Kredittopplysninger om foretak</td></tr>
@@ -117,7 +118,7 @@ footer.site nav a{margin-right:16px}
 <p>Vi selger ikke personopplysninger. Opplysninger kan utleveres til offentlige myndigheter der vi er rettslig forpliktet til det.</p>
 
 <h2>6. Overføring til tredjeland</h2>
-<p>Enkelte av våre databehandlere kan behandle personopplysninger utenfor EU/EØS, hovedsakelig i <strong>USA</strong>. Dette gjelder blant annet <strong>OpenAI</strong>, <strong>Anthropic</strong>, <strong>Google</strong>, <strong>Resend</strong>, <strong>Twilio</strong>, <strong>Vercel</strong>, <strong>Render</strong> og <strong>Cloudflare</strong>.</p>
+<p>Enkelte av våre databehandlere kan behandle personopplysninger utenfor EU/EØS, hovedsakelig i <strong>USA</strong>. Dette gjelder blant annet <strong>Anthropic</strong>, <strong>Google</strong>, <strong>Resend</strong>, <strong>Twilio</strong>, <strong>Vercel</strong>, <strong>Render</strong>, <strong>Cloudflare</strong> og <strong>Microsoft</strong>.</p>
 <p>Slik overføring skjer på grunnlag av:</p>
 <ul>
 <li><strong>EUs rammeverk for personvern mellom EU og USA (EU-US Data Privacy Framework)</strong>, der leverandøren er sertifisert, og/eller</li>
