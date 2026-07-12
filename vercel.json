@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/apenhetsloven",
+      "destination": "/apenhetsloven.html"
+    },
+    {
       "source": "/privacy",
       "destination": "/privacy.html"
     },
