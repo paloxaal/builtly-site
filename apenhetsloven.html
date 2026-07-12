@@ -99,6 +99,8 @@ a{color:inherit;text-decoration:none}
 .doc-section a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .doc-sign{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;color:var(--ink-soft);line-height:1.7}
 .doc-sign .name{font-weight:600;color:var(--ink)}
+.doc-sign-row{display:flex;flex-wrap:wrap;gap:16px clamp(40px,8vw,120px)}
+.doc-sign-row p{margin:0}
 .doc-footer-note{background:var(--bg-soft);padding:clamp(40px,6vh,64px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .doc-footer-note .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(24px,3vw,48px)}
 @media (max-width:720px){.doc-footer-note .wrap{grid-template-columns:1fr;gap:18px}}
@@ -252,8 +254,11 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 <p data-i18n-html="apenhet.s09.body">Enhver har etter åpenhetsloven §§ 6–7 rett til informasjon om hvordan Builtly Engineering AS håndterer faktiske og potensielle negative konsekvenser for grunnleggende menneskerettigheter og anstendige arbeidsforhold. Henvendelser rettes til <a href="mailto:post@builtly.ai">post@builtly.ai</a> og besvares skriftlig innen tre uker, slik loven krever. Varsling om kritikkverdige forhold: <a href="mailto:varsling@builtly.ai">varsling@builtly.ai</a>.</p>
 <div class="doc-sign">
 <p data-i18n="apenhet.sign.place">Trondheim, 12. juli 2026</p>
-<p data-i18n="apenhet.sign.for">For styret i Builtly Engineering AS</p>
-<p><span class="name">Pål Morten Oxaal</span><br/><span data-i18n="apenhet.sign.role">Styremedlem</span><br/>Builtly Engineering AS</p>
+<p data-i18n="apenhet.sign.for">Styret i Builtly Engineering AS</p>
+<div class="doc-sign-row">
+<p><span class="name">Vegard Nymo Tyldum</span><br/><span data-i18n="apenhet.sign.role1">Styrets leder</span><br/>Builtly Engineering AS</p>
+<p><span class="name">Pål Morten Oxaal</span><br/><span data-i18n="apenhet.sign.role2">Styremedlem</span><br/>Builtly Engineering AS</p>
+</div>
 </div>
 </div>
 
@@ -319,7 +324,7 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 </div>
 </footer>
 
-<script src="/i18n.js?v=20260712-apenhet1"></script>
+<script src="/i18n.js?v=20260712-apenhet2"></script>
 <script>
 (function(){
   if(!('IntersectionObserver' in window)){
