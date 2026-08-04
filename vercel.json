@@ -19,6 +19,21 @@
   ],
   "redirects": [
     {
+      "source": "/login",
+      "destination": "https://portal.builtly.ai",
+      "permanent": false
+    },
+    {
+      "source": "/logginn",
+      "destination": "https://portal.builtly.ai",
+      "permanent": false
+    },
+    {
+      "source": "/portal",
+      "destination": "https://portal.builtly.ai",
+      "permanent": false
+    },
+    {
       "source": "/intern",
       "destination": "https://intern.builtly.ai",
       "permanent": false
