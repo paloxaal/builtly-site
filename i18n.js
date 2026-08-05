@@ -2098,7 +2098,7 @@
       "lang.selectLabel":        "Velg språk",
       "hero.eyebrow":            "Fremtidens ingeniørselskap. Allerede her.",
       "hero.h1":                 "Fra prosjektdata til kvalitetssikret leveranse.",
-      "hero.lede.body": "Builtly Engineering kombinerer ledende fagspesialister med banebrytende programvare, regelverkslogikk og hybrid AI. Vi automatiserer det som kan automatiseres, slik våre ingeniører kan konsentrere seg om faglige vurderinger, kvalitet og ansvar – fra tidligfase til ferdig prosjektering.",
+      "hero.lede.body": "Builtly Engineering kombinerer ledende fagspesialister med banebrytende programvare, regelverkslogikk og hybrid AI. Vi automatiserer det som kan automatiseres, slik at våre ingeniører kan konsentrere seg om faglige vurderinger, kvalitet og ansvar – fra tidligfase til ferdig prosjektering.",
       "hero.lede.tagline": "Ledende fagspesialister. Banebrytende teknologi. Skalerbare ingeniørleveranser.",
       "hero.pillar.fag": "Ledende fagspesialister",
       "hero.pillar.tek": "Banebrytende teknologi",
