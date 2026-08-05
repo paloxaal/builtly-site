@@ -127,12 +127,10 @@ a{color:inherit;text-decoration:none}
 .hero-side .row .v .accent-text{color:var(--accent)}
 
 /* Hero illustration (architectural axonometric) */
-.hero-art{margin-top:clamp(24px,4vh,44px);padding-top:clamp(18px,2.5vh,30px);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,64px);align-items:end}
-@media (max-width:760px){.hero-art{grid-template-columns:1fr;gap:32px}}
-.hero-art .pillars{display:flex;gap:clamp(24px,3.5vw,56px);align-items:center;flex-wrap:wrap}
-.hero-art .pillar{font-family:var(--font-display);font-size:clamp(14px,1.3vw,17px);font-weight:600;letter-spacing:-0.005em;color:var(--ink-soft);display:inline-flex;align-items:center;gap:14px}
-.hero-art .pillar::before{content:"";width:6px;height:6px;background:var(--accent);display:inline-block}
-.hero-art .pillar:first-child::before{display:none;margin:0}
+.hero-art{margin-top:clamp(24px,4vh,44px);padding-top:clamp(18px,2.5vh,30px);border-top:1px solid var(--line);display:flex;justify-content:flex-end}
+.hero .pillars{display:flex;flex-direction:column;align-items:flex-start;gap:15px;margin-top:clamp(30px,4.5vh,46px)}
+.hero .pillar{font-family:var(--font-display);font-size:clamp(14px,1.2vw,16px);font-weight:600;letter-spacing:-0.005em;color:var(--ink-soft);display:inline-flex;align-items:center;gap:12px}
+.hero .pillar::before{content:"";width:6px;height:6px;background:var(--accent);display:inline-block;flex:0 0 auto}
 .hero-art .scroll-hint{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid)}
 
 /* STATS — restrained corporate */
@@ -1312,6 +1310,11 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <a href="https://portal.builtly.ai" class="btn"><span data-i18n="hero.cta.primary">Open the portal</span> <span class="arr">→</span></a>
 <a href="#platform" class="btn btn-ghost"><span data-i18n="hero.cta.secondary">Explore the platform</span> <span class="arr">↓</span></a>
 </div>
+<div class="pillars">
+<span class="pillar" data-i18n="hero.pillar.fag">Leading discipline specialists</span>
+<span class="pillar" data-i18n="hero.pillar.tek">Groundbreaking technology</span>
+<span class="pillar" data-i18n="hero.pillar.lev">Scalable engineering delivery</span>
+</div>
 </div>
 <div class="hero-side">
 <div class="row"><span class="k" data-i18n="hero.side.status.k">Status</span><span class="v"><span class="accent-text">●</span> &nbsp; <span data-i18n="hero.side.status.v">Portal live</span></span></div>
@@ -1323,11 +1326,6 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 
 <div class="hero-art rv">
-<div class="pillars">
-<span class="pillar" data-i18n="hero.pillar.fag">Leading discipline specialists</span>
-<span class="pillar" data-i18n="hero.pillar.tek">Groundbreaking technology</span>
-<span class="pillar" data-i18n="hero.pillar.lev">Scalable engineering delivery</span>
-</div>
 <div class="scroll-hint"><span data-i18n="hero.scroll">Scroll</span> · §&nbsp;01 ↓</div>
 </div>
 </div>
