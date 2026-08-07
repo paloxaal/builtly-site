@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" data-i18n-attr-content="ethics.desc" content="Etiske retningslinjer for Builtly Engineering AS — integritet, antikorrupsjon, menneskerettigheter, miljø, varsling og profesjonelt ansvar." />
+<meta name="description" data-i18n-attr-content="vk.desc" content="The Builtly toolbox — every tool in the platform, organised in five toolboxes: Map & analysis, Development, Economics, Sales & marketing, Administration." />
 <meta name="theme-color" content="#FAFAF7" />
-<title data-i18n="ethics.title">Etiske retningslinjer · Builtly Engineering</title>
+<title data-i18n="vk.title">Verktøy · Builtly</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
@@ -97,6 +97,10 @@ a{color:inherit;text-decoration:none}
 .doc-section strong{color:var(--ink);font-weight:600}
 .doc-section a{color:var(--ink);border-bottom:1px solid var(--line-strong);transition:border-color 0.18s,color 0.18s}
 .doc-section a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.doc-sign{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;color:var(--ink-soft);line-height:1.7}
+.doc-sign .name{font-weight:600;color:var(--ink)}
+.doc-sign-row{display:flex;flex-wrap:wrap;gap:16px clamp(40px,8vw,120px)}
+.doc-sign-row p{margin:0}
 .doc-footer-note{background:var(--bg-soft);padding:clamp(40px,6vh,64px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .doc-footer-note .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(24px,3vw,48px)}
 @media (max-width:720px){.doc-footer-note .wrap{grid-template-columns:1fr;gap:18px}}
@@ -122,6 +126,26 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 .rv,.rvs{opacity:0;transform:translateY(14px);transition:opacity 0.7s ease-out,transform 0.7s ease-out}
 .rv.in,.rvs.in{opacity:1;transform:translateY(0)}
 .rvs.in>*{opacity:1;transform:translateY(0)}
+
+/* VERKTØYKASSER */
+.vk-hero{padding:clamp(56px,9vh,96px) 0 clamp(28px,4vh,44px)}
+.vk-hero h1{margin-top:16px;max-width:22ch}
+.vk-hero .lead{margin-top:20px;max-width:56ch}
+.kasse{padding:clamp(40px,6vh,64px) 0;border-top:1px solid var(--line)}
+.kasse .lead{margin-top:6px;max-width:56ch;font-size:15px}
+.tool-list{margin:26px 0 0;padding:0;list-style:none;border-top:1px solid var(--line-strong)}
+.tool-list li{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tool-list .t{font-family:var(--font-display);font-size:15.5px;font-weight:600;letter-spacing:-0.012em;flex:1 1 220px}
+.tool-list .t a{transition:color .15s}
+.tool-list .t a:hover{color:var(--accent)}
+.tool-list .d{flex:2 1 300px;font-size:13.5px;color:var(--mid);line-height:1.5}
+.tool-list .st{flex:0 0 auto;font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.14em;padding:4px 8px;border:1px solid var(--line-strong);color:var(--mid)}
+.tool-list .st.live{color:#0D9488;border-color:rgba(13,148,136,0.45)}
+.tool-list .st.plan{opacity:0.65}
+.vk-cta{padding:clamp(48px,7vh,72px) 0 clamp(64px,9vh,96px);border-top:1px solid var(--line)}
+.vk-cta .lead{max-width:52ch;margin-top:14px}
+.vk-cta .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+@media (max-width:640px){.tool-list li{gap:6px 14px}.tool-list .d{flex-basis:100%}}
 </style>
 </head>
 <body class="docs-page">
@@ -160,158 +184,99 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 </div>
 </nav>
 
-<section class="doc-hero">
-<div class="wrap rv">
-<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="ethics.hero.eyebrow">§ Compliance · Etiske retningslinjer</span></div>
-<h1 class="dpy-1" data-i18n-html="ethics.hero.h1">Etiske retningslinjer<br/>for Builtly Engineering AS</h1>
-<p class="lead" data-i18n="ethics.hero.lede">Disse retningslinjene angir den etiske standarden alle ansatte, styremedlemmer, konsulenter og forretningsforbindelser i Builtly Engineering AS forventes å følge. Retningslinjene operasjonaliserer selskapets ansvar etter OECDs retningslinjer for flernasjonale selskaper, FNs veiledende prinsipper for næringsliv og menneskerettigheter, Åpenhetsloven, og Innovasjon Norges krav til ansvarlig næringsliv.</p>
-<div class="doc-meta">
-<div class="item"><span class="k" data-i18n="ethics.meta.adopted.k">Vedtatt</span><span class="v">10.07.2026</span></div>
-<div class="item"><span class="k" data-i18n="ethics.meta.revised.k">Sist revidert</span><span class="v">10.07.2026</span></div>
-<div class="item"><span class="k">Versjon</span><span class="v">1.0</span></div>
-<div class="item"><span class="k" data-i18n="ethics.meta.owner.k">Eier</span><span class="v" data-i18n="ethics.meta.owner.v">Styret</span></div>
-<div class="item"><span class="k" data-i18n="ethics.meta.scope.k">Virkeområde</span><span class="v" data-i18n="ethics.meta.scope.v">Hele selskapet</span></div>
-</div>
-</div>
-</section>
-
-<section class="doc-toc">
-<div class="wrap rv">
-<h3 data-i18n="ethics.toc.h">Innhold</h3>
-<ol>
-<li><a href="#s01" data-i18n="ethics.toc.s01">Formål og virkeområde</a></li>
-<li><a href="#s02" data-i18n="ethics.toc.s02">Etterlevelse av lover og regelverk</a></li>
-<li><a href="#s03" data-i18n="ethics.toc.s03">Integritet og habilitet</a></li>
-<li><a href="#s04" data-i18n="ethics.toc.s04">Antikorrupsjon og uakseptable ytelser</a></li>
-<li><a href="#s05" data-i18n="ethics.toc.s05">Menneskerettigheter og arbeidstakerrettigheter</a></li>
-<li><a href="#s06" data-i18n="ethics.toc.s06">Mangfold og likebehandling</a></li>
-<li><a href="#s07" data-i18n="ethics.toc.s07">Klima, miljø og bærekraft</a></li>
-<li><a href="#s08" data-i18n="ethics.toc.s08">Aktsomhetsvurderinger (Åpenhetsloven)</a></li>
-<li><a href="#s09" data-i18n="ethics.toc.s09">Konfidensialitet og databeskyttelse</a></li>
-<li><a href="#s10" data-i18n="ethics.toc.s10">Profesjonelt ansvar i automatisert ingeniørarbeid</a></li>
-<li><a href="#s11" data-i18n="ethics.toc.s11">Konkurranse og forretningsforbindelser</a></li>
-<li><a href="#s12" data-i18n="ethics.toc.s12">Varsling</a></li>
-<li><a href="#s13" data-i18n="ethics.toc.s13">Brudd og konsekvenser</a></li>
-<li><a href="#s14" data-i18n="ethics.toc.s14">Revisjon og oppdatering</a></li>
-</ol>
-</div>
-</section>
-
-<section class="doc-body">
+<main>
+<section class="vk-hero">
 <div class="wrap">
-
-<div class="doc-section rv" id="s01">
-<div class="smark"><span class="num">§ 01</span><span class="dash"></span><span data-i18n="ethics.s01.smark">Formål</span></div>
-<h2 data-i18n="ethics.s01.h2">Formål og virkeområde</h2>
-<p data-i18n="ethics.s01.body">Disse retningslinjene angir den etiske standarden alle ansatte, styremedlemmer, konsulenter og forretningsforbindelser i Builtly Engineering AS forventes å følge. Retningslinjene utgjør minimumsstandarden for atferd og operasjonaliserer selskapets ansvar etter OECDs retningslinjer for flernasjonale selskaper, FNs veiledende prinsipper for næringsliv og menneskerettigheter, Åpenhetsloven, samt Innovasjon Norges krav til ansvarlig næringsliv.</p>
+<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="vk.hero.eyebrow">The Builtly toolbox</span></div>
+<h1 class="dpy-1" data-i18n="vk.hero.h1">Every tool. Five toolboxes. One project.</h1>
+<p class="lead" data-i18n="vk.hero.lede">Each tool is deep professional software in its own discipline — and they all read the same model of the project. Organised the way the work is organised: map &amp; analysis, development, economics, sales and administration.</p>
 </div>
+</section>
 
-<div class="doc-section rv" id="s02">
-<div class="smark"><span class="num">§ 02</span><span class="dash"></span><span data-i18n="ethics.s02.smark">Lovetterlevelse</span></div>
-<h2 data-i18n="ethics.s02.h2">Etterlevelse av lover og regelverk</h2>
-<p data-i18n="ethics.s02.body">Builtly Engineering AS opererer i samsvar med gjeldende norske lover og regelverk, samt internasjonale standarder relevante for selskapets virksomhet. Dette inkluderer personvernlovgivning (GDPR/personopplysningsloven), regnskaps- og skattelovgivning, konkurranselovgivning, og bygge- og ingeniørrelaterte regulatoriske rammer i de markeder selskapet opererer.</p>
-</div>
-
-<div class="doc-section rv" id="s03">
-<div class="smark"><span class="num">§ 03</span><span class="dash"></span><span data-i18n="ethics.s03.smark">Habilitet</span></div>
-<h2 data-i18n="ethics.s03.h2">Integritet og habilitet</h2>
-<p data-i18n="ethics.s03.body">Ansatte og tillitsvalgte skal ikke delta i behandling av saker, prosjekter eller beslutninger hvor det foreligger forhold som er egnet til å svekke tilliten til vedkommendes upartiskhet. Personlig eller økonomisk særinteresse — for medarbeideren selv, nærstående, eller selskap medarbeideren er knyttet til — utløser fratredeplikt. Tvilstilfeller forelegges nærmeste leder.</p>
-</div>
-
-<div class="doc-section rv" id="s04">
-<div class="smark"><span class="num">§ 04</span><span class="dash"></span><span data-i18n="ethics.s04.smark">Antikorrupsjon</span></div>
-<h2 data-i18n="ethics.s04.h2">Antikorrupsjon og uakseptable ytelser</h2>
-<p data-i18n="ethics.s04.body1">Builtly aksepterer ingen form for korrupsjon. Ansatte, styremedlemmer og forretningsforbindelser skal ikke tilby, gi, kreve eller motta — direkte eller indirekte — bestikkelser, utilbørlige gaver, eller andre fordeler ment å påvirke forretningsbeslutninger.</p>
-<p data-i18n="ethics.s04.body2">Moderate forretningsmessige gester (måltider, små oppmerksomheter under definerte terskler) er tillatt under transparente vilkår. Hvitvasking av penger og bidrag til transaksjoner som muliggjør hvitvasking er strengt forbudt.</p>
-</div>
-
-<div class="doc-section rv" id="s05">
-<div class="smark"><span class="num">§ 05</span><span class="dash"></span><span data-i18n="ethics.s05.smark">Menneskerettigheter</span></div>
-<h2 data-i18n="ethics.s05.h2">Menneskerettigheter og arbeidstakerrettigheter</h2>
-<p data-i18n="ethics.s05.body1">Builtly respekterer menneskerettigheter slik de er forankret i FNs menneskerettighetserklæring, ILO-kjernekonvensjoner og OECDs retningslinjer. Selskapet aksepterer ikke tvangsarbeid, barnearbeid, diskriminering, trakassering eller brudd på fagforeningsfrihet i egen virksomhet eller i forretningsforbindelser.</p>
-<p data-i18n="ethics.s05.body2">Ansatte sikres trygge arbeidsforhold, anstendig lønn, og rett til ferie og fritid i samsvar med norsk arbeidsmiljølov.</p>
-</div>
-
-<div class="doc-section rv" id="s06">
-<div class="smark"><span class="num">§ 06</span><span class="dash"></span><span data-i18n="ethics.s06.smark">Mangfold</span></div>
-<h2 data-i18n="ethics.s06.h2">Mangfold og likebehandling</h2>
-<p data-i18n="ethics.s06.body">Selskapet behandler alle ansatte og søkere likeverdig uavhengig av kjønn, etnisitet, religion, alder, seksuell orientering, funksjonsevne, eller andre personlige forhold som ikke har relevans for stillingens utøvelse. Mangfold er en forretningsmessig styrke og søkes aktivt i rekruttering og lederutvikling.</p>
-</div>
-
-<div class="doc-section rv" id="s07">
-<div class="smark"><span class="num">§ 07</span><span class="dash"></span><span data-i18n="ethics.s07.smark">Bærekraft</span></div>
-<h2 data-i18n="ethics.s07.h2">Klima, miljø og bærekraft</h2>
-<p data-i18n="ethics.s07.body1">Builtly identifiserer og håndterer egen miljørisiko. Selskapet utelukker engasjement i produkter og prosjekter omfattet av Innovasjon Norges og Statens pensjonsfond utlands etiske utelukkelseslister, herunder:</p>
-<ul>
-<li data-i18n="ethics.s07.list1">Kontroversielle våpen og kjernevåpenproduksjon</li>
-<li data-i18n="ethics.s07.list2">Tobakksproduksjon</li>
-<li data-i18n="ethics.s07.list3">Kullbasert kraftutvinning, kullgruvedrift og oljesand</li>
-<li data-i18n="ethics.s07.list4">Ikke-bærekraftig palmeolje</li>
-<li data-i18n="ethics.s07.list5">Selskaper med uakseptabel klimarisiko, grove brudd på menneskerettigheter, eller alvorlig miljøskade</li>
+<section class="kasse" id="kart">
+<div class="wrap">
+<div class="smark"><span class="num">01</span><span data-i18n="vk.k1.label">Map &amp; analysis</span><span class="dash"></span><span data-i18n="vk.k1.tag">Before you buy</span></div>
+<p class="lead" data-i18n="vk.k1.lede">Property data, planning status and feasibility — the decision basis before the project exists.</p>
+<ul class="tool-list">
+<li><a class="t" href="https://maps.builtly.ai/"><span data-i18n="vk.k1.i1.t">Property map</span></a><span class="d" data-i18n="vk.k1.i1.d">Property data, zoning and ground conditions on the map.</span><span class="st live" data-i18n="vk.k1.i1.s">Live</span></li>
+<li><a class="t" href="/mulighetsstudie.html"><span data-i18n="vk.k1.i2.t">Feasibility study</span></a><span class="d" data-i18n="vk.k1.i2.d">From site data to volume study — generated all the way.</span><span class="st live" data-i18n="vk.k1.i2.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k1.i3.t">Climate risk screening</span></a><span class="d" data-i18n="vk.k1.i3.d">Flood, sea level, wind and landslide — EU Taxonomy screening.</span><span class="st live" data-i18n="vk.k1.i3.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k1.i4.t">Technical due diligence</span></a><span class="d" data-i18n="vk.k1.i4.d">Structured technical assessment for transactions.</span><span class="st live" data-i18n="vk.k1.i4.s">Live</span></li>
 </ul>
-<p data-i18n="ethics.s07.body2">Plattformens kjernevirksomhet — automatisert ingeniørarbeid — er konstruert for å redusere ressursbruk og forbedre kvaliteten på beslutningsgrunnlag i bygg- og eiendomsbransjen.</p>
-</div>
-
-<div class="doc-section rv" id="s08">
-<div class="smark"><span class="num">§ 08</span><span class="dash"></span><span data-i18n="ethics.s08.smark">Åpenhetsloven</span></div>
-<h2 data-i18n="ethics.s08.h2">Aktsomhetsvurderinger (Åpenhetsloven)</h2>
-<p data-i18n="ethics.s08.body">Builtly er omfattet av åpenhetsloven og gjennomfører aktsomhetsvurderinger etter lovens § 4 for egen virksomhet og leverandørkjede, i tråd med OECDs retningslinjer. Selskapets redegjørelse etter § 5 publiseres årlig på denne nettsiden, og funn og tiltak dokumenteres og gjøres tilgjengelig i tråd med lovens informasjonskrav (§§ 6–7).</p>
-</div>
-
-<div class="doc-section rv" id="s09">
-<div class="smark"><span class="num">§ 09</span><span class="dash"></span><span data-i18n="ethics.s09.smark">Konfidensialitet</span></div>
-<h2 data-i18n="ethics.s09.h2">Konfidensialitet og databeskyttelse</h2>
-<p data-i18n="ethics.s09.body1">Ansatte og innleide har taushetsplikt om kundeforhold, prosjektdata, og forretningssensitiv informasjon som mottas i forbindelse med arbeidet. Personopplysninger behandles i samsvar med GDPR og personopplysningsloven.</p>
-<p data-i18n-html="ethics.s09.body2">Kundenes prosjektdata brukes ikke til å trene AI-modeller — verken egne eller tredjeparts — uten eksplisitt samtykke under separate vilkår. Detaljer om databehandling og AI-modelltrening fremgår av selskapets <a href="/trust.html">Trust-side</a>.</p>
-</div>
-
-<div class="doc-section rv" id="s10">
-<div class="smark"><span class="num">§ 10</span><span class="dash"></span><span data-i18n="ethics.s10.smark">Profesjonelt ansvar</span></div>
-<h2 data-i18n="ethics.s10.h2">Profesjonelt ansvar i automatisert ingeniørarbeid</h2>
-<p data-i18n="ethics.s10.body1">Builtly leverer en plattform der kvalifiserte ingeniører gjennomgår og signerer ingeniørleveranser. Plattformen erstatter ikke profesjonelt skjønn. Hver attestert leveranse bærer signatur fra en ingeniør med relevant regulatorisk myndighet, som dermed tar det formelle ansvaret.</p>
-<p data-i18n="ethics.s10.body2">Algoritmer og AI er verktøy som tjener — ikke overstyrer — ingeniørens dømmekraft. Selskapet kommuniserer transparent om hvor i leveransen deterministisk beregning er brukt og hvor AI inngår.</p>
-</div>
-
-<div class="doc-section rv" id="s11">
-<div class="smark"><span class="num">§ 11</span><span class="dash"></span><span data-i18n="ethics.s11.smark">Konkurranse</span></div>
-<h2 data-i18n="ethics.s11.h2">Konkurranse og forretningsforbindelser</h2>
-<p data-i18n="ethics.s11.body">Builtly konkurrerer på basis av kvalitet, kompetanse og rettferdig pris. Selskapet inngår ikke avtaler som bryter konkurransereglene, og forplikter seg til transparent forretningsdrift. Krav og forventninger til etterlevelse av disse retningslinjene kommuniseres til leverandører, partnere og underleverandører.</p>
-</div>
-
-<div class="doc-section rv" id="s12">
-<div class="smark"><span class="num">§ 12</span><span class="dash"></span><span data-i18n="ethics.s12.smark">Varsling</span></div>
-<h2 data-i18n="ethics.s12.h2">Varsling</h2>
-<p data-i18n="ethics.s12.body1">Ansatte og andre som blir kjent med brudd på disse retningslinjene oppfordres til å varsle. Varsling kan skje til nærmeste leder, daglig leder, styreleder, eller via varslingskanal opprettet av selskapet.</p>
-<p data-i18n-html="ethics.s12.body2">Det er forbudt å utsette varslere for gjengjeldelse. Alle varsler behandles konfidensielt og undersøkes uten ugrunnet opphold. Henvendelser kan rettes til <a href="mailto:varsling@builtly.ai">varsling@builtly.ai</a>.</p>
-</div>
-
-<div class="doc-section rv" id="s13">
-<div class="smark"><span class="num">§ 13</span><span class="dash"></span><span data-i18n="ethics.s13.smark">Konsekvenser</span></div>
-<h2 data-i18n="ethics.s13.h2">Brudd og konsekvenser</h2>
-<p data-i18n="ethics.s13.body">Brudd på disse retningslinjene kan medføre disiplinære reaksjoner, oppsigelse, avskjed, sivilrettslige krav, anmeldelse til påtalemyndigheten der det er aktuelt, og opphør av forretningsforbindelser.</p>
-</div>
-
-<div class="doc-section rv" id="s14">
-<div class="smark"><span class="num">§ 14</span><span class="dash"></span><span data-i18n="ethics.s14.smark">Revisjon</span></div>
-<h2 data-i18n="ethics.s14.h2">Revisjon og oppdatering</h2>
-<p data-i18n="ethics.s14.body">Disse retningslinjene revideres minimum årlig av styret, og oppdateres ved vesentlige endringer i lovverk eller selskapets virksomhet. Gjeldende versjon er den som til enhver tid er publisert på denne siden.</p>
-</div>
-
 </div>
 </section>
 
-<section class="doc-footer-note">
-<div class="wrap rv">
-<div>
-<h4 data-i18n="ethics.note.contact.h">Kontakt</h4>
-<p data-i18n="ethics.note.contact.body">Spørsmål om disse retningslinjene rettes til styret eller daglig leder.</p>
+<section class="kasse" id="utvikling">
+<div class="wrap">
+<div class="smark"><span class="num">02</span><span data-i18n="vk.k2.label">Development</span><span class="dash"></span><span data-i18n="vk.k2.tag">The engineering disciplines</span></div>
+<p class="lead" data-i18n="vk.k2.lede">The discipline deliverables of the design phase — produced by the platform, controlled and signed by responsible engineers.</p>
+<ul class="tool-list">
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k2.i1.t">Geotechnical reports</span></a><span class="d" data-i18n="vk.k2.i1.d">Ground conditions, FEM analysis and 3D ground models.</span><span class="st live" data-i18n="vk.k2.i1.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k2.i2.t">Structural drawings &amp; basis (RIB)</span></a><span class="d" data-i18n="vk.k2.i2.d">Load-bearing systems, quantities and structural basis.</span><span class="st live" data-i18n="vk.k2.i2.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k2.i3.t">Fire concept</span></a><span class="d" data-i18n="vk.k2.i3.d">Fire cells, escape routes and door classes against TEK17 — drawn as deliverable sheets.</span><span class="st live" data-i18n="vk.k2.i3.s">Live</span></li>
+<li><span class="t" data-i18n="vk.k2.i4.t">Orientation plan</span><span class="d" data-i18n="vk.k2.i4.d">Emergency-services orientation plans.</span><span class="st " data-i18n="vk.k2.i4.s">Part of Fire concept</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k2.i5.t">Acoustic report</span></a><span class="d" data-i18n="vk.k2.i5.d">Noise maps and facade requirements.</span><span class="st live" data-i18n="vk.k2.i5.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k2.i6.t">Traffic analysis</span></a><span class="d" data-i18n="vk.k2.i6.d">Trip generation, parking and access logic.</span><span class="st live" data-i18n="vk.k2.i6.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k2.i7.t">HSE plan (SHA)</span></a><span class="d" data-i18n="vk.k2.i7.d">Safety, health and working environment for the site.</span><span class="st live" data-i18n="vk.k2.i7.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k2.i8.t">BREEAM pre-assessment</span></a><span class="d" data-i18n="vk.k2.i8.d">Early BREEAM-NOR potential, credits and material strategy.</span><span class="st live" data-i18n="vk.k2.i8.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k2.i9.t">Environmental follow-up plan</span></a><span class="d" data-i18n="vk.k2.i9.d">Waste, reuse, emissions and nature on site.</span><span class="st live" data-i18n="vk.k2.i9.s">Live</span></li>
+<li><span class="t" data-i18n="vk.k2.i10.t">Contaminated ground action plan</span><span class="d" data-i18n="vk.k2.i10.d">Handling of contaminated ground.</span><span class="st " data-i18n="vk.k2.i10.s">Part of Geo / Environment</span></li>
+</ul>
 </div>
-<div>
-<h4 data-i18n="ethics.note.related.h">Relaterte dokumenter</h4>
-<p data-i18n-html="ethics.note.related.body"><a href="/trust.html">Trust — sikkerhet, data og AI-modeller</a><br/><a href="/apenhetsloven.html">Åpenhetsloven — redegjørelse (oppdateres årlig)</a></p>
+</section>
+
+<section class="kasse" id="okonomi">
+<div class="wrap">
+<div class="smark"><span class="num">03</span><span data-i18n="vk.k3.label">Economics</span><span class="dash"></span><span data-i18n="vk.k3.tag">From quantities to yield</span></div>
+<p class="lead" data-i18n="vk.k3.lede">The project in numbers — quantities, tenders, value and financing control on the same model.</p>
+<ul class="tool-list">
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k3.i1.t">Tender documents</span></a><span class="d" data-i18n="vk.k3.i1.d">Tender discovery and assessment, structured tender packages.</span><span class="st live" data-i18n="vk.k3.i1.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k3.i2.t">Quantities &amp; scope</span></a><span class="d" data-i18n="vk.k3.i2.d">Quantities, areas and revisions with traceability to source.</span><span class="st live" data-i18n="vk.k3.i2.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k3.i3.t">Area &amp; yield optimisation</span></a><span class="d" data-i18n="vk.k3.i3.d">BIM to cash flow — area, energy grades, Monte Carlo and IRR.</span><span class="st live" data-i18n="vk.k3.i3.s">Live</span></li>
+<li><span class="t" data-i18n="vk.k3.i4.t">Valuation</span><span class="d" data-i18n="vk.k3.i4.d">Value assessment in kroner, phased cash flow.</span><span class="st " data-i18n="vk.k3.i4.s">Part of Area &amp; yield</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k3.i5.t">Construction loan control</span></a><span class="d" data-i18n="vk.k3.i5.d">Draw-down control against actual progress.</span><span class="st live" data-i18n="vk.k3.i5.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k3.i6.t">Credit basis</span></a><span class="d" data-i18n="vk.k3.i6.d">Structured decision basis for lenders.</span><span class="st live" data-i18n="vk.k3.i6.s">Live</span></li>
+</ul>
+</div>
+</section>
+
+<section class="kasse" id="salg">
+<div class="wrap">
+<div class="smark"><span class="num">04</span><span data-i18n="vk.k4.label">Sales &amp; marketing</span><span class="dash"></span><span data-i18n="vk.k4.tag">Steered against time</span></div>
+<p class="lead" data-i18n="vk.k4.lede">Prospects, project sites and campaigns — with sales pace measured against the target, not gut feeling.</p>
+<ul class="tool-list">
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k4.i1.t">Sales console</span></a><span class="d" data-i18n="vk.k4.i1.d">Newsletters, SMS, prospect lists, sales targets, pace and Friday reports.</span><span class="st live" data-i18n="vk.k4.i1.s">Live</span></li>
+<li><span class="t" data-i18n="vk.k4.i2.t">Project website</span><span class="d" data-i18n="vk.k4.i2.d">Landing pages on the project&#39;s own domain with interest registration.</span><span class="st " data-i18n="vk.k4.i2.s">Part of Sales console</span></li>
+<li><span class="t" data-i18n="vk.k4.i3.t">Prospectus</span><span class="d" data-i18n="vk.k4.i3.d">Browsable prospectus (flipbook) with shareable links.</span><span class="st " data-i18n="vk.k4.i3.s">Part of Sales console</span></li>
+<li><span class="t" data-i18n="vk.k4.i4.t">New-build radar</span><span class="d" data-i18n="vk.k4.i4.d">Market monitoring of competing new-build projects.</span><span class="st plan" data-i18n="vk.k4.i4.s">Planned</span></li>
+</ul>
+</div>
+</section>
+
+<section class="kasse" id="admin">
+<div class="wrap">
+<div class="smark"><span class="num">05</span><span data-i18n="vk.k5.label">Administration &amp; client relations</span><span class="dash"></span><span data-i18n="vk.k5.tag">The foundation</span></div>
+<p class="lead" data-i18n="vk.k5.lede">The layer everything else stands on — documents, access and subscription.</p>
+<ul class="tool-list">
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k5.i1.t">Data room / project hotel</span></a><span class="d" data-i18n="vk.k5.i1.d">Standardised discipline folders, frozen revisions, formal transmittals with receipts.</span><span class="st live" data-i18n="vk.k5.i1.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k5.i2.t">Users &amp; roles</span></a><span class="d" data-i18n="vk.k5.i2.d">Access per role, project and phase — externals always included.</span><span class="st live" data-i18n="vk.k5.i2.s">Live</span></li>
+<li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k5.i3.t">Subscription</span></a><span class="d" data-i18n="vk.k5.i3.d">Plans and billing.</span><span class="st live" data-i18n="vk.k5.i3.s">Live</span></li>
+</ul>
+</div>
+</section>
+
+<section class="vk-cta">
+<div class="wrap">
+<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="vk.cta.eyebrow">Next step</span></div>
+<h2 class="dpy-1" style="font-size:clamp(28px,3.6vw,48px)" data-i18n="vk.cta.h2">See the toolbox on one of your own projects.</h2>
+<p class="lead" data-i18n="vk.cta.lede">We set the portal up around the projects you already have and show what your model and documents actually give you.</p>
+<div class="row">
+<a href="/contact.html" class="btn"><span data-i18n="vk.cta.b1">Book a demo</span> <span class="arr">→</span></a>
+<a href="https://portal.builtly.ai" class="btn btn-ghost" style="background:transparent;color:var(--ink);border:1px solid var(--line-strong)"><span data-i18n="nav.openPortal">Open portal</span> <span class="arr">→</span></a>
 </div>
 </div>
 </section>
+</main>
 
 <footer>
 <div class="wrap">
