@@ -142,6 +142,8 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 .tool-list .st{flex:0 0 auto;font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.14em;padding:4px 8px;border:1px solid var(--line-strong);color:var(--mid)}
 .tool-list .st.live{color:#0D9488;border-color:rgba(13,148,136,0.45)}
 .tool-list .st.plan{opacity:0.65}
+
+.kasse-inst{margin-top:28px}
 .vk-cta{padding:clamp(48px,7vh,72px) 0 clamp(64px,9vh,96px);border-top:1px solid var(--line)}
 .vk-cta .lead{max-width:52ch;margin-top:14px}
 .vk-cta .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
@@ -250,6 +252,158 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 <li><span class="t" data-i18n="vk.k4.i3.t">Prospectus</span><span class="d" data-i18n="vk.k4.i3.d">Browsable prospectus (flipbook) with shareable links.</span><span class="st " data-i18n="vk.k4.i3.s">Part of Sales console</span></li>
 <li><span class="t" data-i18n="vk.k4.i4.t">New-build radar</span><span class="d" data-i18n="vk.k4.i4.d">Market monitoring of competing new-build projects.</span><span class="st plan" data-i18n="vk.k4.i4.s">Planned</span></li>
 </ul>
+<div class="kasse-inst">
+<div class="inst" id="inst-salg">
+  <div class="sa-top">
+    <span class="sa-live"><span class="dot"></span>LIVE · SALGSKONSOLL</span>
+    <span>SUNDSØYA · 19 ENHETER</span>
+  </div>
+  <div class="sa-kpis">
+    <div class="sa-kpi"><span class="k">Boliger</span><span class="v" data-n="19">0</span></div>
+    <div class="sa-kpi"><span class="k">Solgt</span><span class="v"><span data-n="12">0</span> <em>· 63 %</em></span><span class="bar"><i id="sa-bar"></i></span></div>
+    <div class="sa-kpi"><span class="k">Salgssum</span><span class="v"><span data-n="68.4" data-d="1">0</span> <em>MNOK</em></span></div>
+    <div class="sa-kpi"><span class="k">Interessenter</span><span class="v" data-n="214">0</span><span class="delta">+9 denne uken</span></div>
+  </div>
+  <div class="sa-chart">
+    <svg id="sa-svg" viewBox="0 0 640 240" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <g id="sa-grid" stroke="rgba(19,24,32,0.10)" stroke-width="1"></g>
+      <g id="sa-ylab" font-family="'JetBrains Mono',monospace" font-size="9" fill="#6A6E76" letter-spacing="0.8"></g>
+      <g id="sa-xlab" font-family="'JetBrains Mono',monospace" font-size="9" fill="#6A6E76" letter-spacing="0.8"></g>
+      <path id="sa-goal" fill="none" stroke="#131820" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.55"/>
+      <path id="sa-area" fill="rgba(20,184,166,0.07)"/>
+      <path id="sa-act" fill="none" stroke="#14B8A6" stroke-width="2"/>
+      <circle id="sa-dotp" r="4" fill="#14B8A6" stroke="#FAFAF7" stroke-width="2" opacity="0"/>
+      <g id="sa-ann" opacity="0" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1">
+        <line x1="0" y1="0" x2="-22" y2="-30" stroke="#6A6E76" stroke-width="0.7"/>
+        <text x="-26" y="-36" fill="#0D9488" text-anchor="end">FORAN SKJEMA</text>
+      </g>
+      <g font-family="'JetBrains Mono',monospace" font-size="9" fill="#6A6E76" letter-spacing="0.8">
+        <line x1="470" y1="18" x2="492" y2="18" stroke="#131820" stroke-width="1.2" stroke-dasharray="5 5" opacity="0.55"/>
+        <text x="498" y="21">MÅL</text>
+        <line x1="540" y1="18" x2="562" y2="18" stroke="#14B8A6" stroke-width="2"/>
+        <text x="568" y="21">FAKTISK</text>
+      </g>
+    </svg>
+  </div>
+  <div class="sa-foot">
+    <span class="sa-takt">TAKT <b id="sa-t1">0,0</b> /MND · NØDVENDIG <b>2,1</b></span>
+    <span class="sa-log" id="sa-log">&nbsp;</span>
+  </div>
+  <div class="sa-bot">
+    <span>MÅL: 15 INNEN 01.06.2027</span>
+    <span>BUILTLY · SALGSKONSOLL</span>
+  </div>
+</div>
+<style>
+#inst-salg{border:1px solid rgba(19,24,32,0.22);background:#FAFAF7;font-family:'Manrope',system-ui,sans-serif;color:#131820;width:100%}
+#inst-salg .sa-top,#inst-salg .sa-bot{display:flex;justify-content:space-between;align-items:center;gap:4px 12px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6E76;padding:10px 16px}
+#inst-salg .sa-top{border-bottom:1px solid rgba(19,24,32,0.10)}
+#inst-salg .sa-bot{border-top:1px solid rgba(19,24,32,0.10);font-size:9.5px}
+#inst-salg .sa-live{color:#131820}
+#inst-salg .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#14B8A6;margin-right:8px;vertical-align:0.5px}
+#inst-salg .sa-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(19,24,32,0.10);border-bottom:1px solid rgba(19,24,32,0.10)}
+#inst-salg .sa-kpi{background:#FAFAF7;padding:13px 16px 14px;position:relative;min-width:0}
+#inst-salg .sa-kpi .k{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6E76;margin-bottom:6px}
+#inst-salg .sa-kpi .v{font-size:22px;font-weight:600;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;line-height:1;white-space:nowrap}
+#inst-salg .sa-kpi .v em{font-style:normal;font-size:11px;color:#6A6E76;font-weight:500;letter-spacing:0}
+#inst-salg .sa-kpi .bar{display:block;height:2px;background:rgba(19,24,32,0.10);margin-top:9px}
+#inst-salg .sa-kpi .bar i{display:block;height:100%;width:0;background:#14B8A6;transition:width 1.2s cubic-bezier(0.2,0.7,0.2,1)}
+#inst-salg .sa-kpi .delta{display:block;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#0D9488;margin-top:8px;text-transform:uppercase}
+#inst-salg .sa-chart{padding:14px 10px 4px}
+#inst-salg .sa-chart svg{display:block;width:100%;height:auto}
+#inst-salg .sa-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:8px 16px 10px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6E76;border-top:1px solid rgba(19,24,32,0.10)}
+#inst-salg .sa-takt b{color:#131820;font-weight:500}
+#inst-salg .sa-takt{flex:none}
+#inst-salg .sa-log{color:#0D9488;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:right;min-width:0}
+@media (max-width:560px){
+  #inst-salg .sa-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #inst-salg .sa-kpi .v{font-size:19px}
+  #inst-salg .sa-foot{flex-direction:column;align-items:flex-start;gap:4px}
+  #inst-salg .sa-log{text-align:left}
+}
+</style>
+<script>
+(function(){
+  var root=document.getElementById('inst-salg'); if(!root) return;
+  var NS='http://www.w3.org/2000/svg';
+  var PL=44,PR=628,PT=14,PB=210; // plot area
+  var M=14; // months
+  function X(m){return PL+(PR-PL)*m/(M-1);}
+  function Y(v){return PB-(PB-PT)*v/16;} // y max 16 units
+  // grid + labels
+  var grid=document.getElementById('sa-grid'), ylab=document.getElementById('sa-ylab'), xlab=document.getElementById('sa-xlab');
+  [0,4,8,12,16].forEach(function(v){
+    var l=document.createElementNS(NS,'line');
+    l.setAttribute('x1',PL);l.setAttribute('x2',PR);l.setAttribute('y1',Y(v));l.setAttribute('y2',Y(v));
+    grid.appendChild(l);
+    var t=document.createElementNS(NS,'text');t.setAttribute('x',PL-8);t.setAttribute('y',Y(v)+3);
+    t.setAttribute('text-anchor','end');t.textContent=v; ylab.appendChild(t);
+  });
+  ['APR','JUL','OKT','JAN','APR'].forEach(function(s,i){
+    var t=document.createElementNS(NS,'text');t.setAttribute('x',X(i*3.25));t.setAttribute('y',PB+18);
+    t.setAttribute('text-anchor','middle');t.textContent=s; xlab.appendChild(t);
+  });
+  // goal: linear 1 -> 15 over 13 months
+  var goal=[]; for(var m=0;m<M;m++) goal.push(1+(15-1)*m/(M-1));
+  document.getElementById('sa-goal').setAttribute('d', goal.map(function(v,i){return (i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1);}).join(' '));
+  // actual: slow start then accelerating, crosses goal around m=8, ends 12 at m=11 (today)
+  var act=[1,1,2,3,3,5,6,8,9,10,11,12];
+  var actPath=document.getElementById('sa-act'), area=document.getElementById('sa-area'),
+      dotp=document.getElementById('sa-dotp'), ann=document.getElementById('sa-ann');
+  function actD(k){ // k = 0..1 progress along series
+    var n=1+(act.length-1)*k, pts=[];
+    for(var i=0;i<Math.floor(n);i++) pts.push([X(i),Y(act[i])]);
+    var fi=Math.floor(n)-1, frac=n-Math.floor(n);
+    if(fi<act.length-1&&frac>0){ pts.push([X(fi+frac),Y(act[fi]+(act[fi+1]-act[fi])*frac)]); }
+    return pts;
+  }
+  var kpis=root.querySelectorAll('.sa-kpi .v[data-n], .sa-kpi .v span[data-n]');
+  var logEl=document.getElementById('sa-log'), taktEl=document.getElementById('sa-t1'), barEl=document.getElementById('sa-bar');
+  var LOGS=['A-201 SOLGT · 5 615 000','NY INTERESSENT · FINN.NO','VISNING LØRDAG · 14 PÅMELDT','FREDAGSRAPPORT SENDT'];
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function setProgress(k){ // 0..1
+    var pts=actD(k);
+    if(pts.length>1){
+      var d=pts.map(function(p,i){return (i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1);}).join(' ');
+      actPath.setAttribute('d',d);
+      area.setAttribute('d',d+' L'+pts[pts.length-1][0].toFixed(1)+' '+PB+' L'+PL+' '+PB+' Z');
+      var last=pts[pts.length-1];
+      dotp.setAttribute('cx',last[0]);dotp.setAttribute('cy',last[1]);dotp.setAttribute('opacity',1);
+    }
+    // annotation at crossing (~m=8.5)
+    var cx=X(9.6), cy=Y(10.1);
+    ann.setAttribute('transform','translate('+cx+' '+cy+')');
+    ann.setAttribute('opacity', k>0.78?1:0);
+    // KPI count-up tied to k (first 40% of cycle)
+    var kk=Math.min(1,k/0.4); kk=1-Math.pow(1-kk,3);
+    kpis.forEach(function(el){
+      var n=parseFloat(el.getAttribute('data-n')), dec=+(el.getAttribute('data-d')||0);
+      el.textContent=(n*kk).toFixed(dec).replace('.',',');
+    });
+    barEl.style.width=(63*kk)+'%';
+    taktEl.textContent=(2.8*Math.min(1,k*1.4)).toFixed(1).replace('.',',');
+    var li=Math.floor(k*5.2)-1;
+    logEl.textContent= li>=0&&li<LOGS.length? LOGS[li] : ' ';
+  }
+  if(reduced){ setProgress(1); logEl.textContent=LOGS[3]; return; }
+  var running=false, start=null, DRAW=8000, HOLD=4000, CYCLE=DRAW+HOLD;
+  function loop(ts){
+    if(!start)start=ts;
+    var t=(ts-start)%CYCLE;
+    var k = t<DRAW ? t/DRAW : 1;
+    k = t<DRAW ? (1-Math.pow(1-k,2)) : 1;
+    setProgress(k);
+    requestAnimationFrame(loop);
+  }
+  function startAnim(){ if(running)return; running=true; requestAnimationFrame(loop); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ startAnim(); io.disconnect(); } }); },{threshold:0.2});
+    io.observe(root);
+  } else startAnim();
+})();
+</script>
+
+</div>
 </div>
 </section>
 
@@ -262,6 +416,137 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 <li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k5.i2.t">Users &amp; roles</span></a><span class="d" data-i18n="vk.k5.i2.d">Access per role, project and phase — externals always included.</span><span class="st live" data-i18n="vk.k5.i2.s">Live</span></li>
 <li><a class="t" href="https://portal.builtly.ai"><span data-i18n="vk.k5.i3.t">Subscription</span></a><span class="d" data-i18n="vk.k5.i3.d">Plans and billing.</span><span class="st live" data-i18n="vk.k5.i3.s">Live</span></li>
 </ul>
+<div class="kasse-inst">
+<div class="inst" id="inst-hotell">
+  <div class="ho-top">
+    <span class="ho-live"><span class="dot"></span>LIVE · PROSJEKTHOTELL</span>
+    <span>OVERSENDELSE № 2024-117</span>
+  </div>
+  <div class="ho-main">
+    <div class="ho-ledger">
+      <div class="ho-doc" data-i="0">
+        <div class="l1"><span class="name">A-20-A1-01 Branntegning plan 1</span><span class="rev">REV C <i>FROSSET</i></span></div>
+        <div class="l2"><span class="hash" data-h="9f4a2c81d7e05b63"></span><span class="st" data-fin="ok">—</span></div>
+      </div>
+      <div class="ho-doc" data-i="1">
+        <div class="l1"><span class="name">RIB-20-K-201 Bæresystem snitt</span><span class="rev">REV B <i>FROSSET</i></span></div>
+        <div class="l2"><span class="hash" data-h="c31b09aa54f2e8d7"></span><span class="st" data-fin="ok">—</span></div>
+      </div>
+      <div class="ho-doc" data-i="2">
+        <div class="l1"><span class="name">RIV-30-S-104 Sprinkler plan 1</span><span class="rev">REV A <i>FROSSET</i></span></div>
+        <div class="l2"><span class="hash" data-h="7de6f1b28c904a35"></span><span class="st" data-fin="dl">—</span></div>
+      </div>
+      <div class="ho-warn" id="ho-warn"><span class="wd"></span>A-20-A1-01 har fått REV D — mottaker varslet 11:52</div>
+    </div>
+    <div class="ho-side">
+      <div class="ho-shead">Fase 3 · Detaljprosjekt</div>
+      <div class="ho-phases">
+        <span class="phx" data-a="0">01 Tomt</span>
+        <span class="phx" data-a="0">02 Skisse</span>
+        <span class="phx" data-a="1">03 Detalj</span>
+        <span class="phx" data-a="0">04 Utførelse</span>
+        <span class="phx" data-a="0">05 Overtakelse</span>
+      </div>
+      <div class="ho-acc">
+        <div class="ar"><svg viewBox="0 0 10 12" class="lock"><rect x="1" y="5" width="8" height="6" fill="none" stroke="#131820" stroke-width="1"/><path d="M3 5 V3.5 a2 2 0 0 1 4 0 V5" fill="none" stroke="#131820" stroke-width="1"/></svg><span><b>RIB</b> · 10 ARK, 20 RIB</span></div>
+        <div class="ar"><svg viewBox="0 0 10 12" class="lock"><rect x="1" y="5" width="8" height="6" fill="none" stroke="#131820" stroke-width="1"/><path d="M3 5 V3.5 a2 2 0 0 1 4 0 V5" fill="none" stroke="#131820" stroke-width="1"/></svg><span><b>Entreprenør</b> · kun egne avvik</span></div>
+        <div class="ar"><svg viewBox="0 0 10 12" class="lock"><rect x="1" y="5" width="8" height="6" fill="none" stroke="#131820" stroke-width="1"/><path d="M3 5 V3.5 a2 2 0 0 1 4 0 V5" fill="none" stroke="#131820" stroke-width="1"/></svg><span><b>Byggherre</b> · hele rommet</span></div>
+      </div>
+      <div class="ho-meta">22 FAGMAPPER · NS 3451</div>
+      <div class="ho-count"><span id="ho-n">0</span> DOKUMENTER · <b>0 UTEN SPOR</b></div>
+    </div>
+  </div>
+  <div class="ho-bot">
+    <span>SHA-256 · TIDSSTEMPLET · NS 8407</span>
+    <span>BUILTLY · PROSJEKTHOTELL</span>
+  </div>
+</div>
+<style>
+#inst-hotell{border:1px solid rgba(19,24,32,0.22);background:#FAFAF7;font-family:'Manrope',system-ui,sans-serif;color:#131820;width:100%}
+#inst-hotell .ho-top,#inst-hotell .ho-bot{display:flex;justify-content:space-between;align-items:center;gap:4px 12px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6E76;padding:10px 16px}
+#inst-hotell .ho-top{border-bottom:1px solid rgba(19,24,32,0.10)}
+#inst-hotell .ho-bot{border-top:1px solid rgba(19,24,32,0.10);font-size:9.5px}
+#inst-hotell .ho-live{color:#131820}
+#inst-hotell .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#14B8A6;margin-right:8px;vertical-align:0.5px}
+#inst-hotell .ho-main{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,0.65fr)}
+#inst-hotell .ho-ledger{padding:6px 16px 14px;min-width:0}
+#inst-hotell .ho-doc{padding:12px 0 10px;border-bottom:1px solid rgba(19,24,32,0.10);opacity:0;transform:translateY(6px);transition:opacity .6s ease,transform .6s ease}
+#inst-hotell .ho-doc.on{opacity:1;transform:none}
+#inst-hotell .ho-doc .l1{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+#inst-hotell .ho-doc .name{font-size:13.5px;font-weight:600;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#inst-hotell .ho-doc .rev{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#131820;flex:none}
+#inst-hotell .ho-doc .rev i{font-style:normal;color:#FAFAF7;background:#0D9488;padding:2px 5px;margin-left:6px}
+#inst-hotell .ho-doc .l2{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:6px}
+#inst-hotell .ho-doc .hash{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.06em;color:#6A6E76;min-height:12px}
+#inst-hotell .ho-doc .hash::after{content:"…"}
+#inst-hotell .ho-doc .st{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6E76;flex:none;transition:color .4s}
+#inst-hotell .ho-doc .st.done{color:#0D9488}
+#inst-hotell .ho-doc .st.done::before{content:"";display:inline-block;width:8px;height:8px;background:#0D9488;margin-right:7px;clip-path:polygon(14% 44%,0 60%,40% 100%,100% 16%,84% 4%,40% 70%)}
+#inst-hotell .ho-warn{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:#C2410C;opacity:0;transition:opacity .7s ease;display:flex;align-items:center;gap:8px}
+#inst-hotell .ho-warn.on{opacity:1}
+#inst-hotell .ho-warn .wd{width:7px;height:7px;background:#C2410C;flex:none}
+#inst-hotell .ho-side{border-left:1px solid rgba(19,24,32,0.10);padding:14px 16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+#inst-hotell .ho-shead{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:#131820}
+#inst-hotell .ho-phases{display:flex;flex-direction:column;gap:6px;border-left:1px solid rgba(19,24,32,0.22);padding-left:12px}
+#inst-hotell .phx{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#6A6E76;position:relative}
+#inst-hotell .phx[data-a="1"]{color:#0D9488;font-weight:500}
+#inst-hotell .phx[data-a="1"]::before{content:"";position:absolute;left:-15px;top:3px;width:5px;height:5px;background:#14B8A6}
+#inst-hotell .ho-acc{display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(19,24,32,0.10);padding-top:12px}
+#inst-hotell .ar{display:flex;align-items:center;gap:9px;font-size:11.5px;color:#2A323C}
+#inst-hotell .ar b{font-weight:600}
+#inst-hotell .lock{width:9px;height:11px;flex:none}
+#inst-hotell .ho-meta{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.12em;color:#6A6E76;border-top:1px solid rgba(19,24,32,0.10);padding-top:10px}
+#inst-hotell .ho-count{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:#131820}
+#inst-hotell .ho-count b{color:#0D9488;font-weight:500}
+@media (max-width:560px){
+  #inst-hotell .ho-main{grid-template-columns:minmax(0,1fr)}
+  #inst-hotell .ho-side{border-left:0;border-top:1px solid rgba(19,24,32,0.10)}
+}
+</style>
+<script>
+(function(){
+  var root=document.getElementById('inst-hotell'); if(!root) return;
+  var docs=root.querySelectorAll('.ho-doc');
+  var warn=document.getElementById('ho-warn');
+  var nEl=document.getElementById('ho-n');
+  var STATES={ok:['SENDT 09:41','ÅPNET 10:02','LASTET NED 10:03','MOTTAK BEKREFTET'],
+              dl:['SENDT 09:41','ÅPNET 10:14','LASTET NED 10:15','MOTTAK BEKREFTET']};
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ');}
+  function setState(k){ // k 0..1 over cycle
+    docs.forEach(function(d,i){
+      var t0=i*0.10; // row entrance
+      d.className='ho-doc'+(k>t0?' on':'');
+      var hash=d.querySelector('.hash'), full=hash.getAttribute('data-h');
+      var hs=Math.max(0,Math.min(1,(k-t0-0.04)/0.10));
+      hash.textContent=full.slice(0,Math.round(full.length*hs));
+      var st=d.querySelector('.st'), seq=STATES[st.getAttribute('data-fin')];
+      var sp=Math.max(0,Math.min(0.999,(k-0.34-i*0.08)/0.42));
+      var si=Math.floor(sp*seq.length);
+      if(k>t0+0.05){ st.textContent=seq[Math.max(0,si)]; st.className='st'+(si>=seq.length-1?' done':''); }
+      else { st.textContent='—'; st.className='st'; }
+    });
+    warn.className='ho-warn'+(k>0.86?' on':'');
+    var ck=Math.min(1,k/0.5); ck=1-Math.pow(1-ck,3);
+    nEl.textContent=fmt(1204*ck);
+  }
+  if(reduced){ setState(1); return; }
+  var running=false,start=null, DRAW=10000, HOLD=4000, CYCLE=DRAW+HOLD;
+  function loop(ts){
+    if(!start)start=ts;
+    var t=(ts-start)%CYCLE;
+    setState(t<DRAW? t/DRAW : 1);
+    requestAnimationFrame(loop);
+  }
+  function startAnim(){ if(running)return; running=true; requestAnimationFrame(loop); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ startAnim(); io.disconnect(); } }); },{threshold:0.2});
+    io.observe(root);
+  } else startAnim();
+})();
+</script>
+
+</div>
 </div>
 </section>
 
