@@ -2035,6 +2035,10 @@
     no: {
       "nav.platform":            "Plattform",
       "nav.tools": "Verktøy",
+      "sec.brann.label": "Brannkonsept-motoren",
+      "sec.brann.tag": "Saga Park BT2 · TEK17 kap. 11",
+      "sec.brann.h2": "Brannkonsept,<br/>tegnet mens du ser p\u00e5.",
+      "sec.brann.lede": "Regelmotoren avleder brannceller, beregner r\u00f8mningsveier og setter d\u00f8rklasser mot TEK17 kapittel 11 — og tegner leveransearket med tittelfelt, klart for kontroll og signatur av branningeni\u00f8r.",
       "home.who.label": "Hvem",
       "home.who.tag": "Velg rollen din",
       "home.who.h2": "Hva jobber du med?",
