@@ -188,6 +188,13 @@ form.bk{background:#fff;border:1px solid var(--line-strong);padding:clamp(24px,3
 @media (max-width:640px){.bk .frow{grid-template-columns:1fr}}
 .bk label.fl{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin:0 0 6px}
 .bk label.fl .opt{color:var(--mid);font-weight:400}
+.acwrap{position:relative}
+.acl{position:absolute;left:0;right:0;top:100%;background:var(--bg);border:1px solid var(--line-strong);z-index:60;max-height:300px;overflow-y:auto;box-shadow:0 12px 30px rgba(19,24,32,0.12)}
+.aci{padding:10px 13px;cursor:pointer;border-bottom:1px solid var(--line)}
+.aci:last-child{border-bottom:0}
+.aci:hover,.aci.sel{background:var(--bg-soft)}
+.aci .an{display:block;font-size:14px;font-weight:600;color:var(--ink)}
+.aci .am{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;color:var(--mid);margin-top:2px}
 .bk input[type=text],.bk input[type=email],.bk input[type=tel],.bk textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line-strong);padding:12px 14px;margin-bottom:14px}
 .bk input:focus,.bk textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
 .bk textarea{min-height:104px;resize:vertical}
@@ -305,8 +312,8 @@ form.bk{background:#fff;border:1px solid var(--line-strong);padding:clamp(24px,3
 <fieldset>
 <legend><span class="sq"></span><span data-i18n="bk.f1">About you</span></legend>
 <div class="frow">
-<div><label class="fl" for="bkFirma" data-i18n="bk.company">Company *</label><input type="text" id="bkFirma" required autocomplete="organization"/></div>
-<div><label class="fl" for="bkOrgnr">Org.nr <span class="opt" data-i18n="bk.optional">(optional)</span></label><input type="text" id="bkOrgnr" inputmode="numeric"/></div>
+<div class="acwrap"><label class="fl" for="bkFirma" data-i18n="bk.company">Company *</label><input type="text" id="bkFirma" required autocomplete="organization"/></div>
+<div><label class="fl" for="bkOrgnr">Org.nr *</label><input type="text" id="bkOrgnr" required inputmode="numeric" maxlength="11" autocomplete="off"/></div>
 </div>
 <div class="frow">
 <div><label class="fl" for="bkNavn" data-i18n="bk.name">Name *</label><input type="text" id="bkNavn" required autocomplete="name"/></div>
@@ -352,12 +359,78 @@ form.bk{background:#fff;border:1px solid var(--line-strong);padding:clamp(24px,3
         LISTE_ID settes til id-en for listen «Builtly — Bli kunde» i
         Salgskonsollen (Lister-fanen viser id-en; slå på varsling der).
      2) Uten LISTE_ID: strukturert mailto til sales@builtly.ai — virker fra dag én. */
-  var LISTE_ID = "";
+  var LISTE_ID = "l_19fe041ff6232371164";
   var INTAKE_BASE = "https://app.builtly.ai/";
   var form = document.getElementById('bkForm'), takk = document.getElementById('bkTakk');
   if (!form) return;
+  /* Enhetsregister-autocomplete: skriv selskapsnavn -> forslag m/ org.nr
+     (data.brreg.no, aapent API m/ CORS). Failsafe: uten nett virker feltene manuelt. */
+  var fi = document.getElementById('bkFirma'), onr = document.getElementById('bkOrgnr');
+  var acBox = document.createElement('div'); acBox.className = 'acl'; acBox.hidden = true;
+  fi.parentNode.appendChild(acBox);
+  var acT = null, acSel = -1, acItems = [];
+  function acLukk(){ acBox.hidden = true; acBox.innerHTML = ''; acSel = -1; acItems = []; }
+  function acVelg(i){
+    var e = acItems[i]; if (!e) return;
+    fi.value = e.navn;
+    onr.value = (e.nr || '').replace(/^(\d{3})(\d{3})(\d{3})$/, '$1 $2 $3');
+    onr.setCustomValidity('');
+    acLukk();
+  }
+  function acRender(){
+    acBox.innerHTML = '';
+    acItems.forEach(function(e, i){
+      var d = document.createElement('div');
+      d.className = 'aci' + (i === acSel ? ' sel' : '');
+      var a = document.createElement('span'); a.className = 'an'; a.textContent = e.navn;
+      var m = document.createElement('span'); m.className = 'am'; m.textContent = e.nr + (e.sted ? ' \u00b7 ' + e.sted : '');
+      d.appendChild(a); d.appendChild(m);
+      d.addEventListener('mousedown', function(ev){ ev.preventDefault(); acVelg(i); });
+      acBox.appendChild(d);
+    });
+    acBox.hidden = !acItems.length;
+  }
+  fi.addEventListener('input', function(){
+    clearTimeout(acT);
+    var q = fi.value.trim();
+    if (q.length < 2) { acLukk(); return; }
+    acT = setTimeout(function(){
+      fetch('https://data.brreg.no/enhetsregisteret/api/enheter?navn=' + encodeURIComponent(q) + '&size=6')
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          var en = (d._embedded && d._embedded.enheter) || [];
+          acItems = en.map(function(e){
+            return { navn: e.navn, nr: e.organisasjonsnummer || '',
+                     sted: (e.forretningsadresse && e.forretningsadresse.poststed) || '' };
+          });
+          acSel = -1; acRender();
+        })
+        .catch(acLukk);
+    }, 250);
+  });
+  fi.addEventListener('keydown', function(ev){
+    if (acBox.hidden) return;
+    if (ev.key === 'ArrowDown') { ev.preventDefault(); acSel = Math.min(acSel + 1, acItems.length - 1); acRender(); }
+    else if (ev.key === 'ArrowUp') { ev.preventDefault(); acSel = Math.max(acSel - 1, 0); acRender(); }
+    else if (ev.key === 'Enter' && acSel >= 0) { ev.preventDefault(); acVelg(acSel); }
+    else if (ev.key === 'Escape') { acLukk(); }
+  });
+  fi.addEventListener('blur', function(){ setTimeout(acLukk, 180); });
+  /* Org.nr: 9 sifre + mod11-kontroll (samme regel som resten av plattformen). */
+  function gyldigOrgnr(d){
+    if (!/^\d{9}$/.test(d)) return false;
+    var v = [3,2,7,6,5,4,3,2], sum = 0;
+    for (var j = 0; j < 8; j++) sum += (d.charCodeAt(j) - 48) * v[j];
+    var rest = 11 - (sum % 11);
+    if (rest === 11) rest = 0;
+    return rest !== 10 && rest === d.charCodeAt(8) - 48;
+  }
+  onr.addEventListener('input', function(){ onr.setCustomValidity(''); });
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    var erNo = (document.documentElement.lang || '').toLowerCase().indexOf('no') === 0 || (document.documentElement.lang || '').toLowerCase().indexOf('nb') === 0;
+    onr.setCustomValidity(gyldigOrgnr(onr.value.replace(/\D/g, '')) ? '' :
+      (erNo ? 'Skriv inn et gyldig 9-sifret org.nummer.' : 'Enter a valid 9-digit org. number.'));
     if (!form.reportValidity()) return;
     var v = function(id){ var el = document.getElementById(id); return el ? el.value.trim() : ""; };
     var mods = Array.prototype.map.call(document.querySelectorAll('input[name="mod"]:checked'), function(x){ return x.value; });
