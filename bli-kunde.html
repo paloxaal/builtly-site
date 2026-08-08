@@ -171,8 +171,13 @@ footer{background:var(--ink);color:var(--bg);padding:clamp(48px,8vh,80px) 0 clam
 @media (max-width:640px){.tool-list li{gap:6px 14px}.tool-list .d{flex-basis:100%}}
 
 /* BLI KUNDE */
-.bk-hero{padding:clamp(90px,14vh,150px) 0 clamp(40px,6vh,64px)}
+.bk-hero{padding:clamp(72px,10vh,112px) 0 clamp(32px,5vh,48px)}
+/* Egen bredde-kontrakt for Bli kunde: sidens 1080px-max lot en bred skjerm
+   staa ubrukt mens skjemaet ble langt — seksjonen faar 1320px og skjemaet
+   stoerre andel, saa feltene kan legges i flere kolonner. */
+.bk-wide{max-width:1320px}
 .bk-grid{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.35fr);gap:clamp(28px,4vw,64px);align-items:start}
+@media (min-width:1200px){.bk-grid{grid-template-columns:minmax(0,0.68fr) minmax(0,1.65fr)}}
 @media (max-width:900px){.bk-grid{grid-template-columns:1fr}}
 .bk-side{position:sticky;top:110px}
 .bk-side p{color:var(--ink-soft);font-size:15.5px;line-height:1.7;margin:16px 0 0}
@@ -184,7 +189,10 @@ form.bk{background:#fff;border:1px solid var(--line-strong);padding:clamp(24px,3
 .bk fieldset{border:0;margin:0 0 30px;padding:0}
 .bk legend{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);font-weight:600;padding-bottom:12px;border-bottom:1px solid var(--line-strong);width:100%;margin-bottom:16px;display:flex;gap:12px;align-items:center}
 .bk legend .sq{width:9px;height:9px;background:var(--accent)}
-.bk .frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bk .frow{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+/* Bred skjerm: «Om dere» i tre kolonner — seks felt paa to rader i stedet
+   for tre, uten aa roere rekkefoelgen (Selskap/Org.nr/Navn · Rolle/E-post/Tlf). */
+@media (min-width:1100px){.bk .frow.f3{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:640px){.bk .frow{grid-template-columns:1fr}}
 .bk label.fl{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin:0 0 6px}
 .bk label.fl .opt{color:var(--mid);font-weight:400}
@@ -198,8 +206,12 @@ form.bk{background:#fff;border:1px solid var(--line-strong);padding:clamp(24px,3
 .bk input[type=text],.bk input[type=email],.bk input[type=tel],.bk textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line-strong);padding:12px 14px;margin-bottom:14px}
 .bk input:focus,.bk textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
 .bk textarea{min-height:104px;resize:vertical}
-.mods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
-@media (max-width:640px){.mods{grid-template-columns:1fr}}
+/* Modul-gruppene renner i spalter (break-inside:avoid holder hver gruppe hel)
+   — 3 spalter paa bred skjerm halverer seksjonshoyden mot gammel 2-kolonne. */
+.mods{columns:2;column-gap:28px}
+.mods .modgrp{break-inside:avoid}
+@media (min-width:1100px){.mods{columns:3}}
+@media (max-width:640px){.mods{columns:1}}
 .modgrp{margin-bottom:14px}
 .modgrp h4{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.14em;color:var(--teal-deep,#0D9488);font-weight:600;margin:0 0 8px}
 .modl{display:flex;gap:10px;align-items:center;padding:7px 2px;font-size:14.5px;color:var(--ink-soft);cursor:pointer;border-bottom:1px solid var(--line)}
@@ -291,14 +303,14 @@ form.bk{background:#fff;border:1px solid var(--line-strong);padding:clamp(24px,3
 
 <main>
 <section class="bk-hero">
-<div class="wrap">
+<div class="wrap bk-wide">
 <div class="smark"><span class="sq"></span><span class="num">§ 07</span><span class="dash">—</span><span class="tag" data-i18n="bk.smark">BECOME A CUSTOMER</span></div>
 <h1 class="dpy-1" style="max-width:900px" data-i18n-html="bk.h1">Tell us what you are building. <em>We set up the rest.</em></h1>
 </div>
 </section>
 
 <section class="section" style="padding-top:0">
-<div class="wrap bk-grid">
+<div class="wrap bk-wide bk-grid">
 <div class="bk-side rv">
 <p data-i18n="bk.intro">Pick the toolboxes and modules that fit your project. We respond within one business day with a demo tailored to your needs — and a concrete offer.</p>
 <div class="bk-steps">
@@ -311,22 +323,18 @@ form.bk{background:#fff;border:1px solid var(--line-strong);padding:clamp(24px,3
 <form class="bk" id="bkForm" novalidate>
 <fieldset>
 <legend><span class="sq"></span><span data-i18n="bk.f1">About you</span></legend>
-<div class="frow">
+<div class="frow f3">
 <div class="acwrap"><label class="fl" for="bkFirma" data-i18n="bk.company">Company *</label><input type="text" id="bkFirma" required autocomplete="organization"/></div>
 <div><label class="fl" for="bkOrgnr">Org.nr *</label><input type="text" id="bkOrgnr" required inputmode="numeric" maxlength="11" autocomplete="off"/></div>
-</div>
-<div class="frow">
 <div><label class="fl" for="bkNavn" data-i18n="bk.name">Name *</label><input type="text" id="bkNavn" required autocomplete="name"/></div>
 <div><label class="fl" for="bkRolle" data-i18n="bk.role">Role</label><input type="text" id="bkRolle" autocomplete="organization-title"/></div>
-</div>
-<div class="frow">
 <div><label class="fl" for="bkEpost" data-i18n="bk.email">Email *</label><input type="email" id="bkEpost" required autocomplete="email"/></div>
 <div><label class="fl" for="bkTlf" data-i18n="bk.phone">Phone</label><input type="tel" id="bkTlf" autocomplete="tel"/></div>
 </div>
 </fieldset>
 <fieldset>
 <legend><span class="sq"></span><span data-i18n="bk.f2">Which modules are you interested in?</span></legend>
-<div class="mods"><div><div class="modgrp"><h4>Tidligfase</h4><label class="modl"><input type="checkbox" name="mod" value="Mulighetsstudie (ARK)"/>Mulighetsstudie (ARK)</label></div><div class="modgrp"><h4>Ingeniørfag</h4><label class="modl"><input type="checkbox" name="mod" value="Geoteknikk"/>Geoteknikk</label><label class="modl"><input type="checkbox" name="mod" value="Konstruksjon (RIB)"/>Konstruksjon (RIB)</label><label class="modl"><input type="checkbox" name="mod" value="Brannkonsept"/>Brannkonsept</label><label class="modl"><input type="checkbox" name="mod" value="Akustikk"/>Akustikk</label><label class="modl"><input type="checkbox" name="mod" value="Trafikk"/>Trafikk</label></div><div class="modgrp"><h4>Støtteflyt</h4><label class="modl"><input type="checkbox" name="mod" value="SHA-plan"/>SHA-plan</label><label class="modl"><input type="checkbox" name="mod" value="BREEAM"/>BREEAM</label><label class="modl"><input type="checkbox" name="mod" value="Miljøoppfølging (MOP)"/>Miljøoppfølging (MOP)</label></div></div><div><div class="modgrp"><h4>Flater</h4><label class="modl"><input type="checkbox" name="mod" value="Prosjekthotell / datarom"/>Prosjekthotell / datarom</label><label class="modl"><input type="checkbox" name="mod" value="Builtly Maps (eiendomskart)"/>Builtly Maps (eiendomskart)</label></div><div class="modgrp"><h4>Kommersielt</h4><label class="modl"><input type="checkbox" name="mod" value="Anbud"/>Anbud</label><label class="modl"><input type="checkbox" name="mod" value="Mengder og omfang"/>Mengder og omfang</label><label class="modl"><input type="checkbox" name="mod" value="Areal og yield"/>Areal og yield</label></div><div class="modgrp"><h4>Eiendom og klima</h4><label class="modl"><input type="checkbox" name="mod" value="Klimarisiko"/>Klimarisiko</label><label class="modl"><input type="checkbox" name="mod" value="Teknisk due diligence"/>Teknisk due diligence</label></div><div class="modgrp"><h4>Salg og bank</h4><label class="modl"><input type="checkbox" name="mod" value="Salgskonsoll"/>Salgskonsoll</label><label class="modl"><input type="checkbox" name="mod" value="Byggelånskontroll"/>Byggelånskontroll</label><label class="modl"><input type="checkbox" name="mod" value="Kredittgrunnlag"/>Kredittgrunnlag</label></div></div></div>
+<div class="mods"><div class="modgrp"><h4>Tidligfase</h4><label class="modl"><input type="checkbox" name="mod" value="Mulighetsstudie (ARK)"/>Mulighetsstudie (ARK)</label></div><div class="modgrp"><h4>Ingeniørfag</h4><label class="modl"><input type="checkbox" name="mod" value="Geoteknikk"/>Geoteknikk</label><label class="modl"><input type="checkbox" name="mod" value="Konstruksjon (RIB)"/>Konstruksjon (RIB)</label><label class="modl"><input type="checkbox" name="mod" value="Brannkonsept"/>Brannkonsept</label><label class="modl"><input type="checkbox" name="mod" value="Akustikk"/>Akustikk</label><label class="modl"><input type="checkbox" name="mod" value="Trafikk"/>Trafikk</label></div><div class="modgrp"><h4>Støtteflyt</h4><label class="modl"><input type="checkbox" name="mod" value="SHA-plan"/>SHA-plan</label><label class="modl"><input type="checkbox" name="mod" value="BREEAM"/>BREEAM</label><label class="modl"><input type="checkbox" name="mod" value="Miljøoppfølging (MOP)"/>Miljøoppfølging (MOP)</label></div><div class="modgrp"><h4>Flater</h4><label class="modl"><input type="checkbox" name="mod" value="Prosjekthotell / datarom"/>Prosjekthotell / datarom</label><label class="modl"><input type="checkbox" name="mod" value="Builtly Maps (eiendomskart)"/>Builtly Maps (eiendomskart)</label></div><div class="modgrp"><h4>Kommersielt</h4><label class="modl"><input type="checkbox" name="mod" value="Anbud"/>Anbud</label><label class="modl"><input type="checkbox" name="mod" value="Mengder og omfang"/>Mengder og omfang</label><label class="modl"><input type="checkbox" name="mod" value="Areal og yield"/>Areal og yield</label></div><div class="modgrp"><h4>Eiendom og klima</h4><label class="modl"><input type="checkbox" name="mod" value="Klimarisiko"/>Klimarisiko</label><label class="modl"><input type="checkbox" name="mod" value="Teknisk due diligence"/>Teknisk due diligence</label></div><div class="modgrp"><h4>Salg og bank</h4><label class="modl"><input type="checkbox" name="mod" value="Salgskonsoll"/>Salgskonsoll</label><label class="modl"><input type="checkbox" name="mod" value="Byggelånskontroll"/>Byggelånskontroll</label><label class="modl"><input type="checkbox" name="mod" value="Kredittgrunnlag"/>Kredittgrunnlag</label></div></div>
 </fieldset>
 <fieldset>
 <legend><span class="sq"></span><span data-i18n="bk.f3">What would you like?</span></legend>
@@ -444,6 +452,14 @@ form.bk{background:#fff;border:1px solid var(--line-strong);padding:clamp(24px,3
       if (v('bkTlf')) q.set('phone', v('bkTlf'));
       q.set('consent', '1');
       q.set('source', 'form');
+      /* Diskrete felter -> kontaktens fields + kundelead-varselet til
+         salgsansvarlig (rolle/melding gikk foer tapt paa intake-veien). */
+      q.set('lead', 'bli_kunde');
+      q.set('firma', v('bkFirma').slice(0, 160));
+      q.set('orgnr', v('bkOrgnr').slice(0, 20));
+      if (v('bkRolle')) q.set('rolle', v('bkRolle').slice(0, 120));
+      q.set('onske', onske);
+      if (v('bkMsg')) q.set('melding', v('bkMsg').slice(0, 1200));
       mods.concat(['\u00d8nske: ' + onske]).forEach(function(m){ q.append('interest', m); });
       var fr = document.createElement('iframe');
       fr.style.cssText = 'position:absolute;width:1px;height:1px;opacity:0;border:0';
