@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Builtly Maps — live property intelligence for any address, owner or company in Norway. Matrikkel, ownership, regulation, risk, area reports, tenant and plot radar — connected to the Builtly engineering modules." />
+<meta name="description" content="Builtly BIM Viewer — open IFC models right in the browser, free. Measure lengths and areas, analyse BRA/BTA and residential units. The file never leaves your machine. Free for companies and private individuals." data-i18n-attr-content="bimv.meta" />
 <meta name="theme-color" content="#FAFAF7" />
-<title>Builtly Maps · Property intelligence for real estate</title>
+<title data-i18n="bimv.title">Builtly BIM Viewer · Free IFC viewer in the browser</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
@@ -379,7 +379,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 }
 </style>
 <style>
-/* Builtly Maps page */
+/* Builtly BIM Viewer page */
 .mp-hero{padding:clamp(40px,7vh,84px) 0 clamp(20px,3vh,32px)}
 .mp-hero-grid{display:grid;grid-template-columns:1.02fr 0.98fr;gap:clamp(32px,5vw,64px);align-items:center}
 @media(max-width:920px){.mp-hero-grid{grid-template-columns:1fr;gap:34px}}
@@ -396,24 +396,38 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .mp-diff h2{color:var(--dark-paper);font-family:var(--font-display);font-size:clamp(24px,2.6vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.1;margin:0}
 .mp-diff p{color:rgba(247,244,237,0.72);font-size:15px;line-height:1.6;margin:14px 0 0}
 .mp-diff .echip{font-family:var(--font-mono);font-size:11px;font-weight:600;color:#5EEAD4;background:rgba(94,234,212,0.10);border:1px solid rgba(94,234,212,0.30);border-radius:999px;padding:5px 12px;display:inline-block;margin:5px 5px 0 0}
-/* property-card mockup */
-.maps-mock{border:1px solid var(--line-strong);border-radius:14px;background:var(--bg);padding:clamp(16px,2.2vw,24px)}
-.maps-mock-head{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px}
-.maps-mock-head .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
-.maps-mock-head .ttl{font-family:var(--font-display);font-weight:600;font-size:14px;letter-spacing:-0.01em;color:var(--ink)}
-.maps-mock-head .addr{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--mid);letter-spacing:0.03em}
-.maps-mock-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-@media(max-width:560px){.maps-mock-grid{grid-template-columns:repeat(2,1fr)}.maps-mock-head .addr{display:none}}
-.mchip{border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid);background:var(--bg-soft)}
-.mchip b{display:block;font-family:var(--font-display);font-size:13px;color:var(--ink);font-weight:600;letter-spacing:-0.01em;margin-top:3px;text-transform:none}
-.maps-mock-eng{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-strong)}
-.maps-mock-eng .lbl{width:100%;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);margin-bottom:3px}
 .echip{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.02em;color:var(--accent-soft);background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.28);border-radius:999px;padding:5px 12px}
-.maps-mock-badge{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.04em;color:var(--bg);background:var(--ink);border-radius:999px;padding:7px 14px}
-/* ===== Animated live property-scan stage (hero) ===== */
+/* ===== Viewer stage (hero) — stylised IFC scene ===== */
 .maps-stage{position:relative;display:block;width:100%;min-width:0;border-radius:16px;overflow:hidden;background:radial-gradient(125% 95% at 72% 12%,#16202B 0%,#0E1218 62%);border:1px solid rgba(247,244,237,0.12);aspect-ratio:4/3.1;min-height:340px;box-shadow:0 26px 64px -30px rgba(8,11,16,0.7);isolation:isolate;cursor:pointer}
 @media(max-width:920px){.maps-stage{aspect-ratio:auto;min-height:470px}}
-.maps-stage-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+.bv-svg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+.bv-svg .bv-wire{fill:none;stroke:rgba(247,244,237,0.34);stroke-width:1.2}
+.bv-svg .bv-wire-soft{fill:none;stroke:rgba(247,244,237,0.14);stroke-width:1}
+.bv-svg .bv-face{fill:rgba(247,244,237,0.035)}
+.bv-svg .bv-face-top{fill:rgba(45,212,191,0.07)}
+.bv-svg .bv-grid{stroke:rgba(247,244,237,0.06);stroke-width:1}
+.bv-svg .bv-maal{stroke:#2DD4BF;stroke-width:1.6;stroke-dasharray:7 5}
+.bv-svg .bv-tick{stroke:#2DD4BF;stroke-width:1.6}
+.bv-svg .bv-areal{fill:rgba(45,212,191,0.13);stroke:rgba(45,212,191,0.55);stroke-width:1.2;stroke-dasharray:4 4}
+.bv-svg .bv-lbl{fill:#06251F;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600}
+.bv-svg .bv-lblbg{fill:#2DD4BF;rx:7}
+@media(prefers-reduced-motion:no-preference){
+  .bv-svg .bv-maal{animation:bvDash 2.6s linear infinite}
+  @keyframes bvDash{to{stroke-dashoffset:-24}}
+}
+/* ===== Pricing (free / storage) ===== */
+.bv-plans{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);margin-top:clamp(30px,4vh,44px)}
+@media(max-width:760px){.bv-plans{grid-template-columns:1fr}}
+.bv-plan{border:1px solid var(--line-strong);border-radius:14px;background:var(--bg);padding:clamp(22px,2.6vw,32px);display:flex;flex-direction:column}
+.bv-plan.free{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.bv-plan .pn{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent-soft);font-weight:600}
+.bv-plan .pr{font-family:var(--font-display);font-size:clamp(28px,3vw,38px);font-weight:700;letter-spacing:-0.02em;color:var(--ink);margin-top:10px}
+.bv-plan .pr small{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--mid);letter-spacing:0.02em;margin-left:6px}
+.bv-plan ul{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.bv-plan ul li{font-size:14px;line-height:1.5;color:var(--ink-soft);padding-left:22px;position:relative}
+.bv-plan ul li::before{content:"";position:absolute;left:0;top:7px;width:12px;height:7px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+.bv-plan .pfoot{margin-top:auto;padding-top:18px}
+.bv-plan .pnote{font-size:12.5px;color:var(--mid);line-height:1.55;margin-top:12px}
 .maps-stage-ui{position:absolute;inset:0;z-index:1;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(13px,1.7vw,18px)}
 .ms-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .ms-live{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.14em;color:#5EEAD4;font-weight:600;background:rgba(10,14,20,0.55);border:1px solid rgba(94,234,212,0.28);border-radius:999px;padding:5px 11px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
@@ -437,15 +451,6 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .maps-stage:hover .ms-open,.maps-stage:focus-visible .ms-open{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .maps-stage:hover .ms-card{opacity:0.32}
 .maps-stage:focus-visible{outline:2px solid #2DD4BF;outline-offset:3px}
-/* ===== Country coverage strip ===== */
-.mp-coverage{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:clamp(22px,3vh,30px);padding-top:clamp(20px,2.6vh,26px);border-top:1px solid var(--line)}
-.mp-coverage .cov-lbl{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid);margin-right:3px}
-.cov-pill{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.02em;border-radius:999px;padding:5px 11px;white-space:nowrap}
-.cov-pill.live{color:var(--accent-soft);background:rgba(20,184,166,0.09);border:1px solid rgba(20,184,166,0.32)}
-.cov-pill.live .cd{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(20,184,166,0.16)}
-.cov-pill.soon{color:var(--mid);background:var(--bg-soft);border:1px solid var(--line-strong)}
-.cov-pill.soon .cd{width:6px;height:6px;border-radius:50%;border:1.5px solid var(--grey)}
-.cov-soon-lbl{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--mid);margin:0 1px 0 5px}
 </style>
 </head>
 <body>
@@ -456,8 +461,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="nav-links">
 <a href="/platform.html" data-i18n="nav.platform">Platform</a>
 <a href="/verktoy.html" data-i18n="nav.tools">Tools</a>
-<a href="/maps.html" class="active" data-i18n="nav.maps">Maps</a>
-<a href="/bim-viewer.html" data-i18n="nav.bimViewer">BIM Viewer</a>
+<a href="/maps.html" data-i18n="nav.maps">Maps</a>
+<a href="/bim-viewer.html" class="active" data-i18n="nav.bimViewer">BIM Viewer</a>
 <a href="/industries.html" data-i18n="nav.industries">Industries</a>
 <a href="/platform.html#architecture" data-i18n="nav.howItWorks">How it works</a>
 <a href="/about.html" data-i18n="nav.about">About</a>
@@ -520,51 +525,106 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section mp-hero" id="top">
 <div class="wrap">
-<div class="smark rv"><span data-i18n="maps.smark.label">Builtly Maps</span><span class="dash"></span><span data-i18n="maps.smark.tag">Property intelligence</span></div>
+<div class="smark rv"><span data-i18n="bimv.smark.label">Builtly BIM Viewer</span><span class="dash"></span><span data-i18n="bimv.smark.tag">Free IFC viewer</span></div>
 <div class="mp-hero-grid">
 <div class="rv">
-<h1 class="dpy-2" data-i18n-html="maps.h2">Every property —<br/>from map to engineering.</h1>
-<p class="lead" data-i18n="maps.lede">Builtly Maps brings live property data — matrikkel, ownership, regulation, risk and area — together for any address, owner or company. Built for architects, developers and real-estate teams. And because it runs on the Builtly platform, you can plug in the engineering modules and take a property straight from a map lookup to a quality-assured deliverable.</p>
+<h1 class="dpy-2" data-i18n-html="bimv.h1">Open BIM models<br/>right in the browser.</h1>
+<p class="lead" data-i18n="bimv.lede">Drag an IFC file into the browser and it opens — no installation, no licence, no company registration. Measure lengths and areas, cut sections, and read floor areas and residential units out of the model. The file is parsed locally on your machine and never uploaded. Free for companies and private individuals alike.</p>
 <div class="mp-actions">
-<a href="https://maps.builtly.ai/" class="btn"><span data-i18n="maps.cta.open">Open Builtly Maps</span> <span class="arr">&#8594;</span></a>
-<a href="/contact.html" class="btn btn-ghost"><span data-i18n="maps.cta.demo">Book a demo</span></a>
+<a href="https://bim.builtly.ai" class="btn"><span data-i18n="bimv.cta.open">Open BIM Viewer — free</span> <span class="arr">&#8594;</span></a>
+<a href="#priser" class="btn btn-ghost"><span data-i18n="bimv.cta.plans">What's included</span></a>
 </div>
 </div>
-<a class="maps-stage rv" href="https://maps.builtly.ai/" aria-label="Open Builtly Maps">
-<canvas class="maps-stage-canvas" aria-hidden="true"></canvas>
+<a class="maps-stage rv" href="https://bim.builtly.ai" aria-label="Open Builtly BIM Viewer">
+<svg class="bv-svg" viewBox="0 0 640 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g class="bv-gridlines">
+<line class="bv-grid" x1="120" y1="452" x2="620" y2="202"/>
+<line class="bv-grid" x1="60" y1="428" x2="560" y2="178"/>
+<line class="bv-grid" x1="620" y1="452" x2="180" y2="232"/>
+<line class="bv-grid" x1="560" y1="480" x2="120" y2="260"/>
+</g>
+<g transform="translate(0,-52)">
+<polygon class="bv-face" points="320,368 536,260 536,128 320,236"/>
+<polygon class="bv-face" points="320,368 176,296 176,164 320,236"/>
+<polygon class="bv-face-top" points="320,236 536,128 392,56 176,164"/>
+<line class="bv-wire-soft" x1="320" y1="324" x2="536" y2="216"/>
+<line class="bv-wire-soft" x1="320" y1="280" x2="536" y2="172"/>
+<line class="bv-wire-soft" x1="320" y1="324" x2="176" y2="252"/>
+<line class="bv-wire-soft" x1="320" y1="280" x2="176" y2="208"/>
+<line class="bv-wire-soft" x1="392" y1="332" x2="392" y2="200"/>
+<line class="bv-wire-soft" x1="464" y1="296" x2="464" y2="164"/>
+<line class="bv-wire-soft" x1="272" y1="344" x2="272" y2="212"/>
+<line class="bv-wire-soft" x1="224" y1="320" x2="224" y2="188"/>
+<polygon class="bv-wire" points="320,368 536,260 536,128 320,236"/>
+<polygon class="bv-wire" points="320,368 176,296 176,164 320,236"/>
+<polygon class="bv-wire" points="320,236 536,128 392,56 176,164"/>
+<polygon class="bv-areal" points="330,211 486,133 382,81 226,159"/>
+<rect class="bv-lblbg" x="308" y="130" width="96" height="24" rx="7"/>
+<text class="bv-lbl" x="356" y="146" text-anchor="middle">146,2 m&#178;</text>
+<line class="bv-maal" x1="334" y1="392" x2="550" y2="284"/>
+<line class="bv-tick" x1="330" y1="384" x2="338" y2="400"/>
+<line class="bv-tick" x1="546" y1="276" x2="554" y2="292"/>
+<rect class="bv-lblbg" x="404" y="322" width="80" height="24" rx="7"/>
+<text class="bv-lbl" x="444" y="338" text-anchor="middle">12,40 m</text>
+</g>
+</svg>
 <div class="maps-stage-ui">
 <div class="ms-top">
-<span class="ms-live"><i class="ms-pulse"></i><span data-i18n="maps.stage.live">Live</span> · Builtly Maps</span>
-<span class="ms-count"><b data-ms-count>128</b> <span data-i18n="maps.stage.scanned">scanned</span></span>
+<span class="ms-live"><i class="ms-pulse"></i><span data-i18n="bimv.stage.live">Live</span> · Builtly BIM Viewer</span>
+<span class="ms-count"><b>demo.ifc</b> · 34 MB</span>
 </div>
 <div class="ms-card">
-<div class="ms-card-head"><span class="ms-addr" data-ms-addr>gnr 47 / bnr 12</span><span class="ms-match" data-i18n="maps.stage.analyzed">✓ Analyzed</span></div>
+<div class="ms-card-head"><span class="ms-addr">demo.ifc</span><span class="ms-match" data-i18n="bimv.stage.local">✓ Parsed locally — never uploaded</span></div>
 <div class="ms-grid">
-<span class="ms-chip"><i data-i18n="maps.chip.owner">Owner</i><b data-i18n="maps.val.owner">Example AS</b></span>
-<span class="ms-chip"><i data-i18n="maps.chip.area">Area</i><b>890 m²</b></span>
-<span class="ms-chip"><i data-i18n="maps.chip.bya">BYA</i><b>32 %</b></span>
-<span class="ms-chip"><i data-i18n="maps.chip.zoning">Zoning</i><b data-i18n="maps.val.zoning">Residential</b></span>
-<span class="ms-chip"><i data-i18n="maps.chip.flood">Flood</i><b data-i18n="maps.val.flood">High</b></span>
-<span class="ms-chip"><i data-i18n="maps.chip.value">Value</i><b>51 900 kr/m²</b></span>
+<span class="ms-chip"><i data-i18n="bimv.chip.elements">Elements</i><b>12&#8202;480</b></span>
+<span class="ms-chip"><i data-i18n="bimv.chip.floors">Storeys</i><b>5</b></span>
+<span class="ms-chip"><i data-i18n="bimv.chip.bra">Floor area</i><b>1&#8202;862 m&#178;</b></span>
+<span class="ms-chip"><i data-i18n="bimv.chip.units">Units</i><b>24</b></span>
+<span class="ms-chip"><i data-i18n="bimv.chip.measure">Measure</i><b>12,40 m</b></span>
+<span class="ms-chip"><i data-i18n="bimv.chip.schema">Schema</i><b>IFC 4</b></span>
 </div>
-<div class="ms-connect"><span class="lbl" data-i18n="maps.stage.connect">+ Engineering</span><span class="echip2" data-i18n="maps.disc.structural">Structural</span><span class="echip2" data-i18n="maps.disc.geotech">Geotechnical</span><span class="echip2" data-i18n="maps.disc.fire">Fire</span><span class="echip2" data-i18n="maps.disc.acoustics">Acoustics</span></div>
+<div class="ms-connect"><span class="lbl" data-i18n="bimv.stage.free">Free in the browser</span><span class="echip2" data-i18n="bimv.tool.measure">Measure</span><span class="echip2" data-i18n="bimv.tool.area">Area analysis</span><span class="echip2" data-i18n="bimv.tool.units">Units</span><span class="echip2" data-i18n="bimv.tool.section">Sections</span></div>
 </div>
-<span class="ms-open"><span data-i18n="maps.cta.open">Open Builtly Maps</span> <span class="arr">&#8594;</span></span>
+<span class="ms-open"><span data-i18n="bimv.cta.short">Open BIM Viewer</span> <span class="arr">&#8594;</span></span>
 </div>
 </a>
 </div>
 <div class="mp-feat-grid">
-<article class="mp-feat"><div class="ic" data-i18n="maps.feat.search.label">Search &amp; ownership</div><h3 data-i18n="maps.feat.search.h">Any property, any owner.</h3><p data-i18n="maps.feat.search.p">Search by address, property, owner or company. Live matrikkel, areas, BYA/BRA, title holders and full corporate ownership trees from Kartverket and Brønnøysund — with an open-data owner-risk indicator.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.deepdive.label">Property deep-dive</div><h3 data-i18n="maps.feat.deepdive.h">Everything on one property.</h3><p data-i18n="maps.feat.deepdive.p">Open any property to its plot, market value estimate from comparable neighbourhood sales, transaction history, owners, tenants, surrounding area and registered building cases.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.mapanalysis.label">Map analysis</div><h3 data-i18n="maps.feat.mapanalysis.h">Draw, measure, analyse.</h3><p data-i18n="maps.feat.mapanalysis.p">Toggle map layers, draw and analyse any area, and measure distances. Risk layers for flood, quick clay, storm surge and ground conditions, plus zoning — in 2D, 3D, map or aerial.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.area.label">Area reports</div><h3 data-i18n="maps.feat.area.h">Know the market.</h3><p data-i18n="maps.feat.area.p">Instant area profiles — population, demographics, housing prices versus build cost, and new-build supply with median kr/m², units and room mix. Exportable to PDF.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.tenant.label">Tenant radar</div><h3 data-i18n="maps.feat.tenant.h">Find tenants first.</h3><p data-i18n="maps.feat.tenant.p">Find companies that will soon need new premises — before competitors. Ranked on growth, industry and stage, with the reasoning behind every signal and a route to contact.</p></article><article class="mp-feat"><div class="ic" data-i18n="maps.feat.plot.label">Plot radar</div><h3 data-i18n="maps.feat.plot.h">Find buildable land.</h3><p data-i18n="maps.feat.plot.p">Find undeveloped, buildable plots in any municipality by area, with calculated development potential (BYA) and zoning — clustered on the map and in an exportable table.</p></article>
+<article class="mp-feat"><div class="ic" data-i18n="bimv.feat.browser.label">IFC in the browser</div><h3 data-i18n="bimv.feat.browser.h">No installation. No licence.</h3><p data-i18n="bimv.feat.browser.p">Drag in an IFC file and it opens — IFC 2x3 and IFC 4, from Revit, ArchiCAD and the rest. Real project models of a hundred megabytes and more, parsed with a streaming reader built for construction-site laptops and tablets.</p></article><article class="mp-feat"><div class="ic" data-i18n="bimv.feat.privacy.label">Privacy by design</div><h3 data-i18n="bimv.feat.privacy.h">The file never leaves your machine.</h3><p data-i18n="bimv.feat.privacy.p">The free viewer parses the model locally in your browser — nothing is uploaded, stored or logged. Open a confidential tender model without sending it anywhere. That is not a promise in a policy; it is how the viewer is built.</p></article><article class="mp-feat"><div class="ic" data-i18n="bimv.feat.measure.label">Measuring tools</div><h3 data-i18n="bimv.feat.measure.h">Measure lengths and areas.</h3><p data-i18n="bimv.feat.measure.p">Double-click two points for a length, corner by corner for an area. Cut sections through the model, isolate load-bearing structure, and click any element for its properties.</p></article><article class="mp-feat"><div class="ic" data-i18n="bimv.feat.area.label">Area analysis</div><h3 data-i18n="bimv.feat.area.h">Floor areas out of the model.</h3><p data-i18n="bimv.feat.area.p">Gross and net floor areas, saleable area and per-storey breakdowns — read from the model's own surfaces and slabs, with an honest plausibility check that flags scale errors and mixed layers instead of guessing.</p></article><article class="mp-feat"><div class="ic" data-i18n="bimv.feat.units.label">Residential units</div><h3 data-i18n="bimv.feat.units.h">Counts units — even without spaces.</h3><p data-i18n="bimv.feat.units.p">Many architect exports carry no room objects at all. The viewer measures unit signals — entrance doors in party walls, confirmed by kitchens and furniture — and shows every competing signal so a wrong reading is visible, never hidden.</p></article><article class="mp-feat"><div class="ic" data-i18n="bimv.feat.save.label">Model library</div><h3 data-i18n="bimv.feat.save.h">Save models when you need them.</h3><p data-i18n="bimv.feat.save.p">Viewing is free, always. If you want to keep models in a library and open them from any machine, storage is 199 kr per month — activated inside the viewer, invoiced by email, cancel any time.</p></article>
+</div>
+<div class="bv-plans rv" id="priser">
+<div class="bv-plan free">
+<div class="pn" data-i18n="bimv.plan.free.name">Free</div>
+<div class="pr">0 kr</div>
+<ul>
+<li data-i18n="bimv.plan.free.f1">Open IFC models in the browser — unlimited</li>
+<li data-i18n="bimv.plan.free.f2">Measuring tools, sections, area analysis and unit counts</li>
+<li data-i18n="bimv.plan.free.f3">Files are parsed locally and never uploaded</li>
+<li data-i18n="bimv.plan.free.f4">Register with your email — no company required</li>
+</ul>
+<div class="pfoot"><a href="https://bim.builtly.ai" class="btn"><span data-i18n="bimv.cta.open">Open BIM Viewer — free</span> <span class="arr">&#8594;</span></a></div>
+</div>
+<div class="bv-plan">
+<div class="pn" data-i18n="bimv.plan.pro.name">Storage</div>
+<div class="pr">199 kr<small data-i18n="bimv.plan.pro.per">per month</small></div>
+<ul>
+<li data-i18n="bimv.plan.pro.f1">Everything in Free</li>
+<li data-i18n="bimv.plan.pro.f2">Save models to your own library</li>
+<li data-i18n="bimv.plan.pro.f3">Open your models from any machine</li>
+<li data-i18n="bimv.plan.pro.f4">Invoiced by email — cancel any time</li>
+</ul>
+<div class="pfoot"><p class="pnote" data-i18n="bimv.plan.pro.note">Activated inside the viewer when you first save a model — no card, no binding period.</p></div>
+</div>
 </div>
 <div class="mp-diff rv">
 <div>
-<h2 data-i18n="maps.diff.h">Not just the data — the engineering.</h2>
-<div style="margin-top:16px"><span class="echip" data-i18n="maps.disc.structural">Structural</span><span class="echip" data-i18n="maps.disc.geotech">Geotechnical</span><span class="echip" data-i18n="maps.disc.fire">Fire</span><span class="echip" data-i18n="maps.disc.acoustics">Acoustics</span><span class="echip" data-i18n="maps.disc.climate">Climate risk</span><span class="echip" data-i18n="maps.disc.valuation">Valuation</span></div>
+<h2 data-i18n="bimv.diff.h">Part of the Builtly platform.</h2>
+<div style="margin-top:16px"><span class="echip" data-i18n="bimv.diff.c1">Project hotel / CDE</span><span class="echip" data-i18n="bimv.diff.c2">Federated model</span><span class="echip" data-i18n="bimv.diff.c3">Tender rooms</span><span class="echip" data-i18n="bimv.diff.c4">Engineering modules</span></div>
 </div>
-<p data-i18n="maps.diff.p">Other platforms stop at the data. Because Builtly Maps runs on the Builtly engineering platform, you can take a property straight from a map lookup to structural, geotechnical, fire, acoustic, climate-risk and valuation deliverables — calculated, documented and signed. Plus a portfolio dashboard, deal pipeline, explainable leads and your own data room.</p>
+<p data-i18n-html="bimv.diff.p">The viewer runs on the same BIM engine as the Builtly project hotel — where every discipline model federates into one shared model, tender packages are issued with receipts, and structural, fire, acoustic and geotechnical deliverables are produced on the platform. When your team needs more than viewing, write to <a href="mailto:sales@builtly.ai" style="color:#5EEAD4">sales@builtly.ai</a> or <a href="/bli-kunde.html" style="color:#5EEAD4">become a customer</a>.</p>
 </div>
 <div class="mp-actions rv" style="justify-content:center;margin-top:clamp(36px,5vh,56px)">
-<a href="https://maps.builtly.ai/" class="btn"><span data-i18n="maps.cta.open">Open Builtly Maps</span> <span class="arr">&#8594;</span></a>
+<a href="https://bim.builtly.ai" class="btn"><span data-i18n="bimv.cta.open">Open BIM Viewer — free</span> <span class="arr">&#8594;</span></a>
 </div>
 </div>
 </section>
@@ -636,7 +696,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
   });
 });
 </script>
-<script src="/maps-scan.js?v=20260622-engine2" defer></script>
 
 <script src="/i18n.js?v=20260815-bimviewer" defer></script>
 </body>
