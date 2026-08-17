@@ -273,8 +273,7 @@ def nav_block(active: str) -> str:
 </div>
 <div class="nav-cta">
 {LANG_MENU}
-<a href="https://portal.builtly.ai" class="btn btn-ghost"><span data-i18n="nav.login">Logg inn</span></a>
-<a href="/bli-kunde.html" class="btn"><span data-i18n="nav.quote">Be om tilbud</span> <span class="arr">→</span></a>
+<a href="https://portal.builtly.ai" class="btn"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>
 <button class="nav-burger" id="navBurger" type="button" aria-label="Meny" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
 </div>
 </div>
@@ -282,8 +281,8 @@ def nav_block(active: str) -> str:
 <div class="mobile-menu" id="mobileMenu" hidden>
 <div class="mm-eyebrow">Builtly · Meny</div>
 <nav class="mm-links" aria-label="Mobilnavigasjon"></nav>
-<a href="/bli-kunde.html" class="btn mm-cta"><span data-i18n="nav.quote">Be om tilbud</span> <span class="arr">→</span></a>
-<a href="https://portal.builtly.ai" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.login">Logg inn</span></a>
+<a href="https://portal.builtly.ai" class="btn mm-cta"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>
+<a href="/bli-kunde.html" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.quote">Be om tilbud</span></a>
 </div>
 <script>
 (function(){{
@@ -474,14 +473,14 @@ t("home2.desc",
   "Builtly kombinerer rådgivende ingeniørtjenester og egenutviklet software. Vi leverer komplette rådgiveroppdrag innen geoteknikk, konstruksjon, brann, akustikk og miljø — og utvikler software for eiendomsbransjen.",
   "Builtly combines consulting engineering and proprietary software. We deliver complete consulting engagements in geotechnics, structures, fire, acoustics and environment — and build software for the real-estate industry.")
 t("home2.eyebrow", "Fremtidens ingeniørselskap. Allerede her.", "The engineering company of the future. Already here.")
-t("home2.h1", "Rådgivende ingeniører. Egen software.", "Consulting engineers. Our own software.")
+t("home2.h1", "Rådgivende ingeniører.<br/>Egen software.", "Consulting engineers.<br/>Our own software.")
 t("home2.lede",
   "Builtly leverer komplette rådgiveroppdrag innen blant annet geoteknikk, konstruksjon, brann, akustikk og miljø. Samtidig utvikler vi software for eiendomsutviklere, rådgivere, entreprenører, banker og andre aktører i eiendomsbransjen.",
   "Builtly delivers complete consulting engagements in geotechnics, structures, fire, acoustics, environment and more. At the same time we build software for property developers, consultancies, contractors, banks and other actors in the real-estate industry.")
 t("home2.cta1", "Be om tilbud på rådgivning", "Request a consulting quote")
 t("home2.cta2", "Utforsk Builtly Software", "Explore Builtly Software")
 t("home2.pillar1", "Rådgiveroppdrag med fagansvar", "Consulting with professional responsibility")
-t("home2.pillar2", "Egenutviklet teknologi", "Proprietary technology")
+t("home2.pillar2", "Banebrytende teknologi", "Groundbreaking technology")
 t("home2.pillar3", "Én modell av prosjektet", "One model of the project")
 t("home2.side1k", "Rådgivning", "Consulting")
 t("home2.side2k", "Software", "Software")
@@ -539,10 +538,10 @@ t("home2.fag.se", "Se tjenesten →", "See the service →")
 t("home2.fag.cta", "Be om tilbud på rådgivning", "Request a consulting quote")
 t("home2.ansvar.mark", "Fagansvaret", "Professional responsibility")
 t("home2.ansvar.p",
-  "Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Egenutviklet software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.",
-  "Builtly's engineers hold the professional responsibility and deliver the engagement. Our own software is used as a tool in the design work where it improves quality, traceability and workflow — the judgements, the coordination and the signature belong to the engineer.")
+  "Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Vår banebrytende software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.",
+  "Builtly's engineers hold the professional responsibility and deliver the engagement. Our groundbreaking software is used as a tool in the design work where it improves quality, traceability and workflow — the judgements, the coordination and the signature belong to the engineer.")
 t("home2.sw.label", "Software", "Software")
-t("home2.sw.tag", "Builtly Software", "Builtly Software")
+t("home2.sw.tag", "Deeptech for bygg og eiendom", "Deep tech for construction & real estate")
 t("home2.sw.h2", "Software utviklet gjennom faktiske prosjekter.", "Software developed through real projects.")
 t("home2.sw.lede",
   "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser.",
@@ -606,12 +605,12 @@ t("about.hero.lede",
   "Builtly yhdistää konsultoivat insinööripalvelut ja oman ohjelmistokehityksen. Toimitamme kokonaisia konsulttitoimeksiantoja — ja teknologiaa voivat käyttää suoraan asiakkaat, kumppanit ja muut konsulttiyhteisöt. Molempien takana on sama harvinainen yhdistelmä: ammatillinen vastuu, operatiivinen kiinteistökokemus ja moderni ohjelmistokehitys.",
   "Builtly verbindet beratende Ingenieurleistungen mit eigener Software. Wir liefern vollständige Beratungsaufträge — und die Technologie kann direkt von Kunden, Partnern und anderen Ingenieurbüros genutzt werden. Hinter beidem steht dieselbe seltene Kombination: fachliche Verantwortung, operative Immobilienerfahrung und moderne Softwareentwicklung.")
 t("about.glance.lede",
-  "Builtly er et teknologidrevet rådgivende ingeniør- og softwareselskap for de nordiske og tyske markedene.",
-  "Builtly is a technology-driven consulting engineering and software company for the Nordic and German markets.",
-  "Builtly är ett teknikdrivet konsulterande ingenjörs- och mjukvaruföretag för de nordiska och tyska marknaderna.",
-  "Builtly er en teknologidrevet rådgivende ingeniør- og softwarevirksomhed for de nordiske og tyske markeder.",
-  "Builtly on teknologiavetoinen konsultoiva insinööri- ja ohjelmistoyritys Pohjoismaiden ja Saksan markkinoille.",
-  "Builtly ist ein technologiegetriebenes beratendes Ingenieur- und Softwareunternehmen für die nordischen und deutschen Märkte.")
+  "Builtly er et rådgivende ingeniør- og deeptech-selskap for de nordiske og tyske markedene.",
+  "Builtly is a consulting engineering and deep-tech company for the Nordic and German markets.",
+  "Builtly är ett konsulterande ingenjörs- och deeptech-företag för de nordiska och tyska marknaderna.",
+  "Builtly er en rådgivende ingeniør- og deeptech-virksomhed for de nordiske og tyske markeder.",
+  "Builtly on konsultoiva insinööri- ja deeptech-yhtiö Pohjoismaiden ja Saksan markkinoille.",
+  "Builtly ist ein beratendes Ingenieur- und Deep-Tech-Unternehmen für die nordischen und deutschen Märkte.")
 t("industries.hero.h1",
   "Hvem softwaren er bygget for.",
   "Who the software is built for.",
@@ -966,6 +965,14 @@ def fagside(f):
 
     mailto = f"mailto:sales@builtly.ai?subject=Tilbudsforesp%C3%B8rsel%20%E2%80%94%20{navn_no.replace(' ', '%20')}"
 
+    sw_p_no = (f"Builtlys {navn_no.lower()}-rådgivere benytter banebrytende teknologi til analyser, "
+               "tegningsproduksjon og kvalitetssikring. Den samme teknologien er tilgjengelig som "
+               "software for kunder og andre rådgivermiljøer.")
+    sw_p_en = (f"Builtly's {navn_en.lower()} consultants use groundbreaking technology for analysis, "
+               "drawing production and quality assurance. The same technology is available as "
+               "software for clients and other consultancies.")
+    t(p + ".sw_p", sw_p_no, sw_p_en)
+
     body = f"""<main>
 <section class="p-hero">
 <div class="wrap">
@@ -1014,7 +1021,7 @@ def fagside(f):
 <div class="wrap">
 <div class="inner">
 <span class="mark" data-i18n="tj.felles.ansvar_mark">Fagansvaret</span>
-<p data-i18n="tj.felles.ansvar_p">Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Egenutviklet software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.</p>
+<p data-i18n="tj.felles.ansvar_p">Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Vår banebrytende software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.</p>
 </div>
 </div>
 </section>
@@ -1024,7 +1031,7 @@ def fagside(f):
 <div class="crosslink rv">
 <div>
 <h3 data-i18n="tj.felles.sw_h">Er dere et rådgivermiljø som vil bruke teknologien selv?</h3>
-<p data-i18n="{p}.sw_p">{_html.escape(f'Builtlys {navn_no.lower()}-rådgivere benytter egenutviklet teknologi til analyser, tegningsproduksjon og kvalitetssikring. Den samme teknologien er tilgjengelig som software for kunder og andre rådgivermiljøer.')}</p>
+<p data-i18n="{p}.sw_p">{_html.escape(sw_p_no)}</p>
 </div>
 <a href="/software.html" class="btn btn-ghost"><span data-i18n="tj.felles.sw_cta">Se Builtly Software</span> <span class="arr">→</span></a>
 </div>
@@ -1082,8 +1089,8 @@ t("tj.felles.s02tag", "Når i prosjektet", "When in the project")
 t("tj.felles.s02h2", "Fra tidligfase til overtakelse.", "From early phase to handover.")
 t("tj.felles.ansvar_mark", "Fagansvaret", "Professional responsibility")
 t("tj.felles.ansvar_p",
-  "Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Egenutviklet software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.",
-  "Builtly's engineers hold the professional responsibility and deliver the engagement. Our own software is used as a tool in the design work where it improves quality, traceability and workflow — the judgements, the coordination and the signature belong to the engineer.")
+  "Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Vår banebrytende software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.",
+  "Builtly's engineers hold the professional responsibility and deliver the engagement. Our groundbreaking software is used as a tool in the design work where it improves quality, traceability and workflow — the judgements, the coordination and the signature belong to the engineer.")
 t("tj.felles.sw_h", "Er dere et rådgivermiljø som vil bruke teknologien selv?", "Are you a consultancy that wants to use the technology yourself?")
 t("tj.felles.sw_cta", "Se Builtly Software", "See Builtly Software")
 t("tj.felles.cta_h2", "Be om tilbud.", "Request a quote.")
@@ -1271,8 +1278,8 @@ def software_side():
       "Builtly's software is developed and used by consultants working on real engagements — maps, engineering, economics, sales, collaboration and finance.")
     t("sw.h1", "Software utviklet gjennom faktiske prosjekter.", "Software developed through real projects.")
     t("sw.lede",
-      "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser — og kan brukes direkte av kunder, samarbeidspartnere og andre rådgivermiljøer.",
-      "Builtly's software is developed and used by consultants who themselves work on ordinary engagements. That means the modules are built on real work processes, professional requirements and actual project deliverables — and can be used directly by clients, partners and other consultancies.")
+      "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser — og kan brukes direkte av kunder, samarbeidspartnere og andre rådgivermiljøer. Dette er deeptech — egne motorer for BIM, regelverk og beregning.",
+      "Builtly's software is developed and used by consultants who themselves work on ordinary engagements. That means the modules are built on real work processes, professional requirements and actual project deliverables — and can be used directly by clients, partners and other consultancies. This is deep tech — our own engines for BIM, regulation and computation.")
     t("sw.s01", "Områder", "Areas")
     t("sw.s01tag", "Seks kategorier", "Six categories")
     t("sw.s01h2", "Softwareområdet.", "The software area.")
@@ -1642,8 +1649,8 @@ def slik_jobber_vi():
     t("sjv.s02h2", "Prinsippene som ikke forhandles.", "The principles that are not negotiable.")
     t("sjv.p1.t", "Ingeniøren har det faglige ansvaret", "The engineer holds the professional responsibility")
     t("sjv.p1.d",
-      "Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Egenutviklet software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.",
-      "Builtly's engineers hold the professional responsibility and deliver the engagement. Our own software is used as a tool in the design work where it improves quality, traceability and workflow — the judgements, the coordination and the signature belong to the engineer.")
+      "Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Vår banebrytende software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.",
+      "Builtly's engineers hold the professional responsibility and deliver the engagement. Our groundbreaking software is used as a tool in the design work where it improves quality, traceability and workflow — the judgements, the coordination and the signature belong to the engineer.")
     t("sjv.p2.t", "Redigerbare fagformater, alltid", "Editable discipline formats, always")
     t("sjv.p2.d",
       "Leveransen er aldri bare en rapport: oppdatert IFC, fagmodell, tegninger som DWG/DXF, avvik som BCF og mengder etter NS 3420 — formater dere kan arbeide videre i.",
