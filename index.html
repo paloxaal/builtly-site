@@ -1453,6 +1453,12 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .ref-teaser .rlist li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;align-items:baseline}
 .ref-teaser .rlist .t{font-family:var(--font-display);font-weight:600;font-size:15.5px;letter-spacing:-0.01em;color:var(--ink)}
 .ref-teaser .rlist .m{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--mid);text-align:right;white-space:nowrap}
+.free-strip{border:1px solid var(--line-strong);background:var(--bg);padding:clamp(26px,3.4vw,42px);display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:clamp(24px,3vw,56px);align-items:center}
+@media (max-width:880px){.free-strip{grid-template-columns:1fr}}
+.free-strip .fs-badge{display:inline-block;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;color:var(--bg);background:var(--accent);padding:4px 10px;margin-bottom:14px}
+.free-strip h3{font-size:clamp(19px,2.1vw,26px);margin-bottom:10px}
+.free-strip p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:66ch}
+.free-strip .fs-actions{display:flex;gap:12px;flex-wrap:wrap}
 </style>
 
 <section class="section" id="hva">
@@ -1505,6 +1511,17 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <a href="/verktoy.html#salg" class="vkx"><span class="n">04</span><h3 data-i18n="home2.sw.c4t">Salg og marked</h3><p data-i18n="home2.sw.c4d">Salgskonsoll · Prosjektnettside · Prospekt</p></a>
 <a href="/verktoy.html#admin" class="vkx"><span class="n">05</span><h3 data-i18n="home2.sw.c5t">Prosjekt og samhandling</h3><p data-i18n="home2.sw.c5d">Prosjekthotell/CDE · BIM i nettleseren · Anbudsrom</p></a>
 <a href="/verktoy.html#okonomi" class="vkx"><span class="n">06</span><h3 data-i18n="home2.sw.c6t">Bank, finans og portefølje</h3><p data-i18n="home2.sw.c6d">Byggelånskontroll · Kredittgrunnlag · Klimarisiko</p></a>
+</div>
+<div class="free-strip rv" style="margin-top:clamp(24px,3.5vh,36px)">
+<div>
+<span class="fs-badge" data-i18n="sw.bimv.badge">Gratis</span>
+<h3 data-i18n="sw.bimv.h">Builtly BIM Viewer — gratis IFC-viser i nettleseren</h3>
+<p data-i18n="sw.bimv.p">Dra inn en IFC-fil og den åpner seg — ingen installasjon, ingen lisens, ingen firmaregistrering. Mål lengder og arealer, kutt snitt, og les ut arealer og boenheter rett fra modellen. Filen parses lokalt på din maskin og lastes aldri opp.</p>
+</div>
+<div class="fs-actions">
+<a href="https://bim.builtly.ai" class="btn"><span data-i18n="sw.bimv.cta">Åpne BIM Viewer — gratis</span> <span class="arr">→</span></a>
+<a href="/bim-viewer.html" class="btn btn-ghost"><span data-i18n="sw.bimv.mer">Les mer om BIM Viewer</span></a>
+</div>
 </div>
 <div class="vkx-more rv"><a href="/software.html" class="btn btn-ghost"><span data-i18n="home2.sw.cta">Utforsk Builtly Software</span> <span class="arr">→</span></a></div>
 </div>

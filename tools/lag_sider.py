@@ -195,6 +195,13 @@ a.card .foot .go{color:var(--accent);font-weight:600}
 @media (max-width:700px){.crosslink{grid-template-columns:1fr}}
 .crosslink h3{font-size:clamp(18px,1.9vw,23px);margin-bottom:8px}
 .crosslink p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55;max-width:64ch}
+/* gratis-produkt-stripe (BIM Viewer) */
+.free-strip{border:1px solid var(--line-strong);background:var(--bg);padding:clamp(26px,3.4vw,42px);display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:clamp(24px,3vw,56px);align-items:center}
+@media (max-width:880px){.free-strip{grid-template-columns:1fr}}
+.free-strip .fs-badge{display:inline-block;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;color:var(--bg);background:var(--accent);padding:4px 10px;margin-bottom:14px}
+.free-strip h3{font-size:clamp(19px,2.1vw,26px);margin-bottom:10px}
+.free-strip p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:66ch}
+.free-strip .fs-actions{display:flex;gap:12px;flex-wrap:wrap}
 /* CTA */
 .cta-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
 @media (max-width:900px){.cta-grid{grid-template-columns:1fr}}
@@ -1232,7 +1239,32 @@ SW_KATEGORIER = [
 ]
 
 
+def _bimv_nokler():
+    t("sw.bimv.badge", "Gratis", "Free")
+    t("sw.bimv.h", "Builtly BIM Viewer — gratis IFC-viser i nettleseren",
+      "Builtly BIM Viewer — free IFC viewer in the browser")
+    t("sw.bimv.p",
+      "Dra inn en IFC-fil og den åpner seg — ingen installasjon, ingen lisens, ingen firmaregistrering. Mål lengder og arealer, kutt snitt, og les ut arealer og boenheter rett fra modellen. Filen parses lokalt på din maskin og lastes aldri opp.",
+      "Drag in an IFC file and it opens — no installation, no licence, no company registration. Measure lengths and areas, cut sections, and read floor areas and residential units straight from the model. The file is parsed locally on your machine and never uploaded.")
+    t("sw.bimv.cta", "Åpne BIM Viewer — gratis", "Open BIM Viewer — free")
+    t("sw.bimv.mer", "Les mer om BIM Viewer", "More about BIM Viewer")
+
+
+BIMV_STRIPE = """<div class="free-strip rv" style="margin-top:clamp(24px,3.5vh,36px)">
+<div>
+<span class="fs-badge" data-i18n="sw.bimv.badge">Gratis</span>
+<h3 data-i18n="sw.bimv.h">Builtly BIM Viewer — gratis IFC-viser i nettleseren</h3>
+<p data-i18n="sw.bimv.p">Dra inn en IFC-fil og den åpner seg — ingen installasjon, ingen lisens, ingen firmaregistrering. Mål lengder og arealer, kutt snitt, og les ut arealer og boenheter rett fra modellen. Filen parses lokalt på din maskin og lastes aldri opp.</p>
+</div>
+<div class="fs-actions">
+<a href="https://bim.builtly.ai" class="btn"><span data-i18n="sw.bimv.cta">Åpne BIM Viewer — gratis</span> <span class="arr">→</span></a>
+<a href="/bim-viewer.html" class="btn btn-ghost"><span data-i18n="sw.bimv.mer">Les mer om BIM Viewer</span></a>
+</div>
+</div>"""
+
+
 def software_side():
+    _bimv_nokler()
     t("sw.title", "Builtly Software · Software utviklet gjennom faktiske prosjekter", "Builtly Software · Software developed through real projects")
     t("sw.desc",
       "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag — kart, ingeniørfag, økonomi, salg, samhandling og finans.",
@@ -1318,6 +1350,7 @@ def software_side():
 <div class="cardgrid c3" style="margin-top:clamp(28px,4vh,44px)">
 {chr(10).join(kats)}
 </div>
+{BIMV_STRIPE}
 </div>
 </section>
 
