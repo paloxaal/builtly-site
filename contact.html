@@ -72,6 +72,9 @@ a{color:inherit;text-decoration:none}
 .nav-links a{position:relative;padding:6px 0;transition:color 0.18s}
 .nav-links a:hover{color:var(--accent)}
 .nav-links a.active{color:var(--accent)}
+
+@media (max-width:1240px){.nav-links{gap:14px;font-size:13.5px}}
+@media (max-width:1140px){.nav-links{gap:9px;font-size:12.5px}}
 @media (max-width:1040px){.nav-links{display:none}}
 /* MOBILE MENU */
 .nav-burger{display:none;width:38px;height:38px;flex:0 0 auto;border:1px solid var(--line-strong);background:none;cursor:pointer;position:relative;padding:0}
@@ -400,7 +403,6 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="mm-eyebrow">Builtly &middot; Meny</div>
 <nav class="mm-links" aria-label="Mobile navigation"></nav>
 <a href="https://portal.builtly.ai" class="btn mm-cta"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>
-<a href="/bli-kunde.html" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.quote">Be om tilbud</span></a>
 <a href="/bli-kunde.html" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.quote">Be om tilbud</span></a>
 </div>
 <script>
