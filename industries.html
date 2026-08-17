@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Builtly Engineering is built first for engineering consultancies and used across the wider construction ecosystem. The platform automates standardized engineering deliverables with QA and sign-off where required." data-i18n-attr-content="industries.desc" name="description"/>
+<meta content="Builtly Software is used by engineering consultancies, property developers, lenders and public-sector teams. Builtly also delivers consulting engagements of its own — the software is built on real deliveries." data-i18n-attr-content="industries.desc" name="description"/>
 <meta content="#FAFAF7" name="theme-color"/>
 <title data-i18n="industries.title">Industries · Builtly Engineering</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -156,9 +156,9 @@ body.menu-open{overflow:hidden}
 .aud-section{background:var(--bg-soft)}
 .aud-top{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end;margin-bottom:clamp(48px,7vh,72px)}
 @media (max-width:900px){.aud-top{grid-template-columns:1fr}}
-.aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
-@media (max-width:800px){.aud-grid{grid-template-columns:1fr}}
-.aud{background:var(--bg-soft);padding:clamp(32px,4vw,48px);display:flex;flex-direction:column;min-height:420px;transition:background 0.2s ease;position:relative}
+.aud-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+@media (max-width:800px){.aud-grid{grid-template-columns:minmax(0,1fr)}}
+.aud{background:var(--bg-soft);padding:clamp(32px,4vw,48px);display:flex;flex-direction:column;min-height:420px;transition:background 0.2s ease;position:relative;min-width:0}
 .aud:hover{background:var(--bg)}
 .aud .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(24px,3vh,36px);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);font-weight:600}
 .aud .head .ix{color:var(--mid)}
@@ -777,15 +777,12 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="nav-inner">
 <a class="logo" href="/"><span class="logo-mark"></span>Builtly<span class="sub">Engineering</span></a>
 <div class="nav-links">
-<a data-i18n="nav.platform" href="/platform.html">Platform</a>
-<a href="/verktoy.html" data-i18n="nav.tools">Tools</a>
-<a href="/maps.html" data-i18n="nav.maps">Maps</a>
-<a href="/bim-viewer.html" data-i18n="nav.bimViewer">BIM</a>
-<a class="active" data-i18n="nav.industries" href="/industries.html">Industries</a>
-<a data-i18n="nav.howItWorks" href="/platform.html#architecture">How it works</a>
-<a data-i18n="nav.about" href="/about.html">About</a>
-<a data-i18n="nav.careers" href="/careers.html">Careers</a>
-<a href="/bli-kunde.html" data-i18n="nav.becomeCustomer">Become a customer</a>
+<a href="/tjenester.html" data-i18n="nav.services">Tjenester</a>
+<a href="/software.html" class="active" data-i18n="nav.software">Software</a>
+<a href="/referanser.html" data-i18n="nav.references">Referanser</a>
+<a href="/slik-jobber-vi.html" data-i18n="nav.method">Slik jobber vi</a>
+<a href="/about.html" data-i18n="nav.aboutBuiltly">Om Builtly</a>
+<a href="/contact.html" data-i18n="nav.contact">Kontakt</a>
 </div>
 <div class="nav-cta">
 <div class="lang-wrap">
@@ -803,8 +800,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <button class="lang-option" data-lang="da" role="menuitem">Dansk<span class="native">DA</span><svg aria-hidden="true" class="check" viewbox="0 0 12 12"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
 </div>
 </div>
-<a href="https://maps.builtly.ai/" class="btn btn-ghost" aria-label="Maps" data-i18n-attr-aria-label="nav.maps"><svg class="maps-icon" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 14.5s5-4.2 5-8.5a5 5 0 0 0-10 0c0 4.3 5 8.5 5 8.5Z"/><circle cx="8" cy="6" r="1.7"/></svg><span class="maps-label" data-i18n="nav.maps">Maps</span></a>
-<a class="btn" href="https://portal.builtly.ai"><span data-i18n="nav.openPortal">Open portal</span> <span class="arr">→</span></a>
+<a href="https://portal.builtly.ai" class="btn btn-ghost"><span data-i18n="nav.login">Logg inn</span></a>
+<a href="/bli-kunde.html" class="btn"><span data-i18n="nav.quote">Be om tilbud</span> <span class="arr">→</span></a>
 <button class="nav-burger" id="navBurger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
 </div>
 </div>
@@ -812,7 +809,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="mobile-menu" id="mobileMenu" hidden>
 <div class="mm-eyebrow">Builtly &middot; Meny</div>
 <nav class="mm-links" aria-label="Mobile navigation"></nav>
-<a href="https://portal.builtly.ai" class="btn mm-cta"><span data-i18n="nav.openPortal">Open portal</span> <span class="arr">→</span></a>
+<a href="/bli-kunde.html" class="btn mm-cta"><span data-i18n="nav.quote">Be om tilbud</span> <span class="arr">→</span></a>
+<a href="https://portal.builtly.ai" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.login">Logg inn</span></a>
 </div>
 <script>
 (function(){
@@ -846,8 +844,8 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="hero-grid rv">
 <div>
 <div class="eyebrow"><span class="accent-dot"></span><span data-i18n="industries.hero.eyebrow">Who Builtly is for</span></div>
-<h1 class="dpy-1" data-i18n-html="industries.hero.h1">Built first for engineering consultancies.<br/>Used across the industry.</h1>
-<p class="lead" data-i18n-html="industries.hero.lede">Builtly’s primary customer is the engineering consultancy — the firms that produce signed, regulated deliverables. The same platform is also used by developers, lenders, asset managers and public-sector teams through direct modules, partner routes and consultancy-led delivery.</p>
+<h1 class="dpy-1" data-i18n-html="industries.hero.h1">Who the software is built for.</h1>
+<p class="lead" data-i18n-html="industries.hero.lede">Builtly Software is used by engineering consultancies, property developers, lenders, asset managers and public-sector teams — as a licence, direct purchase or partner integration. And because Builtly takes on consulting engagements of its own, the modules are built on real deliveries: calculations, local rules, quality assurance and signed documents.</p>
 </div>
 <div class="hero-meta">
 <div class="row"><span class="k" data-i18n="industries.meta.r1.k">Primary customer</span><span class="v" data-i18n="industries.meta.r1.v">Engineering consultancies</span></div>
@@ -1178,45 +1176,49 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="wrap">
 <div class="footer-top">
 <div>
-<div class="f-brand"><span class="lm"></span>Builtly Engineering</div>
-<div class="f-tag" data-i18n="footer.tag">A unified platform for engineering consultancies. Mathematics · Physics · Geometry · AI</div>
+<div class="f-brand"><span class="lm"></span>Builtly</div>
+<div class="f-tag" data-i18n="f2.tag">Rådgivende ingeniører og egenutviklet software for bygg, anlegg og eiendom.</div>
 </div>
 <div class="f-col">
-<h5 data-i18n="footer.platform.h">Platform</h5>
+<h5 data-i18n="f2.services.h">Tjenester</h5>
 <ul>
-<li><a data-i18n="footer.platform.portal" href="https://portal.builtly.ai">Portal</a></li>
-<li><a href="/maps.html" data-i18n="footer.platform.maps">Maps</a></li>
-<li><a href="/bim-viewer.html" data-i18n="nav.bimViewerFull">BIM Viewer</a></li>
-<li><a data-i18n="footer.platform.caps" href="/platform.html">Capabilities</a></li>
-<li><a data-i18n="nav.industries" href="/industries.html">Industries</a></li>
-<li><a data-i18n="nav.howItWorks" href="/platform.html#architecture">How it works</a></li>
+<li><a href="/tjenester/geoteknikk.html" data-i18n="f2.services.geo">Geoteknikk</a></li>
+<li><a href="/tjenester/konstruksjon.html" data-i18n="f2.services.str">Konstruksjon</a></li>
+<li><a href="/tjenester/brannsikkerhet.html" data-i18n="f2.services.fire">Brannsikkerhet</a></li>
+<li><a href="/tjenester/akustikk.html" data-i18n="f2.services.aco">Akustikk</a></li>
+<li><a href="/tjenester/miljo.html" data-i18n="f2.services.env">Miljø og bærekraft</a></li>
+<li><a href="/tjenester.html" data-i18n="f2.services.all">Alle tjenester →</a></li>
 </ul>
 </div>
 <div class="f-col">
-<h5 data-i18n="footer.company.h">Company</h5>
+<h5 data-i18n="f2.software.h">Software</h5>
 <ul>
-<li><a data-i18n="nav.about" href="/about.html">About</a></li>
-<li><a data-i18n="nav.careers" href="/careers.html">Careers</a></li>
-<li><a data-i18n="footer.company.contact" href="/contact.html">Contact</a></li>
-<li><a data-i18n="footer.company.trust" href="/trust.html">Trust</a></li>
-<li><a href="/etiske-retningslinjer.html" data-i18n="footer.company.ethics">Etiske retningslinjer</a></li>
-<li><a href="/apenhetsloven.html" data-i18n="footer.company.apenhet">Åpenhetsloven</a></li>
-<li><a href="/intern" data-i18n="footer.company.internal">Intern portal</a></li>
+<li><a href="/software.html" data-i18n="f2.software.overview">Softwareområdet</a></li>
+<li><a href="/maps.html" data-i18n="f2.software.maps">Builtly Maps</a></li>
+<li><a href="/bim-viewer.html" data-i18n="f2.software.bim">BIM Viewer</a></li>
+<li><a href="/platform.html" data-i18n="f2.software.platform">Plattformen</a></li>
+<li><a href="/verktoy.html" data-i18n="f2.software.tools">Verktøykassen</a></li>
+<li><a href="https://portal.builtly.ai" data-i18n="f2.software.portal">Logg inn i portalen</a></li>
 </ul>
 </div>
 <div class="f-col">
-<h5 data-i18n="footer.connect.h">Connect</h5>
+<h5 data-i18n="f2.company.h">Selskapet</h5>
 <ul>
-<li>contact@builtly.ai</li>
-<li>builtly.ai</li>
-<li><a data-i18n="footer.connect.portal" href="https://portal.builtly.ai">Open portal</a></li>
+<li><a href="/about.html" data-i18n="f2.company.about">Om Builtly</a></li>
+<li><a href="/slik-jobber-vi.html" data-i18n="f2.company.method">Slik jobber vi</a></li>
+<li><a href="/referanser.html" data-i18n="f2.company.references">Referanser</a></li>
+<li><a href="/careers.html" data-i18n="f2.company.careers">Karriere</a></li>
+<li><a href="/contact.html" data-i18n="f2.company.contact">Kontakt</a></li>
+<li><a href="/trust.html" data-i18n="f2.company.trust">Trust &amp; sikkerhet</a></li>
 </ul>
 </div>
 </div>
 <div class="footer-bot">
-<span data-i18n="footer.bot.left">© 2026 Builtly Engineering</span>
-<span data-i18n="footer.bot.right">Built for engineering consultancies</span>
+<span data-i18n="f2.bot.left">© 2026 Builtly Engineering</span>
+<span data-i18n="f2.bot.right">Rådgivende ingeniører · Egen software</span>
 <a href="/intern" style="opacity:.45;font-size:10px;letter-spacing:0.16em;text-transform:uppercase" title="Intern portal — styret og ansatte">Intern&nbsp;→</a>
+<span class="footer-legal">Builtly Engineering AS · Org.nr 837 694 892 · Bassengbakken 4, 7042 Trondheim</span>
+<span class="footer-legal"><a href="/privacy">Personvern</a> · <a href="/terms">Vilkår</a> · <a href="/cookies">Informasjonskapsler</a> · <a href="/etiske-retningslinjer.html">Etiske retningslinjer</a> · <a href="/apenhetsloven.html">Åpenhetsloven</a></span>
 </div>
 </div>
 </footer>
