@@ -349,12 +349,27 @@ FOOTER = """<footer>
 </ul>
 </div>
 </div>
-<div class="footer-bot">
+<div class="footer-bot fbot2">
+<style>
+.fbot2{display:grid !important;grid-template-columns:1fr auto 1fr;gap:14px 24px;align-items:baseline}
+.fbot2 .fb-mid{text-align:center;color:var(--ink,#131820);opacity:.8}
+.fbot2 .fb-right{justify-self:end;opacity:.45;font-size:10px;letter-spacing:0.16em;text-transform:uppercase}
+.fbot2 .fb-legal{grid-column:1 / -1;margin-top:6px;padding-top:16px;border-top:1px solid rgba(19,24,32,.07);display:grid;grid-template-columns:1fr auto;gap:8px 24px}
+.fbot2 .fb-legal .footer-legal:last-child{text-align:right}
+@media (max-width:760px){
+.fbot2{grid-template-columns:1fr;text-align:center;gap:10px}
+.fbot2 .fb-right{justify-self:center}
+.fbot2 .fb-legal{grid-template-columns:1fr}
+.fbot2 .fb-legal .footer-legal:last-child{text-align:center}
+}
+</style>
 <span data-i18n="f2.bot.left">© 2026 Builtly Engineering</span>
-<span data-i18n="f2.bot.right">Rådgivende ingeniører · Egen software</span>
-<a href="/intern" style="opacity:.45;font-size:10px;letter-spacing:0.16em;text-transform:uppercase" title="Intern portal — styret og ansatte">Intern&nbsp;→</a>
+<span class="fb-mid" data-i18n="f2.bot.right">Fremtidens ingeniørselskap. Allerede her.</span>
+<a class="fb-right" href="/intern" title="Intern portal — styret og ansatte">Intern&nbsp;→</a>
+<div class="fb-legal">
 <span class="footer-legal">Builtly Engineering AS · Org.nr 837 694 892 · Bassengbakken 4, 7042 Trondheim</span>
 <span class="footer-legal"><a href="/privacy">Personvern</a> · <a href="/terms">Vilkår</a> · <a href="/cookies">Informasjonskapsler</a> · <a href="/etiske-retningslinjer.html">Etiske retningslinjer</a> · <a href="/apenhetsloven.html">Åpenhetsloven</a></span>
+</div>
 </div>
 </div>
 </footer>"""
@@ -462,9 +477,9 @@ t("f2.company.careers", "Karriere", "Careers", "Karriär", "Karriere", "Ura", "K
 t("f2.company.contact", "Kontakt", "Contact", "Kontakt", "Kontakt", "Yhteystiedot", "Kontakt")
 t("f2.company.trust", "Trust & sikkerhet", "Trust & security", "Trust & säkerhet", "Trust & sikkerhed", "Luottamus & turvallisuus", "Trust & Sicherheit")
 t("f2.bot.left", "© 2026 Builtly Engineering", "© 2026 Builtly Engineering")
-t("f2.bot.right", "Rådgivende ingeniører · Egen software", "Consulting engineers · Own software",
-  "Konsulterande ingenjörer · Egen mjukvara", "Rådgivende ingeniører · Egen software",
-  "Konsultoivat insinöörit · Oma ohjelmisto", "Beratende Ingenieure · Eigene Software")
+t("f2.bot.right", "Fremtidens ingeniørselskap. Allerede her.", "The engineering company of the future. Already here.",
+  "Framtidens ingenjörsföretag. Redan här.", "Fremtidens ingeniørvirksomhed. Allerede her.",
+  "Tulevaisuuden insinööritoimisto. Jo täällä.", "Das Ingenieurunternehmen der Zukunft. Schon hier.")
 
 
 # --- forsiden (index.html — redigert for hånd, nøklene bor her) -------------
@@ -473,14 +488,14 @@ t("home2.desc",
   "Builtly kombinerer rådgivende ingeniørtjenester og egenutviklet software. Vi leverer komplette rådgiveroppdrag innen geoteknikk, konstruksjon, brann, akustikk og miljø — og utvikler software for eiendomsbransjen.",
   "Builtly combines consulting engineering and proprietary software. We deliver complete consulting engagements in geotechnics, structures, fire, acoustics and environment — and build software for the real-estate industry.")
 t("home2.eyebrow", "Fremtidens ingeniørselskap. Allerede her.", "The engineering company of the future. Already here.")
-t("home2.h1", "Rådgivende ingeniører.<br/>Egen software.", "Consulting engineers.<br/>Our own software.")
+t("home2.h1", "Rådgivende ingeniører.<br/>Banebrytende teknologi.", "Consulting engineers.<br/>Groundbreaking technology.")
 t("home2.lede",
   "Builtly leverer komplette rådgiveroppdrag innen blant annet geoteknikk, konstruksjon, brann, akustikk og miljø. Samtidig utvikler vi software for eiendomsutviklere, rådgivere, entreprenører, banker og andre aktører i eiendomsbransjen.",
   "Builtly delivers complete consulting engagements in geotechnics, structures, fire, acoustics, environment and more. At the same time we build software for property developers, consultancies, contractors, banks and other actors in the real-estate industry.")
 t("home2.cta1", "Be om tilbud på rådgivning", "Request a consulting quote")
 t("home2.cta2", "Utforsk Builtly Software", "Explore Builtly Software")
 t("home2.pillar1", "Rådgiveroppdrag med fagansvar", "Consulting with professional responsibility")
-t("home2.pillar2", "Banebrytende teknologi", "Groundbreaking technology")
+t("home2.pillar2", "Deeptech software", "Deep tech software")
 t("home2.pillar3", "Én modell av prosjektet", "One model of the project")
 t("home2.side1k", "Rådgivning", "Consulting")
 t("home2.side2k", "Software", "Software")
@@ -1708,7 +1723,7 @@ def slik_jobber_vi():
 <div class="p-hero-grid">
 <div>
 <div class="eyebrow"><span class="accent-dot"></span><span data-i18n="sjv.eyebrow">Builtly · Slik jobber vi</span></div>
-<h1 class="dpy-2" style="margin-top:18px" data-i18n="sjv.h1">Builtly kan gjøre jobben for deg — eller gi deg teknologien til å gjøre den selv.</h1>
+<h1 class="dpy-2" style="margin-top:18px;letter-spacing:-0.012em;line-height:1.14" data-i18n="sjv.h1">Builtly kan gjøre jobben for deg — eller gi deg teknologien til å gjøre den selv.</h1>
 <p class="lead" data-i18n="sjv.lede">{_html.escape(I18N['no']['sjv.lede'])}</p>
 </div>
 <div class="p-side">
