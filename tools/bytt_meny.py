@@ -48,13 +48,12 @@ def nav_links(active):
 
 
 CTA_NY = (
-    '<a href="https://portal.builtly.ai" class="btn btn-ghost"><span data-i18n="nav.login">Logg inn</span></a>\n'
-    '<a href="/bli-kunde.html" class="btn"><span data-i18n="nav.quote">Be om tilbud</span> <span class="arr">→</span></a>'
+    '<a href="https://portal.builtly.ai" class="btn"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>'
 )
 
 MM_CTA_NY = (
-    '<a href="/bli-kunde.html" class="btn mm-cta"><span data-i18n="nav.quote">Be om tilbud</span> <span class="arr">→</span></a>\n'
-    '<a href="https://portal.builtly.ai" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.login">Logg inn</span></a>'
+    '<a href="https://portal.builtly.ai" class="btn mm-cta"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>\n'
+    '<a href="/bli-kunde.html" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.quote">Be om tilbud</span></a>'
 )
 
 FOOTER_TOP_NY = """<div class="footer-top">

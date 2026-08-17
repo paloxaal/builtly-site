@@ -273,8 +273,7 @@ def nav_block(active: str) -> str:
 </div>
 <div class="nav-cta">
 {LANG_MENU}
-<a href="https://portal.builtly.ai" class="btn btn-ghost"><span data-i18n="nav.login">Logg inn</span></a>
-<a href="/bli-kunde.html" class="btn"><span data-i18n="nav.quote">Be om tilbud</span> <span class="arr">→</span></a>
+<a href="https://portal.builtly.ai" class="btn"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>
 <button class="nav-burger" id="navBurger" type="button" aria-label="Meny" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
 </div>
 </div>
@@ -282,8 +281,8 @@ def nav_block(active: str) -> str:
 <div class="mobile-menu" id="mobileMenu" hidden>
 <div class="mm-eyebrow">Builtly · Meny</div>
 <nav class="mm-links" aria-label="Mobilnavigasjon"></nav>
-<a href="/bli-kunde.html" class="btn mm-cta"><span data-i18n="nav.quote">Be om tilbud</span> <span class="arr">→</span></a>
-<a href="https://portal.builtly.ai" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.login">Logg inn</span></a>
+<a href="https://portal.builtly.ai" class="btn mm-cta"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>
+<a href="/bli-kunde.html" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.quote">Be om tilbud</span></a>
 </div>
 <script>
 (function(){{
