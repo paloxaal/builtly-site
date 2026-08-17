@@ -24,7 +24,7 @@ SIDER = {
     "careers.html": "",
     "contact.html": "kontakt",
     "trust.html": "",
-    "bli-kunde.html": "blikunde",
+    "bli-kunde.html": "",
     "apenhetsloven.html": "",
     "etiske-retningslinjer.html": "",
 }
@@ -36,7 +36,6 @@ NAV_ITEMS = [
     ("/slik-jobber-vi.html", "nav.method", "Slik jobber vi", "metode"),
     ("/about.html", "nav.aboutBuiltly", "Om Builtly", "om"),
     ("/contact.html", "nav.contact", "Kontakt", "kontakt"),
-    ("/bli-kunde.html", "nav.becomeCustomer", "Bli kunde", "blikunde"),
 ]
 
 
