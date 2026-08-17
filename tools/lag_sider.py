@@ -85,7 +85,8 @@ a{color:inherit;text-decoration:none}
 .nav-links a{position:relative;padding:6px 0;transition:color .18s}
 .nav-links a:hover{color:var(--accent)}
 .nav-links a.active{color:var(--accent-soft)}
-@media (max-width:1040px){.nav-links{display:none}}
+@media (max-width:1320px){.nav-links{gap:14px;font-size:13.5px}}
+@media (max-width:1200px){.nav-links{display:none}}
 .nav-burger{display:none;width:38px;height:38px;flex:0 0 auto;border:1px solid var(--line-strong);background:none;cursor:pointer;position:relative;padding:0}
 .nav-burger span{display:block;width:16px;height:1.5px;background:var(--ink);position:absolute;left:50%;transform:translateX(-50%);transition:transform .22s ease,opacity .16s ease,top .22s ease}
 .nav-burger span:nth-child(1){top:13px}
@@ -102,7 +103,7 @@ body.menu-open{overflow:hidden}
 .mobile-menu .mm-num{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--mid)}
 .mobile-menu .mm-link.active .mm-lab{color:var(--accent-soft)}
 .mobile-menu .mm-cta{margin-top:30px;align-self:flex-start;padding:12px 22px;font-size:13px}
-@media (max-width:1040px){.nav-burger{display:block}}
+@media (max-width:1200px){.nav-burger{display:block}}
 @media (max-width:640px){.nav .btn-ghost{display:none}}
 @media (min-width:1041px){body.menu-open .mobile-menu{display:none}body.menu-open{overflow:auto}}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:var(--ink);color:var(--bg);font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-0.005em;border:0;cursor:pointer;white-space:nowrap;transition:background .18s ease,transform .18s ease}
@@ -256,6 +257,7 @@ def nav_links(active: str) -> str:
         ("/slik-jobber-vi.html", "nav.method", "Slik jobber vi", "metode"),
         ("/about.html", "nav.aboutBuiltly", "Om Builtly", "om"),
         ("/contact.html", "nav.contact", "Kontakt", "kontakt"),
+        ("/bli-kunde.html", "nav.becomeCustomer", "Bli kunde", "blikunde"),
     ]
     out = []
     for href, key, label, slug in items:
@@ -303,7 +305,7 @@ def nav_block(active: str) -> str:
   }});
   menu.addEventListener('click',function(e){{if(e.target.closest('a'))close()}});
   document.addEventListener('keydown',function(e){{if(e.key==='Escape')close()}});
-  window.addEventListener('resize',function(){{if(window.innerWidth>1040)close()}});
+  window.addEventListener('resize',function(){{if(window.innerWidth>1200)close()}});
 }})();
 </script>"""
 

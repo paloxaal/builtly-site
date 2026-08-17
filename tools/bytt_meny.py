@@ -24,7 +24,7 @@ SIDER = {
     "careers.html": "",
     "contact.html": "kontakt",
     "trust.html": "",
-    "bli-kunde.html": "",
+    "bli-kunde.html": "blikunde",
     "apenhetsloven.html": "",
     "etiske-retningslinjer.html": "",
 }
@@ -36,6 +36,7 @@ NAV_ITEMS = [
     ("/slik-jobber-vi.html", "nav.method", "Slik jobber vi", "metode"),
     ("/about.html", "nav.aboutBuiltly", "Om Builtly", "om"),
     ("/contact.html", "nav.contact", "Kontakt", "kontakt"),
+    ("/bli-kunde.html", "nav.becomeCustomer", "Bli kunde", "blikunde"),
 ]
 
 
@@ -127,8 +128,12 @@ RE_CTA = re.compile(
     r'<a href="https://portal\.builtly\.ai" class="btn"><span data-i18n="nav\.openPortal">[^<]*</span>\s*<span class="arr">→</span></a>',
     re.S,
 )
+# Portal-knappen + eventuelle ALT eksisterende «Be om tilbud»-ghosts sluges i
+# samme match — ellers legger hver kjøring på en ghost til (idempotens-buggen
+# som dupliserte knappen i mobilmenyen).
 RE_MM_CTA = re.compile(
-    r'<a href="https://portal\.builtly\.ai" class="btn mm-cta"><span data-i18n="nav\.openPortal">[^<]*</span>\s*<span class="arr">→</span></a>',
+    r'<a href="https://portal\.builtly\.ai" class="btn mm-cta"><span data-i18n="nav\.openPortal">[^<]*</span>\s*<span class="arr">→</span></a>'
+    r'(?:\s*<a href="/bli-kunde\.html" class="btn btn-ghost mm-cta"[^>]*><span data-i18n="nav\.quote">[^<]*</span></a>)*',
     re.S,
 )
 RE_FOOTER = re.compile(r'<div class="footer-top">.*?</footer>', re.S)
