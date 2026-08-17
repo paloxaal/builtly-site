@@ -13683,7 +13683,7 @@
   // + reposisjonerings-overstyringer. Endre i GENERATOREN, aldri her.
   const BUILTLY_REPOSITION_2026 = {
     en: {
-      "about.glance.lede": "Builtly is a technology-driven consulting engineering and software company for the Nordic and German markets.",
+      "about.glance.lede": "Builtly is a consulting engineering and deep-tech company for the Nordic and German markets.",
       "about.hero.lede": "Builtly combines consulting engineering and proprietary software. We deliver complete consulting engagements — and the technology can be used directly by clients, partners and other consultancies. Behind both sits the same rare combination: professional accountability, operating experience from real estate, and modern software development.",
       "about.meta.r2.v": "Consulting + software",
       "about2.cta_b1": "Request a quote",
@@ -13813,7 +13813,7 @@
       "home2.sw.h2": "Software developed through real projects.",
       "home2.sw.label": "Software",
       "home2.sw.lede": "Builtly's software is developed and used by consultants who themselves work on ordinary engagements. That means the modules are built on real work processes, professional requirements and actual project deliverables.",
-      "home2.sw.tag": "Builtly Software",
+      "home2.sw.tag": "Deep tech for construction & real estate",
       "home2.title": "Builtly · Consulting engineers with our own software",
       "industries.desc": "Builtly Software is used by engineering consultancies, property developers, lenders and public-sector teams. Builtly also delivers consulting engagements of its own — the software is built on real deliveries.",
       "industries.hero.h1": "Who the software is built for.",
@@ -13981,7 +13981,7 @@
       "sw.kat6.h": "Banking, finance & portfolio",
       "sw.kat6.l": "See the banking modules",
       "sw.kort_cta": "Explore",
-      "sw.lede": "Builtly's software is developed and used by consultants who themselves work on ordinary engagements. That means the modules are built on real work processes, professional requirements and actual project deliverables — and can be used directly by clients, partners and other consultancies.",
+      "sw.lede": "Builtly's software is developed and used by consultants who themselves work on ordinary engagements. That means the modules are built on real work processes, professional requirements and actual project deliverables — and can be used directly by clients, partners and other consultancies. This is deep tech — our own engines for BIM, regulation and computation.",
       "sw.s01": "Areas",
       "sw.s01h2": "The software area.",
       "sw.s01tag": "Six categories",
@@ -14272,7 +14272,7 @@
       "trust.smark.guarantee": "Organisational guarantee",
     },
     no: {
-      "about.glance.lede": "Builtly er et teknologidrevet rådgivende ingeniør- og softwareselskap for de nordiske og tyske markedene.",
+      "about.glance.lede": "Builtly er et rådgivende ingeniør- og deeptech-selskap for de nordiske og tyske markedene.",
       "about.hero.lede": "Builtly kombinerer rådgivende ingeniørtjenester og egenutviklet software. Vi leverer komplette rådgiveroppdrag — og teknologien kan brukes direkte av kunder, samarbeidspartnere og andre rådgivermiljøer. Bak begge står samme sjeldne kombinasjon: faglig ansvar, operativ eiendomserfaring og moderne softwareutvikling.",
       "about.meta.r2.v": "Rådgivning + software",
       "about2.cta_b1": "Be om tilbud",
@@ -14402,7 +14402,7 @@
       "home2.sw.h2": "Software utviklet gjennom faktiske prosjekter.",
       "home2.sw.label": "Software",
       "home2.sw.lede": "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser.",
-      "home2.sw.tag": "Builtly Software",
+      "home2.sw.tag": "Deeptech for bygg og eiendom",
       "home2.title": "Builtly · Rådgivende ingeniører og egen software",
       "industries.desc": "Builtly Software brukes av rådgivende ingeniørselskaper, eiendomsutviklere, banker og offentlige aktører. Builtly leverer også egne rådgiveroppdrag — softwaren er bygget på reelle leveranser.",
       "industries.hero.h1": "Hvem softwaren er bygget for.",
@@ -14570,7 +14570,7 @@
       "sw.kat6.h": "Bank, finans og portefølje",
       "sw.kat6.l": "Se bankmodulene",
       "sw.kort_cta": "Utforsk",
-      "sw.lede": "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser — og kan brukes direkte av kunder, samarbeidspartnere og andre rådgivermiljøer.",
+      "sw.lede": "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser — og kan brukes direkte av kunder, samarbeidspartnere og andre rådgivermiljøer. Dette er deeptech — egne motorer for BIM, regelverk og beregning.",
       "sw.s01": "Områder",
       "sw.s01h2": "Softwareområdet.",
       "sw.s01tag": "Seks kategorier",
@@ -14861,7 +14861,7 @@
       "trust.smark.guarantee": "Organisatorisk garanti",
     },
     sv: {
-      "about.glance.lede": "Builtly är ett teknikdrivet konsulterande ingenjörs- och mjukvaruföretag för de nordiska och tyska marknaderna.",
+      "about.glance.lede": "Builtly är ett konsulterande ingenjörs- och deeptech-företag för de nordiska och tyska marknaderna.",
       "about.hero.lede": "Builtly kombinerar konsulterande ingenjörstjänster och egenutvecklad mjukvara. Vi levererar kompletta konsultuppdrag — och tekniken kan användas direkt av kunder, partner och andra konsultmiljöer. Bakom båda står samma sällsynta kombination: fackligt ansvar, operativ fastighetserfarenhet och modern mjukvaruutveckling.",
       "about.meta.r2.v": "Rådgivning + mjukvara",
       "f2.bot.right": "Konsulterande ingenjörer · Egen mjukvara",
@@ -14898,7 +14898,7 @@
       "nav.software": "Software",
     },
     da: {
-      "about.glance.lede": "Builtly er en teknologidrevet rådgivende ingeniør- og softwarevirksomhed for de nordiske og tyske markeder.",
+      "about.glance.lede": "Builtly er en rådgivende ingeniør- og deeptech-virksomhed for de nordiske og tyske markeder.",
       "about.hero.lede": "Builtly kombinerer rådgivende ingeniørydelser og egenudviklet software. Vi leverer komplette rådgiveropgaver — og teknologien kan bruges direkte af kunder, partnere og andre rådgivermiljøer. Bag begge står samme sjældne kombination: fagligt ansvar, operativ ejendomserfaring og moderne softwareudvikling.",
       "about.meta.r2.v": "Rådgivning + software",
       "f2.bot.right": "Rådgivende ingeniører · Egen software",
@@ -14935,7 +14935,7 @@
       "nav.software": "Software",
     },
     fi: {
-      "about.glance.lede": "Builtly on teknologiavetoinen konsultoiva insinööri- ja ohjelmistoyritys Pohjoismaiden ja Saksan markkinoille.",
+      "about.glance.lede": "Builtly on konsultoiva insinööri- ja deeptech-yhtiö Pohjoismaiden ja Saksan markkinoille.",
       "about.hero.lede": "Builtly yhdistää konsultoivat insinööripalvelut ja oman ohjelmistokehityksen. Toimitamme kokonaisia konsulttitoimeksiantoja — ja teknologiaa voivat käyttää suoraan asiakkaat, kumppanit ja muut konsulttiyhteisöt. Molempien takana on sama harvinainen yhdistelmä: ammatillinen vastuu, operatiivinen kiinteistökokemus ja moderni ohjelmistokehitys.",
       "about.meta.r2.v": "Konsultointi + ohjelmistot",
       "f2.bot.right": "Konsultoivat insinöörit · Oma ohjelmisto",
@@ -14972,7 +14972,7 @@
       "nav.software": "Ohjelmistot",
     },
     de: {
-      "about.glance.lede": "Builtly ist ein technologiegetriebenes beratendes Ingenieur- und Softwareunternehmen für die nordischen und deutschen Märkte.",
+      "about.glance.lede": "Builtly ist ein beratendes Ingenieur- und Deep-Tech-Unternehmen für die nordischen und deutschen Märkte.",
       "about.hero.lede": "Builtly verbindet beratende Ingenieurleistungen mit eigener Software. Wir liefern vollständige Beratungsaufträge — und die Technologie kann direkt von Kunden, Partnern und anderen Ingenieurbüros genutzt werden. Hinter beidem steht dieselbe seltene Kombination: fachliche Verantwortung, operative Immobilienerfahrung und moderne Softwareentwicklung.",
       "about.meta.r2.v": "Beratung + Software",
       "f2.bot.right": "Beratende Ingenieure · Eigene Software",

@@ -542,7 +542,7 @@ t("home2.ansvar.p",
   "Builtlys ingeniører har det faglige ansvaret og leverer oppdraget. Vår banebrytende software brukes som et verktøy i prosjekteringen der den gir bedre kvalitet, sporbarhet og arbeidsflyt — vurderingene, koordineringen og signaturen er ingeniørens.",
   "Builtly's engineers hold the professional responsibility and deliver the engagement. Our groundbreaking software is used as a tool in the design work where it improves quality, traceability and workflow — the judgements, the coordination and the signature belong to the engineer.")
 t("home2.sw.label", "Software", "Software")
-t("home2.sw.tag", "Builtly Software", "Builtly Software")
+t("home2.sw.tag", "Deeptech for bygg og eiendom", "Deep tech for construction & real estate")
 t("home2.sw.h2", "Software utviklet gjennom faktiske prosjekter.", "Software developed through real projects.")
 t("home2.sw.lede",
   "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser.",
@@ -606,12 +606,12 @@ t("about.hero.lede",
   "Builtly yhdistää konsultoivat insinööripalvelut ja oman ohjelmistokehityksen. Toimitamme kokonaisia konsulttitoimeksiantoja — ja teknologiaa voivat käyttää suoraan asiakkaat, kumppanit ja muut konsulttiyhteisöt. Molempien takana on sama harvinainen yhdistelmä: ammatillinen vastuu, operatiivinen kiinteistökokemus ja moderni ohjelmistokehitys.",
   "Builtly verbindet beratende Ingenieurleistungen mit eigener Software. Wir liefern vollständige Beratungsaufträge — und die Technologie kann direkt von Kunden, Partnern und anderen Ingenieurbüros genutzt werden. Hinter beidem steht dieselbe seltene Kombination: fachliche Verantwortung, operative Immobilienerfahrung und moderne Softwareentwicklung.")
 t("about.glance.lede",
-  "Builtly er et teknologidrevet rådgivende ingeniør- og softwareselskap for de nordiske og tyske markedene.",
-  "Builtly is a technology-driven consulting engineering and software company for the Nordic and German markets.",
-  "Builtly är ett teknikdrivet konsulterande ingenjörs- och mjukvaruföretag för de nordiska och tyska marknaderna.",
-  "Builtly er en teknologidrevet rådgivende ingeniør- og softwarevirksomhed for de nordiske og tyske markeder.",
-  "Builtly on teknologiavetoinen konsultoiva insinööri- ja ohjelmistoyritys Pohjoismaiden ja Saksan markkinoille.",
-  "Builtly ist ein technologiegetriebenes beratendes Ingenieur- und Softwareunternehmen für die nordischen und deutschen Märkte.")
+  "Builtly er et rådgivende ingeniør- og deeptech-selskap for de nordiske og tyske markedene.",
+  "Builtly is a consulting engineering and deep-tech company for the Nordic and German markets.",
+  "Builtly är ett konsulterande ingenjörs- och deeptech-företag för de nordiska och tyska marknaderna.",
+  "Builtly er en rådgivende ingeniør- og deeptech-virksomhed for de nordiske og tyske markeder.",
+  "Builtly on konsultoiva insinööri- ja deeptech-yhtiö Pohjoismaiden ja Saksan markkinoille.",
+  "Builtly ist ein beratendes Ingenieur- und Deep-Tech-Unternehmen für die nordischen und deutschen Märkte.")
 t("industries.hero.h1",
   "Hvem softwaren er bygget for.",
   "Who the software is built for.",
@@ -1279,8 +1279,8 @@ def software_side():
       "Builtly's software is developed and used by consultants working on real engagements — maps, engineering, economics, sales, collaboration and finance.")
     t("sw.h1", "Software utviklet gjennom faktiske prosjekter.", "Software developed through real projects.")
     t("sw.lede",
-      "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser — og kan brukes direkte av kunder, samarbeidspartnere og andre rådgivermiljøer.",
-      "Builtly's software is developed and used by consultants who themselves work on ordinary engagements. That means the modules are built on real work processes, professional requirements and actual project deliverables — and can be used directly by clients, partners and other consultancies.")
+      "Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser — og kan brukes direkte av kunder, samarbeidspartnere og andre rådgivermiljøer. Dette er deeptech — egne motorer for BIM, regelverk og beregning.",
+      "Builtly's software is developed and used by consultants who themselves work on ordinary engagements. That means the modules are built on real work processes, professional requirements and actual project deliverables — and can be used directly by clients, partners and other consultancies. This is deep tech — our own engines for BIM, regulation and computation.")
     t("sw.s01", "Områder", "Areas")
     t("sw.s01tag", "Seks kategorier", "Six categories")
     t("sw.s01h2", "Softwareområdet.", "The software area.")
