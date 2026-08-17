@@ -473,7 +473,7 @@ t("home2.desc",
   "Builtly kombinerer rådgivende ingeniørtjenester og egenutviklet software. Vi leverer komplette rådgiveroppdrag innen geoteknikk, konstruksjon, brann, akustikk og miljø — og utvikler software for eiendomsbransjen.",
   "Builtly combines consulting engineering and proprietary software. We deliver complete consulting engagements in geotechnics, structures, fire, acoustics and environment — and build software for the real-estate industry.")
 t("home2.eyebrow", "Fremtidens ingeniørselskap. Allerede her.", "The engineering company of the future. Already here.")
-t("home2.h1", "Rådgivende ingeniører. Egen software.", "Consulting engineers. Our own software.")
+t("home2.h1", "Rådgivende ingeniører.<br/>Egen software.", "Consulting engineers.<br/>Our own software.")
 t("home2.lede",
   "Builtly leverer komplette rådgiveroppdrag innen blant annet geoteknikk, konstruksjon, brann, akustikk og miljø. Samtidig utvikler vi software for eiendomsutviklere, rådgivere, entreprenører, banker og andre aktører i eiendomsbransjen.",
   "Builtly delivers complete consulting engagements in geotechnics, structures, fire, acoustics, environment and more. At the same time we build software for property developers, consultancies, contractors, banks and other actors in the real-estate industry.")
