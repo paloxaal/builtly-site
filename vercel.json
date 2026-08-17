@@ -1,6 +1,70 @@
 {
   "rewrites": [
     {
+      "source": "/tjenester",
+      "destination": "/tjenester.html"
+    },
+    {
+      "source": "/tjenester/:fag",
+      "destination": "/tjenester/:fag.html"
+    },
+    {
+      "source": "/software",
+      "destination": "/software.html"
+    },
+    {
+      "source": "/referanser",
+      "destination": "/referanser.html"
+    },
+    {
+      "source": "/slik-jobber-vi",
+      "destination": "/slik-jobber-vi.html"
+    },
+    {
+      "source": "/kontakt",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/verktoy",
+      "destination": "/verktoy.html"
+    },
+    {
+      "source": "/platform",
+      "destination": "/platform.html"
+    },
+    {
+      "source": "/maps",
+      "destination": "/maps.html"
+    },
+    {
+      "source": "/industries",
+      "destination": "/industries.html"
+    },
+    {
+      "source": "/careers",
+      "destination": "/careers.html"
+    },
+    {
+      "source": "/trust",
+      "destination": "/trust.html"
+    },
+    {
+      "source": "/bli-kunde",
+      "destination": "/bli-kunde.html"
+    },
+    {
+      "source": "/etiske-retningslinjer",
+      "destination": "/etiske-retningslinjer.html"
+    },
+    {
       "source": "/apenhetsloven",
       "destination": "/apenhetsloven.html"
     },
@@ -22,6 +86,16 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/en",
+      "destination": "/?lang=en",
+      "permanent": false
+    },
+    {
+      "source": "/en/:side",
+      "destination": "/:side?lang=en",
+      "permanent": false
+    },
     {
       "source": "/login",
       "destination": "https://portal.builtly.ai",
