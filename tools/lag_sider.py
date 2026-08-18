@@ -493,8 +493,8 @@ t("home2.desc",
 t("home2.eyebrow", "Fremtidens ingeniørselskap. Allerede her.", "The engineering company of the future. Already here.")
 t("home2.h1", "Rådgivende ingeniører.<br/>Banebrytende teknologi.", "Consulting engineers.<br/>Groundbreaking technology.")
 t("home2.lede",
-  "Builtly redefinerer hva et rådgivende ingeniørselskap kan være. Vi kombinerer spisskompetanse innen geoteknikk, konstruksjon, brann, akustikk og miljø med banebrytende software – for å automatisere komplekse prosesser og løfte kvalitet, tempo og presisjon i hele eiendomsprosjektet, fra tidligfase til ferdig bygg.",
-  "Builtly is redefining what an engineering consultancy can be. We combine deep expertise in geotechnics, structures, fire, acoustics and environment with groundbreaking software — automating complex processes and raising quality, speed and precision across the entire real-estate project, from early phase to finished building.")
+  "Builtly skaper en ny standard for rådgivende ingeniørtjenester. Vi forener ledende ingeniørkompetanse med banebrytende software for å automatisere, forbedre og transformere hvordan eiendomsprosjekter planlegges, prosjekteres og realiseres.",
+  "Builtly is setting a new standard for consulting engineering. We unite leading engineering expertise with groundbreaking software to automate, improve and transform how real-estate projects are planned, designed and realised.")
 t("home2.cta1", "Be om tilbud på rådgivning", "Request a consulting quote")
 t("home2.cta2", "Utforsk Builtly Software", "Explore Builtly Software")
 t("home2.pillar1", "Rådgiveroppdrag med fagansvar", "Consulting with professional responsibility")
