@@ -587,8 +587,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .vkx h3{font-size:16px;letter-spacing:-0.012em}
 .vkx p{margin:0;font-size:12px;color:var(--mid);line-height:1.6}
 .vkx-more{margin-top:24px}
-@media (max-width:1080px){.who-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vkx-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.who-grid,.vkx-grid{grid-template-columns:minmax(0,1fr)}.who-card .flag{position:static;align-self:flex-start}}
+.vkx-grid.vkx-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1080px){.who-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vkx-grid,.vkx-grid.vkx-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.who-grid,.vkx-grid,.vkx-grid.vkx-3{grid-template-columns:minmax(0,1fr)}.who-card .flag{position:static;align-self:flex-start}}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(0.2,0.7,0.2,1),transform 0.8s cubic-bezier(0.2,0.7,0.2,1)}
@@ -1506,7 +1507,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="smark rv"><span class="num">§ 03</span><span data-i18n="home2.sw.label">Software</span><span class="dash"></span><span data-i18n="home2.sw.tag">Deeptech for bygg og eiendom</span></div>
 <h2 class="dpy-2 rv" data-i18n="home2.sw.h2">Software utviklet gjennom faktiske prosjekter.</h2>
 <p class="lead rv" style="margin-top:18px;max-width:62ch" data-i18n="home2.sw.lede">Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser.</p>
-<div class="vkx-grid rvs" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+<div class="vkx-grid vkx-3 rvs">
 <a href="/maps.html" class="vkx"><span class="n">01</span><h3 data-i18n="home2.sw.c1t">Kart og eiendomsanalyse</h3><p data-i18n="home2.sw.c1d">Builtly Maps · Mulighetsstudie · Klimarisiko · Teknisk DD</p></a>
 <a href="/verktoy.html#utvikling" class="vkx"><span class="n">02</span><h3 data-i18n="home2.sw.c2t">Prosjektering og ingeniørfag</h3><p data-i18n="home2.sw.c2d">Geo · Konstruksjon · Brann · Akustikk · Trafikk · SHA</p></a>
 <a href="/verktoy.html#okonomi" class="vkx"><span class="n">03</span><h3 data-i18n="home2.sw.c3t">Mengder og økonomi</h3><p data-i18n="home2.sw.c3d">Anbud · Mengder og scope · Areal og yield</p></a>
