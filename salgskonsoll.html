@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" data-i18n-attr-content="sw.desc" content="Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag — kart, ingeniørfag, økonomi, salg, samhandling og finans." />
+<meta name="description" data-i18n-attr-content="sk.metaDesc" content="Builtly Salgskonsoll — interested buyers, newsletters and SMS, landing pages, ads published to Meta and Snapchat, and a shareable live sales console measured against the sales target." />
 <meta name="theme-color" content="#FAFAF7" />
-<title data-i18n="sw.title">Builtly Software · Software utviklet gjennom faktiske prosjekter</title>
+<title data-i18n="sk.title">Builtly Salgskonsoll · Sales and marketing for housing projects in one place</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
@@ -210,6 +210,56 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
 
 
+/* PRODUKT-MOCK — levende panel i heroen (delt av prosjekthotell/salgskonsoll) */
+.stage{margin-top:clamp(32px,5vh,52px);border:1px solid var(--line-strong);background:var(--bg);padding:clamp(18px,2.2vw,28px)}
+.st-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);padding-bottom:14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.st-live{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:600}
+.st-pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;animation:stp 2.4s ease-in-out infinite}
+@keyframes stp{0%,100%{opacity:1}50%{opacity:.35}}
+.st-proj{color:var(--mid)}
+.st-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:0}
+@media (max-width:900px){.st-grid{grid-template-columns:1fr}}
+.st-block{background:var(--bg);padding:16px 18px 18px}
+.st-h{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);font-weight:600;margin-bottom:12px}
+.st-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.st-code{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:var(--mid);border:1px solid var(--line-strong);padding:3px 7px;white-space:nowrap}
+.st-name{font-family:var(--font-display);font-size:14.5px;font-weight:600;letter-spacing:-0.01em;color:var(--ink)}
+.st-revs{display:inline-flex;gap:4px;margin-left:auto}
+.st-revs i{font-style:normal;font-family:var(--font-mono);font-size:10.5px;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line-strong);color:var(--mid)}
+.st-revs i.hot{border-color:var(--accent);color:var(--bg);background:var(--accent);font-weight:600;animation:strev 6s ease-in-out infinite}
+@keyframes strev{0%,7%{background:transparent;color:var(--mid);border-color:var(--line-strong)}14%,100%{background:var(--accent);color:var(--bg);border-color:var(--accent)}}
+.st-sub{margin-top:10px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--mid)}
+.st-steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:2px}
+.st-sep{color:var(--grey);font-family:var(--font-mono);font-size:11px}
+.st-step{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink);position:relative;padding-left:16px}
+.st-step::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:9px;height:9px;border:1.4px solid var(--accent);border-radius:50%}
+.st-step.s1{animation:ststep 9s linear infinite}
+.st-step.s2{animation:ststep 9s linear infinite 1.2s}
+.st-step.s3{animation:ststep 9s linear infinite 2.4s;color:var(--accent-soft);font-weight:600}
+@keyframes ststep{0%{opacity:.25}8%,100%{opacity:1}}
+.st-chip{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.12em;padding:4px 9px;border:1px solid var(--accent);color:var(--accent-soft);margin-left:auto;white-space:nowrap}
+/* Salgskonsoll-mocken */
+.sk-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+@media (max-width:640px){.sk-kpis{grid-template-columns:1fr}}
+.sk-kpi{background:var(--bg);padding:14px 18px}
+.sk-kpi .k{display:block;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);margin-bottom:6px}
+.sk-kpi b{font-family:var(--font-display);font-size:clamp(18px,1.8vw,24px);font-weight:600;letter-spacing:-0.02em;color:var(--ink)}
+.sk-kpi b i{font-style:normal;font-size:13px;color:var(--mid);font-weight:500}
+.sk-kpi.good b{color:var(--accent-soft)}
+.sk-chart{border-top:1px solid var(--line);padding:16px 18px 8px;background:var(--bg)}
+.sk-chart svg{width:100%;height:96px;display:block;overflow:visible}
+.sk-chart .axis{stroke:var(--line-strong);stroke-width:1}
+.sk-chart .target{fill:none;stroke:var(--grey);stroke-width:1.4;stroke-dasharray:4 5}
+.sk-chart .actual{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:0;animation:skdraw 8s ease-in-out infinite}
+@keyframes skdraw{0%{stroke-dashoffset:520}45%,100%{stroke-dashoffset:0}}
+.sk-legend{display:flex;gap:22px;margin-top:10px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid)}
+.sk-legend span{display:inline-flex;align-items:center;gap:7px}
+.sk-legend i{width:14px;height:2px;display:inline-block}
+.sk-legend i.a{background:var(--accent)}
+.sk-legend i.t{background:var(--grey)}
+.sk-toast{margin-top:1px;border-top:1px solid var(--line);background:var(--bg);padding:12px 18px;display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink);animation:sktoast 9s ease-in-out infinite}
+@keyframes sktoast{0%,55%{opacity:.3}63%,100%{opacity:1}}
+
 </style>
 </head>
 <body>
@@ -278,108 +328,76 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="wrap">
 <div class="p-hero-grid">
 <div>
-<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="sw.eyebrow">Builtly Software</span></div>
-<h1 class="dpy-1" data-i18n="sw.h1">Software utviklet gjennom faktiske prosjekter.</h1>
-<p class="lead" data-i18n="sw.lede">Builtlys software utvikles og brukes av rådgivere som selv arbeider med ordinære oppdrag. Det gjør at modulene bygger på reelle arbeidsprosesser, faglige krav og faktiske prosjektleveranser — og kan brukes direkte av kunder, samarbeidspartnere og andre rådgivermiljøer. Dette er deeptech — egne motorer for BIM, regelverk og beregning.</p>
+<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="sk.eyebrow">Salgskonsoll · sales.builtly.ai</span></div>
+<h1 class="dpy-1" data-i18n="sk.h1">From the first interested buyer to the last home sold.</h1>
+<p class="lead" data-i18n="sk.lede">All sales and marketing for the housing project in one place: buyers register themselves through landing pages, forms and ads — and are followed up in a shareable project console with the price list, the sales target and the action plan. Newsletters and SMS built from ready-made phase messages, ads published straight to Meta and Snapchat, and a Friday report that tells the developer how the sale is actually going.</p>
 <div class="p-hero-actions">
-<a href="/bli-kunde.html" class="btn"><span data-i18n="sw.cta1">Be om demo</span> <span class="arr">→</span></a>
-<a href="/platform.html" class="btn btn-ghost"><span data-i18n="sw.cta2">Se plattformen i detalj</span> <span class="arr">→</span></a>
+<a href="/bli-kunde.html" class="btn"><span data-i18n="sk.cta1">Request a demo</span> <span class="arr">→</span></a>
+<a href="https://sales.builtly.ai" class="btn btn-ghost"><span data-i18n="sk.cta2">Open sales.builtly.ai</span> <span class="arr">→</span></a>
 </div>
 </div>
 <div class="p-side">
-<div class="row"><span class="k" data-i18n="sw.side1k">Moduler</span><span class="v" data-i18n="sw.side1v">15+ i drift</span></div>
-<div class="row"><span class="k" data-i18n="sw.side2k">BIM</span><span class="v">IFC · DWG/DXF · BCF</span></div>
-<div class="row"><span class="k" data-i18n="sw.side3k">Regelverk</span><span class="v" data-i18n="sw.side3v">7 jurisdiksjoner</span></div>
-<div class="row"><span class="k" data-i18n="sw.side4k">Tilgang</span><span class="v" data-i18n="sw.side4v">Lisens per modul</span></div>
+<div class="row"><span class="k" data-i18n="sk.side1k">Channels</span><span class="v" data-i18n="sk.side1v">E-mail · SMS · landing pages · ads</span></div>
+<div class="row"><span class="k" data-i18n="sk.side2k">Publishing</span><span class="v" data-i18n="sk.side2v">Meta &amp; Snapchat · direct</span></div>
+<div class="row"><span class="k" data-i18n="sk.side3k">The console</span><span class="v" data-i18n="sk.side3v">Shareable · no login</span></div>
+<div class="row"><span class="k" data-i18n="sk.side4k">Reporting</span><span class="v" data-i18n="sk.side4v">Friday morning · measured</span></div>
 </div>
+</div>
+<div class="stage rv" aria-hidden="true">
+<div class="st-top"><span class="st-live"><i class="st-pulse"></i>sales.builtly.ai</span><span class="st-proj" data-i18n="sk.stage.proj">PROJECT CONSOLE · LIVE</span></div>
+<div class="sk-kpis">
+<div class="sk-kpi"><span class="k" data-i18n="sk.stage.k1">Sold</span><b>12 <i data-i18n="sk.stage.k1v">of 39</i></b></div>
+<div class="sk-kpi"><span class="k" data-i18n="sk.stage.k2">Sales rate</span><b>31 %</b></div>
+<div class="sk-kpi good"><span class="k" data-i18n="sk.stage.k3">Pace</span><b data-i18n="sk.stage.k3v">Ahead of plan</b></div>
+</div>
+<div class="sk-chart">
+<svg viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
+<line class="axis" x1="0" y1="95" x2="320" y2="95"/>
+<path class="target" d="M0,92 L60,84 L120,72 L180,58 L240,42 L320,20"/>
+<path class="actual" d="M0,92 L60,82 L120,66 L180,50 L240,36 L320,16"/>
+</svg>
+<div class="sk-legend"><span><i class="a"></i><span data-i18n="sk.stage.actual">Sales curve</span></span><span><i class="t"></i><span data-i18n="sk.stage.target">Target curve</span></span></div>
+</div>
+<div class="sk-toast"><i class="st-pulse"></i><span data-i18n="sk.stage.toast">New interested buyer · landing page · Unit B-204</span></div>
 </div>
 </div>
 </section>
 
 <section class="section">
 <div class="wrap">
-<div class="smark"><span class="num">§ 01</span><span data-i18n="sw.prod.s">Produkter</span><span class="dash"></span><span data-i18n="sw.prod.stag">Fire produkter i salg — hver med egen dør</span></div>
-<h2 class="dpy-3 rv" data-i18n="sw.prod.h2">Produktene.</h2>
-<div class="cardgrid c2" style="margin-top:clamp(28px,4vh,44px)">
-<a href="/prosjekthotell.html" class="card rv">
-<div class="head"><span>room.builtly.ai</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.prod.ph.h">Prosjekthotell</h3>
-<p data-i18n="sw.prod.ph.d">Det intelligente samhandlingsrommet: dokumenter med revisjonskontroll, BIM rett i nettleseren, komplett anbudsrom, byggeplass-innsjekk etter § 15 — og FDV-registeret som tar bygget inn i drift.</p>
-<div class="foot"><span data-i18n="sw.prod.ph.l">Se Prosjekthotellet</span><span class="go">→</span></div>
-</a>
-<a href="/maps.html" class="card rv">
-<div class="head"><span>maps.builtly.ai</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.prod.maps.h">Eiendomskart — Builtly Maps</h3>
-<p data-i18n="sw.prod.maps.d">Kart- og informasjonsportalen for eiendom: matrikkel, eierstruktur, regulering, risiko og verdiestimat for enhver adresse — med leietaker- og tomteradar. Norge og Sverige.</p>
-<div class="foot"><span data-i18n="sw.prod.maps.l">Se Builtly Maps</span><span class="go">→</span></div>
-</a>
-<a href="/salgskonsoll.html" class="card rv">
-<div class="head"><span>sales.builtly.ai</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.prod.sk.h">Salgskonsoll</h3>
-<p data-i18n="sw.prod.sk.d">Salg og marked for boligprosjektet på ett sted: interessenter, nyhetsbrev og SMS, landingssider, annonser publisert rett til Meta og Snapchat — og en delbar salgskonsoll målt mot salgsmålet.</p>
-<div class="foot"><span data-i18n="sw.prod.sk.l">Se Salgskonsollen</span><span class="go">→</span></div>
-</a>
-<a href="/mulighetsstudie.html" class="card rv">
-<div class="head"><span>app.builtly.ai</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.prod.ms.h">Mulighetsstudie</h3>
-<p data-i18n="sw.prod.ms.d">Fra eiendom til beslutningsgrunnlag: tomta fra matrikkelen, reguleringen lest, komplette utbyggingsalternativer med arealer, sol/skygge og prosjektøkonomi — rapport til styret og banken.</p>
-<div class="foot"><span data-i18n="sw.prod.ms.l">Se Mulighetsstudien</span><span class="go">→</span></div>
-</a>
+<div class="smark"><span class="num">§ 01</span><span data-i18n="sk.s01">One register</span><span class="dash"></span><span data-i18n="sk.s01tag">Nothing to keep in sync — because there is only one</span></div>
+<h2 class="dpy-3 rv" data-i18n="sk.s01h2">One register. Every surface.</h2>
+<div class="p-hero-grid" style="margin-top:clamp(28px,4vh,44px)">
+<p class="lead rv" data-i18n="sk.s01p">The core is the project's list of interested buyers. Mailings take their recipients from it, the project console shows the same people to the sales team, and the reports count on the same basis. There are no copies that can drift: when the broker sets a status in the console, the same status stands in the Friday report. A registration on the landing page becomes a contact on the list, a recipient of the next newsletter, a row in the console and a lead in the ad measurement — by itself.</p>
+<div class="p-side rv">
+<div class="row"><span class="k" data-i18n="sk.r1k">Developer</span><span class="v" data-i18n="sk.r1v">Sales vs target, channel truth</span></div>
+<div class="row"><span class="k" data-i18n="sk.r2k">Broker</span><span class="v" data-i18n="sk.r2v">Call, text, set status — on mobile</span></div>
+<div class="row"><span class="k" data-i18n="sk.r3k">Marketing</span><span class="v" data-i18n="sk.r3v">Newsletters, pages, ads — one place</span></div>
+<div class="row"><span class="k" data-i18n="sk.r4k">Agency</span><span class="v" data-i18n="sk.r4v">Their own form, same register</span></div>
+</div>
 </div>
 </div>
 </section>
 
 <section class="section section-soft">
 <div class="wrap">
-<div class="smark"><span class="num">§ 02</span><span data-i18n="sw.s01">Områder</span><span class="dash"></span><span data-i18n="sw.s01tag">Seks kategorier</span></div>
-<h2 class="dpy-3 rv" data-i18n="sw.s01h2">Softwareområdet.</h2>
+<div class="smark"><span class="num">§ 02</span><span data-i18n="sk.s02">Buyers in</span><span class="dash"></span><span data-i18n="sk.s02tag">Registration is consent — by construction</span></div>
+<h2 class="dpy-3 rv" data-i18n="sk.s02h2">Every road leads to the same list.</h2>
 <div class="cardgrid c3" style="margin-top:clamp(28px,4vh,44px)">
-<a href="/maps.html" class="card rv" id="kart">
-<div class="head"><span>01</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.kat1.h">Kart og eiendomsanalyse</h3>
-<p data-i18n="sw.kat1.d">Builtly Maps, mulighetsstudier, klimarisiko og teknisk DD — beslutningsgrunnlaget før prosjektet finnes.</p>
-<div class="foot"><span data-i18n="sw.kat1.l">Se Builtly Maps</span><span class="go">→</span></div>
-</a>
-<a href="/verktoy.html#utvikling" class="card rv" id="prosjektering">
-<div class="head"><span>02</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.kat2.h">Prosjektering og ingeniørfag</h3>
-<p data-i18n="sw.kat2.d">Geoteknikk, konstruksjon, brann, akustikk, trafikk, SHA, BREEAM og miljø — fagmodulene som leser og skriver BIM.</p>
-<div class="foot"><span data-i18n="sw.kat2.l">Se fagmodulene</span><span class="go">→</span></div>
-</a>
-<a href="/verktoy.html#okonomi" class="card rv" id="okonomi">
-<div class="head"><span>03</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.kat3.h">Mengder og økonomi</h3>
-<p data-i18n="sw.kat3.d">Anbud, mengder, areal og yield, byggelånskontroll og kredittgrunnlag — prosjektet i tall, på samme modell.</p>
-<div class="foot"><span data-i18n="sw.kat3.l">Se økonomimodulene</span><span class="go">→</span></div>
-</a>
-<a href="/verktoy.html#salg" class="card rv" id="salg">
-<div class="head"><span>04</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.kat4.h">Salg og marked</h3>
-<p data-i18n="sw.kat4.d">Salgskonsoll, prosjektnettsider, prospekt og interessentoppfølging — salgstakt målt mot mål, ikke magefølelse.</p>
-<div class="foot"><span data-i18n="sw.kat4.l">Se salgsverktøyene</span><span class="go">→</span></div>
-</a>
-<a href="/verktoy.html#admin" class="card rv" id="samhandling">
-<div class="head"><span>05</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.kat5.h">Prosjekt og samhandling</h3>
-<p data-i18n="sw.kat5.d">Prosjekthotell/CDE med BIM i nettleseren, anbudsrom, oversendelser med kvittering og byggeplass-innsjekk.</p>
-<div class="foot"><span data-i18n="sw.kat5.l">Se prosjekthotellet</span><span class="go">→</span></div>
-</a>
-<a href="/verktoy.html#okonomi" class="card rv" id="finans">
-<div class="head"><span>06</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
-<h3 data-i18n="sw.kat6.h">Bank, finans og portefølje</h3>
-<p data-i18n="sw.kat6.d">Byggelånskontroll, kredittgrunnlag, klimarisiko og porteføljeinnsikt — strukturert beslutningsstøtte for långivere.</p>
-<div class="foot"><span data-i18n="sw.kat6.l">Se bankmodulene</span><span class="go">→</span></div>
-</a>
+<div class="card rv">
+<div class="head"><span>01</span><span class="topic" data-i18n="sk.i1.t">Landing pages</span></div>
+<h3 data-i18n="sk.i1.h">Published with one click.</h3>
+<p data-i18n="sk.i1.d">Hero, key figures, gallery, unit picker, prospectus as a browsable flipbook and the interest form — four polished templates, live preview, and your own domain connected with a wizard that checks the DNS from outside and says where it stops.</p>
 </div>
-<div class="free-strip rv" style="margin-top:clamp(24px,3.5vh,36px)">
-<div>
-<span class="fs-badge" data-i18n="sw.bimv.badge">Gratis</span>
-<h3 data-i18n="sw.bimv.h">Builtly BIM Viewer — gratis IFC-viser i nettleseren</h3>
-<p data-i18n="sw.bimv.p">Dra inn en IFC-fil og den åpner seg — ingen installasjon, ingen lisens, ingen firmaregistrering. Mål lengder og arealer, kutt snitt, og les ut arealer og boenheter rett fra modellen. Filen parses lokalt på din maskin og lastes aldri opp.</p>
+<div class="card rv">
+<div class="head"><span>02</span><span class="topic" data-i18n="sk.i2.t">QR and tracked links</span></div>
+<h3 data-i18n="sk.i2.h">The channel is measured, not guessed.</h3>
+<p data-i18n="sk.i2.d">Every list and landing page has a QR code for the hoarding and the poster, and one trackable link per channel for the agency's campaigns. Registrations land in "source of sale" with the channel measured. Ad pixels fire the lead event only on the thank-you page — so the platforms optimise on real conversions.</p>
 </div>
-<div class="fs-actions">
-<a href="https://bim.builtly.ai" class="btn"><span data-i18n="sw.bimv.cta">Åpne BIM Viewer — gratis</span> <span class="arr">→</span></a>
-<a href="/bim-viewer.html" class="btn btn-ghost"><span data-i18n="sw.bimv.mer">Les mer om BIM Viewer</span></a>
+<div class="card rv">
+<div class="head"><span>03</span><span class="topic" data-i18n="sk.i3.t">The agency's own form</span></div>
+<h3 data-i18n="sk.i3.h">No one has to change anything.</h3>
+<p data-i18n="sk.i3.d">If an agency runs the project site, the integration snippet sits on top of the form that already works and sends a copy of every submission to the list — without touching the agency's own system. Existing lists? The import shows how every row is interpreted before anything is written, and a Mailchimp export is understood directly.</p>
 </div>
 </div>
 </div>
@@ -387,22 +405,116 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section">
 <div class="wrap">
-<div class="smark"><span class="num">§ 03</span><span data-i18n="sw.s02">Flywheel</span><span class="dash"></span><span data-i18n="sw.s02tag">Rådgivning og software forsterker hverandre</span></div>
-<h2 class="dpy-3 rv" data-i18n="sw.s02h2">Derfor virker det.</h2>
+<div class="smark"><span class="num">§ 03</span><span data-i18n="sk.s03">Newsletters &amp; SMS</span><span class="dash"></span><span data-i18n="sk.s03tag">You never start from a blank sheet</span></div>
+<h2 class="dpy-3 rv" data-i18n="sk.s03h2">Pick the message. The design is already done.</h2>
 <ul class="dlist" style="margin-top:clamp(28px,4vh,44px)">
-<li class="rv"><span class="n">01</span><div><div class="t" data-i18n="sw.fly1">Rådgivningsvirksomheten dokumenterer at softwaren fungerer i virkeligheten.</div></div></li>
-<li class="rv"><span class="n">02</span><div><div class="t" data-i18n="sw.fly2">Softwaren gjør rådgivningsvirksomheten mer effektiv og skalerbar.</div></div></li>
-<li class="rv"><span class="n">03</span><div><div class="t" data-i18n="sw.fly3">Erfaringene fra oppdrag forbedrer produktene.</div></div></li>
-<li class="rv"><span class="n">04</span><div><div class="t" data-i18n="sw.fly4">Bedre produkter forbedrer nye oppdrag.</div></div></li>
+<li class="rv"><span class="n">01</span><div><div class="t" data-i18n="sk.n1.t">Eight ready-written letters follow the sales phases</div><div class="d" data-i18n="sk.n1.d">Coming for sale, pre-sale, sales launch, viewing, construction status, move-in — plus the classic letter types. Four curated flagship designs and eight classic themes; switching design never resets the content, because message and design are independent choices.</div></div></li>
+<li class="rv"><span class="n">02</span><div><div class="t" data-i18n="sk.n2.t">Measured numbers fill themselves in</div><div class="d" data-i18n="sk.n2.d">Sold so far, homes left, from-price and size span are merged from the price list when the letter loads. Campaign numbers the system does not measure stand as visible placeholders — and the inbox check stops you before a letter with a forgotten placeholder is sent.</div></div></li>
+<li class="rv"><span class="n">03</span><div><div class="t" data-i18n="sk.n3.t">Edit in the letter itself</div><div class="d" data-i18n="sk.n3.d">Click a text in the preview and write; drag a block where it belongs. The block editor gives full control — paragraphs, gallery, unit cards, countdown, video, brokers, documents — and {{first name}} merges per recipient in text and subject line.</div></div></li>
+<li class="rv"><span class="n">04</span><div><div class="t" data-i18n="sk.n4.t">Send, schedule, follow up — with the receiver list in plain sight</div><div class="d" data-i18n="sk.n4.d">You see exactly who receives before anything goes — and why the rest do not: unsubscribed, no consent, missing address. Schedule in Norwegian time, A/B-test the subject line with a measured winner, run a drip sequence for new registrations, and re-send to those who registered after the send — nobody ever gets a letter twice.</div></div></li>
+<li class="rv"><span class="n">05</span><div><div class="t" data-i18n="sk.n5.t">SMS that respects the format</div><div class="d" data-i18n="sk.n5.d">The SMS panel shows the message as a phone bubble with the sender name, counts segments as you type and warns when a character tips the message into costlier encoding. The quick templates are written to go as one single SMS.</div></div></li>
 </ul>
 </div>
 </section>
 
-<section class="quiet-strip">
+<section class="section section-soft">
 <div class="wrap">
-<div class="inner">
-<span class="mark" data-i18n="sw.garanti_mark">Datagaranti</span>
-<p><span data-i18n="sw.garanti_p">Builtly Engineering har ikke tilgang til softwarekunders prosjekter uten at kunden uttrykkelig inviterer Builtly inn i prosjektet eller bestiller en rådgivertjeneste. Kunden eier dataene, prosjektdata brukes ikke til modelltrening, og data og tilgang er isolert per kunde. Softwarekunders kunder, prosjektinformasjon og bruksmønstre benyttes ikke av Builtlys rådgivningsvirksomhet til salg eller konkurrerende tilbud.</span><br/><a href="/trust.html" class="link-line" style="font-size:14px" data-i18n="sw.garanti_lenke">Les mer under Trust &amp; sikkerhet</a></p>
+<div class="smark"><span class="num">§ 04</span><span data-i18n="sk.s04">The ad studio</span><span class="dash"></span><span data-i18n="sk.s04tag">Published paused — money moves only when you say so</span></div>
+<h2 class="dpy-3 rv" data-i18n="sk.s04h2">Platform-ready ads. Published from here.</h2>
+<div class="cardgrid c2" style="margin-top:clamp(28px,4vh,44px)">
+<div class="card rv">
+<div class="head"><span>01</span><span class="topic" data-i18n="sk.ad1.t">Real previews</span></div>
+<h3 data-i18n="sk.ad1.h">The feed card. The story phone. The search hit.</h3>
+<p data-i18n="sk.ad1.d">Fifteen ready-written templates follow the sales phases, with complete copy per platform — Meta, Snapchat, Google, LinkedIn, TikTok — shown as the ad will actually look. Everything can be edited or written from scratch.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>02</span><span class="topic" data-i18n="sk.ad2.t">Direct publishing</span></div>
+<h3 data-i18n="sk.ad2.h">To Meta and Snapchat — always paused.</h3>
+<p data-i18n="sk.ad2.d">Budget, duration and geography in plain language, housing-ad rules set automatically — 18+, no gender targeting, Meta's housing category. The ad is always published paused: no money is spent before you activate, and activation has its own money confirmation.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>03</span><span class="topic" data-i18n="sk.ad3.t">Measured effect</span></div>
+<h3 data-i18n="sk.ad3.h">Cost per lead — called what it is.</h3>
+<p data-i18n="sk.ad3.d">Every publication is tied to a project: spend per day, leads in the period, cost per lead and lift against an equally long period without a campaign. The surface says it straight: the measurement is a correlation, never a proven cause.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>04</span><span class="topic" data-i18n="sk.ad4.t">Honest money</span></div>
+<h3 data-i18n="sk.ad4.h">Rates in plain text before you publish.</h3>
+<p data-i18n="sk.ad4.d">Published spend is invoiced in arrears, with the rates and payment terms stated before you publish — and purchases in foreign currency converted at the central bank's daily rate, with the rate documentation attached to the invoice, day by day.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="smark"><span class="num">§ 05</span><span data-i18n="sk.s05">The project console</span><span class="dash"></span><span data-i18n="sk.s05tag">The sales team's workspace — live, shareable, on mobile</span></div>
+<h2 class="dpy-3 rv" data-i18n="sk.s05h2">One link. The whole sale.</h2>
+<ul class="dlist" style="margin-top:clamp(28px,4vh,44px)">
+<li class="rv"><span class="n">01</span><div><div class="t" data-i18n="sk.c1.t">Shareable without login — and revocable</div><div class="d" data-i18n="sk.c1.d">One link per project, in two variants: full for the sales team, masked without contact details for external sharing. The link can be withdrawn at any time — and a portfolio console gathers every project in one line each, biggest deviation on top.</div></div></li>
+<li class="rv"><span class="n">02</span><div><div class="t" data-i18n="sk.c2.t">Follow-up in working order</div><div class="d" data-i18n="sk.c2.d">Every buyer has status, source, note and a responsible broker — and the list stands in working order: those who have waited longest on top. Call and SMS buttons open the phone with a ready message and log the contact in the same tap. "Very interested" carries a three-day review deadline, so nobody hot goes cold in silence.</div></div></li>
+<li class="rv"><span class="n">03</span><div><div class="t" data-i18n="sk.c3.t">The sales target with an honest verdict</div><div class="d" data-i18n="sk.c3.d">Homes, sold, reserved and available, sales sum and sales rate — measured against the target and its deadline: actual pace against required pace, sales curve against target curve, and a plain verdict: ahead, or behind. If the project is behind, the actions belong in the action plan in the same console — with deadline, status and owner.</div></div></li>
+<li class="rv"><span class="n">04</span><div><div class="t" data-i18n="sk.c4.t">The price list drives the statistics</div><div class="d" data-i18n="sk.c4.d">Imported from Excel or CSV exactly as it looks from the broker — the columns are recognised automatically, and the preview shows how every row is interpreted before anything is written. The sales team edits each unit right in the console: sold, reserved, the achieved price when it differs — and the statistics update immediately. A discount can never hide in the sales rate.</div></div></li>
+</ul>
+</div>
+</section>
+
+<section class="section section-soft">
+<div class="wrap">
+<div class="smark"><span class="num">§ 06</span><span data-i18n="sk.s06">Reports</span><span class="dash"></span><span data-i18n="sk.s06tag">To the right recipient, on the right day, with measured numbers</span></div>
+<h2 class="dpy-3 rv" data-i18n="sk.s06h2">The console reports by itself.</h2>
+<div class="cardgrid c2" style="margin-top:clamp(28px,4vh,44px)">
+<div class="card rv">
+<div class="head"><span>01</span><span class="topic" data-i18n="sk.re1.t">The Friday report</span></div>
+<h3 data-i18n="sk.re1.h">"Must anyone be called? Is the sale on track?"</h3>
+<p data-i18n="sk.re1.d">Friday morning to the developer and the sales team: week-on-week development, a numbered work list and the status of the action plan — per project, or for the whole portfolio. The Wednesday SMS reminds the sales team two days ahead, so the follow-up is in order first.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>02</span><span class="topic" data-i18n="sk.re2.t">Hot-buyer alert</span></div>
+<h3 data-i18n="sk.re2.h">"Call now" — once, never as nagging.</h3>
+<p data-i18n="sk.re2.d">When a buyer crosses the engagement threshold — opens and clicks — the sales team is alerted once per person. Every new registration triggers an e-mail with the interests ticked and a link straight into the console.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>03</span><span class="topic" data-i18n="sk.re3.t">Campaign report</span></div>
+<h3 data-i18n="sk.re3.h">The people behind every number.</h3>
+<p data-i18n="sk.re3.d">Opens, clicks and delivery failures measured per recipient — click the number, see who. When an e-mail or SMS fails, the reason stands there, never just "failed". Exportable as spreadsheet and PDF, and a tracking check tells you where measurement stops if a report reads zero.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>04</span><span class="topic" data-i18n="sk.re4.t">Source of sale</span></div>
+<h3 data-i18n="sk.re4.h">From channel to buyer — measured or remembered.</h3>
+<p data-i18n="sk.re4.d">The attribution funnel shows the road per channel: registered, engaged, at viewing, reserved, bought. A channel measured by ad tracking is marked measured; a source the broker noted is marked remembered. The two never read as the same thing.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="smark"><span class="num">§ 07</span><span data-i18n="sk.s07">Sharing &amp; privacy</span><span class="dash"></span><span data-i18n="sk.s07tag">Built into the engine — not added as a checklist</span></div>
+<h2 class="dpy-3 rv" data-i18n="sk.s07h2">Several teams. One truth. GDPR by construction.</h2>
+<div class="cardgrid c2" style="margin-top:clamp(28px,4vh,44px)">
+<div class="card rv">
+<div class="head"><span>01</span><span class="topic" data-i18n="sk.s1.t">Company workspace</span></div>
+<p data-i18n="sk.s1.d">Colleagues share projects, buyers, mailings and consoles in one workspace. A project owned together with another company is shared on organisation number — no moving, no copy: both companies work in the same data, and a withdrawn share goes dark the same second.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>02</span><span class="topic" data-i18n="sk.s2.t">Only consent receives</span></div>
+<p data-i18n="sk.s2.d">Every form requires the ticked consent box, so a registration that reaches the system is a consent. Only contacts with consent for the channel receive — and a consent is never silently downgraded when contacts merge.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>03</span><span class="topic" data-i18n="sk.s3.t">Unsubscribe everywhere</span></div>
+<p data-i18n="sk.s3.d">Every e-mail carries an unsubscribe link, every SMS an unsubscribe line — and STOP as a reply unsubscribes too. A hard bounce or spam complaint blocks the address automatically, and the report says why.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>04</span><span class="topic" data-i18n="sk.s4.t">Access, correction, deletion</span></div>
+<p data-i18n="sk.s4.d">Full export per contact — profile, consents, event history — a timeline of everything sent and done, "remove from the list" that keeps the history, and "delete entirely" that deletes. The tools GDPR requires, where the work happens.</p>
+</div>
+</div>
+<div class="quiet-strip" style="margin-top:clamp(28px,4vh,44px);border:1px solid var(--line);background:var(--bg-soft)">
+<div class="inner" style="padding:0 clamp(20px,3vw,36px)">
+<span class="mark" data-i18n="sk.rule_mark">Honest numbers</span>
+<p data-i18n="sk.rule_p">Numbers are measured, never guessed: when it says "12 of 39 sold", the price list says so. Reports state the reason when someone did not receive a mailing. And ad effect is presented as correlation — where the basis is too thin, it says so, instead of a percentage without cover.</p>
+</div>
 </div>
 </div>
 </section>
@@ -411,10 +523,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="wrap">
 <div class="crosslink rv">
 <div>
-<h3 data-i18n="sw.tj_h">Trenger dere at Builtly tar hele oppdraget?</h3>
-<p data-i18n="sw.tj_p">Builtly leverer også komplette rådgiveroppdrag i de samme fagene — med fagansvar, koordinering og oppfølging.</p>
+<h3 data-i18n="sk.x_h">Documents, BIM and the building site?</h3>
+<p data-i18n="sk.x_p">The Prosjekthotell is the project's collaboration room: revision-controlled documents, BIM in the browser, tender room and site check-in — the same project, upstream.</p>
 </div>
-<a href="/tjenester.html" class="btn btn-ghost"><span data-i18n="sw.tj_cta">Se våre rådgivertjenester</span> <span class="arr">→</span></a>
+<a href="/prosjekthotell.html" class="btn btn-ghost"><span data-i18n="sk.x_cta">See the Prosjekthotell</span> <span class="arr">→</span></a>
 </div>
 </div>
 </section>
@@ -423,17 +535,17 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="wrap">
 <div class="cta-grid">
 <div class="rv">
-<h2 class="dpy-2" data-i18n="sw.cta_h2">Se softwaren på et eget prosjekt.</h2>
-<p class="lead on-dark" style="margin-top:24px;max-width:52ch" data-i18n="sw.cta_lede">Be om en demo på egne prosjektdata, eller utforsk plattformen og verktøykassen i detalj. Tilgang og lisens avtales per modul.</p>
+<h2 class="dpy-2" data-i18n="sk.cta_h2">See your project in the console.</h2>
+<p class="lead on-dark" style="margin-top:24px;max-width:52ch" data-i18n="sk.cta_lede">Bring the price list and the interest list you have — the import understands them as they are. Ask for a demo on your own project data.</p>
 <div class="cta-actions">
-<a href="/bli-kunde.html" class="btn btn-light"><span data-i18n="sw.cta1">Be om demo</span> <span class="arr">→</span></a>
-<a href="https://portal.builtly.ai" class="btn btn-dark-ghost"><span data-i18n="nav.login">Logg inn</span></a>
+<a href="/bli-kunde.html" class="btn btn-light"><span data-i18n="sk.cta1">Request a demo</span> <span class="arr">→</span></a>
+<a href="https://sales.builtly.ai" class="btn btn-dark-ghost"><span data-i18n="sk.cta2">Open sales.builtly.ai</span></a>
 </div>
 </div>
 <div class="cta-side rv">
-<div class="row" style="border-top-color:var(--dark-paper)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="sw.side4k">Tilgang</span><span class="v" style="color:var(--dark-paper)" data-i18n="sw.side4v">Lisens per modul</span></div>
-<div class="row" style="border-top-color:var(--line-dark)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="sw.cta_r2k">Onboarding</span><span class="v" style="color:var(--dark-paper)" data-i18n="sw.cta_r2v">Samme dag</span></div>
-<div class="row" style="border-top-color:var(--line-dark)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="sw.cta_r3k">Pilot</span><span class="v" style="color:var(--dark-paper)" data-i18n="sw.cta_r3v">På eget prosjekt</span></div>
+<div class="row" style="border-top-color:var(--dark-paper)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="sk.cr1k">Onboarding</span><span class="v" style="color:var(--dark-paper)" data-i18n="sk.cr1v">Same day</span></div>
+<div class="row" style="border-top-color:var(--line-dark)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="sk.cr2k">Import</span><span class="v" style="color:var(--dark-paper)" data-i18n="sk.cr2v">Excel · CSV · Mailchimp</span></div>
+<div class="row" style="border-top-color:var(--line-dark)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="sk.cr3k">Replaces</span><span class="v" style="color:var(--dark-paper)" data-i18n="sk.cr3v">Mailing tool + sales sheet</span></div>
 </div>
 </div>
 </div>
