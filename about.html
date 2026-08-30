@@ -169,6 +169,39 @@ body.menu-open{overflow:hidden}
 /* ADVISORY GRID — uses same team-grid pattern as wider team */
 .advisory-section{background:var(--bg)}
 
+/* ADVISORY RADAR — §05 display heading replaced by a live discipline sweep */
+.adv-anim{position:relative;width:100%;max-width:520px}
+.adv-anim svg{width:100%;height:auto;display:block;overflow:visible}
+.adv-anim .a-ring{fill:none;stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke}
+.adv-anim .a-ring.dash{stroke-dasharray:2 5}
+.adv-anim .a-ring.outer{stroke:var(--line-strong)}
+.adv-anim .a-cross{stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke}
+.adv-anim .a-tick{stroke:var(--mid);stroke-width:1;vector-effect:non-scaling-stroke;opacity:0.6}
+.adv-anim .a-sweep{transform-box:view-box;transform-origin:230px 170px;animation:a-spin 9s linear infinite}
+.adv-anim .a-sweep .lead{stroke:var(--accent);stroke-width:1.1;vector-effect:non-scaling-stroke;stroke-linecap:round}
+.adv-anim .a-sweep .trail{fill:var(--accent);opacity:0.05}
+.adv-anim .a-sweep .trail.hot{opacity:0.10}
+.adv-anim .a-dot{fill:var(--mid);animation:a-blip 9s linear infinite}
+.adv-anim .a-ping{fill:none;stroke:var(--accent);stroke-width:1;vector-effect:non-scaling-stroke;opacity:0;transform-box:fill-box;transform-origin:center;animation:a-ping 9s linear infinite}
+.adv-anim .a-lab{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;fill:var(--mid);animation:a-lab 9s linear infinite}
+.adv-anim .a-core{fill:var(--accent)}
+.adv-anim .a-core-ring{fill:none;stroke:var(--accent);stroke-width:1;vector-effect:non-scaling-stroke;opacity:0.5}
+.adv-anim .n1{animation-delay:0.75s}
+.adv-anim .n2{animation-delay:2.375s}
+.adv-anim .n3{animation-delay:3.75s}
+.adv-anim .n4{animation-delay:5.25s}
+.adv-anim .n5{animation-delay:6.875s}
+.adv-anim .n6{animation-delay:8.25s}
+@keyframes a-spin{to{transform:rotate(360deg)}}
+@keyframes a-blip{0%,3%{fill:var(--accent)}16%,100%{fill:var(--mid)}}
+@keyframes a-ping{0%{opacity:0.9;transform:scale(0.3)}15%{opacity:0;transform:scale(1)}100%{opacity:0}}
+@keyframes a-lab{0%,4%{fill:var(--accent)}20%,100%{fill:var(--mid)}}
+@media (prefers-reduced-motion:reduce){
+  .adv-anim .a-sweep,.adv-anim .a-ping{display:none}
+  .adv-anim .a-dot,.adv-anim .a-lab{animation:none}
+}
+@media (max-width:900px){.adv-anim{max-width:420px}}
+
 /* TRUSTED BY — minimal logo wall, monochrome on cream */
 
 .trust-foot{margin-top:clamp(20px,3vh,32px);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);text-align:center}
@@ -1095,7 +1128,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <article class="seat">
 <div class="seat-id">
-<div class="seat-photo seat-photo-initials"><span>LH</span></div>
+<div class="seat-photo"><img src="photos/lars-halvorsen.jpg" alt="Lars Halvorsen" loading="lazy"/></div>
 <div class="seat-num">10</div>
 </div>
 <div class="seat-body">
@@ -1107,7 +1140,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <article class="seat">
 <div class="seat-id">
-<div class="seat-photo seat-photo-initials"><span>BA</span></div>
+<div class="seat-photo"><img src="photos/borge-aunaas.jpg" alt="Børge Aunaas" loading="lazy"/></div>
 <div class="seat-num">11</div>
 </div>
 <div class="seat-body">
@@ -1119,19 +1152,19 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <article class="seat">
 <div class="seat-id">
-<div class="seat-photo seat-photo-initials"><span>G</span></div>
+<div class="seat-photo"><img src="photos/geir.jpg" alt="Geir Leseth" loading="lazy"/></div>
 <div class="seat-num">12</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advboard">Advisor</div>
-<h3 class="seat-name" data-i18n="about.adv.a3.name">Geir</h3>
+<h3 class="seat-name" data-i18n="about.adv.a3.name">Geir Leseth</h3>
 <p class="seat-bio" data-i18n="about.adv.a3.bio">Geir has solid experience in geotechnics, ground conditions and technical assessments in complex building and development projects. He combines practical project understanding with strong professional expertise in analysis, risk assessment and buildable solutions.</p>
 </div>
 </article>
 
 <article class="seat">
 <div class="seat-id">
-<div class="seat-photo seat-photo-initials"><span>IL</span></div>
+<div class="seat-photo"><img src="photos/ingebjorg-lien.jpg" alt="Ingebjørg Lien" loading="lazy"/></div>
 <div class="seat-num">13</div>
 </div>
 <div class="seat-body">
@@ -1151,8 +1184,60 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="wrap">
 <div class="smark rv"><span class="num">§ 05</span><span data-i18n="about.s05.label">Advisory</span><span class="dash"></span><span data-i18n="about.s05.tag">Senior practitioners</span></div>
 <div class="team-intro rv">
-<div>
-<h2 class="dpy-2" data-i18n-html="about.s05.h2">Advisory<br/>board.</h2>
+<div class="adv-anim">
+<svg viewBox="0 0 460 340" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="presentation">
+<g class="a-static">
+<circle class="a-ring dash" cx="230" cy="170" r="40"/>
+<circle class="a-ring" cx="230" cy="170" r="80"/>
+<circle class="a-ring dash" cx="230" cy="170" r="120"/>
+<circle class="a-ring outer" cx="230" cy="170" r="160"/>
+<line class="a-cross" x1="70" y1="170" x2="390" y2="170"/>
+<line class="a-cross" x1="230" y1="10" x2="230" y2="330"/>
+<line class="a-tick" x1="230.0" y1="16.0" x2="230.0" y2="10.0"/>
+<line class="a-tick" x1="307.0" y1="36.63" x2="310.0" y2="31.44"/>
+<line class="a-tick" x1="363.37" y1="93.0" x2="368.56" y2="90.0"/>
+<line class="a-tick" x1="384.0" y1="170.0" x2="390.0" y2="170.0"/>
+<line class="a-tick" x1="363.37" y1="247.0" x2="368.56" y2="250.0"/>
+<line class="a-tick" x1="307.0" y1="303.37" x2="310.0" y2="308.56"/>
+<line class="a-tick" x1="230.0" y1="324.0" x2="230.0" y2="330.0"/>
+<line class="a-tick" x1="153.0" y1="303.37" x2="150.0" y2="308.56"/>
+<line class="a-tick" x1="96.63" y1="247.0" x2="91.44" y2="250.0"/>
+<line class="a-tick" x1="76.0" y1="170.0" x2="70.0" y2="170.0"/>
+<line class="a-tick" x1="96.63" y1="93.0" x2="91.44" y2="90.0"/>
+<line class="a-tick" x1="153.0" y1="36.63" x2="150.0" y2="31.44"/>
+</g>
+<g class="a-sweep">
+<path class="trail" d="M230,170 L135.95,40.56 A160,160 0 0 1 230,10 Z"/>
+<path class="trail hot" d="M230,170 L196.73,13.5 A160,160 0 0 1 230,10 Z"/>
+<line class="lead" x1="230" y1="170" x2="230" y2="10"/>
+</g>
+<circle class="a-ping n1" cx="290.0" cy="66.08" r="15"/>
+<circle class="a-dot n1" cx="290.0" cy="66.08" r="3.2"/>
+<text class="a-lab n1" x="299.0" y="70.08">RIB</text>
+<circle class="a-ping n2" cx="379.43" cy="183.07" r="15"/>
+<circle class="a-dot n2" cx="379.43" cy="183.07" r="3.2"/>
+<text class="a-lab n2" x="388.43" y="187.07">RIG</text>
+<circle class="a-ping n3" cx="280.0" cy="256.6" r="15"/>
+<circle class="a-dot n3" cx="280.0" cy="256.6" r="3.2"/>
+<text class="a-lab n3" x="289.0" y="260.6">RIBR</text>
+<circle class="a-ping n4" cx="160.0" cy="291.24" r="15"/>
+<circle class="a-dot n4" cx="160.0" cy="291.24" r="3.2"/>
+<text class="a-lab n4" x="169.0" y="295.24">RIAKU</text>
+<circle class="a-ping n5" cx="80.57" cy="156.93" r="15"/>
+<circle class="a-dot n5" cx="80.57" cy="156.93" r="3.2"/>
+<text class="a-lab n5" x="89.57" y="160.93">RE OPS</text>
+<circle class="a-ping n6" cx="175.0" cy="74.74" r="15"/>
+<circle class="a-dot n6" cx="175.0" cy="74.74" r="3.2"/>
+<text class="a-lab n6" x="184.0" y="78.74">CONTECH</text>
+<circle class="a-core" cx="230" cy="170" r="3"/>
+<circle class="a-core-ring" cx="230" cy="170" r="7"/>
+</svg>
+<div class="steinan-anim-caption">
+<span class="dot"></span>
+<span data-i18n="about.adv.anim.k">6 disciplines</span>
+<span class="sep">·</span>
+<span data-i18n="about.adv.anim.v">active counsel</span>
+</div>
 </div>
 <p class="lead" data-i18n-html="about.s05.lede">Senior practitioners advising on platform direction, regulatory compliance across jurisdictions, and operational deployment. The first advisors are in place, and the cohort is being extended with active practitioners from each discipline the platform covers.</p>
 </div>
