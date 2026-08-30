@@ -269,6 +269,34 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .sk-toast{margin-top:1px;border-top:1px solid var(--line);background:var(--bg);padding:12px 18px;display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink);animation:sktoast 9s ease-in-out infinite}
 @keyframes sktoast{0%,55%{opacity:.3}63%,100%{opacity:1}}
 
+/* SAMORDNINGSSCENEN — fagmodellene tegner seg inn, så røntgen (18 s loop) */
+.ph-scene{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,0.95fr);gap:clamp(20px,3vw,44px);align-items:center;padding-top:18px}
+@media (max-width:900px){.ph-scene{grid-template-columns:1fr}}
+.ph-scene svg{width:100%;max-width:460px;height:auto;display:block;margin:0 auto;overflow:visible}
+.i-ark{fill:none;stroke:var(--ink);stroke-width:1.1;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:0;animation:aark 18s linear infinite}
+.i-rib{fill:none;stroke:var(--ink-soft);stroke-width:1.7;stroke-linecap:round;opacity:.9;stroke-dasharray:900;stroke-dashoffset:0;animation:arib 18s linear infinite}
+.i-riv{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:0;animation:ariv 18s linear infinite}
+.i-rie{fill:none;stroke:var(--accent-soft);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:900;stroke-dashoffset:0;animation:arie 18s linear infinite}
+@keyframes aark{0%{stroke-dashoffset:900}14%{stroke-dashoffset:0}68%{opacity:1}72%,86%{opacity:.14}90%,95%{opacity:1}98%,100%{opacity:0;stroke-dashoffset:0}}
+@keyframes arib{0%,17%{stroke-dashoffset:900}31%{stroke-dashoffset:0}68%{opacity:.9}72%,86%{opacity:.12}90%,95%{opacity:.9}98%,100%{opacity:0;stroke-dashoffset:0}}
+@keyframes ariv{0%,34%{stroke-dashoffset:900}47%{stroke-dashoffset:0}70%{filter:none}74%,86%{filter:drop-shadow(0 0 3.5px rgba(20,184,166,.85))}90%,95%{filter:none;opacity:1}98%,100%{opacity:0;stroke-dashoffset:0}}
+@keyframes arie{0%,50%{stroke-dashoffset:900}61%{stroke-dashoffset:0}70%{filter:none}74%,86%{filter:drop-shadow(0 0 2.5px rgba(13,148,136,.85))}90%,95%{filter:none;opacity:1}98%,100%{opacity:0;stroke-dashoffset:0}}
+.ph-hud{display:flex;flex-direction:column;gap:0;border-left:1px solid var(--line);padding-left:clamp(16px,2vw,28px)}
+@media (max-width:900px){.ph-hud{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:14px}}
+.ph-hud-line{display:flex;align-items:baseline;gap:11px;padding:10px 0;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink);line-height:1.5}
+.ph-hud-line i{flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:var(--accent);transform:translateY(-1px)}
+.ph-hud-line.n1{animation:ahud1 18s linear infinite}
+.ph-hud-line.n2{animation:ahud2 18s linear infinite}
+.ph-hud-line.n3{animation:ahud3 18s linear infinite}
+.ph-hud-line.n4{animation:ahud4 18s linear infinite}
+.ph-hud-line.n5{animation:ahud5 18s linear infinite}
+@keyframes ahud1{0%{opacity:.3}2%,4%{opacity:.3}7%,95%{opacity:1}98%,100%{opacity:.3}}
+@keyframes ahud2{0%,17%{opacity:.3}20%,95%{opacity:1}98%,100%{opacity:.3}}
+@keyframes ahud3{0%,34%{opacity:.3}37%,95%{opacity:1}98%,100%{opacity:.3}}
+@keyframes ahud4{0%,50%{opacity:.3}53%,95%{opacity:1}98%,100%{opacity:.3}}
+@keyframes ahud5{0%,70%{opacity:.3}73%,95%{opacity:1}98%,100%{opacity:.3}}
+.ph-hud-foot{margin-top:14px;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--mid);line-height:1.7}
+
 </style>
 </head>
 <body>
@@ -354,23 +382,38 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 <div class="stage rv" aria-hidden="true">
 <div class="st-top"><span class="st-live"><i class="st-pulse"></i>room.builtly.ai</span><span class="st-proj">P-102 · SAGA PARK BT2</span></div>
-<div class="st-grid">
-<div class="st-block">
-<div class="st-h" data-i18n="ph.stage.doc">Document</div>
-<div class="st-row"><span class="st-code">23 RIBr</span><span class="st-name" data-i18n="ph.stage.docname">Fire concept</span><span class="st-revs"><i>A</i><i>B</i><i class="hot">C</i></span></div>
-<div class="st-sub" data-i18n="ph.stage.docsub">rev. C · approved · full history on the document</div>
-</div>
-<div class="st-block">
-<div class="st-h" data-i18n="ph.stage.trans">Transmittal</div>
-<div class="st-steps">
-<span class="st-step s1" data-i18n="ph.stage.t1">Opened</span><span class="st-sep">‹</span>
-<span class="st-step s2" data-i18n="ph.stage.t2">Downloaded</span><span class="st-sep">‹</span>
-<span class="st-step s3" data-i18n="ph.stage.t3">Receipt confirmed</span>
-</div>
-</div>
-<div class="st-block">
-<div class="st-h" data-i18n="ph.stage.frist">Delivery deadline</div>
-<div class="st-row"><span class="st-code">20 RIB</span><span class="st-name" data-i18n="ph.stage.fristname">Updated IFC</span><span class="st-chip review" data-i18n="ph.stage.friststatus">In review</span></div>
+<div class="ph-scene">
+<svg viewBox="42 55 276 302" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="presentation">
+<path class="i-ark" d="M150.0,208.0 L297.2,293.0 L208.9,344.0 L61.7,259.0 Z"/>
+<path class="i-ark" d="M150.0,163.0 L297.2,248.0 L208.9,299.0 L61.7,214.0 Z"/>
+<path class="i-ark" d="M150.0,118.0 L297.2,203.0 L208.9,254.0 L61.7,169.0 Z"/>
+<path class="i-ark" d="M150.0,73.0 L297.2,158.0 L208.9,209.0 L61.7,124.0 Z"/>
+<path class="i-ark" d="M150.0,208.0 L150.0,73.0"/>
+<path class="i-ark" d="M297.2,293.0 L297.2,158.0"/>
+<path class="i-ark" d="M208.9,344.0 L208.9,209.0"/>
+<path class="i-ark" d="M61.7,259.0 L61.7,124.0"/>
+<path class="i-rib" d="M157.4,246.2 L157.4,111.2"/>
+<path class="i-rib" d="M127.9,263.2 L127.9,128.2"/>
+<path class="i-rib" d="M194.2,267.5 L194.2,132.5"/>
+<path class="i-rib" d="M164.7,284.5 L164.7,149.5"/>
+<path class="i-rib" d="M231.0,288.8 L231.0,153.8"/>
+<path class="i-rib" d="M201.5,305.8 L201.5,170.8"/>
+<path class="i-rib" d="M127.9,184.2 L260.4,260.8"/>
+<path class="i-rib" d="M98.5,201.2 L231.0,277.8"/>
+<path class="i-rib" d="M127.9,139.2 L260.4,215.8"/>
+<path class="i-rib" d="M98.5,156.2 L231.0,232.8"/>
+<path class="i-rib" d="M127.9,94.2 L260.4,170.8"/>
+<path class="i-rib" d="M98.5,111.2 L231.0,187.8"/>
+<path class="i-riv" d="M80.8,247.0 L80.8,184.0 L105.8,198.5 L164.7,164.5 L208.9,190.0 L150.0,224.0 L194.2,249.5 L253.1,215.5 L278.1,229.9"/>
+<path class="i-rie" d="M288.4,269.0 L233.9,237.6 L154.4,283.4 L88.2,245.2 L127.9,222.2 L110.2,212.0"/>
+</svg>
+<div class="ph-hud">
+<div class="ph-hud-line n1"><i></i><span data-i18n="ph.anim.l1">ARK · architect model uploaded</span></div>
+<div class="ph-hud-line n2"><i></i><span data-i18n="ph.anim.l2">RIB · load-bearing structure — new revision</span></div>
+<div class="ph-hud-line n3"><i></i><span data-i18n="ph.anim.l3">RIV · ventilation — federated model updated the same second</span></div>
+<div class="ph-hud-line n4"><i></i><span data-i18n="ph.anim.l4">RIE · electrical — access follows the folders</span></div>
+<div class="ph-hud-line n5"><i></i><span data-i18n="ph.anim.l5">X-ray — the shell goes transparent, the systems stay</span></div>
+<div class="ph-hud-foot" data-i18n="ph.anim.foot">The federated model is derived, never assembled — always every discipline's current revision</div>
 </div>
 </div>
 </div>
