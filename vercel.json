@@ -83,6 +83,18 @@
     {
       "source": "/bim-viewer",
       "destination": "/bim-viewer.html"
+    },
+    {
+      "source": "/prosjekthotell",
+      "destination": "/prosjekthotell.html"
+    },
+    {
+      "source": "/salgskonsoll",
+      "destination": "/salgskonsoll.html"
+    },
+    {
+      "source": "/mulighetsstudie",
+      "destination": "/mulighetsstudie.html"
     }
   ],
   "redirects": [
