@@ -95,6 +95,10 @@
     {
       "source": "/mulighetsstudie",
       "destination": "/mulighetsstudie.html"
+    },
+    {
+      "source": "/mulighetsstudie-demo",
+      "destination": "/mulighetsstudie-demo.html"
     }
   ],
   "redirects": [
