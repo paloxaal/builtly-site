@@ -513,6 +513,10 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .seat-role-tag{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);font-weight:600;margin-bottom:2px}
 .seat-name{font-family:var(--font-display);font-size:clamp(18px,1.6vw,22px);font-weight:500;letter-spacing:-0.015em;line-height:1.2;color:var(--ink);margin:0}
 .seat-bio{font-family:var(--font-body);font-size:13px;line-height:1.6;color:var(--ink-soft);margin:4px 0 0 0}
+.seat-contact{font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.02em;line-height:1.7;color:var(--mid);margin:4px 0 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}
+.seat-contact a{color:var(--ink-soft);border-bottom:1px solid var(--line-strong);white-space:nowrap;transition:color .2s ease,border-color .2s ease}
+.seat-contact a:hover{color:var(--accent-soft);border-color:var(--accent)}
+.seat-contact .sep{color:var(--grey)}
 
 @media (max-width:640px){
   .seat{grid-template-columns:1fr;gap:18px}
@@ -1039,6 +1043,40 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <div class="lead-block lead-block-advisory">
 <div class="lead-subhead">
+<span class="lead-suplabel" data-i18n="about.lead.sub3.label">Sales</span>
+<span class="lead-supcount" data-i18n="about.lead.sub3.count">02 members · customer contact</span>
+</div>
+<div class="seats-stack rvs">
+
+<article class="seat">
+<div class="seat-id">
+<div class="seat-photo"><img src="photos/olav.jpg" alt="Olav Aukan Stenersen" loading="lazy"/></div>
+<div class="seat-num">04</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.ae">Account Executive</div>
+<h3 class="seat-name" data-i18n="about.team.o1.name">Olav Aukan Stenersen</h3>
+<p class="seat-contact"><a href="mailto:olav@builtly.ai">olav@builtly.ai</a><span class="sep">·</span><a href="tel:+4790700719">+47 907 00 719</a></p>
+</div>
+</article>
+
+<article class="seat">
+<div class="seat-id">
+<div class="seat-photo"><img src="photos/sofie.jpg" alt="Sofie Thire" loading="lazy"/></div>
+<div class="seat-num">05</div>
+</div>
+<div class="seat-body">
+<div class="seat-role-tag" data-i18n="about.seat.role.ae">Account Executive</div>
+<h3 class="seat-name" data-i18n="about.team.sf1.name">Sofie Thire</h3>
+<p class="seat-contact"><a href="mailto:sofie@builtly.ai">sofie@builtly.ai</a><span class="sep">·</span><a href="tel:+4791242705">+47 912 42 705</a></p>
+</div>
+</article>
+
+</div>
+</div>
+
+<div class="lead-block lead-block-advisory">
+<div class="lead-subhead">
 <span class="lead-suplabel" data-i18n="about.lead.sub1.label">Board</span>
 <span class="lead-supcount" data-i18n="about.lead.sub1.count">06 members · governance</span>
 </div>
@@ -1047,7 +1085,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/magnus-svendsen.png" alt="Magnus Svendsen" loading="lazy"/></div>
-<div class="seat-num">04</div>
+<div class="seat-num">06</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.chair">Chair · Board</div>
@@ -1059,7 +1097,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/erik-selin.PNG" alt="Erik Selin" loading="lazy"/></div>
-<div class="seat-num">05</div>
+<div class="seat-num">07</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advisor">Board Member</div>
@@ -1071,7 +1109,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/roar-munkhaugen.jpg" alt="Roar Munkhaugen" loading="lazy"/></div>
-<div class="seat-num">06</div>
+<div class="seat-num">08</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advisor">Board Member</div>
@@ -1083,7 +1121,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/tollef-svenkerud.jpg" alt="Tollef Svenkerud" loading="lazy"/></div>
-<div class="seat-num">07</div>
+<div class="seat-num">09</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advisor">Board Member</div>
@@ -1095,7 +1133,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/vegard-tyldum.png" alt="Vegard Tyldum" loading="lazy"/></div>
-<div class="seat-num">08</div>
+<div class="seat-num">10</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advisor">Board Member</div>
@@ -1107,7 +1145,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/pal-morten-oxaal.png" alt="Pål Morten Oxaal" loading="lazy"/></div>
-<div class="seat-num">09</div>
+<div class="seat-num">11</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advisor">Board Member</div>
@@ -1129,7 +1167,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/lars-halvorsen.jpg" alt="Lars Halvorsen" loading="lazy"/></div>
-<div class="seat-num">10</div>
+<div class="seat-num">12</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advboard">Advisor</div>
@@ -1141,7 +1179,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/borge-aunaas.jpg" alt="Børge Aunaas" loading="lazy"/></div>
-<div class="seat-num">11</div>
+<div class="seat-num">13</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advboard">Advisor</div>
@@ -1153,7 +1191,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/geir.jpg" alt="Geir Leseth" loading="lazy"/></div>
-<div class="seat-num">12</div>
+<div class="seat-num">14</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advboard">Advisor</div>
@@ -1165,7 +1203,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <article class="seat">
 <div class="seat-id">
 <div class="seat-photo"><img src="photos/ingebjorg-lien.jpg" alt="Ingebjørg Lien" loading="lazy"/></div>
-<div class="seat-num">13</div>
+<div class="seat-num">15</div>
 </div>
 <div class="seat-body">
 <div class="seat-role-tag" data-i18n="about.seat.role.advboard">Advisor</div>
