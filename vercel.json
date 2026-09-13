@@ -99,6 +99,10 @@
     {
       "source": "/mulighetsstudie-demo",
       "destination": "/mulighetsstudie-demo.html"
+    },
+    {
+      "source": "/render",
+      "destination": "/render.html"
     }
   ],
   "redirects": [
