@@ -215,6 +215,19 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .card.card-render{grid-column:1/-1;flex-direction:row;padding:0;align-items:stretch;min-height:0}
 .card-render .cr-bilde{flex:0 0 clamp(220px,27%,400px);padding:clamp(14px,1.4vw,18px);border-right:1px solid var(--line);display:flex;align-items:center}
 .card-render .cr-bilde img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+/* PRODUKTKORT — dra fra grått til rendret: to bilder oppå hverandre, det rendrede klippet av --x; pekeren styrer beholderen, tastaturet range-feltet */
+.wipe{position:relative;margin:0 0 10px;border:1px solid var(--line-strong);background:var(--bg-soft);overflow:hidden;line-height:0;--x:50%;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize}
+.wipe img{display:block;width:100%;height:auto;pointer-events:none}
+.wipe-over{position:absolute;inset:0;clip-path:inset(0 0 0 var(--x))}
+.wipe-line{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:rgba(255,255,255,.96);box-shadow:0 0 0 1px rgba(19,24,32,.18);pointer-events:none}
+.wipe-knapp{position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:#fff;box-shadow:0 6px 18px rgba(19,24,32,.28);display:flex;align-items:center;justify-content:center}
+.wipe-knapp svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wipe-chip{position:absolute;top:10px;padding:5px 9px;background:rgba(250,250,247,.92);color:var(--ink);font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;pointer-events:none;border:1px solid var(--line)}
+.wipe-chip.l{left:10px}.wipe-chip.r{right:10px}
+.wipe-range{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;opacity:0;cursor:ew-resize;touch-action:pan-y;-webkit-appearance:none;appearance:none;background:transparent}
+.wipe:has(.wipe-range:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.card-render .cr-bilde .wipe{margin:0;width:100%}
+.card-render .cr-tekst{color:inherit;text-decoration:none}
 .card-render .cr-tekst{flex:1 1 auto;min-width:0;padding:clamp(18px,2vw,26px) clamp(22px,2.6vw,32px);display:flex;flex-direction:column}
 .card-render .cr-tekst .head{margin-bottom:12px}
 .card-render .cr-tekst h3{margin-bottom:8px}
@@ -338,15 +351,22 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <p data-i18n="sw.prod.ms.d">Fra eiendom til beslutningsgrunnlag: tomta fra matrikkelen, reguleringen lest, komplette utbyggingsalternativer med arealer, sol/skygge og prosjektøkonomi — rapport til styret og banken.</p>
 <div class="foot"><span data-i18n="sw.prod.ms.l">Se Mulighetsstudien</span><span class="go">→</span></div>
 </a>
-<a href="/render.html" class="card card-render rv">
-<div class="cr-bilde"><img src="/render/sammenlign.jpg" width="1200" height="764" alt="Samme boligbygg som IFC-modell til venstre og som ferdig rendering til høyre — illustrasjon" data-i18n-attr-alt="rd.s01.alt" loading="lazy" decoding="async" /></div>
-<div class="cr-tekst">
+<div class="card card-render rv">
+<div class="cr-bilde"><div class="wipe" data-wipe>
+<img class="wipe-ifc" src="/render/wipe2-ifc.jpg" width="1200" height="900" alt="Boligbygg i tre i en bygate som grå IFC-modell — illustrasjon" data-i18n-attr-alt="rd.wipe2.alt_ifc" loading="lazy" decoding="async" />
+<div class="wipe-over"><img src="/render/wipe2-render.jpg" width="1200" height="900" alt="Samme bygg som ferdig fotorealistisk visualisering — illustrasjon" data-i18n-attr-alt="rd.wipe2.alt_render" loading="lazy" decoding="async" /></div>
+<div class="wipe-line" aria-hidden="true"><span class="wipe-knapp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+<span class="wipe-chip l" data-i18n="rd.wipe.l">IFC-modell</span>
+<span class="wipe-chip r" data-i18n="rd.wipe.r">Ferdig visualisering</span>
+<input type="range" class="wipe-range" min="0" max="100" value="50" aria-label="Dra for å sammenligne IFC-modellen og den ferdige visualiseringen" data-i18n-attr-aria-label="rd.wipe.aria" />
+</div></div>
+<a class="cr-tekst" href="/render.html">
 <div class="head"><span>portal.builtly.ai · render</span><span class="pf-new" data-i18n="sw.prod.render.tag">Nytt</span></div>
 <h3 data-i18n="sw.prod.render.h">Builtly Render</h3>
 <p data-i18n="sw.prod.render.d">Fra arkitektmodell til fotorealistiske bilder — modelltro fra IFC-en, eller fra et bilde du alt har.</p>
 <div class="foot"><span data-i18n="sw.prod.render.l">Utforsk Builtly Render</span><span class="go">→</span></div>
-</div>
 </a>
+</div>
 </div>
 </div>
 </section>
@@ -542,6 +562,20 @@ document.querySelectorAll('a[href^="#"]').forEach(function(link){
     if(t){e.preventDefault();var top=t.getBoundingClientRect().top+window.pageYOffset-60;window.scrollTo({top:top,behavior:'smooth'});}
   });
 });
+</script>
+<script>
+(function(){
+  document.querySelectorAll('[data-wipe]').forEach(function(w){
+    var r=w.querySelector('.wipe-range'),akt=false;
+    function sett(v){v=Math.max(0,Math.min(100,+v||0));w.style.setProperty('--x',v+'%');}
+    function pos(e){var b=w.getBoundingClientRect();if(!b.width)return;var x=(e.clientX-b.left)/b.width*100;sett(x);r.value=Math.round(x);}
+    r.addEventListener('input',function(){sett(r.value)});
+    w.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse'&&e.button!==0)return;akt=true;if(w.setPointerCapture){try{w.setPointerCapture(e.pointerId)}catch(x){}}pos(e);e.preventDefault();});
+    w.addEventListener('pointermove',function(e){if(akt)pos(e)});
+    ['pointerup','pointercancel','lostpointercapture'].forEach(function(t){w.addEventListener(t,function(){akt=false})});
+    sett(r.value);
+  });
+})();
 </script>
 <script src="/i18n.js?v=20260913-render" defer></script>
 </body>
