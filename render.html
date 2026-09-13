@@ -241,9 +241,9 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 /* § 01 — sammenligningen + sjekkliste + MÅLT pipeline (statisk) */
 .rd-split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,4vw,72px);align-items:center;margin-top:clamp(28px,4vh,44px)}
 @media (max-width:960px){.rd-split{grid-template-columns:1fr}}
-.sammenlign{margin:0;border:1px solid var(--line-strong);background:var(--bg-soft)}
-.sammenlign img{display:block;width:100%;height:auto}
-.sammenlign figcaption{padding:10px 14px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);line-height:1.6}
+.sammenlign,.foto,.mat-scene{margin:0;border:1px solid var(--line-strong);background:var(--bg-soft)}
+.sammenlign img,.foto img,.mat-scene img{display:block;width:100%;height:auto}
+.sammenlign figcaption,.foto figcaption,.mat-scene figcaption{padding:10px 14px;border-top:1px solid var(--line);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);line-height:1.6}
 .rd-checks{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--ink)}
 .rd-checks li{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5;color:var(--ink-soft);align-items:start}
 .rd-checks svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transform:translateY(3px)}
@@ -274,29 +274,42 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 .ai-meter .bars i{display:inline-block;width:22px;height:6px;background:var(--accent)}
 
 /* § 03 — materialbiblioteket: swatcher som CSS, aldri et produktbilde vi ikke har rett til */
-.mat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-top:clamp(28px,4vh,44px)}
-@media (max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr)}}
-.mat{background:var(--bg);padding:14px;display:flex;flex-direction:column;gap:12px}
 .section-soft .mat{background:var(--bg-soft)}
-.mat .sw{aspect-ratio:1.55;position:relative;overflow:hidden;border:1px solid var(--line)}
-.mat .sw::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,0) 45%,rgba(0,0,0,.08))}
 .sw.tegl{background-color:#A75F49;background-image:linear-gradient(#8E4B38 1px,transparent 1px),linear-gradient(90deg,#8E4B38 1px,transparent 1px);background-size:100% 9px,22px 9px}
 .sw.kebony{background-color:#6B4A32;background-image:repeating-linear-gradient(90deg,transparent 0 9px,rgba(0,0,0,.28) 9px 10px,rgba(255,255,255,.06) 10px 12px)}
 .sw.royal{background-color:#8B6A48;background-image:repeating-linear-gradient(90deg,transparent 0 11px,rgba(0,0,0,.22) 11px 12px),repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 3px,transparent 3px 7px)}
 .sw.superwood{background-color:#9C9589;background-image:repeating-linear-gradient(90deg,transparent 0 9px,rgba(0,0,0,.2) 9px 10px)}
 .sw.jotun{background-color:#5B6770}
 .sw.moelven{background-color:#C9B48E;background-image:repeating-linear-gradient(90deg,transparent 0 12px,rgba(0,0,0,.16) 12px 13px),repeating-linear-gradient(0deg,rgba(0,0,0,.04) 0 2px,transparent 2px 9px)}
-.sw.bergene{background-color:#B8935E;background-image:repeating-linear-gradient(90deg,transparent 0 8px,rgba(0,0,0,.18) 8px 9px)}
-.sw.mer{background:var(--bg-soft);display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);line-height:1.6}
 .section-soft .sw.mer{background:var(--bg)}
-.mat .nm{font-family:var(--font-display);font-size:14.5px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);line-height:1.2}
-.mat .kat{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);margin-top:4px}
-.mat-note{margin-top:clamp(18px,2.5vh,26px);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
-@media (max-width:760px){.mat-note{grid-template-columns:1fr}}
-.mat-note p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-soft);max-width:70ch}
 
 /* § 04 — kvalitet i fase-rutenettet (delt komponent) */
 .phase .ds b{font-family:var(--font-mono);font-weight:500;font-size:12px;color:var(--ink);letter-spacing:.02em}
+
+/* § 01 Bruksområder — teksten først, fotoet ved siden av */
+.rd-bruk{grid-template-columns:minmax(0,1fr) minmax(0,.92fr)}
+.rd-bruk .rd-checks{margin-top:22px}
+/* § 04 Materialbiblioteket — interiørfoto med materialpanelet oppå, teksten ved siden av (mockup 2) */
+.mat-split{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.mat-scene{position:relative}
+.mat-panel{position:absolute;right:5%;top:6%;width:min(58%,300px);box-sizing:border-box;background:rgba(250,250,247,.96);border:1px solid var(--line-strong);padding:12px 12px 6px;box-shadow:0 18px 44px rgba(19,24,32,.22)}
+.mp-hode{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:-.01em;color:var(--ink);padding-bottom:9px;border-bottom:1px solid var(--line)}
+.mp-hode .mp-ver{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--mid);font-weight:500}
+.mp-sw{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0 6px}
+.mp-sw .sw{display:block;aspect-ratio:1.45;border:1px solid var(--line);position:relative;overflow:hidden}
+.mp-sw .sw::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,0) 45%,rgba(0,0,0,.08))}
+.mp-liste{list-style:none;margin:0;padding:0}
+.mp-liste li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 10px;align-items:baseline;padding:6px 0;border-top:1px solid var(--line);font-size:12.5px;line-height:1.3}
+.mp-liste li:first-child{border-top:0}
+.mp-liste .nm{font-family:var(--font-display);font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.mp-liste .kat{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);text-align:right}
+.mp-liste li.mer .nm{color:var(--mid);font-weight:500}
+.mat-fakta{margin:18px 0 0;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid)}
+.mat-p{margin:14px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-soft);max-width:56ch}
+.mat-split .btn{margin-top:22px}
+@media (max-width:600px){.mat-split .btn{white-space:normal;text-align:left;line-height:1.35}}
+/* stabling på smal skjerm — står SIST fordi .rd-bruk/.mat-split har samme spesifisitet som .rd-split */
+@media (max-width:960px){.rd-split,.rd-bruk,.mat-split{grid-template-columns:1fr}.rd-bruk .foto{order:-1}}
 
 </style>
 </head>
@@ -395,9 +408,31 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 </div>
 </section>
 
+<section class="section section-soft">
+<div class="wrap">
+<div class="smark"><span class="num">§ 01</span><span data-i18n="rd.u">Bruksområder</span><span class="dash"></span><span data-i18n="rd.u.tag">Der idéer møter virkelighet</span></div>
+<div class="rd-split rd-bruk">
+<div>
+<h2 class="dpy-3 rv" data-i18n="rd.u.h2">Der idéer møter virkelighet.</h2>
+<p class="lead rv" style="margin-top:18px" data-i18n="rd.u.lede">Enten du skal presentere et prosjekt for en kunde, teste materialvalg, visualisere et reguleringsforslag eller lage salgsmateriale — Builtly Render gir deg bildene når du trenger dem.</p>
+<ul class="rd-checks rv">
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="rd.u.1">Presentere prosjektet for kunde, styre og bank — med bilder av modellen slik den faktisk er.</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="rd.u.2">Teste materialvalg før de bestilles — tegl, kledning og farger fra biblioteket, i riktig lys.</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="rd.u.3">Vise et reguleringsforslag for naboer og myndigheter — med omgivelsene på plass.</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="rd.u.4">Lage salgsmateriale tidlig — samme modell, nye bilder for hver revisjon.</span></li>
+</ul>
+</div>
+<figure class="foto rv">
+<img src="/render/dam.jpg" width="607" height="607" alt="Fotorealistisk visualisering av et boligbygg ved vannet — illustrasjon" data-i18n-attr-alt="rd.u.alt" loading="lazy" decoding="async" />
+<figcaption data-i18n="rd.ill">Illustrasjon</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
 <section class="section">
 <div class="wrap">
-<div class="smark"><span class="num">§ 01</span><span data-i18n="rd.s01">Fra modell til bilde</span><span class="dash"></span><span data-i18n="rd.s01tag">Samme modell, helt nye muligheter</span></div>
+<div class="smark"><span class="num">§ 02</span><span data-i18n="rd.s01">Fra modell til bilde</span><span class="dash"></span><span data-i18n="rd.s01tag">Samme modell, helt nye muligheter</span></div>
 <h2 class="dpy-3 rv" data-i18n="rd.s01h2">Samme modell. Helt nye muligheter.</h2>
 <div class="rd-split">
 <figure class="sammenlign rv">
@@ -431,7 +466,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section section-soft">
 <div class="wrap">
-<div class="smark"><span class="num">§ 02</span><span data-i18n="rd.s02">Én motor, to innganger</span><span class="dash"></span><span data-i18n="rd.s02tag">Modelltro fra IFC — eller AI fra et bilde</span></div>
+<div class="smark"><span class="num">§ 03</span><span data-i18n="rd.s02">Én motor, to innganger</span><span class="dash"></span><span data-i18n="rd.s02tag">Modelltro fra IFC — eller AI fra et bilde</span></div>
 <h2 class="dpy-3 rv" data-i18n="rd.s02h2">Én motor. To innganger.</h2>
 <div class="cardgrid c2" style="margin-top:clamp(28px,4vh,44px)">
 <div class="card rv">
@@ -469,29 +504,39 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section">
 <div class="wrap">
-<div class="smark"><span class="num">§ 03</span><span data-i18n="rd.s03">Materialbiblioteket</span><span class="dash"></span><span data-i18n="rd.s03tag">Ekte materialer. Ekte resultater.</span></div>
-<h2 class="dpy-3 rv" data-i18n="rd.s03h2">Kjente materialer. Virkelige leverandører.</h2>
-<p class="lead rv" style="margin-top:18px;max-width:64ch" data-i18n="rd.s03lede">Velg blant et leverandørbasert materialbibliotek med produkter fra Randers Tegl, Kebony, Superwood, Talgø MøreRoyal, Jotun, Moelven og flere. Katalogen er versjonert, og hver farge bærer produsentens egen publiserte kode — en farge uten publisert verdi får aldri en oppfunnet skjermfarge.</p>
-<div class="mat-grid rv">
-<div class="mat"><div class="sw tegl"></div><div><div class="nm">Randers Tegl</div><div class="kat" data-i18n="rd.m.k1">Tegl</div></div></div>
-<div class="mat"><div class="sw kebony"></div><div><div class="nm">Kebony</div><div class="kat" data-i18n="rd.m.k2">Modifisert tre</div></div></div>
-<div class="mat"><div class="sw royal"></div><div><div class="nm">Talgø MøreRoyal</div><div class="kat" data-i18n="rd.m.k3">Kledning</div></div></div>
-<div class="mat"><div class="sw superwood"></div><div><div class="nm">Superwood</div><div class="kat" data-i18n="rd.m.k3">Kledning</div></div></div>
-<div class="mat"><div class="sw jotun"></div><div><div class="nm">Jotun DRYGOLIN</div><div class="kat" data-i18n="rd.m.k4">Maling</div></div></div>
-<div class="mat"><div class="sw moelven"></div><div><div class="nm">Moelven</div><div class="kat" data-i18n="rd.m.k3">Kledning</div></div></div>
-<div class="mat"><div class="sw bergene"></div><div><div class="nm">Bergene Holm</div><div class="kat" data-i18n="rd.m.k3">Kledning</div></div></div>
-<div class="mat"><div class="sw mer" data-i18n="rd.m.more">+ flere leverandører — og generiske overflater: puss, betong, glass, metall</div><div><div class="nm" data-i18n="rd.m.more_h">Versjonert katalog</div><div class="kat">2026.09 · 500+</div></div></div>
+<div class="smark"><span class="num">§ 04</span><span data-i18n="rd.s03">Materialbiblioteket</span><span class="dash"></span><span data-i18n="rd.s03tag">Ekte materialer. Ekte resultater.</span></div>
+<div class="rd-split mat-split">
+<figure class="mat-scene rv">
+<img src="/render/interior.jpg" width="609" height="756" alt="Interiør med utsikt over sjøen — illustrasjon av materialvalg i en rendret scene" data-i18n-attr-alt="rd.m.alt" loading="lazy" decoding="async" />
+<div class="mat-panel">
+<div class="mp-hode"><span data-i18n="rd.m.panel">Materialer</span><span class="mp-ver">2026.09</span></div>
+<div class="mp-sw" aria-hidden="true"><span class="sw tegl"></span><span class="sw kebony"></span><span class="sw royal"></span><span class="sw superwood"></span><span class="sw jotun"></span><span class="sw moelven"></span></div>
+<ul class="mp-liste">
+<li><span class="nm">Randers Tegl</span><span class="kat" data-i18n="rd.m.k1">Tegl</span></li>
+<li><span class="nm">Kebony</span><span class="kat" data-i18n="rd.m.k2">Modifisert tre</span></li>
+<li><span class="nm">Superwood</span><span class="kat" data-i18n="rd.m.k3">Kledning</span></li>
+<li><span class="nm">Talgø MøreRoyal</span><span class="kat" data-i18n="rd.m.k3">Kledning</span></li>
+<li><span class="nm">Jotun</span><span class="kat" data-i18n="rd.m.k4">Maling</span></li>
+<li><span class="nm">Moelven</span><span class="kat" data-i18n="rd.m.k3">Kledning</span></li>
+<li class="mer"><span class="nm" data-i18n="rd.m.more_kort">+ 9 leverandører til</span><span class="kat">845</span></li>
+</ul>
 </div>
-<div class="mat-note rv">
-<p data-i18n="rd.m.note">Biblioteket bygges ut leverandør for leverandør, og flaten sier hva som er klart til rendering. Ingen produktdata, fargeverdier eller bruksrettigheter er diktet — og et produktbilde vi ikke har rett til å bruke, bruker vi ikke.</p>
-<a href="https://portal.builtly.ai/?vis=render" class="btn btn-ghost"><span data-i18n="rd.m.cta">Utforsk materialbiblioteket i portalen</span> <span class="arr">→</span></a>
+<figcaption data-i18n="rd.ill">Illustrasjon</figcaption>
+</figure>
+<div>
+<h2 class="dpy-3 rv" data-i18n="rd.s03h2">Kjente materialer. Virkelige leverandører.</h2>
+<p class="lead rv" style="margin-top:18px" data-i18n="rd.s03lede">Velg blant et leverandørbasert materialbibliotek med produkter fra Randers Tegl, Kebony, Superwood, Talgø MøreRoyal, Jotun, Moelven og flere. Katalogen er versjonert, og hver farge bærer produsentens egen publiserte kode — en farge uten publisert verdi får aldri en oppfunnet skjermfarge.</p>
+<p class="mat-fakta rv" data-i18n="rd.m.fakta">Katalog 2026.09 · 845 produkter · 15 leverandører</p>
+<p class="mat-p rv" data-i18n="rd.m.note">Biblioteket bygges ut leverandør for leverandør, og flaten sier hva som er klart til rendering. Ingen produktdata, fargeverdier eller bruksrettigheter er diktet — og et produktbilde vi ikke har rett til å bruke, bruker vi ikke.</p>
+<a href="https://portal.builtly.ai/?vis=render" class="btn btn-ghost rv"><span data-i18n="rd.m.cta">Utforsk materialbiblioteket i portalen</span> <span class="arr">→</span></a>
+</div>
 </div>
 </div>
 </section>
 
 <section class="section section-soft">
 <div class="wrap">
-<div class="smark"><span class="num">§ 04</span><span data-i18n="rd.s04">Kvalitet og kreditter</span><span class="dash"></span><span data-i18n="rd.s04tag">Du velger kvaliteten — prisen sies før klikket</span></div>
+<div class="smark"><span class="num">§ 05</span><span data-i18n="rd.s04">Kvalitet og kreditter</span><span class="dash"></span><span data-i18n="rd.s04tag">Du velger kvaliteten — prisen sies før klikket</span></div>
 <h2 class="dpy-3 rv" data-i18n="rd.s04h2">Tre kvaliteter. Én kreditt per bilde.</h2>
 <div class="phases rv" style="margin-top:clamp(28px,4vh,44px)">
 <div class="phase"><div class="ix">01</div><div class="nm" data-i18n="rd.q1.nm">Utkast</div><div class="ds"><b>960 px · 32 samples</b><br/><span data-i18n="rd.q1.ds">Rask kontroll av utsnitt og materialer.</span></div></div>
@@ -514,7 +559,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 <section class="section">
 <div class="wrap">
-<div class="smark"><span class="num">§ 05</span><span data-i18n="rd.s05">Slik virker det</span><span class="dash"></span><span data-i18n="rd.s05tag">Fire steg — fra fil til bilde</span></div>
+<div class="smark"><span class="num">§ 06</span><span data-i18n="rd.s05">Slik virker det</span><span class="dash"></span><span data-i18n="rd.s05tag">Fire steg — fra fil til bilde</span></div>
 <h2 class="dpy-3 rv" data-i18n="rd.s05h2">Fra fil til ferdig bilde.</h2>
 <div class="phases rv" style="margin-top:clamp(28px,4vh,44px)">
 <div class="phase"><div class="ix">01</div><div class="nm" data-i18n="rd.p1.nm">Velg kilden</div><div class="ds" data-i18n="rd.p1.ds">Last opp en IFC, eller åpne den rett fra Prosjekthotellet. Modellen vises i viseren med en gang.</div></div>

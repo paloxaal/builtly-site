@@ -211,26 +211,17 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 
 
 
-/* PRODUKTKORT — Builtly Render: stillbildet (IFC · rendering) bærer kortet, hele kortet er én dør */
-.prod-feature{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);border:1px solid var(--line-strong);background:var(--bg);margin-top:clamp(28px,4vh,44px);transition:background .18s ease}
-.prod-feature:hover{background:var(--bg-soft)}
-@media (max-width:860px){.prod-feature{grid-template-columns:1fr}}
-.pf-scene{padding:clamp(14px,1.8vw,22px);border-right:1px solid var(--line);display:flex;align-items:center}
-.pf-scene img{display:block;width:100%;height:auto;border:1px solid var(--line)}
-@media (max-width:860px){.pf-scene{border-right:0;border-bottom:1px solid var(--line)}}
-.pf-body{padding:clamp(24px,3vw,36px);display:flex;flex-direction:column}
-.pf-body .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);font-weight:600}
+/* PRODUKTKORT — Builtly Render: kompakt bånd SIST i produktlista, stillbildet bærer det, hele kortet er én dør */
+.card.card-render{grid-column:1/-1;flex-direction:row;padding:0;align-items:stretch;min-height:0}
+.card-render .cr-bilde{flex:0 0 clamp(220px,27%,400px);padding:clamp(14px,1.4vw,18px);border-right:1px solid var(--line);display:flex;align-items:center}
+.card-render .cr-bilde img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+.card-render .cr-tekst{flex:1 1 auto;min-width:0;padding:clamp(18px,2vw,26px) clamp(22px,2.6vw,32px);display:flex;flex-direction:column}
+.card-render .cr-tekst .head{margin-bottom:12px}
+.card-render .cr-tekst h3{margin-bottom:8px}
+.card-render .cr-tekst p{flex-grow:1;max-width:60ch}
+.card-render .cr-tekst .foot{margin-top:16px;padding-top:14px}
 .pf-new{display:inline-block;background:var(--accent);color:var(--bg);padding:3px 8px;font-weight:600;letter-spacing:.14em}
-.pf-body h3{font-size:clamp(22px,2.4vw,30px);margin-bottom:12px}
-.pf-body p{margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.55;max-width:56ch}
-.pf-rows{flex-grow:1}
-.pf-rows{margin-top:22px}
-.pf-rows .row{padding:10px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:baseline}
-.pf-rows .row:first-child{border-top:1px solid var(--ink)}
-.pf-rows .row .k{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid)}
-.pf-rows .row .v{font-family:var(--font-display);font-size:13.5px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;text-align:right}
-.pf-body .foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid)}
-.pf-body .foot .go{color:var(--accent);font-weight:600}
+@media (max-width:700px){.card.card-render{flex-direction:column}.card-render .cr-bilde{flex-basis:auto;border-right:0;border-bottom:1px solid var(--line)}}
 
 </style>
 </head>
@@ -322,22 +313,7 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <div class="wrap">
 <div class="smark"><span class="num">§ 01</span><span data-i18n="sw.prod.s">Produkter</span><span class="dash"></span><span data-i18n="sw.prod.stag">Fem produkter i salg — hver med egen dør</span></div>
 <h2 class="dpy-3 rv" data-i18n="sw.prod.h2">Produktene.</h2>
-<a href="/render.html" class="prod-feature rv">
-<div class="pf-scene"><img src="/render/sammenlign.jpg" width="882" height="450" alt="Samme boligbygg som IFC-modell til venstre og som ferdig rendering til høyre — illustrasjon" data-i18n-attr-alt="rd.s01.alt" loading="eager" decoding="async" /></div>
-<div class="pf-body">
-<div class="head"><span>portal.builtly.ai · render</span><span class="pf-new" data-i18n="sw.prod.render.tag">Nytt</span></div>
-<h3 data-i18n="sw.prod.render.h">Builtly Render</h3>
-<p data-i18n="sw.prod.render.d">Fra arkitektmodell til fotorealistiske bilder: IFC-en rendres modelltro med materialer fra virkelige leverandører — eller et bilde du alt har, gjort fotorealistisk med AI der geometrien står fast.</p>
-<div class="pf-rows">
-<div class="row"><span class="k" data-i18n="rd.side1k">Inn</span><span class="v">IFC 2x3 · IFC4 · .ifczip</span></div>
-<div class="row"><span class="k" data-i18n="rd.side2k">Motor</span><span class="v" data-i18n="rd.side2v">Blender Cycles — modelltro</span></div>
-<div class="row"><span class="k" data-i18n="rd.side3k">Kvalitet</span><span class="v" data-i18n="rd.side3v">Utkast · Full HD · QHD</span></div>
-<div class="row"><span class="k" data-i18n="rd.side4k">Fra bilde</span><span class="v" data-i18n="rd.side4v">AI-visualisering · 1K–4K</span></div>
-</div>
-<div class="foot"><span data-i18n="sw.prod.render.l">Utforsk Builtly Render</span><span class="go">→</span></div>
-</div>
-</a>
-<div class="cardgrid c2" style="margin-top:clamp(18px,2.5vh,28px)">
+<div class="cardgrid c2" style="margin-top:clamp(28px,4vh,44px)">
 <a href="/prosjekthotell.html" class="card rv">
 <div class="head"><span>room.builtly.ai</span><span class="topic" data-i18n="sw.kort_cta">Utforsk</span></div>
 <h3 data-i18n="sw.prod.ph.h">Prosjekthotell</h3>
@@ -361,6 +337,15 @@ footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);borde
 <h3 data-i18n="sw.prod.ms.h">Mulighetsstudie</h3>
 <p data-i18n="sw.prod.ms.d">Fra eiendom til beslutningsgrunnlag: tomta fra matrikkelen, reguleringen lest, komplette utbyggingsalternativer med arealer, sol/skygge og prosjektøkonomi — rapport til styret og banken.</p>
 <div class="foot"><span data-i18n="sw.prod.ms.l">Se Mulighetsstudien</span><span class="go">→</span></div>
+</a>
+<a href="/render.html" class="card card-render rv">
+<div class="cr-bilde"><img src="/render/sammenlign.jpg" width="882" height="450" alt="Samme boligbygg som IFC-modell til venstre og som ferdig rendering til høyre — illustrasjon" data-i18n-attr-alt="rd.s01.alt" loading="lazy" decoding="async" /></div>
+<div class="cr-tekst">
+<div class="head"><span>portal.builtly.ai · render</span><span class="pf-new" data-i18n="sw.prod.render.tag">Nytt</span></div>
+<h3 data-i18n="sw.prod.render.h">Builtly Render</h3>
+<p data-i18n="sw.prod.render.d">Fra arkitektmodell til fotorealistiske bilder — modelltro fra IFC-en, eller fra et bilde du alt har.</p>
+<div class="foot"><span data-i18n="sw.prod.render.l">Utforsk Builtly Render</span><span class="go">→</span></div>
+</div>
 </a>
 </div>
 </div>
