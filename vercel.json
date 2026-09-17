@@ -114,7 +114,7 @@
           "value": "render.builtly.ai"
         }
       ],
-      "destination": "https://www.builtly.ai/render.html",
+      "destination": "https://portal.builtly.ai/?vis=render",
       "permanent": false
     },
     {
@@ -125,7 +125,7 @@
           "value": "render.builtly.ai"
         }
       ],
-      "destination": "https://www.builtly.ai/render.html",
+      "destination": "https://portal.builtly.ai/?vis=render",
       "permanent": false
     },
     {
