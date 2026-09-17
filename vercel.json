@@ -107,6 +107,17 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "render.builtly.ai"
+        }
+      ],
+      "destination": "https://www.builtly.ai/render.html",
+      "permanent": false
+    },
+    {
       "source": "/:path*",
       "has": [
         {
