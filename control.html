@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" data-i18n-attr-content="ct.metaDesc" content="Builtly Control samler byggevarene i prosjektet, dokumentasjonen bak dem og kravene de skal oppfylle — DoP, SDS, EPD og FDV — i én arbeidsflate. Hva som mangler måles av dokumentene ved lesing, aldri av et flagg. Mangler får ansvarlig og frist; bygget overleveres med dokumentasjonen på plass." />
+<meta name="theme-color" content="#FAFAF7" />
+<title data-i18n="ct.title">Builtly Control · Produktdokumentasjon og etterlevelse — målt, aldri bokført</title>
+<link rel="canonical" href="https://www.builtly.ai/control" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Builtly" />
+<meta property="og:url" content="https://www.builtly.ai/control" />
+<meta property="og:title" content="Builtly Control · Produktdokumentasjon og etterlevelse — målt, aldri bokført" />
+<meta property="og:description" content="Builtly Control samler byggevarene i prosjektet, dokumentasjonen bak dem og kravene de skal oppfylle — DoP, SDS, EPD og FDV — i én arbeidsflate. Hva som mangler måles av dokumentene ved lesing, aldri av et flagg. Mangler får ansvarlig og frist; bygget overleveres med dokumentasjonen på plass." />
+<meta property="og:image" content="https://www.builtly.ai/og/control.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Builtly Control", "operatingSystem": "Web", "applicationCategory": "BusinessApplication", "url": "https://www.builtly.ai/control", "description": "Builtly Control samler byggevarene i prosjektet, dokumentasjonen bak dem og kravene de skal oppfylle — DoP, SDS, EPD og FDV — i én arbeidsflate. Hva som mangler måles av dokumentene ved lesing, aldri av et flagg. Mangler får ansvarlig og frist; bygget overleveres med dokumentasjonen på plass.", "publisher": {"@type": "Organization", "name": "Builtly Engineering AS", "url": "https://www.builtly.ai"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
+<style>
+
+:root{
+  --bg:#FAFAF7; --bg-soft:#F1EEE6; --bg-warm:#EDE9DF;
+  --ink:#131820; --ink-soft:#2A323C; --mid:#6A6E76; --grey:#B8B5AD;
+  --dark:#131820; --dark-soft:#1C232D; --dark-paper:#F7F4ED;
+  --line:rgba(19,24,32,0.10); --line-strong:rgba(19,24,32,0.22);
+  --line-dark:rgba(247,244,237,0.10); --line-dark-strong:rgba(247,244,237,0.20);
+  --accent:#14B8A6; --accent-bright:#2DD4BF; --accent-soft:#0D9488;
+  --font-display:'Manrope','Helvetica Neue',system-ui,sans-serif;
+  --font-body:'Manrope','Helvetica Neue',system-ui,sans-serif;
+  --font-serif:'Newsreader','Times New Roman',serif;
+  --font-mono:'JetBrains Mono',Menlo,monospace;
+  --max:1440px; --gutter:clamp(24px,4.5vw,72px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;font-feature-settings:"ss01","cv11"}
+::selection{background:var(--ink);color:var(--bg)}
+h1,h2,h3,h4,h5{font-family:var(--font-display);font-weight:600;color:inherit;margin:0;line-height:1.05;letter-spacing:-0.022em}
+.dpy-1{font-size:clamp(38px,5.2vw,74px);line-height:1.05;letter-spacing:-0.028em;font-weight:500}
+.dpy-2{font-size:clamp(30px,4vw,56px);line-height:1.1;letter-spacing:-0.024em;font-weight:500}
+.dpy-3{font-size:clamp(24px,3vw,38px);line-height:1.12;letter-spacing:-0.02em;font-weight:600}
+.dpy-4{font-size:clamp(19px,2.1vw,26px);line-height:1.2;letter-spacing:-0.015em;font-weight:600}
+.lead{font-size:clamp(16.5px,1.35vw,21px);line-height:1.55;color:var(--ink-soft);font-weight:400;letter-spacing:-0.005em}
+.lead.on-dark{color:var(--dark-paper)}
+.serif{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacing:-0.005em}
+.eyebrow{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:500;color:var(--mid)}
+.eyebrow .accent-dot{display:inline-block;width:6px;height:6px;background:var(--accent);margin-right:10px;vertical-align:1px}
+a{color:inherit;text-decoration:none}
+.link-line{position:relative;padding-bottom:1px;border-bottom:1px solid currentColor;transition:opacity .2s}
+.link-line:hover{opacity:.6}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);position:relative}
+.section{position:relative;padding:clamp(64px,9vh,110px) 0}
+.section-dark{background:var(--dark);color:var(--dark-paper)}
+.section-dark h1,.section-dark h2,.section-dark h3,.section-dark h4{color:var(--dark-paper)}
+.section-soft{background:var(--bg-soft)}
+.smark{display:flex;align-items:baseline;gap:14px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);margin-bottom:clamp(34px,4.5vh,54px)}
+.section-dark .smark{color:rgba(247,244,237,0.55)}
+.smark .num{color:var(--accent);font-weight:600}
+.section-dark .smark .num{color:var(--accent-bright)}
+.smark .dash{flex:0 0 32px;height:1px;background:currentColor;opacity:.5}
+.nav{position:sticky;top:0;z-index:100;background:rgba(250,250,247,0.92);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);max-width:var(--max);margin:0 auto;gap:32px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-size:18px;font-weight:600;letter-spacing:-0.018em;color:var(--ink)}
+.logo-mark{display:inline-flex;width:26px;height:26px;border:1.5px solid var(--ink);border-radius:5px;align-items:center;justify-content:center;position:relative}
+.logo-mark::before{content:"";position:absolute;top:5px;right:5px;width:6px;height:6px;background:var(--accent);border-radius:50%}
+.logo .sub{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.18em;color:var(--mid);font-weight:500;margin-left:4px}
+.nav-links{display:flex;gap:clamp(20px,2.2vw,32px);font-size:14px;font-weight:500;color:var(--ink-soft);letter-spacing:-0.005em}
+.nav-links a{position:relative;padding:6px 0;transition:color .18s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a.active{color:var(--accent-soft)}
+
+@media (max-width:1240px){.nav-links{gap:14px;font-size:13.5px}}
+@media (max-width:1140px){.nav-links{gap:9px;font-size:12.5px}}
+@media (max-width:1040px){.nav-links{display:none}}
+.nav-burger{display:none;width:38px;height:38px;flex:0 0 auto;border:1px solid var(--line-strong);background:none;cursor:pointer;position:relative;padding:0}
+.nav-burger span{display:block;width:16px;height:1.5px;background:var(--ink);position:absolute;left:50%;transform:translateX(-50%);transition:transform .22s ease,opacity .16s ease,top .22s ease}
+.nav-burger span:nth-child(1){top:13px}
+.nav-burger span:nth-child(2){top:18px}
+.nav-burger span:nth-child(3){top:23px}
+body.menu-open .nav-burger span:nth-child(1){top:18px;transform:translateX(-50%) rotate(45deg)}
+body.menu-open .nav-burger span:nth-child(2){opacity:0}
+body.menu-open .nav-burger span:nth-child(3){top:18px;transform:translateX(-50%) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:96px var(--gutter) 44px;flex-direction:column}
+body.menu-open .mobile-menu{display:flex}
+body.menu-open{overflow:hidden}
+.mobile-menu .mm-eyebrow{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid);padding-bottom:10px;border-bottom:1px solid var(--line-strong)}
+.mobile-menu .mm-link{display:flex;align-items:baseline;gap:16px;padding:17px 2px;border-bottom:1px solid var(--line);font-family:var(--font-display);font-size:23px;font-weight:500;letter-spacing:-0.015em;color:var(--ink)}
+.mobile-menu .mm-num{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;color:var(--mid)}
+.mobile-menu .mm-link.active .mm-lab{color:var(--accent-soft)}
+.mobile-menu .mm-cta{margin-top:30px;align-self:flex-start;padding:12px 22px;font-size:13px}
+@media (max-width:1040px){.nav-burger{display:block}}
+@media (max-width:640px){.nav .btn-ghost{display:none}}
+@media (min-width:1041px){body.menu-open .mobile-menu{display:none}body.menu-open{overflow:auto}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:var(--ink);color:var(--bg);font-family:var(--font-display);font-size:13px;font-weight:600;letter-spacing:-0.005em;border:0;cursor:pointer;white-space:nowrap;transition:background .18s ease,transform .18s ease}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav .btn{padding:8px 15px;font-size:12px}
+.nav .btn-ghost{padding:7px 14px}
+@media (max-width:400px){.nav-inner{gap:9px}.nav-cta{gap:7px}.nav .btn{padding:7px 11px;font-size:11.5px}}
+.btn:hover{background:var(--accent)}
+.btn .arr{transition:transform .18s ease;font-weight:400}
+.btn:hover .arr{transform:translateX(3px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong);padding:10px 17px}
+.btn-ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn-light{background:var(--dark-paper);color:var(--ink)}
+.btn-light:hover{background:var(--accent);color:var(--bg)}
+.btn-dark-ghost{background:transparent;color:var(--dark-paper);border:1px solid var(--line-dark-strong);padding:10px 17px}
+.btn-dark-ghost:hover{background:var(--dark-paper);color:var(--ink);border-color:var(--dark-paper)}
+@media (max-width:520px){.nav-inner{gap:14px;padding:14px var(--gutter)}.logo .sub{display:none}.btn{padding:9px 14px;font-size:12px}}
+.lang-picker{display:inline-flex;align-items:center;gap:7px;background:none;border:1px solid var(--line-strong);padding:8px 11px;cursor:pointer;font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;color:var(--ink);position:relative}
+.lang-picker:hover{border-color:var(--ink)}
+.lang-picker svg{width:13px;height:13px}
+.lang-menu{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg);border:1px solid var(--line-strong);min-width:170px;z-index:120;box-shadow:0 16px 40px -18px rgba(19,24,32,0.28);padding:6px}
+.lang-menu[hidden]{display:none}
+.lang-option{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;background:none;border:0;text-align:left;padding:9px 10px;font-family:var(--font-body);font-size:13px;color:var(--ink-soft);cursor:pointer}
+.lang-option:hover{background:var(--bg-soft)}
+.lang-option .native{color:var(--mid);font-size:12px}
+.lang-option .check{width:11px;height:11px;stroke:var(--accent);fill:none;stroke-width:2;opacity:0}
+.lang-option.active .check{opacity:1}
+.lang-wrap{position:relative}
+/* småskjerm: nav-cta må få plass med «Be om tilbud» (sist i kaskaden med vilje) */
+@media (max-width:430px){
+  .nav-inner{gap:8px;padding:14px var(--gutter)}
+  .nav-cta{gap:7px}
+  .lang-picker{padding:6px 8px;gap:5px}
+  .lang-picker svg:last-child{display:none}
+  .nav .btn{padding:7px 10px;font-size:11.5px}
+  .nav .btn .arr{display:none}
+}
+/* hero for undersidene */
+.p-hero{padding:clamp(40px,7vh,84px) 0 clamp(36px,6vh,64px);border-bottom:1px solid var(--line)}
+.p-hero-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,0.9fr);gap:clamp(36px,5vw,90px);align-items:start}
+@media (max-width:1000px){.p-hero-grid{grid-template-columns:1fr}}
+.p-hero h1{margin-top:18px;text-wrap:balance}
+.p-hero .lead{margin-top:24px;max-width:56ch}
+.p-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.p-side{display:flex;flex-direction:column}
+.p-side .row{padding:15px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.p-side .row:first-child{border-top:1px solid var(--ink)}
+.p-side .row .k{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid)}
+.p-side .row .v{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;text-align:right;max-width:26ch}
+/* kortgrid (hairline-rutenett) */
+.cardgrid{display:grid;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+.cardgrid.c2{grid-template-columns:repeat(2,1fr)}
+.cardgrid.c3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:980px){.cardgrid.c3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){.cardgrid.c2,.cardgrid.c3{grid-template-columns:1fr}}
+.card{background:var(--bg);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;min-height:200px;transition:background .18s ease;position:relative}
+.card:hover{background:var(--bg-soft)}
+.section-soft .card{background:var(--bg-soft)}
+.section-soft .card:hover{background:var(--bg)}
+.card .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);font-weight:600}
+.card .head .topic{color:var(--mid)}
+.card h3{margin-bottom:12px;font-size:clamp(19px,2vw,25px)}
+.card p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55;flex-grow:1;max-width:56ch}
+.card .foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--mid)}
+.card .foot .v{font-family:var(--font-display);font-weight:600;color:var(--ink);font-size:13px;letter-spacing:-0.005em;text-transform:none}
+a.card .foot .go{color:var(--accent);font-weight:600}
+/* liste-rader (leveranser) */
+.dlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.dlist li{display:grid;grid-template-columns:clamp(40px,4vw,56px) 1fr;gap:clamp(16px,2.5vw,40px);padding:clamp(18px,2.6vh,26px) 0;border-bottom:1px solid var(--line);align-items:baseline}
+.dlist .n{font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;color:var(--accent);font-weight:600}
+.dlist .t{font-family:var(--font-display);font-size:clamp(17px,1.8vw,21px);font-weight:600;letter-spacing:-0.012em;color:var(--ink)}
+.dlist .d{margin-top:6px;color:var(--ink-soft);font-size:15px;line-height:1.55;max-width:66ch}
+/* fase-rad */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong)}
+@media (max-width:900px){.phases{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.phases{grid-template-columns:1fr}}
+.phase{background:var(--bg);padding:22px 20px 24px;min-height:150px}
+.section-soft .phase{background:var(--bg-soft)}
+.phase .ix{font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:8px}
+.phase .nm{font-family:var(--font-display);font-size:17px;font-weight:600;letter-spacing:-0.012em;color:var(--ink);margin-bottom:8px;line-height:1.15}
+.phase .ds{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+/* stille sitat/garanti-strip */
+.quiet-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft);padding:clamp(32px,5vh,48px) 0}
+.quiet-strip .inner{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,44px);align-items:start;max-width:980px}
+@media (max-width:700px){.quiet-strip .inner{grid-template-columns:1fr}}
+.quiet-strip .mark{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent);font-weight:600;padding-top:4px;white-space:nowrap}
+.quiet-strip p{margin:0;font-size:clamp(16px,1.5vw,19px);line-height:1.6;color:var(--ink-soft);max-width:72ch}
+/* kryss-lenkekort */
+.crosslink{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border:1px solid var(--line-strong);background:var(--bg);padding:clamp(24px,3vw,36px)}
+@media (max-width:700px){.crosslink{grid-template-columns:1fr}}
+.crosslink h3{font-size:clamp(18px,1.9vw,23px);margin-bottom:8px}
+.crosslink p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55;max-width:64ch}
+/* gratis-produkt-stripe (BIM Viewer) */
+.free-strip{border:1px solid var(--line-strong);background:var(--bg);padding:clamp(26px,3.4vw,42px);display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:clamp(24px,3vw,56px);align-items:center}
+@media (max-width:880px){.free-strip{grid-template-columns:1fr}}
+.free-strip .fs-badge{display:inline-block;font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;color:var(--bg);background:var(--accent);padding:4px 10px;margin-bottom:14px}
+.free-strip h3{font-size:clamp(19px,2.1vw,26px);margin-bottom:10px}
+.free-strip p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:66ch}
+.free-strip .fs-actions{display:flex;gap:12px;flex-wrap:wrap}
+/* CTA */
+.cta-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(40px,5vw,96px);align-items:end}
+@media (max-width:900px){.cta-grid{grid-template-columns:1fr}}
+.cta-side .row{display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid var(--line);align-items:baseline;font-family:var(--font-mono);font-size:13px}
+.cta-side .row:first-child{border-top:1px solid var(--ink)}
+.cta-side .row .k{color:var(--mid);text-transform:uppercase;letter-spacing:0.14em;font-size:11px}
+.cta-side .row .v{color:var(--ink);font-weight:500;letter-spacing:-0.005em;text-align:right}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
+/* footer */
+footer{background:var(--bg-soft);padding:64px 0 28px;color:var(--ink-soft);border-top:1px solid var(--line)}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid var(--line)}
+@media (max-width:800px){.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
+@media (max-width:480px){.footer-top{grid-template-columns:1fr;gap:32px}}
+.f-brand{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-0.018em;color:var(--ink);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.f-brand .lm{width:24px;height:24px;border:1.5px solid var(--ink);border-radius:5px;position:relative}
+.f-brand .lm::before{content:"";position:absolute;top:4px;right:4px;width:6px;height:6px;background:var(--accent);border-radius:50%}
+.f-tag{font-size:14px;line-height:1.6;color:var(--mid);max-width:36ch}
+.f-col h5{color:var(--ink);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;font-weight:600;margin-bottom:18px}
+.f-col ul{list-style:none;margin:0;padding:0}
+.f-col li{padding:5px 0;font-size:14px;line-height:1.5}
+.f-col a:hover{color:var(--accent)}
+.footer-bot{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--mid)}
+.footer-legal{flex-basis:100%;margin-top:8px;text-transform:none;letter-spacing:0.04em;opacity:.7;font-size:11px}
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+
+
+
+/* BUILTLY CONTROL — produktsiden. Statusfargene er egne tokens: de snur aldri med drakten her (lys flate), men de er ETT sett for mockup, motor og faner */
+:root{--ok:#0D9488;--ok-bg:rgba(20,184,166,.13);--warn:#B45309;--warn-bg:rgba(180,83,9,.11);--wait:#2A323C;--wait-bg:rgba(19,24,32,.07)}
+.st{display:inline-block;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;font-style:normal;padding:3px 7px;line-height:1.3;white-space:nowrap}
+.st.ok{color:var(--ok);background:var(--ok-bg)}
+.st.warn{color:var(--warn);background:var(--warn-bg)}
+.st.wait{color:var(--wait);background:var(--wait-bg)}
+.pf-new{display:inline-block;background:var(--accent);color:var(--bg);padding:3px 8px;font-weight:600;letter-spacing:.14em;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;vertical-align:2px;margin-left:12px}
+/* HERO — mockupen til høyre får mer plass enn spesifikasjonsradene på de andre sidene */
+.ct-hero .p-hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.18fr);align-items:center}
+@media (max-width:1000px){.ct-hero .p-hero-grid{grid-template-columns:1fr}}
+.ct-app{border:1px solid var(--line-strong);background:var(--bg);box-shadow:0 30px 70px -40px rgba(19,24,32,.45);font-size:12.5px;line-height:1.35;overflow:hidden}
+.ca-top{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
+.ca-brand{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:600;font-size:13px;letter-spacing:-.01em;color:var(--ink)}
+.ca-brand .lm{width:16px;height:16px;border:1.5px solid var(--ink);border-radius:4px;position:relative;display:inline-block}
+.ca-brand .lm::before{content:"";position:absolute;top:2.5px;right:2.5px;width:4px;height:4px;background:var(--accent);border-radius:50%}
+.ca-brand b{font-weight:500;color:var(--mid)}
+.ca-chip{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);border:1px solid var(--line-strong);padding:3px 8px}
+.ca-body{display:grid;grid-template-columns:150px minmax(0,1fr)}
+.ca-side{border-right:1px solid var(--line);padding:12px 8px;display:flex;flex-direction:column;gap:2px;background:var(--bg)}
+.ca-side span{display:flex;align-items:center;gap:8px;padding:7px 9px;color:var(--ink-soft);font-size:12px;font-weight:500}
+.ca-side span svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;opacity:.75}
+.ca-side span.on{background:var(--ok-bg);color:var(--ok)}
+.ca-side span.on svg{opacity:1}
+.ca-side .sep{padding:0;height:1px;background:var(--line);margin:8px 6px}
+.ca-side i{font-style:normal}
+@media (max-width:560px){.ca-body{grid-template-columns:1fr}.ca-side{display:none}}
+.ca-main{padding:14px 16px 16px;min-width:0}
+.ca-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+.ca-h{font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:-.015em;color:var(--ink)}
+.ca-sub{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-top:3px}
+.ca-btn{display:inline-block;background:var(--ink);color:var(--bg);font-family:var(--font-display);font-weight:600;font-size:11px;padding:6px 10px;white-space:nowrap}
+.ca-btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.ca-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-bottom:12px}
+.ca-kpi div{background:var(--bg);padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.ca-kpi b{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1}
+.ca-kpi span{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
+.ca-kpi .warn b{color:var(--warn)}
+.ca-kpi .wait b{color:var(--wait)}
+.ca-tab{width:100%;border-collapse:collapse;border:1px solid var(--line-strong)}
+.ca-tab th{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);text-align:left;padding:7px 10px;background:var(--bg-soft);border-bottom:1px solid var(--line);font-weight:500}
+.ca-tab td{padding:8px 10px;border-bottom:1px solid var(--line);color:var(--ink-soft);vertical-align:middle}
+.ca-tab td:first-child{font-weight:600;color:var(--ink)}
+.ca-tab tr:last-child td{border-bottom:0}
+.ca-foot{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin:8px 0 12px}
+.ca-alert{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line-strong);border-left:3px solid var(--warn);padding:10px 12px;background:var(--bg-soft)}
+.ca-alert b{display:block;font-family:var(--font-display);font-weight:600;font-size:12.5px;color:var(--ink)}
+.ca-alert span.d{font-size:11.5px;color:var(--mid)}
+@media (max-width:480px){.ca-alert{flex-direction:column;align-items:flex-start}.ca-kpi b{font-size:18px}.ca-tab td:nth-child(2),.ca-tab th:nth-child(2){display:none}.ca-tab td,.ca-tab th{padding-left:8px;padding-right:8px}}
+.ct-cap{margin:10px 0 0;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);line-height:1.6}
+/* FEATURESTRIPE — fem egenskaper i hairline-rutenett (samme komponent som Render) */
+.ct-feats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);margin-top:clamp(28px,4vh,44px)}
+@media (max-width:1100px){.ct-feats{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.ct-feats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:440px){.ct-feats{grid-template-columns:1fr}}
+.ct-feat{background:var(--bg);padding:22px 20px 24px;display:flex;flex-direction:column;gap:12px}
+.ct-feat svg{width:26px;height:26px;stroke:var(--accent-soft);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ct-feat .t{font-family:var(--font-display);font-size:15.5px;font-weight:600;letter-spacing:-0.012em;color:var(--ink);line-height:1.2}
+.ct-feat .d{font-size:13.5px;color:var(--ink-soft);line-height:1.5;margin:0}
+/* fem faser */
+.phases.p5{grid-template-columns:repeat(5,1fr)}
+@media (max-width:1100px){.phases.p5{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.phases.p5{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:440px){.phases.p5{grid-template-columns:1fr}}
+/* § 02 — regelmotoren: teksten til venstre, motorpanelet til høyre */
+.ct-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,4vw,72px);align-items:start;margin-top:clamp(28px,4vh,44px)}
+@media (max-width:960px){.ct-split{grid-template-columns:1fr}}
+.ct-checks{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--ink)}
+.ct-checks li{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.5;color:var(--ink-soft);align-items:start}
+.ct-checks svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transform:translateY(3px)}
+.motor{border:1px solid var(--line-strong);background:var(--dark);color:var(--dark-paper);padding:clamp(18px,2.2vw,26px);font-family:var(--font-mono);font-size:12px;line-height:1.5}
+.motor .mo-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:rgba(247,244,237,.55);padding-bottom:12px;border-bottom:1px solid var(--line-dark);flex-wrap:wrap}
+.motor .mo-top b{color:var(--dark-paper);font-weight:600}
+.mo-prod{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:14px 0;border-bottom:1px solid var(--line-dark);font-size:11.5px}
+.mo-prod .k{color:rgba(247,244,237,.5);text-transform:uppercase;letter-spacing:.12em;font-size:9.5px;padding-top:2px}
+.mo-prod .v{color:var(--dark-paper)}
+.mo-prod .v i{font-style:normal;color:var(--accent-bright);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-left:8px}
+.mo-rader{list-style:none;margin:0;padding:0}
+.mo-rader li{display:grid;grid-template-columns:minmax(0,1.15fr) auto minmax(0,1.55fr) auto;gap:8px 14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line-dark);font-size:11.5px}
+.mo-rader .kr{color:var(--dark-paper);font-family:var(--font-display);font-weight:600;font-size:12.5px;letter-spacing:-.01em}
+.mo-rader .met{color:rgba(247,244,237,.5);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase}
+.mo-rader .kode{color:var(--accent-bright);font-size:10.5px;letter-spacing:.04em;overflow-wrap:break-word}
+.mo-rader .st{justify-self:start}
+.motor .st{background:rgba(247,244,237,.08)}
+.motor .st.ok{color:var(--accent-bright)}
+.motor .st.warn{color:#F5B27A}
+.motor .st.wait{color:rgba(247,244,237,.8)}
+@media (max-width:560px){.mo-rader li{grid-template-columns:1fr auto}.mo-rader .met{display:none}.mo-rader .kode{grid-column:1/-1}}
+.mo-dek{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:16px}
+.mo-dek div{background:var(--dark);padding:10px 12px;display:flex;flex-direction:column;gap:3px}
+.mo-dek .k{color:rgba(247,244,237,.5);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase}
+.mo-dek b{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--dark-paper);line-height:1.1}
+.mo-dek .pct{color:var(--accent-bright);font-size:10.5px}
+@media (max-width:560px){.mo-dek{grid-template-columns:1fr}}
+.mo-foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-dark);font-size:10px;letter-spacing:.06em;color:rgba(247,244,237,.55);line-height:1.7;text-transform:uppercase;overflow-wrap:anywhere}
+.mo-foot b{color:var(--dark-paper);font-weight:500}
+/* § 04 — rettighetene som mono-rader */
+.cap-liste{list-style:none;margin:0;padding:0;border:1px solid var(--line-strong);background:var(--bg)}
+.cap-liste li{display:grid;grid-template-columns:minmax(0,auto) 1fr;gap:6px 18px;align-items:baseline;padding:12px 16px;border-bottom:1px solid var(--line)}
+.cap-liste li:last-child{border-bottom:0}
+.cap-liste code{font-family:var(--font-mono);font-size:11.5px;color:var(--accent-soft);font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.cap-liste span{font-size:14px;color:var(--ink-soft);line-height:1.5}
+@media (max-width:520px){.cap-liste li{grid-template-columns:1fr}}
+.cap-top{padding:12px 16px;border-bottom:1px solid var(--line);background:var(--bg-soft);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cap-top b{color:var(--ink);font-weight:600}
+.cap-wrap{border:1px solid var(--line-strong)}
+.cap-wrap .cap-liste{border:0}
+/* § 06 veikart — «kommer»-chip på dlist-rader */
+.dlist .t .st{margin-left:10px;vertical-align:2px}
+.dlist .t .st.plan{color:var(--mid);background:var(--wait-bg)}
+
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="nav-inner">
+<a href="/" class="logo"><span class="logo-mark"></span>Builtly<span class="sub">Engineering</span></a>
+<div class="nav-links">
+<a href="/tjenester.html" data-i18n="nav.services">Tjenester</a>
+<a href="/software.html" class="active" data-i18n="nav.software">Software</a>
+<a href="/referanser.html" data-i18n="nav.references">Referanser</a>
+<a href="/slik-jobber-vi.html" data-i18n="nav.method">Slik jobber vi</a>
+<a href="/about.html" data-i18n="nav.aboutBuiltly">Om Builtly</a>
+<a href="/contact.html" data-i18n="nav.contact">Kontakt</a>
+</div>
+<div class="nav-cta">
+<div class="lang-wrap">
+<button class="lang-picker" id="langPicker" aria-haspopup="true" aria-expanded="false" aria-label="Velg språk" data-i18n-attr-aria-label="lang.selectLabel">
+<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="8" cy="8" r="6.4"/><path d="M1.6 8h12.8M8 1.6c1.8 1.7 2.8 4 2.8 6.4S9.8 12.7 8 14.4C6.2 12.7 5.2 10.4 5.2 8S6.2 3.3 8 1.6Z"/></svg>
+<span class="lang-code">NO</span>
+<svg viewBox="0 0 10 6" width="9" height="6" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+</button>
+<div class="lang-menu" id="langMenu" role="menu" hidden>
+<button class="lang-option" data-lang="en" role="menuitem">English<span class="native">English</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="de" role="menuitem">German<span class="native">Deutsch</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="sv" role="menuitem">Swedish<span class="native">Svenska</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option active" data-lang="no" role="menuitem">Norwegian<span class="native">Norsk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="fi" role="menuitem">Finnish<span class="native">Suomi</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="lang-option" data-lang="da" role="menuitem">Danish<span class="native">Dansk</span><svg class="check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.5 2.5L9.5 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</div>
+</div>
+<a href="https://portal.builtly.ai" class="btn"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>
+<button class="nav-burger" id="navBurger" type="button" aria-label="Meny" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+</div>
+</div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" hidden>
+<div class="mm-eyebrow">Builtly · Meny</div>
+<nav class="mm-links" aria-label="Mobilnavigasjon"></nav>
+<a href="https://portal.builtly.ai" class="btn mm-cta"><span data-i18n="nav.openPortal">Åpne portalen</span> <span class="arr">→</span></a>
+<a href="/bli-kunde.html" class="btn btn-ghost mm-cta" style="margin-top:10px"><span data-i18n="nav.quote">Be om tilbud</span></a>
+</div>
+<script>
+(function(){
+  var burger=document.getElementById('navBurger'),menu=document.getElementById('mobileMenu');
+  if(!burger||!menu)return;
+  var links=document.querySelectorAll('.nav-links a'),mm=menu.querySelector('.mm-links');
+  links.forEach(function(a,i){
+    var c=document.createElement('a');c.href=a.getAttribute('href');c.className='mm-link'+(a.classList.contains('active')?' active':'');
+    var num=document.createElement('span');num.className='mm-num';num.textContent=(i+1<10?'0':'')+(i+1);
+    var lab=document.createElement('span');lab.className='mm-lab';lab.textContent=a.textContent;
+    var k=a.getAttribute('data-i18n');if(k)lab.setAttribute('data-i18n',k);
+    c.appendChild(num);c.appendChild(lab);mm.appendChild(c);
+  });
+  function close(){document.body.classList.remove('menu-open');menu.hidden=true;burger.setAttribute('aria-expanded','false')}
+  burger.addEventListener('click',function(){
+    var open=document.body.classList.toggle('menu-open');
+    menu.hidden=!open;burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  window.addEventListener('resize',function(){if(window.innerWidth>1040)close()});
+})();
+</script>
+<main>
+<section class="p-hero ct-hero">
+<div class="wrap">
+<div class="p-hero-grid">
+<div>
+<div class="eyebrow"><span class="accent-dot"></span><span data-i18n="ct.eyebrow">Builtly Control · control.builtly.ai</span><span class="pf-new" data-i18n="ct.tag">Nytt · tidlig tilgang</span></div>
+<h1 class="dpy-1" data-i18n="ct.h1">Mindre dokumentjakt. Mer kontroll.</h1>
+<p class="lead" data-i18n="ct.lede">Builtly Control samler byggevarene i prosjektet, dokumentasjonen bak dem og kravene de skal oppfylle i én arbeidsflate — ytelseserklæringer, sikkerhetsdatablad, EPD og FDV. Hva som mangler måles av dokumentene ved lesing, aldri av et flagg noen har satt. Mangler får en ansvarlig og en frist, og bygget går til overlevering med dokumentasjonen på plass.</p>
+<div class="p-hero-actions">
+<a href="https://control.builtly.ai" class="btn"><span data-i18n="ct.cta1">Logg inn i Control</span> <span class="arr">→</span></a>
+<a href="/bli-kunde.html" class="btn btn-ghost"><span data-i18n="ct.cta2">Be om demo</span> <span class="arr">→</span></a>
+</div>
+<p class="ct-cap" style="margin-top:22px" data-i18n="ct.hero.note">Som eget produkt — eller aktivert på et prosjekt i Builtly Prosjekthotell. Samme konto, samme innlogging.</p>
+</div>
+<div class="p-side">
+<div class="ct-app rv" aria-hidden="true">
+<div class="ca-top"><span class="ca-brand"><span class="lm"></span>Builtly <b>Control</b></span><span class="ca-chip" data-i18n="ct.app.chip">Eksempelvisning</span></div>
+<div class="ca-body">
+<div class="ca-side">
+<span class="on"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><i data-i18n="ct.app.n1">Oversikt</i></span>
+<span><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg><i data-i18n="ct.app.n2">Produkter</i></span>
+<span><svg viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg><i data-i18n="ct.app.n3">Krav og avvik</i></span>
+<span><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4 20h16l-6-11V3"/></svg><i data-i18n="ct.app.n4">Kjemikalier</i></span>
+<span><svg viewBox="0 0 24 24"><path d="M12 21c-4-3-8-6.5-8-11a8 8 0 0 1 16 0c0 4.5-4 8-8 11Z"/><path d="M12 6v8M8 10h8"/></svg><i data-i18n="ct.app.n5">Miljø</i></span>
+<span><svg viewBox="0 0 24 24"><path d="M6 3h9l5 5v13H6V3Z"/><path d="M15 3v5h5M9 13h6M9 17h6"/></svg><i data-i18n="ct.app.n6">FDV</i></span>
+<span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-5-6.3"/></svg><i data-i18n="ct.app.n7">Leverandører</i></span>
+<span class="sep"></span>
+<span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg><i data-i18n="ct.app.n8">Prosjektinnstillinger</i></span>
+</div>
+<div class="ca-main">
+<div class="ca-head"><div><div class="ca-h" data-i18n="ct.app.h">Produkter og dokumentasjon</div><div class="ca-sub" data-i18n="ct.app.sub">Eksempelprosjekt · P-01</div></div><span class="ca-btn" data-i18n="ct.app.btn">+ Legg til produkt</span></div>
+<div class="ca-kpi"><div><b>24</b><span data-i18n="ct.app.k1">Produkter</span></div><div class="warn"><b>3</b><span data-i18n="ct.app.k2">Mangler</span></div><div class="wait"><b>2</b><span data-i18n="ct.app.k3">Til vurdering</span></div></div>
+<table class="ca-tab">
+<thead><tr><th data-i18n="ct.app.t1">Produkt</th><th data-i18n="ct.app.t2">Dokumentasjon</th><th data-i18n="ct.app.t3">Status</th></tr></thead>
+<tbody>
+<tr><td data-i18n="ct.app.r1a">Fasadeplate</td><td data-i18n="ct.app.r1b">Ytelseserklæring</td><td><i class="st warn" data-i18n="ct.app.s_mangler">Mangler</i></td></tr>
+<tr><td data-i18n="ct.app.r2a">Isolasjon</td><td>EPD</td><td><i class="st wait" data-i18n="ct.app.s_vurd">Til vurdering</i></td></tr>
+<tr><td data-i18n="ct.app.r3a">Innerdør</td><td>FDV</td><td><i class="st ok" data-i18n="ct.app.s_dok">Dokumentert</i></td></tr>
+<tr><td data-i18n="ct.app.r4a">Trekledning</td><td data-i18n="ct.app.r4b">Monteringsanvisning</td><td><i class="st ok" data-i18n="ct.app.s_dok">Dokumentert</i></td></tr>
+</tbody>
+</table>
+<div class="ca-foot" data-i18n="ct.app.foot">Viser 4 av 24 produkter</div>
+<div class="ca-alert"><div><b data-i18n="ct.app.a_h">Krever oppfølging</b><span class="d" data-i18n="ct.app.a_d">Fasadeplate · Ytelseserklæring mangler</span></div><span class="ca-btn ghost" data-i18n="ct.app.a_btn">Be om dokumentasjon</span></div>
+</div>
+</div>
+</div>
+<p class="ct-cap" data-i18n="ct.app.cap">Eksempelvisning — tallene er illustrasjon. I produktet vises et tall som ikke er målt som «—», aldri som 0.</p>
+</div>
+</div>
+<div class="ct-feats rv">
+<div class="ct-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg><div class="t" data-i18n="ct.f1.t">Produktregister</div><p class="d" data-i18n="ct.f1.d">Produkt og variant, produsent, leverandør, brukssted og mengde — manuelt eller fra CSV med forhåndsvisning.</p></div>
+<div class="ct-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l5 5v13H6V3Z"/><path d="M15 3v5h5M9 13h6M9 17h6"/></svg><div class="t" data-i18n="ct.f2.t">Dokumentasjon per variant</div><p class="d" data-i18n="ct.f2.d">DoP, CE, SDS, EPD, FDV og monteringsanvisning — versjonert, med sha256 og eksplisitt bekreftet dekning.</p></div>
+<div class="ct-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg><div class="t" data-i18n="ct.f3.t">Krav og avvik</div><p class="d" data-i18n="ct.f3.d">Versjonert kravsett, deterministiske kontroller, faglig vurdering — og en mangel med ansvarlig og frist.</p></div>
+<div class="ct-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6L4 20h16l-6-11V3"/></svg><div class="t" data-i18n="ct.f4.t">Kjemikalier og miljø</div><p class="d" data-i18n="ct.f4.d">Sikkerhetsdatablad på hvert kjemikalie, EPD på produktene — som filtre over det samme registeret.</p></div>
+<div class="ct-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m8 12 3 3 5-6"/></svg><div class="t" data-i18n="ct.f5.t">FDV og overlevering</div><p class="d" data-i18n="ct.f5.d">Dokumentasjonen følger prosjektet inn i drift — FDV-fanen viser hva som er på plass, og hva som ikke er det.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section section-soft">
+<div class="wrap">
+<div class="smark"><span class="num">§ 01</span><span data-i18n="ct.s01">Slik virker det</span><span class="dash"></span><span data-i18n="ct.s01tag">Fem steg — fra byggevare til overlevering</span></div>
+<h2 class="dpy-3 rv" data-i18n="ct.s01h2">Fra byggevare til overlevering.</h2>
+<div class="phases p5 rv" style="margin-top:clamp(28px,4vh,44px)">
+<div class="phase"><div class="ix">01</div><div class="nm" data-i18n="ct.p1.nm">Registrer</div><div class="ds" data-i18n="ct.p1.ds">Legg inn produktene — ett og ett, eller importer en CSV fra leverandøren. Forhåndsvisningen sier hvilke rader som er gyldige, duplikater eller tvetydige før noe skrives.</div></div>
+<div class="phase"><div class="ix">02</div><div class="nm" data-i18n="ct.p2.nm">Dokumentér</div><div class="ds" data-i18n="ct.p2.ds">Last opp dokumentene, koble dem til produktvariantene og bekreft at de dekker akkurat den varianten. Eller be leverandøren om det som mangler — med ett klikk.</div></div>
+<div class="phase"><div class="ix">03</div><div class="nm" data-i18n="ct.p3.nm">Kontrollér</div><div class="ds" data-i18n="ct.p3.ds">Regelmotoren måler hvert krav mot de koblede dokumentene ved lesing: dokumenttype, bekreftet dekning, språk. Tre ulike mangler gir tre ulike svar.</div></div>
+<div class="phase"><div class="ix">04</div><div class="nm" data-i18n="ct.p4.nm">Vurder og behandle</div><div class="ds" data-i18n="ct.p4.ds">Et faglig krav vurderes av et menneske med begrunnelse. En mangel får ansvarlig, frist og behandlingsstatus — kravstatus og behandling vises hver for seg.</div></div>
+<div class="phase"><div class="ix">05</div><div class="nm" data-i18n="ct.p5.nm">Overlever</div><div class="ds" data-i18n="ct.p5.ds">Dekningen står med teller og nevner. FDV-fanen viser hva som følger bygget inn i drift — og eksporteres som CSV.</div></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="smark"><span class="num">§ 02</span><span data-i18n="ct.s02">Regelmotoren</span><span class="dash"></span><span data-i18n="ct.s02tag">Målt ved lesing, aldri bokført</span></div>
+<div class="ct-split">
+<div>
+<h2 class="dpy-3 rv" data-i18n="ct.s02h2">Et krav er en måling. Ikke en avkrysning.</h2>
+<p class="lead rv" style="margin-top:18px" data-i18n="ct.s02lede">Builtly Control lagrer aldri «dokumentert: ja». Kravresultatet regnes ut hver gang prosjektet leses — av dokumentene som faktisk er koblet, dekningen et menneske faktisk har bekreftet, og språket dokumentet faktisk bærer. Et lagret flagg blir før eller siden en løgn; en måling kan ikke det.</p>
+<ul class="ct-checks rv">
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="ct.c1">Tre mangler, tre svar: dokumenttypen mangler, dekningen er ikke bekreftet for varianten, eller språket er ukjent — aldri ett samlet «ikke ok».</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="ct.c2">Motoren svarer aldri «oppfylt» på et faglig krav. Den måler forutsetningene; vurderingen er et menneskes, med mandat og begrunnelse.</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="ct.c3">En vurdering låses til grunnlaget sitt: produktets faglige felt, kravets innhold og dokumentversjonene. Endres grunnlaget, kreves ny vurdering — den gamle overskrives aldri.</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="ct.c4">Dekningen er to mål med teller og nevner. Nevner null er «ikke beregnbart» — aldri 100 % av ingenting, og ordet «komplett» finnes ikke.</span></li>
+</ul>
+</div>
+<div class="motor rv" aria-hidden="true">
+<div class="mo-top"><b data-i18n="ct.mo.mark">Ett produkt — målt ved lesing</b><span data-i18n="ct.mo.tag">Kravsett v2 · regelmotor 2026.09</span></div>
+<div class="mo-prod">
+<span class="k" data-i18n="ct.mo.k1">Produkt</span><span class="v" data-i18n="ct.mo.v1">Fasadeplate FP-12 · variant 8 mm</span>
+<span class="k" data-i18n="ct.mo.k2">Identifikator</span><span class="v">GTIN 07031234567890<i data-i18n="ct.mo.v2i">tekst, aldri tall</i></span>
+<span class="k" data-i18n="ct.mo.k3">Brukssted</span><span class="v" data-i18n="ct.mo.v3">Bygg A · plan 3 · fasade nord · 412 m²</span>
+<span class="k" data-i18n="ct.mo.k4">Kjemikalie</span><span class="v" data-i18n="ct.mo.v4">ja — SDS-kravet gjelder</span>
+</div>
+<ul class="mo-rader">
+<li><span class="kr" data-i18n="ct.mo.r1">Ytelseserklæring (DoP)</span><span class="met" data-i18n="ct.mo.det">deterministisk</span><span class="kode">DOCUMENT_MISSING</span><i class="st warn" data-i18n="ct.mo.notmet">ikke oppfylt</i></li>
+<li><span class="kr" data-i18n="ct.mo.r2">Sikkerhetsdatablad (SDS)</span><span class="met" data-i18n="ct.mo.det">deterministisk</span><span class="kode">VARIANT_SCOPE_NOT_CONFIRMED</span><i class="st wait" data-i18n="ct.mo.insuff">utilstrekkelig bevis</i></li>
+<li><span class="kr" data-i18n="ct.mo.r3">Språk · norsk eller engelsk</span><span class="met" data-i18n="ct.mo.det">deterministisk</span><span class="kode">LANGUAGE_UNKNOWN</span><i class="st wait" data-i18n="ct.mo.insuff">utilstrekkelig bevis</i></li>
+<li><span class="kr" data-i18n="ct.mo.r4">Brannklasse dokumentert for bruksstedet</span><span class="met" data-i18n="ct.mo.fag">faglig</span><span class="kode">HUMAN_REVIEW_REQUIRED</span><i class="st wait" data-i18n="ct.mo.notass">ikke vurdert</i></li>
+<li><span class="kr" data-i18n="ct.mo.r5">Monteringsanvisning</span><span class="met" data-i18n="ct.mo.det">deterministisk</span><span class="kode">—</span><i class="st ok" data-i18n="ct.mo.met">oppfylt</i></li>
+</ul>
+<div class="mo-dek">
+<div><span class="k" data-i18n="ct.mo.d1">Dokumentasjonsdekning</span><b data-i18n="ct.mo.d1v">7 av 12</b><span class="pct">58 %</span></div>
+<div><span class="k" data-i18n="ct.mo.d2">Kravoppfyllelse</span><b data-i18n="ct.mo.d2v">7 av 14</b><span class="pct">50 %</span></div>
+<div><span class="k" data-i18n="ct.mo.d3">Uavklart anvendelse</span><b>2</b><span class="pct" data-i18n="ct.mo.d3v">vurderes per produkt</span></div>
+</div>
+<div class="mo-foot"><span data-i18n="ct.mo.foot1">Grunnlag</span> <b>sha256 3f9a…c2e1</b> · <span data-i18n="ct.mo.foot2">låst ved vurdering — endres grunnlaget, kreves ny vurdering. Sporet bærer uid, aldri e-post.</span></div>
+</div>
+</div>
+<div class="cardgrid c3" style="margin-top:clamp(28px,4vh,44px)">
+<div class="card rv" style="min-height:170px">
+<div class="head"><span>01</span><span class="topic" data-i18n="ct.k1.t">Kravsettet</span></div>
+<h3 data-i18n="ct.k1.h">Versjonert. Publisert med vilje.</h3>
+<p data-i18n="ct.k1.d">Ett kravsett per prosjekt: utkast fra Builtlys grunnmal eller fra det gjeldende, redigert krav for krav — type, kilde, alvorlighet, metode, omfang og bevis — og publisert som en ny versjon med dato, hvem og notat. En mal er ikke aktiv fordi den er valgt.</p>
+</div>
+<div class="card rv" style="min-height:170px">
+<div class="head"><span>02</span><span class="topic" data-i18n="ct.k2.t">Dokumentene</span></div>
+<h3 data-i18n="ct.k2.h">Kontrollert før bruk.</h3>
+<p data-i18n="ct.k2.d">Hver fil kontrolleres på endelse og innhold før den tas inn — en HTML-side bak «.pdf» avvises. Originalen bevares i hver versjon med sha256, mottatt-dato og dokumentdato; er dokumentdatoen ukjent, står den tom — aldri opplastingsdatoen.</p>
+</div>
+<div class="card rv" style="min-height:170px">
+<div class="head"><span>03</span><span class="topic" data-i18n="ct.k3.t">Dekningen</span></div>
+<h3 data-i18n="ct.k3.h">Bekreftet av et menneske.</h3>
+<p data-i18n="ct.k3.d">Et dokument koblet til et produkt er «mottatt» til noen sier «dette dekker denne varianten». Først da teller det i kravet. Et sikkerhetsdatablad for feil variant er ingen dokumentasjon — og motoren later aldri som noe annet.</p>
+</div>
+<div class="card rv" style="min-height:170px">
+<div class="head"><span>04</span><span class="topic" data-i18n="ct.k4.t">Identiteten</span></div>
+<h3 data-i18n="ct.k4.h">Tekst. Aldri gjettet.</h3>
+<p data-i18n="ct.k4.d">En identifikator er tekst — «07» forblir «07». Samme identifikator med to utstedere er tvetydig og registreres aldri stille. Et produsent-varenummer er bare entydig sammen med produsenten.</p>
+</div>
+<div class="card rv" style="min-height:170px">
+<div class="head"><span>05</span><span class="topic" data-i18n="ct.k5.t">Mangelen</span></div>
+<h3 data-i18n="ct.k5.h">Én rad. Ansvarlig, frist, historikk.</h3>
+<p data-i18n="ct.k5.d">Oppgaven er behandlingen av en mangel — aldri kravet selv. Den bærer ansvarlig, frist, status og historikk per felt. En oppgave som lukkes uten at kravet er oppfylt, sier nøyaktig det.</p>
+</div>
+<div class="card rv" style="min-height:170px">
+<div class="head"><span>06</span><span class="topic" data-i18n="ct.k6.t">Sporet</span></div>
+<h3 data-i18n="ct.k6.h">Hvem, hva, når — aldri hvem sin e-post.</h3>
+<p data-i18n="ct.k6.d">Aktivering, tildeling, produkt, dokumentversjon, kravsett, vurdering og oppgave skrives til revisjonssporet med bruker-id og tall — aldri adresser, aldri begrunnelsen. Sporet er aldri en gate: feiler det, telles det.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-soft">
+<div class="wrap">
+<div class="smark"><span class="num">§ 03</span><span data-i18n="ct.s03">Arbeidsflaten</span><span class="dash"></span><span data-i18n="ct.s03tag">Seks faner — ett register</span></div>
+<h2 class="dpy-3 rv" data-i18n="ct.s03h2">Ett register. Seks blikk på det.</h2>
+<p class="lead rv" style="margin-top:18px;max-width:64ch" data-i18n="ct.s03lede">Kjemikalier, Miljø og FDV er ikke egne lister som må holdes i synk. De er filtre over det samme produktregisteret og de samme dokumentkoblingene — så et produkt som mangler sikkerhetsdatablad mangler det på alle tre stedene samtidig.</p>
+<div class="cardgrid c3" style="margin-top:clamp(28px,4vh,44px)">
+<div class="card rv">
+<div class="head"><span>01</span><span class="topic" data-i18n="ct.t1.t">Produkter</span></div>
+<h3 data-i18n="ct.t1.h">Produktregisteret</h3>
+<p data-i18n="ct.t1.d">Produkt og variant, produsent, leverandør, brukssted, dokumentasjon og identifisering — med søk, filtre og kolonnevalg. Skuffen bærer bruk, mengde og dokumentene til hvert produkt.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>02</span><span class="topic" data-i18n="ct.t2.t">Krav og avvik</span></div>
+<h3 data-i18n="ct.t2.h">N av M oppfylt</h3>
+<p data-i18n="ct.t2.d">Hvert produkt mot hvert krav i omfanget. Avviket viser produkt og brukssted, kravet, hvorfor, ansvarlig og frist — og kravstatus og behandlingsstatus hver for seg.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>03</span><span class="topic" data-i18n="ct.t3.t">Kjemikalier</span></div>
+<h3 data-i18n="ct.t3.h">Sikkerhetsdatabladene</h3>
+<p data-i18n="ct.t3.d">Produktene merket som kjemikalie, med status på sikkerhetsdatabladet: mangler, mottatt eller bekreftet for varianten. SDS-kravet gjelder kun her.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>04</span><span class="topic" data-i18n="ct.t4.t">Miljø</span></div>
+<h3 data-i18n="ct.t4.h">Miljødeklarasjonene</h3>
+<p data-i18n="ct.t4.d">EPD-ene på produktene — hva som er dokumentert, hva som er mottatt uten bekreftet dekning, og hva som mangler.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>05</span><span class="topic" data-i18n="ct.t5.t">FDV</span></div>
+<h3 data-i18n="ct.t5.h">Det som følger bygget</h3>
+<p data-i18n="ct.t5.d">FDV-dokumentasjonen per produkt, klar til overlevering — og lastet ned som CSV med samme escaping som resten av plattformen.</p>
+</div>
+<div class="card rv">
+<div class="head"><span>06</span><span class="topic" data-i18n="ct.t6.t">Leverandører</span></div>
+<h3 data-i18n="ct.t6.h">Be om det som mangler</h3>
+<p data-i18n="ct.t6.d">Én e-post per sending med de ønskede dokumenttypene per produkt. Utfallet måles og står på raden: sendt, eller lagret uten at e-posten gikk. En forespørsel uten svar blir en oppgave.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="smark"><span class="num">§ 04</span><span data-i18n="ct.s04">Eget produkt eller i Prosjekthotellet</span><span class="dash"></span><span data-i18n="ct.s04tag">Ett datagrunnlag, to skall</span></div>
+<div class="ct-split" style="margin-top:0">
+<div>
+<h2 class="dpy-3 rv" data-i18n="ct.s04h2">Ett datagrunnlag. To skall.</h2>
+<p class="lead rv" style="margin-top:18px" data-i18n="ct.s04lede">Builtly Control er et produkt på Prosjekthotellets prosjektgrunnlag — aldri en fjerde prosjektidentitet. En selvstendig kunde får organisasjon og prosjekt ved første aktivering; aktiverer dere Prosjekthotellet senere, er det de samme radene. Og et hotellprosjekt aktiverer Control med ett klikk.</p>
+<ul class="ct-checks rv">
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="ct.o1">Produktrett er ikke brukertilgang. Produktet på kontoen gir retten til å aktivere; hva en person kan gjøre i prosjektet er en eksplisitt tildeling fra en Control-administrator.</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="ct.o2">Ingen rettighet impliserer en annen. En Control-rettighet gir ingen mapperett i Prosjekthotellet, og en hotellrolle gir ingen Control-rettighet.</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="ct.o3">Stedfestingen er fail-closed: et prosjekt du ikke er medlem av svarer «ingen tilgang» før noe leses — svaret lekker aldri om prosjektet finnes.</span></li>
+<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg><span data-i18n="ct.o4">Samme konto, samme innlogging, samme API som resten av Builtly-portalen — aldri en egen sesjonsmekanikk.</span></li>
+</ul>
+</div>
+<div class="cap-wrap rv">
+<div class="cap-top"><b data-i18n="ct.cap.mark">Rettighetene i prosjektet</b><span data-i18n="ct.cap.tag">Eksplisitte rader · aldri roller</span></div>
+<ul class="cap-liste">
+<li><code>control.admin</code><span data-i18n="ct.cap.1">Tildeler og fjerner rettigheter i prosjektet. Ser tildelingene.</span></li>
+<li><code>control.read</code><span data-i18n="ct.cap.2">Leser produkter, dokumenter, krav, avvik og dekning. Uten den er listen «ikke målt» — aldri tom.</span></li>
+<li><code>control.products.write</code><span data-i18n="ct.cap.3">Oppretter og endrer produkter, plasseringer, bruk og dokumentkoblinger. Importerer.</span></li>
+<li><code>control.requirements.manage</code><span data-i18n="ct.cap.4">Redigerer utkastet til kravsettet og publiserer en ny versjon.</span></li>
+<li><code>control.assess</code><span data-i18n="ct.cap.5">Gjør den faglige vurderingen — med begrunnelse, låst til grunnlaget.</span></li>
+<li><code>control.requests.send</code><span data-i18n="ct.cap.6">Sender forespørsel om dokumentasjon til leverandøren.</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-soft">
+<div class="wrap">
+<div class="smark"><span class="num">§ 05</span><span data-i18n="ct.s05">Import</span><span class="dash"></span><span data-i18n="ct.s05tag">CSV inn — med forhåndsvisning før noe skrives</span></div>
+<h2 class="dpy-3 rv" data-i18n="ct.s05h2">Leverandørens liste inn. Ingenting stille.</h2>
+<div class="cardgrid c2" style="margin-top:clamp(28px,4vh,44px)">
+<div class="card rv" style="min-height:160px">
+<div class="head"><span>01</span><span class="topic" data-i18n="ct.i1.t">Forhåndsvisningen er serverens</span></div>
+<p data-i18n="ct.i1.d">Kolonnene kobles automatisk på kjente synonymer, eller du velger selv. Hver rad måles mot filen og registeret: gyldig, duplikat, tvetydig eller feil. En feilrad kan aldri velges; et duplikat eller en tvetydig rad pekes på, og importeres aldri på egen hånd.</p>
+</div>
+<div class="card rv" style="min-height:160px">
+<div class="head"><span>02</span><span class="topic" data-i18n="ct.i2.t">Idempotent på kildens linje</span></div>
+<p data-i18n="ct.i2.d">Bekreftelsen føder produkter kun på kildens egen linje-id — kjøres samme fil to ganger, opprettes ingenting to ganger. Idempotensen er aldri produktnummeret eller filnavnet. Kilden står på produktet: import, rad og linje.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="smark"><span class="num">§ 06</span><span data-i18n="ct.s06">Veikart</span><span class="dash"></span><span data-i18n="ct.s06tag">Det som er bygd — og det som kommer</span></div>
+<h2 class="dpy-3 rv" data-i18n="ct.s06h2">Bygd i pakker. Sagt i klartekst.</h2>
+<p class="lead rv" style="margin-top:18px;max-width:64ch" data-i18n="ct.s06lede">Builtly Control er i tidlig tilgang og bygges arbeidspakke for arbeidspakke. Det som står i produktet er i produksjon; det som kommer, står som en rad med «kommer» — aldri som en knapp som ikke virker.</p>
+<ul class="dlist" style="margin-top:clamp(28px,4vh,44px)">
+<li class="rv"><span class="n">01</span><div><div class="t"><span data-i18n="ct.v1.t">Register, dokumenter, krav, avvik, import og forespørsler</span><i class="st ok" data-i18n="ct.v.ok">I produksjon</i></div><div class="d" data-i18n="ct.v1.d">Produktregister med plasseringer og bruk, versjonerte dokumenter med filkontroll og bekreftet dekning, versjonert kravsett med deterministiske kontroller og faglig vurdering, mangler med ansvarlig og frist, CSV-import og forespørsel til leverandør.</div></div></li>
+<li class="rv"><span class="n">02</span><div><div class="t"><span data-i18n="ct.v2.t">Leverandørsvar og krav på tvers av prosjekter</span><i class="st plan" data-i18n="ct.v.plan">Kommer</i></div><div class="d" data-i18n="ct.v2.d">Leverandøren svarer på forespørselen i en egen flate, og kravene og avvikene samles på tvers av alle prosjektene i organisasjonen.</div></div></li>
+<li class="rv"><span class="n">03</span><div><div class="t"><span data-i18n="ct.v3.t">FDV-pakke og leveranser</span><i class="st plan" data-i18n="ct.v.plan">Kommer</i></div><div class="d" data-i18n="ct.v3.d">Leveranser og montering per brukssted, og FDV-pakken satt sammen for overleveringen — i dag er FDV-fanen et filter og en CSV.</div></div></li>
+<li class="rv"><span class="n">04</span><div><div class="t"><span data-i18n="ct.v4.t">Døra i Prosjekthotellet og fagmappedokumentene</span><i class="st plan" data-i18n="ct.v.plan">Kommer</i></div><div class="d" data-i18n="ct.v4.d">Control rett fra prosjektets side i Prosjekthotellet, og dokumentene i rommets fagmapper koblet til produktene.</div></div></li>
+<li class="rv"><span class="n">05</span><div><div class="t"><span data-i18n="ct.v5.t">KI-forslag til krav</span><i class="st plan" data-i18n="ct.v.plan">Kommer</i></div><div class="d" data-i18n="ct.v5.d">KI foreslår krav fra prosjektets fag og dokumenter — som typede forslag et menneske godkjenner. KI skriver aldri et krav, en vurdering eller en status.</div></div></li>
+<li class="rv"><span class="n">06</span><div><div class="t"><span data-i18n="ct.v6.t">Stoffkartotek og eksponering</span><i class="st plan" data-i18n="ct.v.plan">Kommer</i></div><div class="d" data-i18n="ct.v6.d">Stoffkartoteket bygd av sikkerhetsdatabladene, og eksponeringsregisteret for byggeplassen — i dag er «kjemikalie» ett flagg med SDS-kravet bak.</div></div></li>
+</ul>
+</div>
+</section>
+
+<section class="quiet-strip">
+<div class="wrap">
+<div class="inner">
+<span class="mark" data-i18n="ct.rule_mark">Ærlighet</span>
+<p data-i18n="ct.rule_p">Et tall som ikke er målt vises som «—», aldri som 0. En liste som ikke kunne leses trygt er «ikke målt», aldri tom. Motoren svarer aldri «oppfylt» på et faglig krav, dekningen er aldri «komplett», og en handling uten rettighet får en forklaring — aldri en stum knapp.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="wrap">
+<div class="crosslink rv">
+<div>
+<h3 data-i18n="ct.x_h">Bor prosjektet i Prosjekthotellet?</h3>
+<p data-i18n="ct.x_p">Da aktiverer du Control på prosjektet med ett klikk — samme prosjekt, samme deltakere, samme konto. Dokumentasjonen samles ved siden av modellen og rommets dokumenter.</p>
+</div>
+<a href="/prosjekthotell.html" class="btn btn-ghost"><span data-i18n="ct.x_cta">Se Prosjekthotellet</span> <span class="arr">→</span></a>
+</div>
+</div>
+</section>
+
+<section class="section section-dark">
+<div class="wrap">
+<div class="cta-grid">
+<div class="rv">
+<h2 class="dpy-2" data-i18n="ct.cta_h2">Se produktdokumentasjonen på et eget prosjekt.</h2>
+<p class="lead on-dark" style="margin-top:24px;max-width:52ch" data-i18n="ct.cta_lede">Har dere Control på kontoen, logger du inn på control.builtly.ai og aktiverer det på prosjektet. Ellers: be om en demo på egne byggevarer og egne krav.</p>
+<div class="cta-actions">
+<a href="https://control.builtly.ai" class="btn btn-light"><span data-i18n="ct.cta1">Logg inn i Control</span> <span class="arr">→</span></a>
+<a href="/bli-kunde.html" class="btn btn-dark-ghost"><span data-i18n="ct.cta2">Be om demo</span></a>
+</div>
+</div>
+<div class="cta-side rv">
+<div class="row" style="border-top-color:var(--dark-paper)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="ct.cr1k">Inngang</span><span class="v" style="color:var(--dark-paper)">control.builtly.ai</span></div>
+<div class="row" style="border-top-color:var(--line-dark)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="ct.cr2k">Tilgang</span><span class="v" style="color:var(--dark-paper)" data-i18n="ct.cr2v">Aktiveres per prosjekt</span></div>
+<div class="row" style="border-top-color:var(--line-dark)"><span class="k" style="color:rgba(247,244,237,0.6)" data-i18n="ct.cr3k">Grunnlag</span><span class="v" style="color:var(--dark-paper)" data-i18n="ct.cr3v">Prosjekthotellets prosjekt</span></div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<footer>
+<div class="wrap">
+<div class="footer-top">
+<div>
+<div class="f-brand"><span class="lm"></span>Builtly</div>
+<div class="f-tag" data-i18n="f2.tag">Rådgivende ingeniører og egenutviklet software for bygg, anlegg og eiendom.</div>
+</div>
+<div class="f-col">
+<h5 data-i18n="f2.services.h">Tjenester</h5>
+<ul>
+<li><a href="/tjenester/geoteknikk.html" data-i18n="f2.services.geo">Geoteknikk</a></li>
+<li><a href="/tjenester/konstruksjon.html" data-i18n="f2.services.str">Konstruksjon</a></li>
+<li><a href="/tjenester/brannsikkerhet.html" data-i18n="f2.services.fire">Brannsikkerhet</a></li>
+<li><a href="/tjenester/akustikk.html" data-i18n="f2.services.aco">Akustikk</a></li>
+<li><a href="/tjenester/miljo.html" data-i18n="f2.services.env">Miljø og bærekraft</a></li>
+<li><a href="/tjenester.html" data-i18n="f2.services.all">Alle tjenester →</a></li>
+</ul>
+</div>
+<div class="f-col">
+<h5 data-i18n="f2.software.h">Software</h5>
+<ul>
+<li><a href="/software.html" data-i18n="f2.software.overview">Softwareområdet</a></li>
+<li><a href="/prosjekthotell.html">Prosjekthotell</a></li>
+<li><a href="/maps.html" data-i18n="f2.software.maps">Builtly Maps</a></li>
+<li><a href="/salgskonsoll.html">Salgskonsoll</a></li>
+<li><a href="/mulighetsstudie.html">Mulighetsstudie</a></li>
+<li><a href="/render.html">Builtly Render</a></li>
+<li><a href="/control.html">Builtly Control</a></li>
+<li><a href="/bim-viewer.html" data-i18n="f2.software.bim">BIM Viewer</a></li>
+<li><a href="/platform.html" data-i18n="f2.software.platform">Plattformen</a></li>
+<li><a href="/verktoy.html" data-i18n="f2.software.tools">Verktøykassen</a></li>
+<li><a href="https://portal.builtly.ai" data-i18n="f2.software.portal">Logg inn i portalen</a></li>
+</ul>
+</div>
+<div class="f-col">
+<h5 data-i18n="f2.company.h">Selskapet</h5>
+<ul>
+<li><a href="/about.html" data-i18n="f2.company.about">Om Builtly</a></li>
+<li><a href="/slik-jobber-vi.html" data-i18n="f2.company.method">Slik jobber vi</a></li>
+<li><a href="/referanser.html" data-i18n="f2.company.references">Referanser</a></li>
+<li><a href="/careers.html" data-i18n="f2.company.careers">Karriere</a></li>
+<li><a href="/contact.html" data-i18n="f2.company.contact">Kontakt</a></li>
+<li><a href="/trust.html" data-i18n="f2.company.trust">Trust &amp; sikkerhet</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bot fbot2">
+<style>
+.fbot2{display:grid !important;grid-template-columns:1fr auto 1fr;gap:14px 24px;align-items:baseline}
+.fbot2 .fb-mid{text-align:center;color:var(--ink,#131820);opacity:.8}
+.fbot2 .fb-right{justify-self:end;opacity:.45;font-size:10px;letter-spacing:0.16em;text-transform:uppercase}
+.fbot2 .fb-legal{grid-column:1 / -1;margin-top:6px;padding-top:16px;border-top:1px solid rgba(19,24,32,.07);display:grid;grid-template-columns:1fr auto;gap:8px 24px}
+.fbot2 .fb-legal .footer-legal:last-child{text-align:right}
+@media (max-width:760px){
+.fbot2{grid-template-columns:1fr;text-align:center;gap:10px}
+.fbot2 .fb-right{justify-self:center}
+.fbot2 .fb-legal{grid-template-columns:1fr}
+.fbot2 .fb-legal .footer-legal:last-child{text-align:center}
+}
+</style>
+<span data-i18n="f2.bot.left">© 2026 Builtly Engineering</span>
+<span class="fb-mid" data-i18n="f2.bot.right">Fremtidens ingeniørselskap. Allerede her.</span>
+<a class="fb-right" href="/intern" title="Intern portal — styret og ansatte">Intern&nbsp;→</a>
+<div class="fb-legal">
+<span class="footer-legal">Builtly Engineering AS · Org.nr 837 694 892 · Bassengbakken 4, 7042 Trondheim</span>
+<span class="footer-legal"><a href="/privacy">Personvern</a> · <a href="/terms">Vilkår</a> · <a href="/cookies">Informasjonskapsler</a> · <a href="/etiske-retningslinjer.html">Etiske retningslinjer</a> · <a href="/apenhetsloven.html">Åpenhetsloven</a></span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});return}
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');obs.unobserve(entry.target)}})},{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.rv').forEach(function(e){obs.observe(e)});
+})();
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+  link.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();var top=t.getBoundingClientRect().top+window.pageYOffset-60;window.scrollTo({top:top,behavior:'smooth'});}
+  });
+});
+</script>
+<script src="/i18n.js?v=20260921-control" defer></script>
+</body>
+</html>
