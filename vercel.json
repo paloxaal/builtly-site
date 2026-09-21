@@ -103,6 +103,10 @@
     {
       "source": "/render",
       "destination": "/render.html"
+    },
+    {
+      "source": "/control",
+      "destination": "/control.html"
     }
   ],
   "redirects": [
